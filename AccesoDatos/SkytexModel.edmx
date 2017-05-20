@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="skytexModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="xcuser">
+          <Key>
+            <PropertyRef Name="ef_cve" />
+            <PropertyRef Name="user_cve" />
+          </Key>
+          <Property Name="ef_cve" Type="nchar" MaxLength="3" Nullable="false" />
+          <Property Name="div_cve" Type="nchar" MaxLength="3" Nullable="false" />
+          <Property Name="user_cve" Type="nchar" MaxLength="3" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="dest_mail" Type="nvarchar" MaxLength="40" />
+          <Property Name="idioma" Type="nchar" MaxLength="3" />
+          <Property Name="srv_cve" Type="nvarchar" MaxLength="25" />
+          <Property Name="path_adobe" Type="nvarchar" MaxLength="255" />
+          <Property Name="status" Type="smallint" />
+        </EntityType>
+        <EntityContainer Name="skytexModelStoreContainer">
+          <EntitySet Name="xcuser" EntityType="Self.xcuser" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="skytexModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="skytexEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="xcuser" EntityType="skytexModel.xcuser" />
+        </EntityContainer>
+        <EntityType Name="xcuser">
+          <Key>
+            <PropertyRef Name="ef_cve" />
+            <PropertyRef Name="user_cve" />
+          </Key>
+          <Property Name="ef_cve" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="div_cve" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="user_cve" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="dest_mail" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="idioma" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="srv_cve" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="path_adobe" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="Int16" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="skytexModelStoreContainer" CdmEntityContainer="skytexEntities1">
+          <EntitySetMapping Name="xcuser">
+            <EntityTypeMapping TypeName="skytexModel.xcuser">
+              <MappingFragment StoreEntitySet="xcuser">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="path_adobe" ColumnName="path_adobe" />
+                <ScalarProperty Name="srv_cve" ColumnName="srv_cve" />
+                <ScalarProperty Name="idioma" ColumnName="idioma" />
+                <ScalarProperty Name="dest_mail" ColumnName="dest_mail" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="user_cve" ColumnName="user_cve" />
+                <ScalarProperty Name="div_cve" ColumnName="div_cve" />
+                <ScalarProperty Name="ef_cve" ColumnName="ef_cve" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
