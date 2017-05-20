@@ -165,7 +165,7 @@
                         <div class="row">
                             <div class="input-field col s8">
                                 <i class="material-icons prefix">https</i>
-                                <input id="password" name="password" type="password" /><div id="error" class="chip amber darken-3 white-text">El bloqueo de mayusculas esta activado.</div>
+                                <input id="password" name="password" type="password" /><div id="error" class="chip amber darken-3 white-text">El bloqueo de mayusculas esta activado. sdfasfdasdf</div>
                                 <label for="password">Contraseña:</label>
                             </div>
                         </div>
