@@ -1,0 +1,44 @@
+C:\Users\fernando.garcia\Documents\Visual Studio 2013\Projects\WebApp\LogicaNegocio\obj\Debug\LogicaNegocio.csprojResolveAssemblyReference.cache
+C:\Users\fernando.garcia\Documents\Visual Studio 2013\Projects\WebApp\LogicaNegocio\bin\Debug\LogicaNegocio.dll
+C:\Users\fernando.garcia\Documents\Visual Studio 2013\Projects\WebApp\LogicaNegocio\bin\Debug\LogicaNegocio.pdb
+C:\Users\fernando.garcia\Documents\Visual Studio 2013\Projects\WebApp\LogicaNegocio\bin\Debug\AccesoDatos.dll
+C:\Users\fernando.garcia\Documents\Visual Studio 2013\Projects\WebApp\LogicaNegocio\bin\Debug\Entidades.dll
+C:\Users\fernando.garcia\Documents\Visual Studio 2013\Projects\WebApp\LogicaNegocio\bin\Debug\EntityFramework.dll
+C:\Users\fernando.garcia\Documents\Visual Studio 2013\Projects\WebApp\LogicaNegocio\bin\Debug\AccesoDatos.pdb
+C:\Users\fernando.garcia\Documents\Visual Studio 2013\Projects\WebApp\LogicaNegocio\bin\Debug\Entidades.pdb
+C:\Users\fernando.garcia\Documents\Visual Studio 2013\Projects\WebApp\LogicaNegocio\bin\Debug\EntityFramework.xml
+C:\Users\fernando.garcia\Documents\Visual Studio 2013\Projects\WebApp\LogicaNegocio\obj\Debug\LogicaNegocio.dll
+C:\Users\fernando.garcia\Documents\Visual Studio 2013\Projects\WebApp\LogicaNegocio\obj\Debug\LogicaNegocio.pdb
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\LogicaNegocio\bin\Debug\LogicaNegocio.dll
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\LogicaNegocio\bin\Debug\LogicaNegocio.pdb
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\LogicaNegocio\bin\Debug\AccesoDatos.dll
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\LogicaNegocio\bin\Debug\Entidades.dll
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\LogicaNegocio\bin\Debug\EntityFramework.dll
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\LogicaNegocio\bin\Debug\AccesoDatos.pdb
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\LogicaNegocio\bin\Debug\Entidades.pdb
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\LogicaNegocio\bin\Debug\EntityFramework.xml
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\LogicaNegocio\obj\Debug\LogicaNegocio.csprojResolveAssemblyReference.cache
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\LogicaNegocio\obj\Debug\LogicaNegocio.dll
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\LogicaNegocio\obj\Debug\LogicaNegocio.pdb
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebAppOTS\LogicaNegocio\bin\Debug\LogicaNegocio.dll
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebAppOTS\LogicaNegocio\bin\Debug\LogicaNegocio.pdb
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebAppOTS\LogicaNegocio\bin\Debug\AccesoDatos.dll
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebAppOTS\LogicaNegocio\bin\Debug\Entidades.dll
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebAppOTS\LogicaNegocio\bin\Debug\EntityFramework.dll
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebAppOTS\LogicaNegocio\bin\Debug\AccesoDatos.pdb
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebAppOTS\LogicaNegocio\bin\Debug\Entidades.pdb
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebAppOTS\LogicaNegocio\bin\Debug\EntityFramework.xml
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebAppOTS\LogicaNegocio\obj\Debug\LogicaNegocio.csprojResolveAssemblyReference.cache
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebAppOTS\LogicaNegocio\obj\Debug\LogicaNegocio.dll
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebAppOTS\LogicaNegocio\obj\Debug\LogicaNegocio.pdb
+C:\Projects\WebAppOTS\LogicaNegocio\bin\Debug\LogicaNegocio.dll
+C:\Projects\WebAppOTS\LogicaNegocio\bin\Debug\LogicaNegocio.pdb
+C:\Projects\WebAppOTS\LogicaNegocio\bin\Debug\AccesoDatos.dll
+C:\Projects\WebAppOTS\LogicaNegocio\bin\Debug\Entidades.dll
+C:\Projects\WebAppOTS\LogicaNegocio\bin\Debug\EntityFramework.dll
+C:\Projects\WebAppOTS\LogicaNegocio\bin\Debug\AccesoDatos.pdb
+C:\Projects\WebAppOTS\LogicaNegocio\bin\Debug\Entidades.pdb
+C:\Projects\WebAppOTS\LogicaNegocio\bin\Debug\EntityFramework.xml
+C:\Projects\WebAppOTS\LogicaNegocio\obj\Debug\LogicaNegocio.csprojResolveAssemblyReference.cache
+C:\Projects\WebAppOTS\LogicaNegocio\obj\Debug\LogicaNegocio.dll
+C:\Projects\WebAppOTS\LogicaNegocio\obj\Debug\LogicaNegocio.pdb
