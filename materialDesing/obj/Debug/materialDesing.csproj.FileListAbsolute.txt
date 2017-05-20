@@ -1,0 +1,6 @@
+C:\Users\fernando.garcia\Documents\Visual Studio 2013\Projects\materialDesing\materialDesing\bin\materialDesing.dll.config
+C:\Users\fernando.garcia\Documents\Visual Studio 2013\Projects\materialDesing\materialDesing\bin\materialDesing.dll
+C:\Users\fernando.garcia\Documents\Visual Studio 2013\Projects\materialDesing\materialDesing\bin\materialDesing.pdb
+C:\Users\fernando.garcia\Documents\Visual Studio 2013\Projects\materialDesing\materialDesing\obj\Debug\materialDesing.csprojResolveAssemblyReference.cache
+C:\Users\fernando.garcia\Documents\Visual Studio 2013\Projects\materialDesing\materialDesing\obj\Debug\materialDesing.dll
+C:\Users\fernando.garcia\Documents\Visual Studio 2013\Projects\materialDesing\materialDesing\obj\Debug\materialDesing.pdb

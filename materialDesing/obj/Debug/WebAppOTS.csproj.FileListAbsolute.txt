@@ -1,0 +1,48 @@
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\materialDesing\bin\materialDesing.dll.config
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\materialDesing\bin\materialDesing.dll
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\materialDesing\bin\materialDesing.pdb
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\materialDesing\bin\AccesoDatos.dll
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\materialDesing\bin\LogicaNegocio.dll
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\materialDesing\bin\EntityFramework.dll
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\materialDesing\bin\AccesoDatos.pdb
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\materialDesing\bin\LogicaNegocio.pdb
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\materialDesing\bin\EntityFramework.xml
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\materialDesing\obj\Debug\WebAppOTS.csprojResolveAssemblyReference.cache
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\materialDesing\obj\Debug\materialDesing.dll
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\materialDesing\obj\Debug\materialDesing.pdb
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebAppOTS\materialDesing\bin\materialDesing.dll.config
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebAppOTS\materialDesing\bin\materialDesing.dll
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebAppOTS\materialDesing\bin\materialDesing.pdb
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebAppOTS\materialDesing\bin\AccesoDatos.dll
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebAppOTS\materialDesing\bin\LogicaNegocio.dll
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebAppOTS\materialDesing\bin\EntityFramework.dll
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebAppOTS\materialDesing\bin\AccesoDatos.pdb
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebAppOTS\materialDesing\bin\LogicaNegocio.pdb
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebAppOTS\materialDesing\bin\EntityFramework.xml
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebAppOTS\materialDesing\obj\Debug\WebAppOTS.csprojResolveAssemblyReference.cache
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebAppOTS\materialDesing\obj\Debug\materialDesing.dll
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebAppOTS\materialDesing\obj\Debug\materialDesing.pdb
+C:\Projects\WebAppOTS\materialDesing\bin\materialDesing.dll.config
+C:\Projects\WebAppOTS\materialDesing\bin\materialDesing.dll
+C:\Projects\WebAppOTS\materialDesing\bin\materialDesing.pdb
+C:\Projects\WebAppOTS\materialDesing\bin\AccesoDatos.dll
+C:\Projects\WebAppOTS\materialDesing\bin\LogicaNegocio.dll
+C:\Projects\WebAppOTS\materialDesing\bin\EntityFramework.dll
+C:\Projects\WebAppOTS\materialDesing\bin\AccesoDatos.pdb
+C:\Projects\WebAppOTS\materialDesing\bin\LogicaNegocio.pdb
+C:\Projects\WebAppOTS\materialDesing\bin\EntityFramework.xml
+C:\Projects\WebAppOTS\materialDesing\obj\Debug\WebAppOTS.csprojResolveAssemblyReference.cache
+C:\Projects\WebAppOTS\materialDesing\obj\Debug\materialDesing.dll
+C:\Projects\WebAppOTS\materialDesing\obj\Debug\materialDesing.pdb
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\materialDesing\bin\materialDesing.dll.config
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\materialDesing\bin\materialDesing.dll
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\materialDesing\bin\materialDesing.pdb
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\materialDesing\bin\AccesoDatos.dll
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\materialDesing\bin\LogicaNegocio.dll
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\materialDesing\bin\EntityFramework.dll
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\materialDesing\bin\AccesoDatos.pdb
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\materialDesing\bin\LogicaNegocio.pdb
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\materialDesing\bin\EntityFramework.xml
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\materialDesing\obj\Debug\WebAppOTS.csprojResolveAssemblyReference.cache
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\materialDesing\obj\Debug\materialDesing.dll
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\materialDesing\obj\Debug\materialDesing.pdb

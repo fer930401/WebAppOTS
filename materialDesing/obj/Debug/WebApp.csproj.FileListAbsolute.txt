@@ -1,0 +1,26 @@
+C:\Users\fernando.garcia\Documents\Visual Studio 2013\Projects\WebApp\materialDesing\bin\materialDesing.dll.config
+C:\Users\fernando.garcia\Documents\Visual Studio 2013\Projects\WebApp\materialDesing\bin\materialDesing.dll
+C:\Users\fernando.garcia\Documents\Visual Studio 2013\Projects\WebApp\materialDesing\bin\materialDesing.pdb
+C:\Users\fernando.garcia\Documents\Visual Studio 2013\Projects\WebApp\materialDesing\obj\Debug\WebApp.csprojResolveAssemblyReference.cache
+C:\Users\fernando.garcia\Documents\Visual Studio 2013\Projects\WebApp\materialDesing\obj\Debug\materialDesing.dll
+C:\Users\fernando.garcia\Documents\Visual Studio 2013\Projects\WebApp\materialDesing\obj\Debug\materialDesing.pdb
+C:\Users\fernando.garcia\Documents\Visual Studio 2013\Projects\WebApp\materialDesing\bin\DotNet.Highcharts.pdb
+C:\Users\fernando.garcia\Documents\Visual Studio 2013\Projects\WebApp\materialDesing\bin\DotNet.Highcharts.xml
+C:\Users\fernando.garcia\Documents\Visual Studio 2013\Projects\WebApp\materialDesing\bin\LogicaNegocio.dll
+C:\Users\fernando.garcia\Documents\Visual Studio 2013\Projects\WebApp\materialDesing\bin\AccesoDatos.dll
+C:\Users\fernando.garcia\Documents\Visual Studio 2013\Projects\WebApp\materialDesing\bin\EntityFramework.dll
+C:\Users\fernando.garcia\Documents\Visual Studio 2013\Projects\WebApp\materialDesing\bin\LogicaNegocio.pdb
+C:\Users\fernando.garcia\Documents\Visual Studio 2013\Projects\WebApp\materialDesing\bin\AccesoDatos.pdb
+C:\Users\fernando.garcia\Documents\Visual Studio 2013\Projects\WebApp\materialDesing\bin\EntityFramework.xml
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\materialDesing\bin\materialDesing.dll.config
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\materialDesing\bin\materialDesing.dll
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\materialDesing\bin\materialDesing.pdb
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\materialDesing\bin\AccesoDatos.dll
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\materialDesing\bin\LogicaNegocio.dll
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\materialDesing\bin\EntityFramework.dll
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\materialDesing\bin\AccesoDatos.pdb
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\materialDesing\bin\LogicaNegocio.pdb
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\materialDesing\bin\EntityFramework.xml
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\materialDesing\obj\Debug\WebApp.csprojResolveAssemblyReference.cache
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\materialDesing\obj\Debug\materialDesing.dll
+C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebApp\materialDesing\obj\Debug\materialDesing.pdb
