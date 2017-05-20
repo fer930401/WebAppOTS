@@ -78,6 +78,16 @@
 	</script>
 </head>
 <body>
+	<div class="sidebar">
+            <div id="cronometro">
+	<div id="vis" style="float: left; line-height: 27px;">00:00:00:00</div>
+	<div id="button_container" style="display: inline; margin-left: 10px;">
+		<button id="avvia" onclick="javascript:avvia();">AVVIA</button>
+		<button id="stop" onclick="javascript:ferma();">STOP</button>
+		<button id="azzera" onclick="javascript:azzera();">AZZERA</button>
+	</div>
+        </div>
 	
+</div>
 </body>
 </html>
