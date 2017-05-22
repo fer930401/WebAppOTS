@@ -44,10 +44,6 @@
       <Parameter Name="opcion" Mode="In" Type="String" />
       <Parameter Name="numReng" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="sp_WebAppOTSConsultaUser" ReturnType="Collection(DBOTSModel.sp_WebAppOTSConsultaUser_Result)">
-      <Parameter Name="status" Mode="In" Type="Int32" />
-      <Parameter Name="rol" Mode="In" Type="String" />
-    </FunctionImport>
     <FunctionImport Name="sp_WebAppOTSAdmOTS" ReturnType="Collection(DBOTSModel.sp_WebAppOTSAdmOTS_Result)">
       <Parameter Name="sub_sistema" Mode="In" Type="String" />
       <Parameter Name="tip_OTS" Mode="In" Type="String" />
@@ -76,6 +72,10 @@
       <Parameter Name="status" Mode="In" Type="String" />
       <Parameter Name="opc" Mode="In" Type="Int32" />
       <Parameter Name="filtro" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_WebAppOTSConsultaUser" ReturnType="Collection(DBOTSModel.sp_WebAppOTSConsultaUser_Result)">
+      <Parameter Name="status" Mode="In" Type="Int32" />
+      <Parameter Name="rol" Mode="In" Type="String" />
     </FunctionImport>
   </EntityContainer>
   <EntityType Name="usuarios">
@@ -262,15 +262,6 @@
     <Property Type="Int16" Name="error" Nullable="true" />
     <Property Type="String" Name="mensaje" Nullable="true" MaxLength="255" />
   </ComplexType>
-  <ComplexType Name="sp_WebAppOTSConsultaUser_Result">
-    <Property Type="String" Name="user_cve" Nullable="false" MaxLength="3" />
-    <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
-    <Property Type="String" Name="password" Nullable="false" MaxLength="120" />
-    <Property Type="String" Name="mail" Nullable="false" MaxLength="50" />
-    <Property Type="DateTime" Name="fec_ultact" Nullable="true" Precision="23" />
-    <Property Type="Int16" Name="status_usr" Nullable="false" />
-    <Property Type="String" Name="cve_rol" Nullable="false" MaxLength="3" />
-  </ComplexType>
   <ComplexType Name="sp_WebAppOTSAdmOTS_Result">
     <Property Type="Int16" Name="error" Nullable="true" />
     <Property Type="String" Name="mensaje" Nullable="true" MaxLength="255" />
@@ -287,5 +278,14 @@
     <Property Type="DateTime" Name="fec_prom" Nullable="true" Precision="23" />
     <Property Type="String" Name="aplica" Nullable="true" MaxLength="120" />
     <Property Type="String" Name="sts_prog" Nullable="false" MaxLength="40" />
+  </ComplexType>
+  <ComplexType Name="sp_WebAppOTSConsultaUser_Result">
+    <Property Type="String" Name="user_cve" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="password" Nullable="false" MaxLength="120" />
+    <Property Type="String" Name="mail" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="fec_ultact" Nullable="true" Precision="23" />
+    <Property Type="String" Name="status_usr" Nullable="false" MaxLength="40" />
+    <Property Type="String" Name="cve_rol" Nullable="false" MaxLength="3" />
   </ComplexType>
 </Schema>

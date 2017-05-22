@@ -22,7 +22,7 @@ namespace materialDesing
             {
                 DataTable dt = new DataTable();
                 DataRow dr;
-                List<AccesoDatos.usuarios> listaUsuarios = logicaNegocio.ListadoUsuarios();
+                List<AccesoDatos.sp_WebAppOTSConsultaUser_Result> listaUsuarios = logicaNegocio.ListadoProgramadores(1, "USR");
                 dt.Columns.Add("Clave", typeof(string));
                 dt.Columns.Add("Nombre", typeof(string));
                 dt.Columns.Add("Email", typeof(string));

@@ -18,7 +18,7 @@ namespace Entidades
         public string password { get; set; }
         public string mail { get; set; }
         public Nullable<System.DateTime> fec_ultact { get; set; }
-        public short status_usr { get; set; }
+        public string status_usr { get; set; }
         public string cve_rol { get; set; }
     }
 }

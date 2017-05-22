@@ -350,10 +350,6 @@ FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
             <Parameter Name="opcion" Mode="In" Type="String" />
             <Parameter Name="numReng" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="sp_WebAppOTSConsultaUser" ReturnType="Collection(DBOTSModel.sp_WebAppOTSConsultaUser_Result)">
-            <Parameter Name="status" Mode="In" Type="Int32" />
-            <Parameter Name="rol" Mode="In" Type="String" />
-          </FunctionImport>
           <FunctionImport Name="sp_WebAppOTSAdmOTS" ReturnType="Collection(DBOTSModel.sp_WebAppOTSAdmOTS_Result)">
             <Parameter Name="sub_sistema" Mode="In" Type="String" />
             <Parameter Name="tip_OTS" Mode="In" Type="String" />
@@ -382,6 +378,10 @@ FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
             <Parameter Name="status" Mode="In" Type="String" />
             <Parameter Name="opc" Mode="In" Type="Int32" />
             <Parameter Name="filtro" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_WebAppOTSConsultaUser" ReturnType="Collection(DBOTSModel.sp_WebAppOTSConsultaUser_Result)">
+            <Parameter Name="status" Mode="In" Type="Int32" />
+            <Parameter Name="rol" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="usuarios">
@@ -568,15 +568,6 @@ FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
           <Property Type="Int16" Name="error" Nullable="true" />
           <Property Type="String" Name="mensaje" Nullable="true" MaxLength="255" />
         </ComplexType>
-        <ComplexType Name="sp_WebAppOTSConsultaUser_Result">
-          <Property Type="String" Name="user_cve" Nullable="false" MaxLength="3" />
-          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="password" Nullable="false" MaxLength="120" />
-          <Property Type="String" Name="mail" Nullable="false" MaxLength="50" />
-          <Property Type="DateTime" Name="fec_ultact" Nullable="true" Precision="23" />
-          <Property Type="Int16" Name="status_usr" Nullable="false" />
-          <Property Type="String" Name="cve_rol" Nullable="false" MaxLength="3" />
-        </ComplexType>
         <ComplexType Name="sp_WebAppOTSAdmOTS_Result">
           <Property Type="Int16" Name="error" Nullable="true" />
           <Property Type="String" Name="mensaje" Nullable="true" MaxLength="255" />
@@ -593,6 +584,15 @@ FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
           <Property Type="DateTime" Name="fec_prom" Nullable="true" Precision="23" />
           <Property Type="String" Name="aplica" Nullable="true" MaxLength="120" />
           <Property Type="String" Name="sts_prog" Nullable="false" MaxLength="40" />
+        </ComplexType>
+        <ComplexType Name="sp_WebAppOTSConsultaUser_Result">
+          <Property Type="String" Name="user_cve" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="password" Nullable="false" MaxLength="120" />
+          <Property Type="String" Name="mail" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="fec_ultact" Nullable="true" Precision="23" />
+          <Property Type="String" Name="status_usr" Nullable="false" MaxLength="40" />
+          <Property Type="String" Name="cve_rol" Nullable="false" MaxLength="3" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -712,19 +712,6 @@ FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_WebAppOTSConsultaUser" FunctionName="DBOTSModel.Store.sp_WebAppOTSConsultaUser">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DBOTSModel.sp_WebAppOTSConsultaUser_Result">
-                <ScalarProperty Name="user_cve" ColumnName="user_cve" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="mail" ColumnName="mail" />
-                <ScalarProperty Name="fec_ultact" ColumnName="fec_ultact" />
-                <ScalarProperty Name="status_usr" ColumnName="status_usr" />
-                <ScalarProperty Name="cve_rol" ColumnName="cve_rol" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_WebAppOTSAdmOTS" FunctionName="DBOTSModel.Store.sp_WebAppOTSAdmOTS">
             <ResultMapping>
               <ComplexTypeMapping TypeName="DBOTSModel.sp_WebAppOTSAdmOTS_Result">
@@ -747,6 +734,19 @@ FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
                 <ScalarProperty Name="fec_prom" ColumnName="fec_prom" />
                 <ScalarProperty Name="aplica" ColumnName="aplica" />
                 <ScalarProperty Name="sts_prog" ColumnName="sts_prog" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_WebAppOTSConsultaUser" FunctionName="DBOTSModel.Store.sp_WebAppOTSConsultaUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBOTSModel.sp_WebAppOTSConsultaUser_Result">
+                <ScalarProperty Name="user_cve" ColumnName="user_cve" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="fec_ultact" ColumnName="fec_ultact" />
+                <ScalarProperty Name="status_usr" ColumnName="status_usr" />
+                <ScalarProperty Name="cve_rol" ColumnName="cve_rol" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

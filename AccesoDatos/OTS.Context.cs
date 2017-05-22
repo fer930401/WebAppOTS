@@ -94,19 +94,6 @@ namespace AccesoDatos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_WebAppOTSAdmParos_Result>("sp_WebAppOTSAdmParos", numOTSParameter, tipoOTSParameter, motivoParameter, opcionParameter, numRengParameter);
         }
     
-        public virtual ObjectResult<sp_WebAppOTSConsultaUser_Result> sp_WebAppOTSConsultaUser(Nullable<int> status, string rol)
-        {
-            var statusParameter = status.HasValue ?
-                new ObjectParameter("status", status) :
-                new ObjectParameter("status", typeof(int));
-    
-            var rolParameter = rol != null ?
-                new ObjectParameter("rol", rol) :
-                new ObjectParameter("rol", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_WebAppOTSConsultaUser_Result>("sp_WebAppOTSConsultaUser", statusParameter, rolParameter);
-        }
-    
         public virtual ObjectResult<sp_WebAppOTSAdmOTS_Result> sp_WebAppOTSAdmOTS(string sub_sistema, string tip_OTS, string asg, Nullable<int> otsP, string otsTP, string oper, string resp, string status, string descr, string fechaIni, string fechaFin, string aplica, string tip_Proceso, string nombre_OTS, string error_OTS, string solucion_OTS, string obs_OTS, string clasi_OTS, string opcion, string nomImg, Nullable<System.DateTime> fec_prom)
         {
             var sub_sistemaParameter = sub_sistema != null ?
@@ -215,6 +202,19 @@ namespace AccesoDatos
                 new ObjectParameter("filtro", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_WebAppOTSConsultaOTS_Result>("sp_WebAppOTSConsultaOTS", userParameter, statusParameter, opcParameter, filtroParameter);
+        }
+    
+        public virtual ObjectResult<sp_WebAppOTSConsultaUser_Result> sp_WebAppOTSConsultaUser(Nullable<int> status, string rol)
+        {
+            var statusParameter = status.HasValue ?
+                new ObjectParameter("status", status) :
+                new ObjectParameter("status", typeof(int));
+    
+            var rolParameter = rol != null ?
+                new ObjectParameter("rol", rol) :
+                new ObjectParameter("rol", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_WebAppOTSConsultaUser_Result>("sp_WebAppOTSConsultaUser", statusParameter, rolParameter);
         }
     }
 }

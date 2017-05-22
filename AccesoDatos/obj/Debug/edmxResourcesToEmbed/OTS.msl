@@ -113,19 +113,6 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_WebAppOTSConsultaUser" FunctionName="DBOTSModel.Store.sp_WebAppOTSConsultaUser">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="DBOTSModel.sp_WebAppOTSConsultaUser_Result">
-          <ScalarProperty Name="user_cve" ColumnName="user_cve" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="password" ColumnName="password" />
-          <ScalarProperty Name="mail" ColumnName="mail" />
-          <ScalarProperty Name="fec_ultact" ColumnName="fec_ultact" />
-          <ScalarProperty Name="status_usr" ColumnName="status_usr" />
-          <ScalarProperty Name="cve_rol" ColumnName="cve_rol" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_WebAppOTSAdmOTS" FunctionName="DBOTSModel.Store.sp_WebAppOTSAdmOTS">
       <ResultMapping>
         <ComplexTypeMapping TypeName="DBOTSModel.sp_WebAppOTSAdmOTS_Result">
@@ -148,6 +135,19 @@
           <ScalarProperty Name="fec_prom" ColumnName="fec_prom" />
           <ScalarProperty Name="aplica" ColumnName="aplica" />
           <ScalarProperty Name="sts_prog" ColumnName="sts_prog" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_WebAppOTSConsultaUser" FunctionName="DBOTSModel.Store.sp_WebAppOTSConsultaUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBOTSModel.sp_WebAppOTSConsultaUser_Result">
+          <ScalarProperty Name="user_cve" ColumnName="user_cve" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="fec_ultact" ColumnName="fec_ultact" />
+          <ScalarProperty Name="status_usr" ColumnName="status_usr" />
+          <ScalarProperty Name="cve_rol" ColumnName="cve_rol" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
