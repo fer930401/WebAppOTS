@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
+using LogicaNegocio;
 
 namespace materialDesing
 {
@@ -45,8 +46,7 @@ namespace materialDesing
         public string nomImagenes(int num_OTS, string tip_OTSU)
         {
             string nomImagen;
-            string CadenaConecta = @"Data Source=192.168.100.133;Initial Catalog=DBOTS;User ID=soludin;Password=pluma";
-            SqlConnection _conn = new SqlConnection(CadenaConecta);
+            SqlConnection _conn = new SqlConnection(variables.Conexion);
             SqlCommand _cmd = new SqlCommand();
             _cmd.Connection = _conn;
             _cmd.CommandType = CommandType.Text;
@@ -60,8 +60,7 @@ namespace materialDesing
         public string descripOTS(int num_OTS, string tip_OTSU)
         {
             string descripcion;
-            string CadenaConecta = @"Data Source=192.168.100.133;Initial Catalog=DBOTS;User ID=soludin;Password=pluma";
-            SqlConnection _conn = new SqlConnection(CadenaConecta);
+            SqlConnection _conn = new SqlConnection(variables.Conexion);
             SqlCommand _cmd = new SqlCommand();
             _cmd.Connection = _conn;
             _cmd.CommandType = CommandType.Text;

@@ -14,7 +14,6 @@ namespace materialDesing
 {
     public partial class A_Pendientes : System.Web.UI.Page
     {
-        string CadenaConecta = @"Data Source=192.168.100.133;Initial Catalog=DBOTS;User ID=soludin;Password=pluma";
         LogicaNegocioCls logicaNegocio = new LogicaNegocioCls();
         string mensaje = "";
         short? error = 0;
@@ -30,11 +29,6 @@ namespace materialDesing
                     prg_res.DataTextField = "nombre";
                     prg_res.DataValueField = "user_cve";
                     prg_res.DataBind();
-
-                    apl_para.DataSource = logicaNegocio.ListadoPaises();
-                    apl_para.DataTextField = "nombre";
-                    apl_para.DataValueField = "elm_cve";
-                    apl_para.DataBind();
 
                     apl_para2.DataSource = logicaNegocio.ListadoPaises();
                     apl_para2.DataTextField = "nombre";
@@ -211,7 +205,7 @@ namespace materialDesing
         public string emailResponsable(string responsable)
         {
             string emailRespon;
-            SqlConnection _conn = new SqlConnection(CadenaConecta);
+            SqlConnection _conn = new SqlConnection(variables.Conexion);
             SqlCommand _cmd = new SqlCommand();
             _cmd.Connection = _conn;
             _cmd.CommandType = CommandType.Text;
@@ -226,7 +220,7 @@ namespace materialDesing
         {
             string nomEntidades = "";
             string[] entidades = idEntidades.Split(',');
-            SqlConnection _conn = new SqlConnection(CadenaConecta);
+            SqlConnection _conn = new SqlConnection(variables.Conexion);
             SqlCommand _cmd = new SqlCommand();
             _cmd.Connection = _conn;
             _cmd.CommandType = CommandType.Text;

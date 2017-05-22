@@ -12,8 +12,6 @@ namespace materialDesing
     public partial class C_HijosOTS : System.Web.UI.Page
     {
         LogicaNegocioCls logicaNegocio = new LogicaNegocioCls();
-        //string mensaje = "";      *****   No se usan  *****
-        //short? error = 0;         *************************
         string usuarioC = "";
         protected void Page_Load(object sender, EventArgs e)
         {

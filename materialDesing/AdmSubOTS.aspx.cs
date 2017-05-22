@@ -122,8 +122,7 @@ namespace materialDesing
         {
             string nomEntidades = "";
             string[] entidades = idEntidades.Split(',');
-            string CadenaConecta = @"Data Source=192.168.100.133;Initial Catalog=DBOTS;User ID=soludin;Password=pluma";
-            SqlConnection _conn = new SqlConnection(CadenaConecta);
+            SqlConnection _conn = new SqlConnection(variables.Conexion);
             SqlCommand _cmd = new SqlCommand();
             _cmd.Connection = _conn;
             _cmd.CommandType = CommandType.Text;

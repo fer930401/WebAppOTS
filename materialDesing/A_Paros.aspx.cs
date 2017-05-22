@@ -13,8 +13,6 @@ namespace materialDesing
         LogicaNegocioCls logicaNegocio = new LogicaNegocioCls();
         string mensaje = "";
         short? error = 0;
-        //string usuarioC = "";     ******    No se usan    ******
-        //string statusC = "";      ******************************  
         string status;
         string numOTS;
         string tipOTS;

@@ -255,8 +255,7 @@ namespace materialDesing
         [WebMethod]
         public static string[] GetDescripcion(string prefix, int parentId, string user_cveF)
         {
-            string CadenaConecta = @"Data Source=192.168.100.133;Initial Catalog=DBOTS;User ID=soludin;Password=pluma";
-            SqlConnection _conn = new SqlConnection(CadenaConecta);
+            SqlConnection _conn = new SqlConnection(variables.Conexion);
             SqlCommand cmd = new SqlCommand();
             if (user_cveF.Equals("") == true)
             {
@@ -279,7 +278,7 @@ namespace materialDesing
             List<string> autocompleteItems = new List<string>();
             using (SqlConnection conn = new SqlConnection())
             {
-                conn.ConnectionString = string.Format(@"Data Source=192.168.100.133;Initial Catalog=DBOTS;User ID=soludin;Password=pluma");
+                conn.ConnectionString = string.Format(variables.Conexion);
                 cmd.Connection = conn;
                 conn.Open();
                 using (SqlDataReader sdr = cmd.ExecuteReader())
@@ -360,11 +359,9 @@ namespace materialDesing
 
         public string entiFinancieras(string idEntidades)
         {
-            string CadenaConecta = @"Data Source=192.168.100.133;Initial Catalog=DBOTS;User ID=soludin;Password=pluma";
-            //string CadenaConecta = ConfigurationManager.ConnectionStrings["skytexEntities1"].ConnectionString;
             string nomEntidades = "";
             string[] entidades = idEntidades.Split(',');
-            SqlConnection _conn = new SqlConnection(CadenaConecta);
+            SqlConnection _conn = new SqlConnection(variables.Conexion);
             SqlCommand _cmd = new SqlCommand();
             _cmd.Connection = _conn;
             _cmd.CommandType = CommandType.Text;
