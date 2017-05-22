@@ -40,21 +40,21 @@
                     <div class="row">
                         <label>Nombre del Usuario</label>
                         <div class="input-field col s11">
-                            <input id="nu" name="nu" type="text" class="validate" onchange="user_cve()"/>
+                            <input id="nu" name="nu" type="text" class="validate" onchange="user_cve()" required=""/>
                             <label for="nu">Nombre:</label>
                         </div>
                         <div class="input-field col s11">
-                            <input id="pu" name="pu" type="text" class="validate" onchange="user_cve()"/>
+                            <input id="pu" name="pu" type="text" class="validate" onchange="user_cve()" required=""/>
                             <label for="nu">Apellido Paterno:</label>
                         </div>
                         <div class="input-field col s11">
-                            <input id="mu" name="mu" type="text" class="validate" onchange="user_cve()"/>
+                            <input id="mu" name="mu" type="text" class="validate" onchange="user_cve()" required=""/>
                             <label for="nu">Apellido Materno:</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s11">
-                            <input id="co" name="co" type="password" class="validate"/>
+                            <input id="co" name="co" type="password" class="validate" required=""/>
                             <label for="co">Contraseña</label>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s11">
-                            <input id="eu" name="eu" class="validate" type="email"/>
+                            <input id="eu" name="eu" class="validate" type="email" required=""/>
                             <label for="eu">Email Usuario:</label>
                         </div>
                     </div>
