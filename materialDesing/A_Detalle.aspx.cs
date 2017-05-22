@@ -40,7 +40,7 @@ namespace materialDesing
                     string nomEntidad = "";
                     idEntidad = consultaOTSE[0].aplica.ToString();
                     nomEntidad = entiFinancieras(idEntidad);
-                    aplica_para.Text = nomEntidad;
+                    //aplica_para.Text = nomEntidad;
                     string status = consultaOTSE[0].sts_prog.ToString().Trim();
 
                     cls.DataSource = logicaNegocio.ListadoCLSOTS();
@@ -73,7 +73,7 @@ namespace materialDesing
             string solucion = Request["solucion"];
             string observaciones = Request["obs"];
             string clasificacion = cls.SelectedValue.TrimStart(' ').TrimEnd(' ');
-            string aplica = aplica_para.Text;
+            string aplica = ""; //aplica_para.Text;
             string status = "2";
             AccesoDatos.sp_WebAppOTSAdmOTS_Result insertOTSD = logicaNegocio.admOTS("", tip_OTS.ToUpper(), dificultad, numOTS, "", "", user, status, desc, Convert.ToDateTime(fecha_Ini).ToString("yyyy-MM-dd HH:MM:ss"), Convert.ToDateTime(fecha_Fin).ToString("yyyy-MM-dd HH:MM:ss"), aplica, oper, nom_OTS, error_ots, solucion, observaciones, clasificacion, "altaDet", "", DateTime.Now);
             if (insertOTSD != null)

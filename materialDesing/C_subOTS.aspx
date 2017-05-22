@@ -198,27 +198,27 @@
                         {
                             row.BackColor = System.Drawing.ColorTranslator.FromHtml("#6CBD72");
                             //row.Cells[4].Text = "";
+                            row.Cells[8].Text = "";
                             row.Cells[9].Text = "";
                             row.Cells[10].Text = "";
                             row.Cells[11].Text = "";
-                            row.Cells[12].Text = "";
                         }
                         else if (row.Cells[5].Text.Equals("Desactivada") == true)
                         {
                             row.Cells[4].Text = "";
+                            row.Cells[8].Text = "";
                             row.Cells[9].Text = "";
                             row.Cells[10].Text = "";
                             row.Cells[11].Text = "";
-                            row.Cells[12].Text = "";
                             /* si hay alguna OTS desactivada los botones de ocultan */
                         }
                         else if (row.Cells[5].Text.Equals("Pausa") == true)
                         {
                             row.BackColor = System.Drawing.ColorTranslator.FromHtml("#FFA024");
                             row.Cells[4].Text = "";
+                            row.Cells[8].Text = "";
                             row.Cells[9].Text = "";
                             row.Cells[10].Text = "";
-                            row.Cells[11].Text = "";
                             //row.Cells[12].Text = "";
                             //row.Cells[11].Text = "";
                             /*row.Cells[9].Text = "";
@@ -229,10 +229,10 @@
                         {
                             row.BackColor = System.Drawing.ColorTranslator.FromHtml("#ffe0b2");
                             //row.Cells[8].Text = "";
-                            row.Cells[9].Text = "";
+                            row.Cells[8].Text = "";
                             //row.Cells[10].Text = "";
                             //row.Cells[11].Text = "";
-                            row.Cells[12].Text = "";
+                            row.Cells[11].Text = "";
                             row.Cells[4].Text = "";
                             int numOTSPausa = Int32.Parse(row.Cells[0].Text);
                         }
@@ -241,9 +241,9 @@
                             row.Cells[4].Text = "";
                             //row.Cells[8].Text = "";
                             //row.Cells[9].Text = "";
+                            row.Cells[9].Text = "";
                             row.Cells[10].Text = "";
                             row.Cells[11].Text = "";
-                            row.Cells[12].Text = "";
                             /*row.Cells[9].Visible = true;
                             row.Cells[10].Text = "";
                             row.Cells[11].Text = ""; */
@@ -289,7 +289,7 @@
                             <asp:BoundField DataField="sts_prog" HeaderText="Status:"/>
                             <asp:BoundField DataField="descripcion" HeaderText="Descripcion:"/>
                             <asp:BoundField DataField="operacion" HeaderText="Operacion:"/>
-                            <asp:BoundField DataField="aplica" HeaderText="Aplica Para:"/>
+                            <%--<asp:BoundField DataField="aplica" HeaderText="Aplica Para:"/>--%>
                             <asp:TemplateField HeaderText="Iniciar:">
                                 <ItemTemplate>
                                     <asp:Button Text="Iniciar" ID="iniciar" runat="server" CommandName="Select" CssClass="waves-effect waves-light btn  green darken-4" OnClick="iniciar_Click"/>

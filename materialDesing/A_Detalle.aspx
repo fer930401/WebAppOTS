@@ -87,10 +87,10 @@
                             <asp:dropdownlist id="cls" runat ="server" DataTextField="nombre" DataValueField="elm_cve"></asp:dropdownlist>
                             <label for="clas">Clasificacion:</label>
                         </div>
-                        <div class="input-field col s6">
+                        <%--<div class="input-field col s6">
                             <asp:TextBox ID="aplica_para" runat="server" name="aplica_para" ReadOnly="true"></asp:TextBox>
                             <label for="aplica_para">Aplica para:</label>
-                        </div>
+                        </div>--%>
                     </div>
                     <div class="row">
                         <div >

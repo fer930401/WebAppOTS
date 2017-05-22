@@ -42,10 +42,10 @@ namespace materialDesing
                         statusC = "1";
                         rol_cve.Text = logicaNegocio.validarRol(Session["user_cve"].ToString().ToUpper(), "ASG");
                         GridView1.Columns[2].Visible = true;
+                        GridView1.Columns[8].Visible = false;
                         GridView1.Columns[9].Visible = false;
                         GridView1.Columns[10].Visible = false;
                         GridView1.Columns[11].Visible = false;
-                        GridView1.Columns[12].Visible = false;
                     }
                     DataTable dt = new DataTable();
                     DataRow dr;
@@ -74,7 +74,7 @@ namespace materialDesing
                             dr["fec_asig"] = elemento.fec_asig;
                             dr["fec_fin"] = elemento.fec_fin;
                             dr["sts_prog"] = elemento.sts_prog;
-                            dr["aplica"] = elemento.aplica;
+                            dr["aplica"] = "";
                             dt.Rows.Add(dr);
                             i++;
                         }
@@ -148,10 +148,10 @@ namespace materialDesing
                 statusC = "1";
                 rol_cve.Text = logicaNegocio.validarRol(Session["user_cve"].ToString().ToUpper(), "ASG");
                 GridView1.Columns[2].Visible = true;
+                GridView1.Columns[7].Visible = false;
                 GridView1.Columns[8].Visible = false;
                 GridView1.Columns[9].Visible = false;
                 GridView1.Columns[10].Visible = false;
-                GridView1.Columns[11].Visible = false;
             }
             List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS;
             if (user_cveF.Equals("") == false)
@@ -216,10 +216,10 @@ namespace materialDesing
                 statusC = "1";
                 rol_cve.Text = logicaNegocio.validarRol(Session["user_cve"].ToString().ToUpper(), "ASG");
                 GridView1.Columns[2].Visible = true;
+                GridView1.Columns[7].Visible = false;
                 GridView1.Columns[8].Visible = false;
                 GridView1.Columns[9].Visible = false;
                 GridView1.Columns[10].Visible = false;
-                GridView1.Columns[11].Visible = false;
             }
             if (descr.Length >= 50)
             {
@@ -317,10 +317,10 @@ namespace materialDesing
                 statusC = "1";
                 rol_cve.Text = logicaNegocio.validarRol(Session["user_cve"].ToString().ToUpper(), "ASG");
                 GridView1.Columns[2].Visible = true;
+                GridView1.Columns[7].Visible = false;
                 GridView1.Columns[8].Visible = false;
                 GridView1.Columns[9].Visible = false;
                 GridView1.Columns[10].Visible = false;
-                GridView1.Columns[11].Visible = false;
             }
             DataTable dt = new DataTable();
             DataRow dr;
