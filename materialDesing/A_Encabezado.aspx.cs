@@ -21,7 +21,7 @@ namespace materialDesing
         {
             if (Session["user_cve"] != null)
             {
-                String clave = Session["user_cve"].ToString();
+                string clave = Session["user_cve"].ToString();
                 user_cve.Text = clave;
                 if (!IsPostBack)
                 {
@@ -58,7 +58,6 @@ namespace materialDesing
             string descripcion = Request["descripcion"];
             DateTime fechaIni = DateTime.Now;
             DateTime fechaProm = Convert.ToDateTime(Request["fechaIni"]);
-            string aplica = apl_para.SelectedValue;
             string nomImagenes = "";
             HttpFileCollection files = Request.Files;
             for (int i = 0; i <= files.Count - 1; i++)
@@ -79,8 +78,8 @@ namespace materialDesing
                     selectedValue += item.Value + ", ";
                 }
             }
-            string aplica2 = selectedValue;
-            AccesoDatos.sp_WebAppOTSAdmOTS_Result insertOTSE = logicaNegocio.admOTS(sub_sistema, tip_OTS, asigna, 0, "", "", responsable, status, descripcion, fechaIni.ToString("yyyy/MM/dd"), "", aplica2, "", nom_OTS, "", "", "", "", "alta", nomImagenes, fechaProm);
+            string aplica = selectedValue;
+            AccesoDatos.sp_WebAppOTSAdmOTS_Result insertOTSE = logicaNegocio.admOTS(sub_sistema, tip_OTS, asigna, 0, "", "", responsable, status, descripcion, fechaIni.ToString("yyyy/MM/dd"), "", aplica, "", nom_OTS, "", "", "", "", "alta", nomImagenes, fechaProm);
             if (insertOTSE != null)
             {
                 error = insertOTSE.error;
@@ -88,10 +87,9 @@ namespace materialDesing
                 //si no se regreso ningun error
                 if (Convert.ToInt32(error) == 0)
                 {
-                    Response.Write("<script type=\"text/javascript\">alert('El OTS a sido creado.');</script>");
                     //agregar el envio del email
-                    sendEmail(responsable, nom_OTS, "", descripcion, fechaIni, aplica2);
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "ShowStatus", "showNotification();", true);
+                    sendEmail(responsable, nom_OTS, "", descripcion, fechaIni, aplica);
+                    Response.Write("<script type=\"text/javascript\">alert('El OTS a sido creado.'); window.location.href = 'A_Encabezado.aspx';</script>");
                 }
                 else
                 {

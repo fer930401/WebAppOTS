@@ -67,15 +67,6 @@ namespace materialDesing {
         protected global::System.Web.UI.WebControls.CheckBoxList apl_para2;
         
         /// <summary>
-        /// apl_para control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList apl_para;
-        
-        /// <summary>
         /// btnGuardarOTS control.
         /// </summary>
         /// <remarks>
