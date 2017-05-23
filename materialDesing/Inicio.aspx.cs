@@ -90,9 +90,6 @@ namespace materialDesing
         public void OTSGraf(string tipoOTS, int statusOTS, string userResp, string mes)
         {
             LogicaNegocio.LogicaNegocioCls logicaNegocio = new LogicaNegocio.LogicaNegocioCls();
-            /*string fecha = "";
-            fecha = DateTime.Now.ToString("yyyy") + "-" + mes;*/        //Se elimina por cambio de grafica 
-
             AccesoDatos.sp_WebAppOTSAdmOTS_Result contadorPenT = logicaNegocio.admOTS("", tipoOTS, "", statusOTS, "", "", userResp, "", "", /*fecha*/"", "", "", "", "", "", "", "", "", "consultaOTSGraf", "", DateTime.Now);
             Response.Write(contadorPenT.mensaje);
         }
