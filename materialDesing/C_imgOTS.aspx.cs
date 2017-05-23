@@ -1,17 +1,17 @@
-﻿using System;
+﻿using LogicaNegocio;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.IO;
-using LogicaNegocio;
 
 namespace materialDesing
 {
-    public partial class C_imgOTS : System.Web.UI.Page
+    public partial class C_imgOTS1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -30,7 +30,7 @@ namespace materialDesing
                         new DataColumn("ImageUrl")
                     });
                 string[] filePaths = Directory.GetFiles(Server.MapPath("~/Media/upload/"));
-                
+
                 for (int i = 0; i < nomImgInd.Length; i++)
                 {
                     if (nomImgInd[i].ToString().Equals("") == false)
@@ -50,7 +50,7 @@ namespace materialDesing
             SqlCommand _cmd = new SqlCommand();
             _cmd.Connection = _conn;
             _cmd.CommandType = CommandType.Text;
-            _cmd.CommandText = String.Format("select nomImg from otsemov where num_OTS = '{0}' and tipo_OTS = '{1}'", num_OTS,tip_OTSU);
+            _cmd.CommandText = String.Format("select nomImg from otsemov where num_OTS = '{0}' and tipo_OTS = '{1}'", num_OTS, tip_OTSU);
             _conn.Open();
             nomImagen = Convert.ToString(_cmd.ExecuteScalar());
             _cmd.ExecuteNonQuery();
@@ -70,22 +70,6 @@ namespace materialDesing
             _cmd.ExecuteNonQuery();
             _conn.Close();
             return descripcion;
-        }
-
-        protected void cerrarSession1_Click(object sender, EventArgs e)
-        {
-            Session.Clear();
-            Session.RemoveAll();
-            Session.Abandon();
-            Response.Redirect("Login.aspx");
-        }
-
-        protected void cerrarSession2_Click(object sender, EventArgs e)
-        {
-            Session.Clear();
-            Session.RemoveAll();
-            Session.Abandon();
-            Response.Redirect("Login.aspx");
         }
         protected void soportes_Click(object sender, EventArgs e)
         {

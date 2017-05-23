@@ -82,7 +82,6 @@
     <Content Include="css\style.css" />
     <Content Include="css\style2.css" />
     <Content Include="css\styleMenu.css" />
-    <Content Include="C_HijosOTS.aspx" />
     <Content Include="C_imgOTS.aspx" />
     <Content Include="C_Pendientes.aspx" />
     <Content Include="C_Soportes.aspx" />
@@ -143,7 +142,6 @@
     <Content Include="ReasignaOTS.aspx" />
     <Content Include="ReporteActividadesOTS.aspx" />
     <Content Include="Reportes.aspx" />
-    <Content Include="AdmSubOTS.aspx" />
     <Content Include="WebApp.Master" />
     <Content Include="font\material-design-icons\Material-Design-Icons.eot" />
     <Content Include="font\material-design-icons\Material-Design-Icons.ttf" />
@@ -225,13 +223,6 @@
     </Compile>
     <Compile Include="CS.aspx.designer.cs">
       <DependentUpon>CS.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="C_HijosOTS.aspx.cs">
-      <DependentUpon>C_HijosOTS.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="C_HijosOTS.aspx.designer.cs">
-      <DependentUpon>C_HijosOTS.aspx</DependentUpon>
     </Compile>
     <Compile Include="C_imgOTS.aspx.cs">
       <DependentUpon>C_imgOTS.aspx</DependentUpon>
@@ -317,13 +308,6 @@
       <DependentUpon>Reportes.aspx</DependentUpon>
     </Compile>
     <Compile Include="sessionOTS.cs" />
-    <Compile Include="AdmSubOTS.aspx.cs">
-      <DependentUpon>AdmSubOTS.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AdmSubOTS.aspx.designer.cs">
-      <DependentUpon>AdmSubOTS.aspx</DependentUpon>
-    </Compile>
     <Compile Include="WebApp.Master.cs">
       <DependentUpon>WebApp.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -15,8 +15,6 @@ namespace materialDesing
     public partial class C_Soportes : System.Web.UI.Page
     {
         LogicaNegocioCls logicaNegocio = new LogicaNegocioCls();
-        //string mensaje = "";      *****   No se usan  *****
-        //short? error = 0;         *************************
         string usuarioC = "";
         string statusC = "";
         protected void Page_Load(object sender, EventArgs e)
@@ -118,17 +116,6 @@ namespace materialDesing
             GridView1.DataSource = ViewState["dt"] as DataTable;
             GridView1.DataBind();
         }
-        /*protected void OnSelectedIndexChanged(object sender, EventArgs e)
-        {
-            GridViewRow row = GridView1.SelectedRow;
-            int numOTS = Int32.Parse(row.Cells[0].Text);
-            Response.Redirect("A_Detalle.aspx?num_OTS=" + numOTS);
-        }*/
-
-        /*protected void terminarOTS_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("A_Detalle.aspx");
-        }*/
 
         protected void cmbProgramador_SelectedIndexChanged(object sender, EventArgs e)
         {
