@@ -93,10 +93,5 @@ namespace materialDesing
         {
             Response.Redirect("C_subOTS.aspx?num_OTS=" + numOTS + "&tip_OTS=" + tipOTS);
         }
-
-        protected void button_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
