@@ -20,12 +20,7 @@ namespace materialDesing
                 txtUser_cve.Text = variables.M_User_cve;
                 txtNombre.Text = variables.M_Nombre;
                 txtEmail.Text = variables.M_Email;
-
-                /*roles.DataSource = logicaNegocio.ListadoRolesOTS();
-                roles.DataTextField = "nombre";
-                roles.DataValueField = "elm_cve";
-                roles.DataBind();*/
-
+                
                 rol_cve.DataSource = logicaNegocio.ListadoRolesOTS();
                 rol_cve.DataTextField = "nombre";
                 rol_cve.DataValueField = "elm_cve";
@@ -40,28 +35,18 @@ namespace materialDesing
                         {
                             rol_cve.Items[i].Selected = true;
                         }
-                        
                     }
-                        
                 } 
             }
-            
         }
+
         protected void btnGuardarUsuario_Click(object sender, EventArgs e)
         {
             string nombre = txtNombre.Text;
             string user_cve = txtUser_cve.Text;
             short? status = short.Parse(Request["status"]);
             string email = txtEmail.Text;
-            //string roles  = "";
-            //foreach (ListItem item in rol_cve.Items)
-            //{
-            //    if (item.Selected)
-            //    {
-            //        roles += item.Value + ", ";
-            //    }
-            //}
-            //roles.Remove(roles.Length - 1);
+
             AccesoDatos.sp_WebAppOTSAdmUsers_Result actualizaUser = logicaNegocio.admUserOTS(user_cve, nombre, "", status, email, "", "actualiza");
             if (actualizaUser != null)
             {
@@ -79,15 +64,6 @@ namespace materialDesing
                             {
                                 error = RolUser.error;
                                 mensaje = RolUser.mensaje;
-                                //si no se regreso ningun error
-                                /*if (Convert.ToInt32(error) == 0)
-                                {
-                                    Response.Write("<script type=\"text/javascript\">alert('Se Agrego El Nuevo Rol Al Usuario Con User_cve: " + user_cve.ToUpper() + "');  window.location.href = 'C_Usuarios.aspx';</script>");
-                                }
-                                else
-                                {
-                                    Response.Write("<script type=\"text/javascript\">alert('Se Encontro Un Error " + mensaje + " \\nIntente De Nuevo.');  window.location.href = 'C_Usuarios.aspx';</script>");
-                                }*/
                             }
                         }
                     }

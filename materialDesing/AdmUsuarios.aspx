@@ -52,17 +52,10 @@
                             <label for="txtEmail">Email Usuario:</label>
                         </div>
                     </div>
-                    <%--<div class="row">
-                        <div class="input-field col s11">
-                            <label for="roles">Rol del Usuario:<asp:Label ID="lblRoles" runat="server" Text=""></asp:Label>, agrega un nuevo rol.</label><br /><br />
-                            <asp:dropdownlist id ="roles" runat ="server" DataTextField="nombre" DataValueField="elm_cve"></asp:dropdownlist>
-                        </div>
-                    </div>--%>
                     <div class="row">
                         <div class="input-field col s6">
                             <label for="aplica">Roles de Usuario:</label><br /><br />
                             <asp:CheckBoxList ID="rol_cve" runat="server"></asp:CheckBoxList>
-                            <!--<asp:dropdownlist id ="apl_para" runat ="server" DataTextField="nombre"  DataValueField="elm_cve" ></asp:dropdownlist>-->
                         </div>
                     </div> 
                     <div class="row">
