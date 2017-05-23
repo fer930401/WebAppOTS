@@ -15,5 +15,36 @@ namespace LogicaNegocio
             get { return variables.conexion; }
             set { variables.conexion = value; }
         }
+
+        static string M_user_cve;
+        public static string M_User_cve
+        {
+            get { return variables.M_user_cve; }
+            set { variables.M_user_cve = value; }
+        }
+        static string M_nombre;
+        public static string M_Nombre
+        {
+            get { return variables.M_nombre; }
+            set { variables.M_nombre = value; }
+        }
+        static string M_email;
+        public static string M_Email
+        {
+            get { return variables.M_email; }
+            set { variables.M_email = value; }
+        }
+        static string M_status;
+        public static string M_Status
+        {
+            get { return variables.M_status; }
+            set { variables.M_status = value; }
+        }
+        static string M_roles;
+        public static string M_Roles
+        {
+            get { return variables.M_roles; }
+            set { variables.M_roles = value; }
+        }
     }
 }

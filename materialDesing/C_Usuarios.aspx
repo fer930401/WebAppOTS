@@ -45,7 +45,7 @@
               </div>
             </div>
             <a href="A_Usuarios.aspx" class="btn-floating btn-large waves-effect waves-light amber darken-4 tooltipped" data-position="top" data-delay="50" data-tooltip="Agrega un nuevo usuario"><i class="material-icons">add</i></a>
-            <a class="waves-effect waves-light btn-floating btn-large green darken-2 modal-trigger tooltipped" href="#modal1" data-tooltip="Agrega un nuevo rol a un usuario"><i class="large material-icons">mode_edit</i></a>
+            <%-- <a class="waves-effect waves-light btn-floating btn-large green darken-2 modal-trigger tooltipped" href="#modal1" data-tooltip="Agrega un nuevo rol a un usuario"><i class="large material-icons">mode_edit</i></a>--%>
 
             <!-- Modal Structure -->
             <div id="modal1" class="modal">
@@ -53,7 +53,7 @@
                     <h5>Agrega Un Nuevo Rol</h5>
                     <div class="row">
                         <div class="input-field col s11">
-                            <asp:TextBox ID="cve_usr" runat="server" CssClass="validate mayusculas"></asp:TextBox><br />
+                            <asp:TextBox ID="cve_usr" runat="server" CssClass="validate mayusculas" required></asp:TextBox><br />
                             <label for="cve_usr">Clave del Usuario (User_cve)</label>
                         </div>
                     </div>
@@ -89,13 +89,14 @@
                             <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="150" />
                             <asp:BoundField DataField="Email" HeaderText="Email" ItemStyle-Width="150" />
                             <asp:BoundField DataField="Status" HeaderText="Status" ItemStyle-Width="150" />
+                            <asp:BoundField DataField="Rol" HeaderText="Rol" ItemStyle-Width="150" />
                             
                             <asp:TemplateField>
-                            <EditItemTemplate>
-                                <asp:LinkButton Text="Actualizar" runat="server" OnClick = "OnUpdate"/>
-                                <asp:LinkButton Text="Eliminar" runat="server" OnClick = "OnDelete"/>
-                                <asp:LinkButton Text="Cancelar" runat="server" OnClick = "OnCancel"/>
-                            </EditItemTemplate>
+                                <EditItemTemplate>
+                                    <asp:LinkButton Text="Actualizar" runat="server" OnClick = "OnUpdate"/>
+                                    <asp:LinkButton Text="Eliminar" runat="server" OnClick = "OnDelete"/>
+                                    <asp:LinkButton Text="Cancelar" runat="server" OnClick = "OnCancel"/>
+                                </EditItemTemplate>
                             </asp:TemplateField>
                         </Columns>
                     </asp:GridView>

@@ -65,6 +65,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdmUsuarios.aspx" />
     <Content Include="A_Encabezado.aspx" />
     <Content Include="A_Detalle.aspx" />
     <Content Include="A_Paros.aspx" />
@@ -183,6 +184,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdmUsuarios.aspx.cs">
+      <DependentUpon>AdmUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdmUsuarios.aspx.designer.cs">
+      <DependentUpon>AdmUsuarios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="A_Encabezado.aspx.cs">
       <DependentUpon>A_Encabezado.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

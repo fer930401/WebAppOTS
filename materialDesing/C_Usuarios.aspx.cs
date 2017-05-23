@@ -27,6 +27,7 @@ namespace materialDesing
                 dt.Columns.Add("Nombre", typeof(string));
                 dt.Columns.Add("Email", typeof(string));
                 dt.Columns.Add("Status", typeof(string));
+                dt.Columns.Add("Rol", typeof(string));
 
                 if (listaUsuarios != null)
                 {
@@ -34,10 +35,11 @@ namespace materialDesing
                     foreach (var elemento in listaUsuarios)
                     {
                         dr = dt.NewRow();
-                        dr["Clave"] = elemento.user_cve;
-                        dr["Nombre"] = elemento.nombre;
-                        dr["Email"] = elemento.mail;
-                        dr["Status"] = elemento.status_usr;
+                        dr["Clave"] = elemento.user_cve.TrimEnd(' ');
+                        dr["Nombre"] = elemento.nombre.TrimEnd(' ');
+                        dr["Email"] = elemento.mail.TrimEnd(' ');
+                        dr["Status"] = elemento.status_usr.TrimEnd(' ');
+                        dr["Rol"] = elemento.cve_rol.TrimEnd(' ').Remove(elemento.cve_rol.TrimEnd(' ').Length - 1);
                         dt.Rows.Add(dr);
                         i++;
                     }
@@ -60,7 +62,7 @@ namespace materialDesing
         }
         protected void BindGrid()
         {
-            GridView1.Columns[4].Visible = false;
+            GridView1.Columns[5].Visible = false;
             GridView1.DataSource = ViewState["dt"] as DataTable;
             GridView1.DataBind();
         }
@@ -79,9 +81,26 @@ namespace materialDesing
         }
         protected void OnRowEditing(object sender, GridViewEditEventArgs e)
         {
-            GridView1.EditIndex = e.NewEditIndex;
+            /*GridView1.EditIndex = e.NewEditIndex;
             this.BindGrid();
-            GridView1.Columns[4].Visible = true;
+            if (GridView1.Rows[e.NewEditIndex].Cells[3].Text.Equals("") == true)
+            {
+                GridView1.Rows[e.NewEditIndex].Cells[3].Text = "1";
+            }
+            GridView1.Columns[4].Visible = true;*/
+            variables.M_User_cve = GridView1.Rows[e.NewEditIndex].Cells[0].Text;
+            variables.M_Nombre = GridView1.Rows[e.NewEditIndex].Cells[1].Text;
+            variables.M_Email = GridView1.Rows[e.NewEditIndex].Cells[2].Text;
+            if (GridView1.Rows[e.NewEditIndex].Cells[3].Text.Equals("Activo") == true)
+            {
+                variables.M_Status = "1";
+            }
+            if (GridView1.Rows[e.NewEditIndex].Cells[3].Text.Equals("Desactivado") == true)
+            {
+                variables.M_Status = "0";
+            }
+            variables.M_Roles = GridView1.Rows[e.NewEditIndex].Cells[4].Text;
+            Response.Redirect("AdmUsuarios.aspx");
         }
         protected void OnUpdate(object sender, EventArgs e)
         {
