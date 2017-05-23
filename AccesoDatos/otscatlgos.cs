@@ -17,6 +17,7 @@ namespace AccesoDatos
         public string cve_catlgo { get; set; }
         public string elm_cve { get; set; }
         public string nombre { get; set; }
+        public Nullable<short> status { get; set; }
     
         public virtual otsdcatlgos otsdcatlgos { get; set; }
     }

@@ -24,6 +24,7 @@
     <EntitySetMapping Name="otsdcatlgos">
       <EntityTypeMapping TypeName="DBOTSModel.otsdcatlgos">
         <MappingFragment StoreEntitySet="otsdcatlgos">
+          <ScalarProperty Name="nom_catlgo" ColumnName="nom_catlgo" />
           <ScalarProperty Name="fec_ultact" ColumnName="fec_ultact" />
           <ScalarProperty Name="status" ColumnName="status" />
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
@@ -34,6 +35,7 @@
     <EntitySetMapping Name="otscatlgos">
       <EntityTypeMapping TypeName="DBOTSModel.otscatlgos">
         <MappingFragment StoreEntitySet="otscatlgos">
+          <ScalarProperty Name="status" ColumnName="status" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="elm_cve" ColumnName="elm_cve" />
           <ScalarProperty Name="cve_catlgo" ColumnName="cve_catlgo" />

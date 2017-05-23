@@ -39,7 +39,7 @@ namespace AccesoDatos
         }
         public List<otscatlgos> ListaRolesOTS()
         {
-            return (from r in contextoOTS.otscatlgos where r.cve_catlgo.Equals("ROL") select r).ToList();
+            return (from r in contextoOTS.otscatlgos where r.cve_catlgo.Equals("ROL") && r.status.Equals(1) select r).ToList();
         }
         public List<usuarios> ListaUsuarios()
         {
@@ -51,7 +51,7 @@ namespace AccesoDatos
         }
         public List<otscatlgos> ListaPaises()
         {
-            return (from p in contextoOTS.otscatlgos where p.cve_catlgo.Equals("APL") orderby p.nombre select p).ToList();
+            return (from p in contextoOTS.otscatlgos where p.cve_catlgo.Equals("APL") && p.status.Equals(1) orderby p.nombre select p).ToList();
         }
         public string ValidarRol(string cve_user, string rol)
         {
@@ -67,11 +67,11 @@ namespace AccesoDatos
         }
         public List<otscatlgos> ListaSubSistemas()
         {
-            return (from s in contextoOTS.otscatlgos where s.cve_catlgo.Equals("SS") orderby s.nombre select s).ToList();
+            return (from s in contextoOTS.otscatlgos where s.cve_catlgo.Equals("SS") && s.status.Equals(1) orderby s.nombre select s).ToList();
         }
         public List<otscatlgos> ListaOperaciones()
         {
-            return (from s in contextoOTS.otscatlgos where s.cve_catlgo.Equals("OPR") orderby s.nombre select s).ToList();
+            return (from s in contextoOTS.otscatlgos where s.cve_catlgo.Equals("OPR") && s.status.Equals(1) orderby s.nombre select s).ToList();
         }
         public List<sp_WebAppOTSConsultaOTS_Result> ListaOTS(string user, string status, int opc, string filtro)
         {
@@ -88,7 +88,11 @@ namespace AccesoDatos
         }
         public List<otscatlgos> ListaCLSOTS()
         {
-            return (from r in contextoOTS.otscatlgos where r.cve_catlgo.Equals("CLS") select r).ToList();
+            return (from r in contextoOTS.otscatlgos where r.cve_catlgo.Equals("CLS") && r.status.Equals(1) select r).ToList();
+        }
+        public List<otsdcatlgos> opcionesCatalogo()
+        {
+            return (from r in contextoOTS.otsdcatlgos where r.status.Equals(1) select r).ToList();
         }
     }
 }

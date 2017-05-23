@@ -123,6 +123,7 @@
     <Property Name="status" Type="Int16" Nullable="false" />
     <Property Name="fec_ultact" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="otscatlgos" Relationship="DBOTSModel.FK_otscatlgos_otsdcatlgos" FromRole="otsdcatlgos" ToRole="otscatlgos" />
+    <Property Name="nom_catlgo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="otscatlgos">
     <Key>
@@ -134,6 +135,7 @@
     <Property Name="elm_cve" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
     <Property Name="nombre" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="otsdcatlgos" Relationship="DBOTSModel.FK_otscatlgos_otsdcatlgos" FromRole="otscatlgos" ToRole="otsdcatlgos" />
+    <Property Name="status" Type="Int16" />
   </EntityType>
   <Association Name="FK_otscatlgos_otsdcatlgos">
     <End Type="DBOTSModel.otsdcatlgos" Role="otsdcatlgos" Multiplicity="1" />

@@ -11,12 +11,14 @@ warning 6002: The table/view 'DBOTS.dbo.otscatlgos' does not have a primary key 
     <Property Name="cve_catlgo" Type="nchar" MaxLength="3" Nullable="false" />
     <Property Name="elm_cve" Type="nchar" MaxLength="3" Nullable="false" />
     <Property Name="nombre" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="status" Type="smallint" />
   </EntityType>
   <EntityType Name="otsdcatlgos">
     <Key>
       <PropertyRef Name="cve_catlgo" />
     </Key>
     <Property Name="cve_catlgo" Type="nchar" MaxLength="3" Nullable="false" />
+    <Property Name="nom_catlgo" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="descripcion" Type="nvarchar" MaxLength="120" Nullable="false" />
     <Property Name="status" Type="smallint" Nullable="false" />
     <Property Name="fec_ultact" Type="datetime" Nullable="false" />
@@ -220,7 +222,8 @@ warning 6002: The table/view 'DBOTS.dbo.rolesxUsr' does not have a primary key d
       <DefiningQuery>SELECT 
 [otscatlgos].[cve_catlgo] AS [cve_catlgo], 
 [otscatlgos].[elm_cve] AS [elm_cve], 
-[otscatlgos].[nombre] AS [nombre]
+[otscatlgos].[nombre] AS [nombre], 
+[otscatlgos].[status] AS [status]
 FROM [dbo].[otscatlgos] AS [otscatlgos]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="otsdmov" EntityType="Self.otsdmov" store:Type="Tables" store:Schema="dbo">

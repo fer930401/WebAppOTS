@@ -16,12 +16,14 @@ warning 6002: The table/view 'DBOTS.dbo.otscatlgos' does not have a primary key 
           <Property Name="cve_catlgo" Type="nchar" MaxLength="3" Nullable="false" />
           <Property Name="elm_cve" Type="nchar" MaxLength="3" Nullable="false" />
           <Property Name="nombre" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="status" Type="smallint" />
         </EntityType>
         <EntityType Name="otsdcatlgos">
           <Key>
             <PropertyRef Name="cve_catlgo" />
           </Key>
           <Property Name="cve_catlgo" Type="nchar" MaxLength="3" Nullable="false" />
+          <Property Name="nom_catlgo" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="descripcion" Type="nvarchar" MaxLength="120" Nullable="false" />
           <Property Name="status" Type="smallint" Nullable="false" />
           <Property Name="fec_ultact" Type="datetime" Nullable="false" />
@@ -225,7 +227,8 @@ warning 6002: The table/view 'DBOTS.dbo.rolesxUsr' does not have a primary key d
             <DefiningQuery>SELECT 
 [otscatlgos].[cve_catlgo] AS [cve_catlgo], 
 [otscatlgos].[elm_cve] AS [elm_cve], 
-[otscatlgos].[nombre] AS [nombre]
+[otscatlgos].[nombre] AS [nombre], 
+[otscatlgos].[status] AS [status]
 FROM [dbo].[otscatlgos] AS [otscatlgos]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="otsdmov" EntityType="Self.otsdmov" store:Type="Tables" store:Schema="dbo">
@@ -429,6 +432,7 @@ FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
           <Property Name="status" Type="Int16" Nullable="false" />
           <Property Name="fec_ultact" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="otscatlgos" Relationship="DBOTSModel.FK_otscatlgos_otsdcatlgos" FromRole="otsdcatlgos" ToRole="otscatlgos" />
+          <Property Name="nom_catlgo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="otscatlgos">
           <Key>
@@ -440,6 +444,7 @@ FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
           <Property Name="elm_cve" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
           <Property Name="nombre" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="otsdcatlgos" Relationship="DBOTSModel.FK_otscatlgos_otsdcatlgos" FromRole="otscatlgos" ToRole="otsdcatlgos" />
+          <Property Name="status" Type="Int16" />
         </EntityType>
         <Association Name="FK_otscatlgos_otsdcatlgos">
           <End Type="DBOTSModel.otsdcatlgos" Role="otsdcatlgos" Multiplicity="1" />
@@ -623,6 +628,7 @@ FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
           <EntitySetMapping Name="otsdcatlgos">
             <EntityTypeMapping TypeName="DBOTSModel.otsdcatlgos">
               <MappingFragment StoreEntitySet="otsdcatlgos">
+                <ScalarProperty Name="nom_catlgo" ColumnName="nom_catlgo" />
                 <ScalarProperty Name="fec_ultact" ColumnName="fec_ultact" />
                 <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
@@ -633,6 +639,7 @@ FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
           <EntitySetMapping Name="otscatlgos">
             <EntityTypeMapping TypeName="DBOTSModel.otscatlgos">
               <MappingFragment StoreEntitySet="otscatlgos">
+                <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="elm_cve" ColumnName="elm_cve" />
                 <ScalarProperty Name="cve_catlgo" ColumnName="cve_catlgo" />

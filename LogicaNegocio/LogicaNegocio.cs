@@ -72,5 +72,9 @@ namespace LogicaNegocio
         {
             return datos.ListaCLSOTS();
         }
+        public List<AccesoDatos.otsdcatlgos> opcionesCatalogo()
+        {
+            return datos.opcionesCatalogo();
+        }
     }
 }

@@ -68,6 +68,7 @@
     <Content Include="AdmUsuarios.aspx" />
     <Content Include="A_Encabezado.aspx" />
     <Content Include="A_Detalle.aspx" />
+    <Content Include="A_Opciones.aspx" />
     <Content Include="A_Paros.aspx" />
     <Content Include="A_Usuarios.aspx" />
     <Content Include="css\default.css" />
@@ -199,6 +200,13 @@
     </Compile>
     <Compile Include="A_Detalle.aspx.designer.cs">
       <DependentUpon>A_Detalle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="A_Opciones.aspx.cs">
+      <DependentUpon>A_Opciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="A_Opciones.aspx.designer.cs">
+      <DependentUpon>A_Opciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="A_Paros.aspx.cs">
       <DependentUpon>A_Paros.aspx</DependentUpon>
