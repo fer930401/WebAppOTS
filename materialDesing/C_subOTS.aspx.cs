@@ -89,6 +89,7 @@ namespace materialDesing
                 Response.Redirect("Login.aspx");
             }
         }
+
         private void llenaGrid()
         {
             if (logicaNegocio.validarRol(Session["user_cve"].ToString().ToUpper(), "PRG") != null)
@@ -101,204 +102,12 @@ namespace materialDesing
                 this.GridView1.DataSource = logicaNegocio.ListadoOTS("S/U", "1", 0, "");
                 GridView1.Columns[7].Visible = false;
             }
-
             this.GridView1.DataBind();
         }
         protected void BindGrid()
         {
             GridView1.DataSource = ViewState["dt"] as DataTable;
             GridView1.DataBind();
-        }
-        protected void OnSelectedIndexChanged(object sender, EventArgs e)
-        {
-            /*revisar*/
-            
-            GridViewRow row = GridView1.SelectedRow;
-            int numOTS = Int32.Parse(row.Cells[0].Text);
-            /*Session["num_OTS" + numOTS] = row.Cells[0].Text;
-            Session["tipo_OTS" + numOTS] = row.Cells[1].Text;
-            //Session["operacion" + numOTS] = row.Cells[3].Text;
-            Session["descripcion" + numOTS] = row.Cells[4].Text;
-            Session["fec_asig" + numOTS] = row.Cells[5].Text;
-            Session["fec_fin" + numOTS] = row.Cells[6].Text;
-            Session["sts_prog" + numOTS] = row.Cells[7].Text;
-            Session["aplica" + numOTS] = row.Cells[8].Text;*/
-            //Response.Redirect("AdmSubOTS.aspx?num_OTS=" + row.Cells[0].Text);
-        }
-
-        protected void terminarOTS_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("A_Detalle.aspx");
-        }
-        protected void cmbProgramador_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string user_cveF = "";
-            DataTable dt = new DataTable();
-            DataRow dr;
-            if (logicaNegocio.validarRol(Session["user_cve"].ToString().ToUpper(), "PRG") != null)
-            {
-                usuarioC = Session["user_cve"].ToString().ToUpper();
-                statusC = "1";
-                rol_cve.Text = logicaNegocio.validarRol(Session["user_cve"].ToString().ToUpper(), "PRG");
-                GridView1.Columns[2].Visible = false;
-            }
-            else
-            {
-                usuarioC = "S/U";
-                statusC = "1";
-                rol_cve.Text = logicaNegocio.validarRol(Session["user_cve"].ToString().ToUpper(), "ASG");
-                GridView1.Columns[2].Visible = true;
-                GridView1.Columns[7].Visible = false;
-                GridView1.Columns[8].Visible = false;
-                GridView1.Columns[9].Visible = false;
-                GridView1.Columns[10].Visible = false;
-            }
-            List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS;
-            if (user_cveF.Equals("") == false)
-            {
-                listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 1, user_cveF);
-            }
-            else
-            {
-                listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 0, "");
-            }
-            dt.Columns.Add("num_OTS", typeof(string));
-            dt.Columns.Add("tipo_OTS", typeof(string));
-            dt.Columns.Add("userResp", typeof(string));
-            dt.Columns.Add("operacion", typeof(string));
-            dt.Columns.Add("descripcion", typeof(string));
-            dt.Columns.Add("fec_asig", typeof(string));
-            dt.Columns.Add("fec_fin", typeof(string));
-            dt.Columns.Add("sts_prog", typeof(string));
-            dt.Columns.Add("aplica", typeof(string));
-
-            if (listaOTS != null)
-            {
-                int i = 0;
-                foreach (var elemento in listaOTS)
-                {
-                    dr = dt.NewRow();
-                    dr["num_OTS"] = elemento.num_OTS;
-                    dr["tipo_OTS"] = elemento.tipo_OTS;
-                    dr["userResp"] = elemento.userResp;
-                    dr["operacion"] = elemento.operacion;
-                    dr["descripcion"] = elemento.descripcion;
-                    dr["fec_asig"] = elemento.fec_asig;
-                    dr["fec_fin"] = elemento.fec_fin;
-                    dr["sts_prog"] = elemento.sts_prog;
-                    dr["aplica"] = elemento.aplica;
-                    dt.Rows.Add(dr);
-                    i++;
-                }
-            }
-
-            ViewState["dt"] = dt;
-            this.BindGrid();
-        }
-
-        protected void descripcion_TextChanged(object sender, EventArgs e)
-        {
-            string user_cveFi = "";
-            string descr = "";
-            DataTable dt = new DataTable();
-            DataRow dr;
-            if (logicaNegocio.validarRol(Session["user_cve"].ToString().ToUpper(), "PRG") != null)
-            {
-                usuarioC = Session["user_cve"].ToString().ToUpper();
-                user_cveFi = Session["user_cve"].ToString().ToUpper();
-                statusC = "1";
-                rol_cve.Text = logicaNegocio.validarRol(Session["user_cve"].ToString().ToUpper(), "PRG");
-                GridView1.Columns[2].Visible = false;
-            }
-            else
-            {
-                usuarioC = "S/U";
-                statusC = "1";
-                rol_cve.Text = logicaNegocio.validarRol(Session["user_cve"].ToString().ToUpper(), "ASG");
-                GridView1.Columns[2].Visible = true;
-                GridView1.Columns[7].Visible = false;
-                GridView1.Columns[8].Visible = false;
-                GridView1.Columns[9].Visible = false;
-                GridView1.Columns[10].Visible = false;
-            }
-            if (descr.Length >= 50)
-            {
-                descr = descr.Substring(0, 49);
-            }
-            List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(user_cveFi, statusC, 2, descr + "%");
-            dt.Columns.Add("num_OTS", typeof(string));
-            dt.Columns.Add("tipo_OTS", typeof(string));
-            dt.Columns.Add("userResp", typeof(string));
-            dt.Columns.Add("operacion", typeof(string));
-            dt.Columns.Add("descripcion", typeof(string));
-            dt.Columns.Add("fec_asig", typeof(string));
-            dt.Columns.Add("fec_fin", typeof(string));
-            dt.Columns.Add("sts_prog", typeof(string));
-            dt.Columns.Add("aplica", typeof(string));
-
-            if (listaOTS != null)
-            {
-                int i = 0;
-                foreach (var elemento in listaOTS)
-                {
-                    dr = dt.NewRow();
-                    dr["num_OTS"] = elemento.num_OTS;
-                    dr["tipo_OTS"] = elemento.tipo_OTS;
-                    dr["userResp"] = elemento.userResp;
-                    dr["operacion"] = elemento.operacion;
-                    dr["descripcion"] = elemento.descripcion;
-                    dr["fec_asig"] = elemento.fec_asig;
-                    dr["fec_fin"] = elemento.fec_fin;
-                    dr["sts_prog"] = elemento.sts_prog;
-                    dr["aplica"] = elemento.aplica;
-                    dt.Rows.Add(dr);
-                    i++;
-                }
-            }
-
-            ViewState["dt"] = dt;
-            this.BindGrid();
-        }
-
-        [WebMethod]
-        public static string[] GetDescripcion(string prefix, int parentId, string user_cveF)
-        {
-            SqlConnection _conn = new SqlConnection(variables.Conexion);
-            SqlCommand cmd = new SqlCommand();
-            if (user_cveF.Equals("") == true)
-            {
-                cmd.CommandText = "select num_OTS, descripcion from otsemov where descripcion like @SearchText + '%'";
-            }
-            else
-            {
-                if (user_cveF.Equals("undefined") == true)
-                {
-
-                }
-                cmd.CommandText = "select num_OTS, descripcion from otsemov where descripcion like '%' + @SearchText + '%' and userResp = '" + user_cveF.TrimStart(' ').TrimEnd(' ') + "'";
-            }
-            cmd.Parameters.AddWithValue("@SearchText", prefix.TrimStart(' ').TrimEnd(' '));
-            cmd.Parameters.AddWithValue("@userCve", user_cveF.TrimStart(' ').TrimEnd(' '));
-            return PopulateAutoComplete(cmd);
-        }
-        private static string[] PopulateAutoComplete(SqlCommand cmd)
-        {
-            List<string> autocompleteItems = new List<string>();
-            using (SqlConnection conn = new SqlConnection())
-            {
-                conn.ConnectionString = string.Format(variables.Conexion);
-                cmd.Connection = conn;
-                conn.Open();
-                using (SqlDataReader sdr = cmd.ExecuteReader())
-                {
-                    while (sdr.Read())
-                    {
-                        autocompleteItems.Add(string.Format("{0}-{1}", sdr[1], sdr[0]));
-                    }
-                }
-                conn.Close();
-            }
-            return autocompleteItems.ToArray();
         }
 
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -390,8 +199,6 @@ namespace materialDesing
                 //si no se regreso ningun error
                 if (Convert.ToInt32(error) == 0)
                 {
-
-                    /* obs 24/01/2017 - a donde se va a redireccionar a la consulta de los soportes o a la consulta de los subots */
                     Response.Write("<script type=\"text/javascript\">alert('SubOTS Iniciado'); window.location.href = window.location.href;</script>");
                 }
                 else
@@ -415,8 +222,6 @@ namespace materialDesing
                 //si no se regreso ningun error
                 if (Convert.ToInt32(error) == 0)
                 {
-
-                    /* obs 24/01/2017 - a donde se va a redireccionar a la consulta de los soportes o a la consulta de los subots */
                     Response.Write("<script type=\"text/javascript\">alert('SubOTS Finalizado'); window.location.href = window.location.href;</script>");
                 }
                 else
