@@ -148,7 +148,8 @@
             firstDay: 1,
             isRTL: false,
             showMonthAfterYear: false,
-            yearSuffix: ''
+            yearSuffix: '',
+            minDate: 0
         };
         $.datepicker.setDefaults($.datepicker.regional['es']);
         $(function () {
