@@ -40,7 +40,6 @@ namespace materialDesing
                     string nomEntidad = "";
                     idEntidad = consultaOTSE[0].aplica.ToString();
                     nomEntidad = entiFinancieras(idEntidad);
-                    //aplica_para.Text = nomEntidad;
                     string status = consultaOTSE[0].sts_prog.ToString().Trim();
 
                     cls.DataSource = logicaNegocio.ListadoCLSOTS();
@@ -73,7 +72,7 @@ namespace materialDesing
             string solucion = Request["solucion"];
             string observaciones = Request["obs"];
             string clasificacion = cls.SelectedValue.TrimStart(' ').TrimEnd(' ');
-            string aplica = ""; //aplica_para.Text;
+            string aplica = "";
             string status = "2";
             AccesoDatos.sp_WebAppOTSAdmOTS_Result insertOTSD = logicaNegocio.admOTS("", tip_OTS.ToUpper(), dificultad, numOTS, "", "", user, status, desc, Convert.ToDateTime(fecha_Ini).ToString("yyyy-MM-dd HH:MM:ss"), Convert.ToDateTime(fecha_Fin).ToString("yyyy-MM-dd HH:MM:ss"), aplica, oper, nom_OTS, error_ots, solucion, observaciones, clasificacion, "altaDet", "", DateTime.Now);
             if (insertOTSD != null)
@@ -100,7 +99,6 @@ namespace materialDesing
             string nom_OTS = "";
             string descripcion2 = descripcion.Text;
             string user = user_cve.Text.ToUpper();
-            //el ots papa se reinicia con status 1
             string status = "1";
             AccesoDatos.sp_WebAppOTSAdmOTS_Result insertOTSD = logicaNegocio.admOTS("", "", dificultad, numOTS, "", "", user, status, descripcion2, "", "", "", "", nom_OTS, "", "", "", "", "terminaDet", "", DateTime.Now);
             if (insertOTSD != null)
@@ -111,7 +109,6 @@ namespace materialDesing
                 if (Convert.ToInt32(error) == 0)
                 {
 
-                    /* obs 24/01/2017 - a donde se va a redireccionar a la consulta de los soportes o a la consulta de los subots */
                     Response.Write("<script type=\"text/javascript\">alert('El Detalle del OTS a sido terminado.'); window.location.href = 'C_Soportes.aspx';</script>");
                 }
                 else
