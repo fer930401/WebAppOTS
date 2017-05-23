@@ -66,12 +66,21 @@ namespace materialDesing
                                 mensaje = RolUser.mensaje;
                             }
                         }
+                        else if (item.Selected == false)
+                        {
+                            AccesoDatos.sp_WebAppOTSAdmUsers_Result RolUser = logicaNegocio.admUserOTS(user_cve.ToUpper(), "", "", 0, "", item.Value, "eRol");
+                            if (RolUser != null)
+                            {
+                                error = RolUser.error;
+                                mensaje = RolUser.mensaje;
+                            }
+                        }
                     }
-                    variables.M_User_cve = null;
+                    /*variables.M_User_cve = null;
                     variables.M_Nombre = null;
                     variables.M_Email = null;
                     variables.M_Status = null;
-                    variables.M_Roles = null;
+                    variables.M_Roles = null;*/
                     Response.Write("<script type=\"text/javascript\">alert('El Usuario: " + nombre.ToUpper() + " \\nHa Sido Modificado.');  window.location.href = 'C_Usuarios.aspx';</script>");
                 }
                 else

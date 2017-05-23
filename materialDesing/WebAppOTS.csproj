@@ -70,7 +70,6 @@
     <Content Include="A_Detalle.aspx" />
     <Content Include="A_Paros.aspx" />
     <Content Include="A_Usuarios.aspx" />
-    <Content Include="CS.aspx" />
     <Content Include="css\default.css" />
     <Content Include="css\default.date.css" />
     <Content Include="css\demo.css" />
@@ -138,7 +137,6 @@
     <Content Include="js\themes\sand-signika.js" />
     <Content Include="js\themes\skies.js" />
     <Content Include="Login.aspx" />
-    <Content Include="nuevo menu.aspx" />
     <Content Include="ReasignaOTS.aspx" />
     <Content Include="ReporteActividadesOTS.aspx" />
     <Content Include="Reportes.aspx" />
@@ -167,7 +165,6 @@
     <Content Include="font\roboto\Roboto-Thin.ttf" />
     <Content Include="font\roboto\Roboto-Thin.woff" />
     <Content Include="font\roboto\Roboto-Thin.woff2" />
-    <Content Include="WebForm1.aspx" />
     <None Include="Properties\PublishProfiles\OTS.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -216,13 +213,6 @@
     </Compile>
     <Compile Include="A_Usuarios.aspx.designer.cs">
       <DependentUpon>A_Usuarios.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CS.aspx.cs">
-      <DependentUpon>CS.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CS.aspx.designer.cs">
-      <DependentUpon>CS.aspx</DependentUpon>
     </Compile>
     <Compile Include="C_imgOTS.aspx.cs">
       <DependentUpon>C_imgOTS.aspx</DependentUpon>
@@ -273,13 +263,6 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="nuevo menu.aspx.cs">
-      <DependentUpon>nuevo menu.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="nuevo menu.aspx.designer.cs">
-      <DependentUpon>nuevo menu.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ReasignaOTS.aspx.cs">
       <DependentUpon>ReasignaOTS.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -307,7 +290,6 @@
     <Compile Include="Reportes.aspx.designer.cs">
       <DependentUpon>Reportes.aspx</DependentUpon>
     </Compile>
-    <Compile Include="sessionOTS.cs" />
     <Compile Include="WebApp.Master.cs">
       <DependentUpon>WebApp.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -316,13 +298,6 @@
       <DependentUpon>WebApp.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Media\" />

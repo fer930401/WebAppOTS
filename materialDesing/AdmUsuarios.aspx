@@ -35,11 +35,11 @@
                         <div class="input-field col s11">
                             <br />
                             <p>
-                              <input class="with-gap" name="status" type="radio" id="desactivado" value="0" <% if (LogicaNegocio.variables.M_Status.Equals("0") == true) { Response.Write("checked"); }; %> />
+                              <input class="with-gap" name="status" type="radio" id="desactivado" value="0" <% if (LogicaNegocio.variables.M_Status.Equals("0") == true && !IsPostBack) { Response.Write("checked"); }; %> />
                               <label for="desactivado">Desactivado</label>
                             </p>
                             <p>
-                              <input class="with-gap" name="status" type="radio" id="activo" value="1" <% if (LogicaNegocio.variables.M_Status.Equals("1") == true) { Response.Write("checked"); }; %>/>
+                              <input class="with-gap" name="status" type="radio" id="activo" value="1" <% if (LogicaNegocio.variables.M_Status.Equals("1") == true && !IsPostBack) { Response.Write("checked"); }; %>/>
                               <label for="activo">Activo</label>
                             </p>
                             <label for="su">Status del Usuario:</label>
