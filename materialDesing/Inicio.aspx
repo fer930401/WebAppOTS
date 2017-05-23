@@ -22,7 +22,7 @@
     <div class="container">
         <div class="col s12 card-panel grey lighten-5 z-depth-1">
             <div class="row">
-              <img class="right responsive-img" src="<%=ResolveUrl("~/Media/logo OTS5.png") %>" width="350" height="100"/>
+              <img class="right responsive-img" src="<%=ResolveUrl("~/Media/logo_OTS.png") %>" width="350" height="100"/>
               <br />
               <h5 class="center grey-text">Bienvenido: <strong><asp:Label ID="usuario" runat="server" Text="Label"></asp:Label></strong></h5>
               <div class="col s12 m3">

@@ -6,7 +6,7 @@
     <div class="container">
         <div class="col s12 card-panel grey lighten-5 z-depth-1">
             <div class="row">
-                <img class="right responsive-img" src="<%=ResolveUrl("~/Media/logo OTS5.png") %>" width="350" height="100"/>
+                <img class="right responsive-img" src="<%=ResolveUrl("~/Media/logo_OTS.png") %>" width="350" height="100"/>
                  <br />
                 <h4 class="center grey-text">Hijos de OTS</h4>
             </div> 

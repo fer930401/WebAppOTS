@@ -135,7 +135,7 @@
                     <div class="col s12 m7">
                         <!--<h4><strong>OTS</strong></h4>
                   <h4>On Time System</h4>-->
-                        <img class="right responsive-img" src="<%=ResolveUrl("~/Media/logo OTS5.png") %>" width="60%" height="10%" />
+                        <img class="right responsive-img" src="<%=ResolveUrl("~/Media/logo_OTS.png") %>" width="60%" height="10%" />
                     </div>
                 </div>
                 <div class="row">
