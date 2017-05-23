@@ -95,17 +95,5 @@
             </div>
             </div>                          
         </div>
-    
     <script type="text/javascript" src="<%= ResolveUrl("js/pickadate.legacy.js") %>"></script>
-    <script type="text/javascript">
-        $('[type=date], .datepicker').pickadate()
-    </script>
-    <script>
-        /*$(document).ready(function () {
-            $('select').material_select();
-        });*/
-      </script>
-
-    <!--<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>-->
-    
 </asp:Content>
