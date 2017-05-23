@@ -224,7 +224,6 @@ namespace materialDesing
             dt.Columns.Add("sts_prog", typeof(string));
             dt.Columns.Add("aplica", typeof(string));
             dt.Columns.Add("fec_prom", typeof(string));
-            dt.Columns.Add("descripcion", typeof(string));
 
             if (listaOTS != null)
             {
@@ -242,7 +241,6 @@ namespace materialDesing
                     dr["sts_prog"] = elemento.sts_prog;
                     dr["aplica"] = elemento.aplica;
                     dr["fec_prom"] = elemento.fec_prom;
-                    dr["descripcion"] = elemento.descripcion;
                     dt.Rows.Add(dr);
                     i++;
                 }
