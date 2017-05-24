@@ -80,5 +80,9 @@ namespace LogicaNegocio
         {
             return datos.opcOTS(cve_catlgo,elm_cve,nombre,status,opcion);
         }
+        public List<AccesoDatos.otscatlgos> infoOpc(string elm_cve)
+        {
+            return datos.infoOpc(elm_cve);
+        }
     }
 }

@@ -46,5 +46,11 @@ namespace LogicaNegocio
             get { return variables.M_roles; }
             set { variables.M_roles = value; }
         }
+        static string M_statusOpc;
+        public static string M_StatusOpc
+        {
+            get { return variables.M_statusOpc; }
+            set { variables.M_statusOpc = value; }
+        }
     }
 }

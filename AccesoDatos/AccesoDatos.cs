@@ -98,5 +98,9 @@ namespace AccesoDatos
         {
             return (contextoOTS.sp_WebAppOTSAdmOpc(cve_catlgo, elm_cve, nombre, status, opcion)).FirstOrDefault();
         }
+        public List<otscatlgos> infoOpc(string elm_cve)
+        {
+            return (from r in contextoOTS.otscatlgos where r.elm_cve.Equals(elm_cve) select r).ToList();
+        }
     }
 }
