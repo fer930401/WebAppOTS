@@ -97,6 +97,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SkytexModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="sp_WebAppOTSAdmOpc_Result.cs">
+      <DependentUpon>OTS.tt</DependentUpon>
+    </Compile>
     <Compile Include="sp_WebAppOTSAdmOTS_Result.cs">
       <DependentUpon>OTS.tt</DependentUpon>
     </Compile>

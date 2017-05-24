@@ -171,6 +171,13 @@ warning 6002: The table/view 'DBOTS.dbo.rolesxUsr' does not have a primary key d
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="sp_WebAppOTSAdmOpc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cve_catlgo" Type="nchar" Mode="In" />
+          <Parameter Name="elm_cve" Type="nchar" Mode="In" />
+          <Parameter Name="nombre" Type="nvarchar" Mode="In" />
+          <Parameter Name="status" Type="smallint" Mode="In" />
+          <Parameter Name="opcion" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="sp_WebAppOTSAdmOTS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="sub_sistema" Type="nchar" Mode="In" />
           <Parameter Name="tip_OTS" Type="nchar" Mode="In" />
@@ -386,6 +393,13 @@ FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
             <Parameter Name="status" Mode="In" Type="Int32" />
             <Parameter Name="rol" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="sp_WebAppOTSAdmOpc" ReturnType="Collection(DBOTSModel.sp_WebAppOTSAdmOpc_Result)">
+            <Parameter Name="cve_catlgo" Mode="In" Type="String" />
+            <Parameter Name="elm_cve" Mode="In" Type="String" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="status" Mode="In" Type="Int16" />
+            <Parameter Name="opcion" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="usuarios">
           <Key>
@@ -599,6 +613,10 @@ FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
           <Property Type="String" Name="status_usr" Nullable="false" MaxLength="40" />
           <Property Type="String" Name="cve_rol" Nullable="false" MaxLength="3" />
         </ComplexType>
+        <ComplexType Name="sp_WebAppOTSAdmOpc_Result">
+          <Property Type="Int16" Name="error" Nullable="true" />
+          <Property Type="String" Name="mensaje" Nullable="true" MaxLength="255" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -754,6 +772,14 @@ FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
                 <ScalarProperty Name="fec_ultact" ColumnName="fec_ultact" />
                 <ScalarProperty Name="status_usr" ColumnName="status_usr" />
                 <ScalarProperty Name="cve_rol" ColumnName="cve_rol" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_WebAppOTSAdmOpc" FunctionName="DBOTSModel.Store.sp_WebAppOTSAdmOpc">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBOTSModel.sp_WebAppOTSAdmOpc_Result">
+                <ScalarProperty Name="error" ColumnName="error" />
+                <ScalarProperty Name="mensaje" ColumnName="mensaje" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

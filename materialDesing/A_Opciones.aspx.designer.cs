@@ -40,13 +40,13 @@ namespace materialDesing {
         protected global::System.Web.UI.WebControls.DropDownList cmbOpciones;
         
         /// <summary>
-        /// cve_catlgo control.
+        /// elm_cve control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox cve_catlgo;
+        protected global::System.Web.UI.WebControls.TextBox elm_cve;
         
         /// <summary>
         /// nom_catlgo control.

@@ -153,5 +153,13 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_WebAppOTSAdmOpc" FunctionName="DBOTSModel.Store.sp_WebAppOTSAdmOpc">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBOTSModel.sp_WebAppOTSAdmOpc_Result">
+          <ScalarProperty Name="error" ColumnName="error" />
+          <ScalarProperty Name="mensaje" ColumnName="mensaje" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

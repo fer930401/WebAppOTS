@@ -7,7 +7,7 @@
             <div class="row">
               <img class="right responsive-img" src="<%=ResolveUrl("~/Media/logo_OTS.png") %>" width="350" height="100"/>
               <br />
-              <h4 class="center grey-text">Alta de uan nueva opcion:</h4>
+              <h4 class="center grey-text">Alta de una nueva opción:</h4>
               <div class="col s12 m3">
                 <asp:TextBox ID="usuario" runat="server" ReadOnly="true" hidden></asp:TextBox>
                 <asp:TextBox ID="user_cve" runat="server" ReadOnly="true" hidden></asp:TextBox>
@@ -17,12 +17,12 @@
                 <div class="col s12">
                     <div class="row">
                         <div class="input-field col s6">
-                            <asp:DropDownList ID="cmbOpciones" runat="server"></asp:DropDownList>
+                            <asp:DropDownList ID="cmbOpciones" runat="server" OnSelectedIndexChanged="cmbOpciones_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                             <label for="opciones">Opciones disponibles:</label>
                         </div>
                         <div class="input-field col s6">
                             <label for="cve_catlgo">Clave de la opcion:</label>
-                            <asp:TextBox ID="cve_catlgo" runat="server" name="cve_catlgo" required></asp:TextBox>
+                            <asp:TextBox ID="elm_cve" runat="server" name="elm_cve" MaxLength="3" required></asp:TextBox>
                         </div>
                     </div>
                     <div class="row">

@@ -76,5 +76,9 @@ namespace LogicaNegocio
         {
             return datos.opcionesCatalogo();
         }
+        public AccesoDatos.sp_WebAppOTSAdmOpc_Result opcOTS(string cve_catlgo, string elm_cve, string nombre, short? status, string opcion)
+        {
+            return datos.opcOTS(cve_catlgo,elm_cve,nombre,status,opcion);
+        }
     }
 }

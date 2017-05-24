@@ -77,6 +77,13 @@
       <Parameter Name="status" Mode="In" Type="Int32" />
       <Parameter Name="rol" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="sp_WebAppOTSAdmOpc" ReturnType="Collection(DBOTSModel.sp_WebAppOTSAdmOpc_Result)">
+      <Parameter Name="cve_catlgo" Mode="In" Type="String" />
+      <Parameter Name="elm_cve" Mode="In" Type="String" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="Int16" />
+      <Parameter Name="opcion" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="usuarios">
     <Key>
@@ -289,5 +296,9 @@
     <Property Type="DateTime" Name="fec_ultact" Nullable="true" Precision="23" />
     <Property Type="String" Name="status_usr" Nullable="false" MaxLength="40" />
     <Property Type="String" Name="cve_rol" Nullable="false" MaxLength="3" />
+  </ComplexType>
+  <ComplexType Name="sp_WebAppOTSAdmOpc_Result">
+    <Property Type="Int16" Name="error" Nullable="true" />
+    <Property Type="String" Name="mensaje" Nullable="true" MaxLength="255" />
   </ComplexType>
 </Schema>

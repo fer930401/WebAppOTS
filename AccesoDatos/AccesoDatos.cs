@@ -94,5 +94,9 @@ namespace AccesoDatos
         {
             return (from r in contextoOTS.otsdcatlgos where r.status.Equals(1) select r).ToList();
         }
+        public AccesoDatos.sp_WebAppOTSAdmOpc_Result opcOTS(string cve_catlgo, string elm_cve, string nombre, short? status, string opcion)
+        {
+            return (contextoOTS.sp_WebAppOTSAdmOpc(cve_catlgo, elm_cve, nombre, status, opcion)).FirstOrDefault();
+        }
     }
 }

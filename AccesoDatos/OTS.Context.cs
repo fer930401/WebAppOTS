@@ -216,5 +216,30 @@ namespace AccesoDatos
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_WebAppOTSConsultaUser_Result>("sp_WebAppOTSConsultaUser", statusParameter, rolParameter);
         }
+    
+        public virtual ObjectResult<sp_WebAppOTSAdmOpc_Result> sp_WebAppOTSAdmOpc(string cve_catlgo, string elm_cve, string nombre, Nullable<short> status, string opcion)
+        {
+            var cve_catlgoParameter = cve_catlgo != null ?
+                new ObjectParameter("cve_catlgo", cve_catlgo) :
+                new ObjectParameter("cve_catlgo", typeof(string));
+    
+            var elm_cveParameter = elm_cve != null ?
+                new ObjectParameter("elm_cve", elm_cve) :
+                new ObjectParameter("elm_cve", typeof(string));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var statusParameter = status.HasValue ?
+                new ObjectParameter("status", status) :
+                new ObjectParameter("status", typeof(short));
+    
+            var opcionParameter = opcion != null ?
+                new ObjectParameter("opcion", opcion) :
+                new ObjectParameter("opcion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_WebAppOTSAdmOpc_Result>("sp_WebAppOTSAdmOpc", cve_catlgoParameter, elm_cveParameter, nombreParameter, statusParameter, opcionParameter);
+        }
     }
 }
