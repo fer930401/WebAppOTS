@@ -88,7 +88,7 @@ namespace AccesoDatos
         }
         public List<otscatlgos> ListaCLSOTS()
         {
-            return (from r in contextoOTS.otscatlgos where r.cve_catlgo.Equals("CLS") && r.status.Equals(1) select r).ToList();
+            return (from r in contextoOTS.otscatlgos where r.cve_catlgo.Equals("CLS") select r).ToList();
         }
         public List<otsdcatlgos> opcionesCatalogo()
         {
