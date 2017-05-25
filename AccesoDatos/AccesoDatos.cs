@@ -67,11 +67,11 @@ namespace AccesoDatos
         }
         public List<otscatlgos> ListaSubSistemas()
         {
-            return (from s in contextoOTS.otscatlgos where s.cve_catlgo.Equals("SS") && s.status.Equals(1) orderby s.nombre select s).ToList();
+            return (from s in contextoOTS.otscatlgos where s.cve_catlgo.Equals("SS") orderby s.nombre select s).ToList();
         }
         public List<otscatlgos> ListaOperaciones()
         {
-            return (from s in contextoOTS.otscatlgos where s.cve_catlgo.Equals("OPR") && s.status.Equals(1) orderby s.nombre select s).ToList();
+            return (from s in contextoOTS.otscatlgos where s.cve_catlgo.Equals("OPR")  orderby s.nombre select s).ToList();
         }
         public List<sp_WebAppOTSConsultaOTS_Result> ListaOTS(string user, string status, int opc, string filtro)
         {
