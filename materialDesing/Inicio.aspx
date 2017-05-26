@@ -87,7 +87,7 @@
                 </div>
                 <div class="col s12 m1" style="margin-top:-15px;">
                     <div class="center">
-                        <div class="icon-block card-panel hoverable center" onclick="location.href='C_Soportes.aspx';" style="cursor:pointer; width:80px; height:80px;">
+                        <div class="icon-block card-panel hoverable center tooltipped" data-tooltip="Consulta de Soportes no iniciados" onclick="location.href='C_Soportes.aspx';" style="cursor:pointer; width:80px; height:80px;">
                             <h3><i class="material-icons center red-text">report_problem</i></h3>
                             <h5 style="margin-top:-25px;"><asp:Label ID="soportesNoIniciados" runat="server" Text=""></asp:Label></h5>
                                     
@@ -95,21 +95,21 @@
                     </div>
 
                     <div class="center">
-                      <div class="icon-block card-panel hoverable center" onclick="location.href='C_Soportes.aspx';" style="cursor:pointer; width:80px; height:80px;">
+                      <div class="icon-block card-panel hoverable center tooltipped" data-tooltip="Consulta de Soportes Terminados" onclick="location.href='C_Soportes.aspx';" style="cursor:pointer; width:80px; height:80px;">
                         <h3><i class="material-icons center blue-text">trending_up</i></h3>
                         <h5 style="margin-top:-25px;"><asp:Label ID="soportesTerminados" runat="server" Text=""></asp:Label></h5>           
                       </div>
                     </div>
 
                     <div class="center">
-                      <div class="icon-block card-panel hoverable center" onclick="location.href='C_Pendientes.aspx';" style="cursor:pointer; width:80px; height:80px;">
+                      <div class="icon-block card-panel hoverable center tooltipped" data-tooltip="Consulta de pendientes no iniciados" onclick="location.href='C_Pendientes.aspx';" style="cursor:pointer; width:80px; height:80px;">
                         <h3><i class="material-icons center orange-text">new_releases</i></h3>
                         <h5 style="margin-top:-25px;"><asp:Label ID="pendientesNoIniciados" runat="server" Text=""></asp:Label></h5>             
                       </div>
                     </div>
 
                     <div class="center">
-                      <div class="icon-block card-panel hoverable center" onclick="location.href='C_Pendientes.aspx';" style="cursor:pointer; width:80px; height:80px;">
+                      <div class="icon-block card-panel hoverable center tooltipped" data-tooltip="Consulta de pendientes terminados" onclick="location.href='C_Pendientes.aspx';" style="cursor:pointer; width:80px; height:80px;">
                         <h3><i class="material-icons center green-text">business</i></h3>
                         <h5 style="margin-top:-25px;"><asp:Label ID="pendientesTerminados" runat="server" Text=""></asp:Label></h5>             
                       </div>

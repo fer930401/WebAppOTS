@@ -188,7 +188,7 @@
                     %>
                     <li><a class="tooltipped" href="A_Encabezado.aspx" data-position="top" data-delay="50" data-tooltip="Alta de Pendientes/Soportes">
                         <img class="responsive-img" src="<%=ResolveUrl("~/Media/iconos/icon_soporte.png") %>" width="30" height="30" /></a></li>
-                    <li><a class="tooltipped" href="C_Soportes.aspx" data-position="top" data-delay="50" data-tooltip="Consulta de Soporte">
+                    <li><a class="tooltipped" href="C_Soportes.aspx" data-position="top" data-delay="50" data-tooltip="Consulta general de Soporte/Pendientes">
                         <img class="responsive-img" src="<%=ResolveUrl("~/Media/iconos/icon_conSoportes.png") %>" width="30" height="30" /></a></li>
                     <li><a class="tooltipped" href="Reportes.aspx" data-position="top" data-delay="50" data-tooltip="Reportes">
                         <img class=" responsive-img" src="<%=ResolveUrl("~/Media/iconos/icon_reporte.png") %>" width="30" height="30" /></a></li>
