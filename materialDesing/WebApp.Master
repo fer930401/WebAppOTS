@@ -28,17 +28,11 @@
     <link rel="stylesheet" href="<%=ResolveUrl("css/animate.min.css") %>" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('select').material_select();
-        });
-    </script>
 
     <script type="text/javascript">
         var n = 1;
         function showNotification() {
             var notif = showWebNotification('On Time System', 'Tienes una nueva asignacion!\n Por favor revise el listado de tareas asignadas.', '/Media/logoSkytex.png', null, 3000);
-            //handle different events
             window.location.href = 'A_Encabezado.aspx';
             notif.addEventListener("show", Notification_OnEvent);
             notif.addEventListener("click", Notification_OnEvent);
@@ -47,80 +41,8 @@
 
         }
         function Notification_OnEvent(event) {
-            //A reference to the Notification object
             var notif = event.currentTarget;
             document.getElementById("msgs").innerHTML += "<br>Notification <strong>'" + notif.title + "'</strong> received event '" + event.type + "' at " + new Date().toLocaleString();
-        }
-        $(document).ready(function () {
-            $(window).scroll(function () {
-                if ($(this).scrollTop() > 0) {
-                    $('.flotante').slideDown(300);
-                } else {
-                    $('.flotante').slideUp(300);
-                }
-            });
-
-        });
-        $(document).ready(function () {
-            $(window).scroll(function () {
-                if ($(this).scrollTop() > 0) {
-                    $('.flotante2').slideDown(300);
-                } else {
-                    $('.flotante2').slideUp(300);
-                }
-            });
-
-        });
-        //setInterval
-        var ore = 0, minuti = 0, secondi = 0, decimi = 0;
-        var vis = "";
-        var stop = true;
-
-        function avvia() {
-            if (stop == true) {
-                stop = false;
-                setTimeout("cronometro()", 5000);
-            }
-        }
-
-        function cronometro() {
-            if (stop == false) {
-                decimi++;
-                if (decimi > 9) {
-                    decimi = 0;
-                    secondi++;
-                }
-                if (secondi > 59) {
-                    secondi = 0;
-                    minuti++;
-                }
-                if (minuti > 59) {
-                    minuti = 0;
-                    ore++;
-                }
-                mostra();
-                setTimeout("cronometro()", 100);
-            }
-        }
-        function mostra() {
-            if (ore == 0) vis = ""; else vis = ore + ":";
-            if (minuti < 10) vis = "" + vis + "0";
-            vis = vis + minuti + ":";
-            if (secondi < 10) vis = vis + "0";
-            vis = vis + secondi + ":" + decimi;
-            document.getElementById("vis").innerHTML = vis;
-        }
-        function ferma() {
-            stop = true;
-            alert(document.getElementById("vis").innerHTML);
-        }
-        function azzera() {
-            if (stop == false) {
-                stop = true;
-            }
-            ore = minuti = secondi = decimi = 0;
-            vis = "";
-            mostra();
         }
     </script>
     <style type="text/css">
