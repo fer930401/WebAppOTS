@@ -228,6 +228,7 @@ namespace materialDesing
                     dr["sts_prog"] = elemento.sts_prog;
                     dr["aplica"] = elemento.aplica;
                     dr["fec_prom"] = elemento.fec_prom;
+                    
                     dt.Rows.Add(dr);
                     i++;
                 }
