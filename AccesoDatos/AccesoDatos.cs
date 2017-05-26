@@ -39,7 +39,7 @@ namespace AccesoDatos
         }
         public List<otscatlgos> ListaRolesOTS()
         {
-            return (from r in contextoOTS.otscatlgos where r.cve_catlgo.Equals("ROL") && r.status.Equals(1) select r).ToList();
+            return (from r in contextoOTS.otscatlgos where r.cve_catlgo.Equals("ROL") select r).ToList();
         }
         public List<usuarios> ListaUsuarios()
         {
