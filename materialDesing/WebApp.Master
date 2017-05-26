@@ -57,7 +57,7 @@
 </head>
 <body>
     <ul id="dropOpciones" class="dropdown-content">
-      <li><a href="A_Opciones.aspx" class="light-blue-text text-darken-4"><i class="material-icons left">note_add</i> Alta de nuevas opciones</a></li>
+      <li><a href="A_Opciones.aspx" class="light-blue-text text-darken-4"><i class="material-icons left">note_add</i> Alta de opciones</a></li>
       <li><a href="AdmOpciones.aspx" class="light-blue-text text-darken-4"><i class="material-icons left">new_releases</i> Modifica las opciones</a></li>
     </ul>
     <form id="form1" runat="server">

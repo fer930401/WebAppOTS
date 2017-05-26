@@ -51,7 +51,7 @@ namespace AccesoDatos
         }
         public List<otscatlgos> ListaPaises()
         {
-            return (from p in contextoOTS.otscatlgos where p.cve_catlgo.Equals("APL") && p.status.Equals(1) orderby p.nombre select p).ToList();
+            return (from p in contextoOTS.otscatlgos where p.cve_catlgo.Equals("APL") orderby p.nombre select p).ToList();
         }
         public string ValidarRol(string cve_user, string rol)
         {
