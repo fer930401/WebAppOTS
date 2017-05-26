@@ -134,7 +134,6 @@
     </style>
 </head>
 <body>
-    <!-- Dropdown Structure -->
     <ul id="dropOpciones" class="dropdown-content">
       <li><a href="A_Opciones.aspx" class="light-blue-text text-darken-4"><i class="material-icons left">note_add</i> Alta de nuevas opciones</a></li>
       <li><a href="AdmOpciones.aspx" class="light-blue-text text-darken-4"><i class="material-icons left">new_releases</i> Modifica las opciones</a></li>
@@ -143,20 +142,39 @@
         <div class="navbar-fixed">
             <nav>
                 <div class="nav-wrapper container">
-                    <a id="logo-container" href="Inicio.aspx" class="brand-logo">
-                        <img src="Media/logoSkytexB.png" width="25" height="30" /></a>
-                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <a></a>
+                    <a id="logo-container" href="#" data-activates="mobile-demo" class="brand-logo "><img src="Media/logoSkytexB.png" width="25" height="30" /></a>
+                    
+                    <ul class="side-nav" id="mobile-demo">
+                        <li>.</li>
+                        <li><a class="light-blue-text text-darken-4 tooltipped" href="Inicio.aspx" data-position="right" data-delay="50" data-tooltip="Regresa al inicio"><i class="material-icons right">store</i>Inicio</a></li>
                         <%  
                             if (validarRol(Session["user_cve"].ToString().ToUpper(), "ADM") != null)
                             {
                         %>
-                                <li><a class="dropdown-button white-text text-darken-2" href="#!" data-activates="dropOpciones">Adm. Opciones<i class="material-icons right">arrow_drop_down</i></a></li>
-                        <%
-                            }    
+                                <li><a class="dropdown-button light-blue-text text-darken-4 tooltipped" href="#!" data-activates="dropOpciones" data-position="right" data-delay="50" data-tooltip="Administra las opciones de Subsistemas, roles, etc">Opciones<i class="material-icons right">arrow_drop_down</i></a></li>
+                                <li><a class="light-blue-text text-darken-4 tooltipped" href="C_Usuarios.aspx" data-position="right" data-delay="50" data-tooltip="Consulta el listado de usuarios">Usuarios<i class="material-icons right">supervisor_account</i></a></li>
+                        <% 
+                            }
+                            if (validarRol(Session["user_cve"].ToString().ToUpper(), "ASG") != null)
+                            {
+                        %>
+                                <li><a class="light-blue-text text-darken-4 tooltipped" href="A_Encabezado.aspx" data-position="right" data-delay="50" data-tooltip="Registra un nuevo Pendientes/Soportes">Alta OTS<i class="material-icons right">note_add</i></a></li>
+                                <li><a class="light-blue-text text-darken-4 tooltipped" href="C_Soportes.aspx" data-position="right" data-delay="50" data-tooltip="Consulta general de Soporte/Pendientes">Consulta OTS<i class="material-icons right">assignment</i></a></li>
+                                <li><a class="light-blue-text text-darken-4 tooltipped" href="Reportes.aspx" data-position="right" data-delay="50" data-tooltip="Genera tu reportes">Reportes<i class="material-icons right">receipt</i></a></li>
+                        <%        
+                            }
+                            if (validarRol(Session["user_cve"].ToString().ToUpper(), "PRG") != null && validarRol(Session["user_cve"].ToString().ToUpper(), "ASG") == null)
+                            {
+                        %>
+                                <li><a class="light-blue-text text-darken-4 tooltipped" href="C_Soportes.aspx" data-position="right" data-delay="50" data-tooltip="Consulta tus tareas asignadas">Consulta OTS<i class="material-icons right">assignment</i></a></li>
+                                <li><a class="light-blue-text text-darken-4 tooltipped" href="Reportes.aspx" data-position="right" data-delay="50" data-tooltip="Genera tu reportes">Reportes<i class="material-icons right">receipt</i></a></li>
+                        <%        
+                            }
                         %>
                         <li>
-                            <asp:LinkButton ID="LinkButton1" runat="server" OnClick="CerrarSession">
-                                <span class="white-text text-darken-2">
+                            <asp:LinkButton ID="LinkButton1" runat="server" OnClick="CerrarSession" CssClass="tooltipped" data-position="right" data-delay="50" data-tooltip="Cierra sesion">
+                                <span class="light-blue-text text-darken-4 " >
                                     <i class="material-icons right">power_settings_new</i>Logout
                                 </span>
                             </asp:LinkButton>
@@ -164,51 +182,7 @@
                     </ul>
                 </div>
             </nav>
-        </div>
-        <div id="wrapper" style="float: right;">
-            <input type="checkbox" id="menu" name="menu" class="menu-checkbox"/>
-            <div class="menu navbar-fixed">
-
-                <label class="menu-toggle" for="menu"><span>Toggle</span></label>
-                <ul>
-                    <li><a>
-                        <img class="circle responsive-img" src="<%=ResolveUrl("~/Media/Usuarios/"+ Session["user_cve"].ToString().ToUpper() +".png") %>" width="150" height="150" /></a></li>
-                    <li><a class="tooltipped" href="Inicio.aspx" data-position="top" data-delay="50" data-tooltip="Inicio">
-                        <img class="responsive-img" src="<%=ResolveUrl("~/Media/iconos/icon_inicio.png") %>" width="30" height="30" /></a></li>
-                    <%  
-                        if (validarRol(Session["user_cve"].ToString().ToUpper(), "ADM") != null)
-                        {
-                    %>
-                    <li><a class="tooltipped" href="C_Usuarios.aspx" data-position="top" data-delay="50" data-tooltip="Consulta de Usuarios">
-                        <img class="responsive-img" src="<%=ResolveUrl("~/Media/iconos/icon_usuarios2.png") %>" width="30" height="30" /></a></li>
-                    <% 
-                        }
-                        if (validarRol(Session["user_cve"].ToString().ToUpper(), "ASG") != null)
-                        {
-                    %>
-                    <li><a class="tooltipped" href="A_Encabezado.aspx" data-position="top" data-delay="50" data-tooltip="Alta de Pendientes/Soportes">
-                        <img class="responsive-img" src="<%=ResolveUrl("~/Media/iconos/icon_soporte.png") %>" width="30" height="30" /></a></li>
-                    <li><a class="tooltipped" href="C_Soportes.aspx" data-position="top" data-delay="50" data-tooltip="Consulta general de Soporte/Pendientes">
-                        <img class="responsive-img" src="<%=ResolveUrl("~/Media/iconos/icon_conSoportes.png") %>" width="30" height="30" /></a></li>
-                    <li><a class="tooltipped" href="Reportes.aspx" data-position="top" data-delay="50" data-tooltip="Reportes">
-                        <img class=" responsive-img" src="<%=ResolveUrl("~/Media/iconos/icon_reporte.png") %>" width="30" height="30" /></a></li>
-                    <%        
-                        }
-                        if (validarRol(Session["user_cve"].ToString().ToUpper(), "PRG") != null && validarRol(Session["user_cve"].ToString().ToUpper(), "ASG") == null)
-                        {
-                    %>
-                    <li><a class="tooltipped" href="C_Soportes.aspx" data-position="top" data-delay="50" data-tooltip="Tareas Asignadas">
-                        <img class="responsive-img" src="<%=ResolveUrl("~/Media/iconos/icon_conSoportes.png") %>" width="30" height="30" /></a></li>
-                    <li><a class="tooltipped" href="Reportes.aspx" data-position="top" data-delay="50" data-tooltip="Reportes">
-                        <img class=" responsive-img" src="<%=ResolveUrl("~/Media/iconos/icon_reporte.png") %>" width="30" height="30" /></a></li>
-                    <%        
-                        }
-                    %>
-                    <li>
-                        <asp:LinkButton ID="LinkButton2" CssClass="tooltipped" runat="server" OnClick="CerrarSession" data-position="top" data-delay="50" data-tooltip="Cerrar Sesion"><img class=" responsive-img" src="<%=ResolveUrl("~/Media/iconos/icon_cerrarS.png") %>" width="30" height="30"/></asp:LinkButton></li>
-                </ul>
-            </div>
-        </div>
+        </div>        
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
@@ -235,6 +209,7 @@
     <script>
         $(document).ready(function () {
             $('select').material_select();
+            $(".brand-logo").sideNav();
         });
       </script>
 </body>
