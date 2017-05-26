@@ -28,7 +28,11 @@
     <link rel="stylesheet" href="<%=ResolveUrl("css/animate.min.css") %>" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('select').material_select();
+        });
+    </script>
     <script type="text/javascript">
         var n = 1;
         function showNotification() {
