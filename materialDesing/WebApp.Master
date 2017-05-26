@@ -110,7 +110,7 @@
             </asp:ContentPlaceHolder>
         </div>
     </form>
-    <div class="navbar-fixed" >
+    <div class="navbar" >
     <footer class="page-footer">
         <div class="container">
             <div class="row">
