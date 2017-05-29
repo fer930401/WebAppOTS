@@ -10,15 +10,10 @@
 namespace Entidades
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class otscatlgos
+    public partial class sp_WebAppOTSAdmOpc_Result
     {
-        public string cve_catlgo { get; set; }
-        public string elm_cve { get; set; }
-        public string nombre { get; set; }
-        public Nullable<short> status { get; set; }
-    
-        public virtual otsdcatlgos otsdcatlgos { get; set; }
+        public Nullable<short> error { get; set; }
+        public string mensaje { get; set; }
     }
 }

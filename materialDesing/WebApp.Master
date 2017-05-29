@@ -64,6 +64,10 @@
       <li><a href="A_Opciones.aspx" class="light-blue-text text-darken-4"><i class="material-icons left">note_add</i> Alta de opciones</a></li>
       <li><a href="AdmOpciones.aspx" class="light-blue-text text-darken-4"><i class="material-icons left">new_releases</i> Modifica las opciones</a></li>
     </ul>
+    <ul id="dropConsulta" class="dropdown-content">
+      <li><a class="light-blue-text text-darken-4" href="C_Soportes.aspx" ><i class="material-icons left">report_problem</i>Consulta de soportes</a></li>
+      <li><a class="light-blue-text text-darken-4" href="C_Pendientes.aspx" ><i class="material-icons left">new_releases</i>Consulta de pendientes</a></li>
+    </ul>
     <form id="form1" runat="server">
         <div class="navbar-fixed">
             <nav>
@@ -86,7 +90,7 @@
                             {
                         %>
                                 <li><a class="light-blue-text text-darken-4 tooltipped" href="A_Encabezado.aspx" data-position="right" data-delay="50" data-tooltip="Registra un nuevo Pendientes/Soportes">Alta OTS<i class="material-icons right">note_add</i></a></li>
-                                <li><a class="light-blue-text text-darken-4 tooltipped" href="C_Soportes.aspx" data-position="right" data-delay="50" data-tooltip="Consulta general de Soporte/Pendientes">Consulta OTS<i class="material-icons right">assignment</i></a></li>
+                                <li><a class="dropdown-button light-blue-text text-darken-4 tooltipped" href="#!" data-activates="dropConsulta" data-position="right" data-delay="50" data-tooltip="Consulta las clasificaciones de OTS">OTS<i class="material-icons right">arrow_drop_down</i></a></li>
                                 <li><a class="light-blue-text text-darken-4 tooltipped" href="Reportes.aspx" data-position="right" data-delay="50" data-tooltip="Genera tu reportes">Reportes<i class="material-icons right">receipt</i></a></li>
                         <%        
                             }

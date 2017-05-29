@@ -23,6 +23,7 @@ namespace Entidades
         public string descripcion { get; set; }
         public short status { get; set; }
         public System.DateTime fec_ultact { get; set; }
+        public string nom_catlgo { get; set; }
     
         public virtual ICollection<otscatlgos> otscatlgos { get; set; }
     }

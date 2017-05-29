@@ -21,35 +21,35 @@ namespace materialDesing
         {
             if (Session["user_cve"] != null)
             {
-                String clave = Session["user_cve"].ToString();
+                string clave = Session["user_cve"].ToString();
                 user_cve.Text = clave;
+                if (logicaNegocio.validarRol(clave.ToUpper(), "PRG") != null)
+                {
+                    usuarioC = clave.ToUpper();
+                    statusC = "1";
+                    rol_cve.Text = logicaNegocio.validarRol(clave, "PRG");
+                    cmbProgramador.Visible = false;
+                    lblRespon.Visible = false;
+                }
+                else
+                {
+                    usuarioC = "ASG";
+                    statusC = "1";
+                    rol_cve.Text = logicaNegocio.validarRol(clave.ToUpper(), "ASG");
+                    cmbProgramador.Visible = true;
+                    DataTable datos = new DataTable();
+                    cmbProgramador.Items.Clear();
+                    cmbProgramador.Items.Insert(0, new ListItem("Selecciona una opción", ""));
+                    cmbProgramador.SelectedIndex = 0;
+                    cmbProgramador.AppendDataBoundItems = true;
+                    cmbProgramador.DataSource = logicaNegocio.ListadoProgramadores(1, "PRG");
+                    cmbProgramador.DataValueField = "user_cve";
+                    cmbProgramador.DataTextField = "nombre";
+                    cmbProgramador.AutoPostBack = true;
+                    cmbProgramador.DataBind();
+                }
                 if (!IsPostBack)
                 {
-                    if (logicaNegocio.validarRol(Session["user_cve"].ToString().ToUpper(), "PRG") != null)
-                    {
-                        usuarioC = Session["user_cve"].ToString().ToUpper();
-                        statusC ="1";
-                        rol_cve.Text = logicaNegocio.validarRol(Session["user_cve"].ToString().ToUpper(), "PRG");
-                        cmbProgramador.Visible = false;
-                        lblRespon.Visible = false;
-                    }
-                    else
-                    {
-                        usuarioC = "S/U";
-                        statusC = "1";
-                        rol_cve.Text = logicaNegocio.validarRol(Session["user_cve"].ToString().ToUpper(), "ASG");
-                        cmbProgramador.Visible = true;
-                        DataTable datos = new DataTable();
-                        cmbProgramador.Items.Clear();
-                        cmbProgramador.Items.Insert(0, new ListItem("Selecciona una opción", ""));
-                        cmbProgramador.SelectedIndex = 0;
-                        cmbProgramador.AppendDataBoundItems = true;
-                        cmbProgramador.DataSource = logicaNegocio.ListadoProgramadores(1, "PRG");
-                        cmbProgramador.DataValueField = "user_cve";
-                        cmbProgramador.DataTextField = "nombre";
-                        cmbProgramador.AutoPostBack = true;
-                        cmbProgramador.DataBind();
-                    }
                     DataTable dt = new DataTable();
                     DataRow dr;
                     List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 0, "SOP");
@@ -82,7 +82,6 @@ namespace materialDesing
                             i++;
                         }
                     }
-
                     ViewState["dt"] = dt;
                     this.BindGrid();
                 }
@@ -95,21 +94,6 @@ namespace materialDesing
             {
                 GridView1.Columns[2].Visible = false;
             }
-        }
-        private void llenaGrid()
-        {
-            if (logicaNegocio.validarRol(Session["user_cve"].ToString().ToUpper(), "PRG") != null)
-            {
-                this.GridView1.DataSource = logicaNegocio.ListadoOTS(Session["user_cve"].ToString().ToUpper(),"1",0,"SOP");
-                GridView1.Columns[7].Visible = true;
-            }
-            else
-            {
-                this.GridView1.DataSource = logicaNegocio.ListadoOTS("S/U","1",0,"");
-                GridView1.Columns[7].Visible = false;
-            }
-            
-            this.GridView1.DataBind();
         }
         protected void BindGrid()
         {
@@ -282,30 +266,6 @@ namespace materialDesing
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             this.GridView1.PageIndex = e.NewPageIndex;
-            if (logicaNegocio.validarRol(Session["user_cve"].ToString().ToUpper(), "PRG") != null)
-            {
-                usuarioC = Session["user_cve"].ToString().ToUpper();
-                statusC = "1";
-                rol_cve.Text = logicaNegocio.validarRol(Session["user_cve"].ToString().ToUpper(), "PRG");
-                cmbProgramador.Visible = false;
-            }
-            else
-            {
-                usuarioC = "S/U";
-                statusC = "1";
-                rol_cve.Text = logicaNegocio.validarRol(Session["user_cve"].ToString().ToUpper(), "ASG");
-                cmbProgramador.Visible = true;
-                DataTable datos = new DataTable();
-                cmbProgramador.Items.Clear();
-                cmbProgramador.Items.Insert(0, new ListItem("Selecciona una opción", String.Empty));
-                cmbProgramador.SelectedIndex = 0;
-                cmbProgramador.AppendDataBoundItems = true;
-                cmbProgramador.DataSource = logicaNegocio.ListadoProgramadores(1, "PRG");
-                cmbProgramador.DataValueField = "user_cve";
-                cmbProgramador.DataTextField = "nombre";
-                cmbProgramador.AutoPostBack = true;
-                cmbProgramador.DataBind();
-            }
             DataTable dt = new DataTable();
             DataRow dr;
             List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 0, "SOP");
@@ -338,7 +298,6 @@ namespace materialDesing
                     i++;
                 }
             }
-
             ViewState["dt"] = dt;
             this.BindGrid(); 
         }

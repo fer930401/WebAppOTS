@@ -6,8 +6,6 @@
         usuario.Text = Session["nombre"].ToString();
         user_cve.Text = Session["user_cve"].ToString().ToUpper();
     %>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
-  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.0.min.js" type="text/javascript"></script>
   <script type="text/javascript">
       $(document).ready(function () {
           $("#<%=GridView1.ClientID%> [id='subReng']").click(function () {
@@ -57,32 +55,8 @@
               });
           });
       });
-
-      $(document).ready(function () {
-          // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-          $('.modal-trigger').leanModal();
-      });
-      $(document).ready(function () {
-          $('select').material_select();
-      });
-
     </script>
     <style>
-        *{
-	        margin: 0;
-	        padding: 0;
-        }
-        #contenedor{
-	        margin: 10px auto;
-	        width: 540px;
-	        height: 115px;
-        }
-        .reloj{
-	        float: left;
-	        font-size: 80px;
-	        font-family: Courier,sans-serif;
-	        color: #363431;
-        }
         .pagination-ys {
             /*display: inline-block;*/
                 padding-left: 0;
@@ -266,57 +240,4 @@
             </div>
         </div>
     </div>
-
-    <script type="text/javascript" src="<%= ResolveUrl("js/pickadate.legacy.js") %>"></script>
-    <script type="text/javascript">
-        $('[type=date], .datepicker').pickadate()
-    </script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.0.min.js" type="text/javascript"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/jquery-ui.min.js" type="text/javascript"></script>
-    <link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/themes/blitzer/jquery-ui.css" rel="Stylesheet" type="text/css" /> 
-    <script type="text/javascript">
-        var user_cveF = $('#<%= cmbProgramador.ClientID %>').val();
-        if (user_cveF == null) {
-            user_cveF = $('#<%= user_cve.ClientID %>').val();
-        }
-        $(function () {
-            $("[id$=descripcion]").autocomplete({
-                source: function (request, response) {
-                    AjaxCall("C_Pendientes.aspx/GetDescripcion", request.term, 0, response, user_cveF)
-                },
-                select: function (e, i) {
-                    $("[id$=hfCustomerId]").val(i.item.val);
-                },
-                minLength: 1
-            });
-        });
-        function AjaxCall(url, prefix, parentId, response, user_cveF) {
-            $.ajax({
-                url: url,
-                data: "{ 'prefix': '" + prefix + "', parentId: " + parentId + ", 'user_cveF': '" + user_cveF + "'}",
-                dataType: "json",
-                type: "POST",
-                contentType: "application/json; charset=utf-8",
-                success: function (data) {
-                    response($.map(data.d, function (item) {
-                        return {
-                            label: item.split('-')[0],
-                            val: item.split('-')[1]
-                        }
-                    }))
-                },
-                error: function (response) {
-                    alert(r.responseText);
-                },
-                failure: function (response) {
-                    alert(r.responseText);
-                }
-            });
-        }
-        function tab_btn() {
-            document.getElementById('txtName').focus();
-            __doPostBack("txtName", "TextChanged");
-            return false;
-        }
-    </script>
 </asp:Content>
