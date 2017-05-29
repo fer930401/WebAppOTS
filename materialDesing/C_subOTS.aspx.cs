@@ -49,7 +49,7 @@ namespace materialDesing
                     }
                     DataTable dt = new DataTable();
                     DataRow dr;
-                    List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(usuarioC, tip_OTSU, 3, num_OTSU.ToString());
+                    List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(usuarioC, tip_OTSU, 3, num_OTSU.ToString(), "");
                     dt.Columns.Add("num_OTS", typeof(string));
                     dt.Columns.Add("tipo_OTS", typeof(string));
                     dt.Columns.Add("operacion", typeof(string));
@@ -94,12 +94,12 @@ namespace materialDesing
         {
             if (logicaNegocio.validarRol(Session["user_cve"].ToString().ToUpper(), "PRG") != null)
             {
-                this.GridView1.DataSource = logicaNegocio.ListadoOTS(Session["user_cve"].ToString().ToUpper(), "1", 0, "");
+                this.GridView1.DataSource = logicaNegocio.ListadoOTS(Session["user_cve"].ToString().ToUpper(), "1", 0, "", "");
                 GridView1.Columns[7].Visible = true;
             }
             else
             {
-                this.GridView1.DataSource = logicaNegocio.ListadoOTS("S/U", "1", 0, "");
+                this.GridView1.DataSource = logicaNegocio.ListadoOTS("S/U", "1", 0, "", "");
                 GridView1.Columns[7].Visible = false;
             }
             this.GridView1.DataBind();
@@ -133,7 +133,7 @@ namespace materialDesing
             }
             DataTable dt = new DataTable();
             DataRow dr;
-            List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(usuarioC, tip_OTSU, 3, num_OTSU.ToString());
+            List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(usuarioC, tip_OTSU, 3, num_OTSU.ToString(), "");
             dt.Columns.Add("num_OTS", typeof(string));
             dt.Columns.Add("tipo_OTS", typeof(string));
             dt.Columns.Add("operacion", typeof(string));

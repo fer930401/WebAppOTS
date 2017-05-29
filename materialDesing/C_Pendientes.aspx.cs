@@ -29,6 +29,7 @@ namespace materialDesing
                     rol_cve.Text = logicaNegocio.validarRol(clave.ToUpper(), "PRG");
                     cmbProgramador.Visible = false;
                     lblRespon.Visible = false;
+                    GridView1.Columns[2].Visible = false;
                 }
                 else
                 {
@@ -36,7 +37,9 @@ namespace materialDesing
                     statusC = "1";
                     rol_cve.Text = logicaNegocio.validarRol(clave.ToUpper(), "ASG");
                     cmbProgramador.Visible = true;
-                    DataTable datos = new DataTable();
+                }
+                if (!IsPostBack)
+                {
                     cmbProgramador.Items.Clear();
                     cmbProgramador.Items.Insert(0, new ListItem("Selecciona una opción", ""));
                     cmbProgramador.SelectedIndex = 0;
@@ -46,12 +49,10 @@ namespace materialDesing
                     cmbProgramador.DataTextField = "nombre";
                     cmbProgramador.AutoPostBack = true;
                     cmbProgramador.DataBind();
-                }
-                if (!IsPostBack)
-                {
+
                     DataTable dt = new DataTable();
                     DataRow dr;
-                    List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 0, "PEN");
+                    List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 0, "PEN","");
                     dt.Columns.Add("num_OTS", typeof(string));
                     dt.Columns.Add("tipo_OTS", typeof(string));
                     dt.Columns.Add("userResp", typeof(string));
@@ -87,10 +88,6 @@ namespace materialDesing
             {
                 Response.Redirect("Login.aspx");
             }
-            if (rol_cve.Text=="PRG")
-            {
-                GridView1.Columns[2].Visible = false;
-            }
         }
         protected void BindGrid()
         {
@@ -99,29 +96,17 @@ namespace materialDesing
         }
         protected void cmbProgramador_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string user_cveF = cmbProgramador.SelectedValue;
+            string user_filtro = cmbProgramador.SelectedValue;
             descripcion.Text = "";
             DataTable dt = new DataTable();
             DataRow dr;
-            if (logicaNegocio.validarRol(Session["user_cve"].ToString().ToUpper(), "PRG") != null)
-            {
-                usuarioC = Session["user_cve"].ToString().ToUpper();
-                statusC = "1";
-                rol_cve.Text = logicaNegocio.validarRol(Session["user_cve"].ToString().ToUpper(), "PRG");
-            }
-            else
-            {
-                usuarioC = "S/U";
-                statusC = "1";
-                rol_cve.Text = logicaNegocio.validarRol(Session["user_cve"].ToString().ToUpper(), "ASG");
-            }
             List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS;
-            if (user_cveF.Equals("") == false)
+            if (user_filtro.Equals("") == false)
             {
-                listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 1, user_cveF);
+                listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 1, "PEN", user_filtro);
             }else
             {
-                listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 0, "PEN");
+                listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 0, "PEN", "");
             }
                 dt.Columns.Add("num_OTS", typeof(string));
                 dt.Columns.Add("tipo_OTS", typeof(string));
@@ -150,9 +135,8 @@ namespace materialDesing
                         i++;
                     }
                 }
-
-                ViewState["dt"] = dt;
-                this.BindGrid();
+            ViewState["dt"] = dt;
+            this.BindGrid();
         }
 
         protected void descripcion_TextChanged(object sender, EventArgs e)
@@ -178,7 +162,7 @@ namespace materialDesing
             {
                  descr =  descr.Substring(0,49);
             }
-            List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(user_cveFi, statusC, 2, descr + "%");
+            List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(user_cveFi, statusC, 2, descr + "%", "");
             dt.Columns.Add("num_OTS", typeof(string));
             dt.Columns.Add("tipo_OTS", typeof(string));
             dt.Columns.Add("userResp", typeof(string));
@@ -261,7 +245,7 @@ namespace materialDesing
             this.GridView1.PageIndex = e.NewPageIndex;
             DataTable dt = new DataTable();
             DataRow dr;
-            List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 0, "PEN");
+            List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 0, "PEN", "");
             dt.Columns.Add("num_OTS", typeof(string));
             dt.Columns.Add("tipo_OTS", typeof(string));
             dt.Columns.Add("userResp", typeof(string));

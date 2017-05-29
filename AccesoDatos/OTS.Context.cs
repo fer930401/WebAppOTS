@@ -183,11 +183,11 @@ namespace AccesoDatos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_WebAppOTSAdmOTS_Result>("sp_WebAppOTSAdmOTS", sub_sistemaParameter, tip_OTSParameter, asgParameter, otsPParameter, otsTPParameter, operParameter, respParameter, statusParameter, descrParameter, fechaIniParameter, fechaFinParameter, aplicaParameter, tip_ProcesoParameter, nombre_OTSParameter, error_OTSParameter, solucion_OTSParameter, obs_OTSParameter, clasi_OTSParameter, opcionParameter, nomImgParameter, fec_promParameter);
         }
     
-        public virtual ObjectResult<sp_WebAppOTSConsultaOTS_Result> sp_WebAppOTSConsultaOTS(string user, string status, Nullable<int> opc, string filtro)
+        public virtual ObjectResult<sp_WebAppOTSConsultaOTS_Result> sp_WebAppOTSConsultaOTS(string user_cve, string status, Nullable<int> opc, string tipoOTS, string user_filtro)
         {
-            var userParameter = user != null ?
-                new ObjectParameter("user", user) :
-                new ObjectParameter("user", typeof(string));
+            var user_cveParameter = user_cve != null ?
+                new ObjectParameter("user_cve", user_cve) :
+                new ObjectParameter("user_cve", typeof(string));
     
             var statusParameter = status != null ?
                 new ObjectParameter("status", status) :
@@ -197,11 +197,15 @@ namespace AccesoDatos
                 new ObjectParameter("opc", opc) :
                 new ObjectParameter("opc", typeof(int));
     
-            var filtroParameter = filtro != null ?
-                new ObjectParameter("filtro", filtro) :
-                new ObjectParameter("filtro", typeof(string));
+            var tipoOTSParameter = tipoOTS != null ?
+                new ObjectParameter("tipoOTS", tipoOTS) :
+                new ObjectParameter("tipoOTS", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_WebAppOTSConsultaOTS_Result>("sp_WebAppOTSConsultaOTS", userParameter, statusParameter, opcParameter, filtroParameter);
+            var user_filtroParameter = user_filtro != null ?
+                new ObjectParameter("user_filtro", user_filtro) :
+                new ObjectParameter("user_filtro", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_WebAppOTSConsultaOTS_Result>("sp_WebAppOTSConsultaOTS", user_cveParameter, statusParameter, opcParameter, tipoOTSParameter, user_filtroParameter);
         }
     
         public virtual ObjectResult<sp_WebAppOTSConsultaUser_Result> sp_WebAppOTSConsultaUser(Nullable<int> status, string rol)

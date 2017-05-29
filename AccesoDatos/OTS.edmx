@@ -218,10 +218,11 @@ warning 6002: The table/view 'DBOTS.dbo.rolesxUsr' does not have a primary key d
           <Parameter Name="opcion" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="sp_WebAppOTSConsultaOTS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="user" Type="nchar" Mode="In" />
+          <Parameter Name="user_cve" Type="nchar" Mode="In" />
           <Parameter Name="status" Type="nchar" Mode="In" />
           <Parameter Name="opc" Type="int" Mode="In" />
-          <Parameter Name="filtro" Type="nvarchar" Mode="In" />
+          <Parameter Name="tipoOTS" Type="nvarchar" Mode="In" />
+          <Parameter Name="user_filtro" Type="nchar" Mode="In" />
         </Function>
         <Function Name="sp_WebAppOTSConsultaUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="status" Type="int" Mode="In" />
@@ -384,10 +385,11 @@ FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
             <Parameter Name="fec_prom" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="sp_WebAppOTSConsultaOTS" ReturnType="Collection(DBOTSModel.sp_WebAppOTSConsultaOTS_Result)">
-            <Parameter Name="user" Mode="In" Type="String" />
+            <Parameter Name="user_cve" Mode="In" Type="String" />
             <Parameter Name="status" Mode="In" Type="String" />
             <Parameter Name="opc" Mode="In" Type="Int32" />
-            <Parameter Name="filtro" Mode="In" Type="String" />
+            <Parameter Name="tipoOTS" Mode="In" Type="String" />
+            <Parameter Name="user_filtro" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_WebAppOTSConsultaUser" ReturnType="Collection(DBOTSModel.sp_WebAppOTSConsultaUser_Result)">
             <Parameter Name="status" Mode="In" Type="Int32" />

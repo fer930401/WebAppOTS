@@ -213,10 +213,11 @@ warning 6002: The table/view 'DBOTS.dbo.rolesxUsr' does not have a primary key d
     <Parameter Name="opcion" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="sp_WebAppOTSConsultaOTS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="user" Type="nchar" Mode="In" />
+    <Parameter Name="user_cve" Type="nchar" Mode="In" />
     <Parameter Name="status" Type="nchar" Mode="In" />
     <Parameter Name="opc" Type="int" Mode="In" />
-    <Parameter Name="filtro" Type="nvarchar" Mode="In" />
+    <Parameter Name="tipoOTS" Type="nvarchar" Mode="In" />
+    <Parameter Name="user_filtro" Type="nchar" Mode="In" />
   </Function>
   <Function Name="sp_WebAppOTSConsultaUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="status" Type="int" Mode="In" />

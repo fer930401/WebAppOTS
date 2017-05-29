@@ -73,9 +73,9 @@ namespace AccesoDatos
         {
             return (from s in contextoOTS.otscatlgos where s.cve_catlgo.Equals("OPR")  orderby s.nombre select s).ToList();
         }
-        public List<sp_WebAppOTSConsultaOTS_Result> ListaOTS(string user, string status, int opc, string filtro)
+        public List<sp_WebAppOTSConsultaOTS_Result> ListaOTS(string user_cve, string status, int opc, string tipoOTS, string user_filtro)
         {
-            return (contextoOTS.sp_WebAppOTSConsultaOTS(user, status,opc, filtro)).ToList();
+            return (contextoOTS.sp_WebAppOTSConsultaOTS(user_cve, status,opc, tipoOTS, user_filtro)).ToList();
         }
         public AccesoDatos.sp_WebAppOTSAdmParos_Result admParos(int? numOTS, string tipoOTS, string motivo, string opcion, int? numReng)
         {
