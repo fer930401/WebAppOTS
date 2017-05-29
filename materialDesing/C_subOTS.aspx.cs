@@ -24,32 +24,33 @@ namespace materialDesing
         {
             num_OTSU = Int32.Parse(Request["num_OTS"].ToString());
             tip_OTSU = Request["tip_OTS"].ToString().ToUpper();
+            tip_OTSU = tip_OTSU.Substring(0, 3);
             if (Session["user_cve"] != null)
             {
-                String clave = Session["user_cve"].ToString();
+                string clave = Session["user_cve"].ToString();
+                if (logicaNegocio.validarRol(clave, "PRG") != null)
+                {
+                    usuarioC = clave.ToUpper();
+                    statusC = "1";
+                    rol_cve.Text = logicaNegocio.validarRol(clave.ToUpper(), "PRG");
+                    GridView1.Columns[2].Visible = false;
+                }
+                else
+                {
+                    usuarioC = "S/U";
+                    statusC = "1";
+                    rol_cve.Text = logicaNegocio.validarRol(clave.ToUpper(), "ASG");
+                    GridView1.Columns[2].Visible = true;
+                    GridView1.Columns[8].Visible = false;
+                    GridView1.Columns[9].Visible = false;
+                    GridView1.Columns[10].Visible = false;
+                    GridView1.Columns[11].Visible = false;
+                }
                 if (!IsPostBack)
                 {
-                    if (logicaNegocio.validarRol(Session["user_cve"].ToString().ToUpper(), "PRG") != null)
-                    {
-                        usuarioC = Session["user_cve"].ToString().ToUpper();
-                        statusC = "1";
-                        rol_cve.Text = logicaNegocio.validarRol(Session["user_cve"].ToString().ToUpper(), "PRG");
-                        GridView1.Columns[2].Visible = false;
-                    }
-                    else
-                    {
-                        usuarioC = "S/U";
-                        statusC = "1";
-                        rol_cve.Text = logicaNegocio.validarRol(Session["user_cve"].ToString().ToUpper(), "ASG");
-                        GridView1.Columns[2].Visible = true;
-                        GridView1.Columns[8].Visible = false;
-                        GridView1.Columns[9].Visible = false;
-                        GridView1.Columns[10].Visible = false;
-                        GridView1.Columns[11].Visible = false;
-                    }
                     DataTable dt = new DataTable();
                     DataRow dr;
-                    List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(usuarioC, tip_OTSU, 3, num_OTSU.ToString(), "", "");
+                    List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 4, tip_OTSU, num_OTSU.ToString(), "");
                     dt.Columns.Add("num_OTS", typeof(string));
                     dt.Columns.Add("tipo_OTS", typeof(string));
                     dt.Columns.Add("operacion", typeof(string));
@@ -79,7 +80,6 @@ namespace materialDesing
                             i++;
                         }
                     }
-
                     ViewState["dt"] = dt;
                     this.BindGrid();
                 }
@@ -90,20 +90,6 @@ namespace materialDesing
             }
         }
 
-        private void llenaGrid()
-        {
-            if (logicaNegocio.validarRol(Session["user_cve"].ToString().ToUpper(), "PRG") != null)
-            {
-                this.GridView1.DataSource = logicaNegocio.ListadoOTS(Session["user_cve"].ToString().ToUpper(), "1", 0, "", "", "");
-                GridView1.Columns[7].Visible = true;
-            }
-            else
-            {
-                this.GridView1.DataSource = logicaNegocio.ListadoOTS("S/U", "1", 0, "", "", "");
-                GridView1.Columns[7].Visible = false;
-            }
-            this.GridView1.DataBind();
-        }
         protected void BindGrid()
         {
             GridView1.DataSource = ViewState["dt"] as DataTable;
@@ -113,27 +99,10 @@ namespace materialDesing
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             this.GridView1.PageIndex = e.NewPageIndex;
-            if (logicaNegocio.validarRol(Session["user_cve"].ToString().ToUpper(), "PRG") != null)
-            {
-                usuarioC = Session["user_cve"].ToString().ToUpper();
-                statusC = "1";
-                rol_cve.Text = logicaNegocio.validarRol(Session["user_cve"].ToString().ToUpper(), "PRG");
-                GridView1.Columns[2].Visible = false;
-            }
-            else
-            {
-                usuarioC = "S/U";
-                statusC = "1";
-                rol_cve.Text = logicaNegocio.validarRol(Session["user_cve"].ToString().ToUpper(), "ASG");
-                GridView1.Columns[2].Visible = true;
-                GridView1.Columns[7].Visible = false;
-                GridView1.Columns[8].Visible = false;
-                GridView1.Columns[9].Visible = false;
-                GridView1.Columns[10].Visible = false;
-            }
+            
             DataTable dt = new DataTable();
             DataRow dr;
-            List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(usuarioC, tip_OTSU, 3, num_OTSU.ToString(), "", "");
+            List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 4, tip_OTSU, num_OTSU.ToString(), "");
             dt.Columns.Add("num_OTS", typeof(string));
             dt.Columns.Add("tipo_OTS", typeof(string));
             dt.Columns.Add("operacion", typeof(string));
