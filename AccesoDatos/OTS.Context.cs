@@ -183,7 +183,7 @@ namespace AccesoDatos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_WebAppOTSAdmOTS_Result>("sp_WebAppOTSAdmOTS", sub_sistemaParameter, tip_OTSParameter, asgParameter, otsPParameter, otsTPParameter, operParameter, respParameter, statusParameter, descrParameter, fechaIniParameter, fechaFinParameter, aplicaParameter, tip_ProcesoParameter, nombre_OTSParameter, error_OTSParameter, solucion_OTSParameter, obs_OTSParameter, clasi_OTSParameter, opcionParameter, nomImgParameter, fec_promParameter);
         }
     
-        public virtual ObjectResult<sp_WebAppOTSConsultaOTS_Result> sp_WebAppOTSConsultaOTS(string user_cve, string status, Nullable<int> opc, string tipoOTS, string user_filtro)
+        public virtual ObjectResult<sp_WebAppOTSConsultaOTS_Result> sp_WebAppOTSConsultaOTS(string user_cve, string status, Nullable<int> opc, string tipoOTS, string user_filtro, string descr_filtro)
         {
             var user_cveParameter = user_cve != null ?
                 new ObjectParameter("user_cve", user_cve) :
@@ -205,7 +205,11 @@ namespace AccesoDatos
                 new ObjectParameter("user_filtro", user_filtro) :
                 new ObjectParameter("user_filtro", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_WebAppOTSConsultaOTS_Result>("sp_WebAppOTSConsultaOTS", user_cveParameter, statusParameter, opcParameter, tipoOTSParameter, user_filtroParameter);
+            var descr_filtroParameter = descr_filtro != null ?
+                new ObjectParameter("descr_filtro", descr_filtro) :
+                new ObjectParameter("descr_filtro", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_WebAppOTSConsultaOTS_Result>("sp_WebAppOTSConsultaOTS", user_cveParameter, statusParameter, opcParameter, tipoOTSParameter, user_filtroParameter, descr_filtroParameter);
         }
     
         public virtual ObjectResult<sp_WebAppOTSConsultaUser_Result> sp_WebAppOTSConsultaUser(Nullable<int> status, string rol)

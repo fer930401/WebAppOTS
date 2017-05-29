@@ -56,9 +56,9 @@ namespace LogicaNegocio
         {
             return datos.ListaOperaciones();
         }
-        public List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> ListadoOTS(string user_cve, string status, int opc, string tipoOTS, string user_filtro)
+        public List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> ListadoOTS(string user_cve, string status, int opc, string tipoOTS, string user_filtro, string descr_filtro)
         {
-            return datos.ListaOTS(user_cve, status,opc,tipoOTS, user_filtro);
+            return datos.ListaOTS(user_cve, status,opc,tipoOTS, user_filtro, descr_filtro);
         }
         public AccesoDatos.sp_WebAppOTSAdmParos_Result admParos(int? numOTS, string tipoOTS, string motivo, string opcion, int? numReng)
         {

@@ -73,6 +73,7 @@
       <Parameter Name="opc" Mode="In" Type="Int32" />
       <Parameter Name="tipoOTS" Mode="In" Type="String" />
       <Parameter Name="user_filtro" Mode="In" Type="String" />
+      <Parameter Name="descr_filtro" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_WebAppOTSConsultaUser" ReturnType="Collection(DBOTSModel.sp_WebAppOTSConsultaUser_Result)">
       <Parameter Name="status" Mode="In" Type="Int32" />

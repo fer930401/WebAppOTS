@@ -223,6 +223,7 @@ warning 6002: The table/view 'DBOTS.dbo.rolesxUsr' does not have a primary key d
           <Parameter Name="opc" Type="int" Mode="In" />
           <Parameter Name="tipoOTS" Type="nvarchar" Mode="In" />
           <Parameter Name="user_filtro" Type="nchar" Mode="In" />
+          <Parameter Name="descr_filtro" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="sp_WebAppOTSConsultaUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="status" Type="int" Mode="In" />
@@ -390,6 +391,7 @@ FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
             <Parameter Name="opc" Mode="In" Type="Int32" />
             <Parameter Name="tipoOTS" Mode="In" Type="String" />
             <Parameter Name="user_filtro" Mode="In" Type="String" />
+            <Parameter Name="descr_filtro" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_WebAppOTSConsultaUser" ReturnType="Collection(DBOTSModel.sp_WebAppOTSConsultaUser_Result)">
             <Parameter Name="status" Mode="In" Type="Int32" />

@@ -52,7 +52,7 @@ namespace materialDesing
 
                     DataTable dt = new DataTable();
                     DataRow dr;
-                    List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 0, "PEN","");
+                    List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 0, "PEN","", "");
                     dt.Columns.Add("num_OTS", typeof(string));
                     dt.Columns.Add("tipo_OTS", typeof(string));
                     dt.Columns.Add("userResp", typeof(string));
@@ -97,16 +97,33 @@ namespace materialDesing
         protected void cmbProgramador_SelectedIndexChanged(object sender, EventArgs e)
         {
             string user_filtro = cmbProgramador.SelectedValue;
-            descripcion.Text = "";
             DataTable dt = new DataTable();
             DataRow dr;
             List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS;
             if (user_filtro.Equals("") == false)
             {
-                listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 1, "PEN", user_filtro);
-            }else
+                variables.User_filtro = user_filtro;
+                if (string.IsNullOrEmpty(variables.Descrip_filtro) == true)
+                {
+                    listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 1, "PEN", user_filtro, "");
+                }
+                else
+                {
+                    listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 3, "PEN", user_filtro, variables.Descrip_filtro + "%");
+                }
+
+            }
+            else
             {
-                listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 0, "PEN", "");
+                if (string.IsNullOrEmpty(variables.Descrip_filtro) == true)
+                {
+                    listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 0, "PEN", "", "");
+                }
+                else
+                {
+                    listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 2, "PEN", "", variables.Descrip_filtro + "%");
+                }
+
             }
                 dt.Columns.Add("num_OTS", typeof(string));
                 dt.Columns.Add("tipo_OTS", typeof(string));
@@ -141,28 +158,43 @@ namespace materialDesing
 
         protected void descripcion_TextChanged(object sender, EventArgs e)
         {
-            string user_cveFi = cmbProgramador.SelectedValue;
             string descr = descripcion.Text;
             DataTable dt = new DataTable();
             DataRow dr;
-            if (logicaNegocio.validarRol(Session["user_cve"].ToString().ToUpper(), "PRG") != null)
+            List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS;
+            if (string.IsNullOrEmpty(descr) == true)
             {
-                usuarioC = Session["user_cve"].ToString().ToUpper();
-                user_cveFi = Session["user_cve"].ToString().ToUpper();
-                statusC = "1";
-                rol_cve.Text = logicaNegocio.validarRol(Session["user_cve"].ToString().ToUpper(), "PRG");
+                variables.Descrip_filtro = "";
+                if (string.IsNullOrEmpty(variables.User_filtro) == true)
+                {
+                    listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 0, "SOP", "", "");
+                }
+                else
+                {
+                    listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 1, "SOP", variables.User_filtro, "");
+                }
             }
             else
             {
-                usuarioC = "S/U";
-                statusC = "1";
-                rol_cve.Text = logicaNegocio.validarRol(Session["user_cve"].ToString().ToUpper(), "ASG");
+                if (descr.Length >= 50)
+                {
+                    descr = descr.Substring(0, 49);
+                    variables.Descrip_filtro = descr;
+                }
+                else
+                {
+                    variables.Descrip_filtro = descr;
+                }
+                if (string.IsNullOrEmpty(variables.User_filtro) == true)
+                {
+                    listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 2, "SOP", "", descr + "%");
+                }
+                else
+                {
+                    listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 3, "SOP", variables.User_filtro, descr + "%");
+                }
             }
-            if (descr.Length >= 50)
-            {
-                 descr =  descr.Substring(0,49);
-            }
-            List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(user_cveFi, statusC, 2, descr + "%", "");
+
             dt.Columns.Add("num_OTS", typeof(string));
             dt.Columns.Add("tipo_OTS", typeof(string));
             dt.Columns.Add("userResp", typeof(string));
@@ -194,50 +226,8 @@ namespace materialDesing
                     i++;
                 }
             }
-
             ViewState["dt"] = dt;
             this.BindGrid();
-        }
-
-        [WebMethod]
-        public static string[] GetDescripcion(string prefix, int parentId, string user_cveF)
-        {
-            SqlConnection _conn = new SqlConnection(variables.Conexion);
-            SqlCommand cmd = new SqlCommand();
-            if (user_cveF.Equals("") == true)
-            {
-                cmd.CommandText = "select num_OTS, descripcion from otsemov where descripcion like @SearchText + '%'";
-            }
-            else
-            {
-                if (user_cveF.Equals("undefined") == true)
-                {
-
-                }
-                cmd.CommandText = "select num_OTS, descripcion from otsemov where descripcion like '%' + @SearchText + '%' and userResp = '" + user_cveF.TrimStart(' ').TrimEnd(' ') + "'";
-            }
-            cmd.Parameters.AddWithValue("@SearchText", prefix.TrimStart(' ').TrimEnd(' '));
-            cmd.Parameters.AddWithValue("@userCve", user_cveF.TrimStart(' ').TrimEnd(' '));
-            return PopulateAutoComplete(cmd);
-        }
-        private static string[] PopulateAutoComplete(SqlCommand cmd)
-        {
-            List<string> autocompleteItems = new List<string>();
-            using (SqlConnection conn = new SqlConnection())
-            {
-                conn.ConnectionString = string.Format(variables.Conexion);
-                cmd.Connection = conn;
-                conn.Open();
-                using (SqlDataReader sdr = cmd.ExecuteReader())
-                {
-                    while (sdr.Read())
-                    {
-                        autocompleteItems.Add(string.Format("{0}-{1}", sdr[1], sdr[0]));
-                    }
-                }
-                conn.Close();
-            }
-            return autocompleteItems.ToArray();
         }
 
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -245,7 +235,20 @@ namespace materialDesing
             this.GridView1.PageIndex = e.NewPageIndex;
             DataTable dt = new DataTable();
             DataRow dr;
-            List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 0, "PEN", "");
+            int opc = 0;
+            if (string.IsNullOrEmpty(variables.Descrip_filtro) == false && string.IsNullOrEmpty(variables.User_filtro) == true)
+            {
+                opc = 2;
+            }
+            else if (string.IsNullOrEmpty(variables.Descrip_filtro) == true && string.IsNullOrEmpty(variables.User_filtro) == false)
+            {
+                opc = 1;
+            }
+            else if (string.IsNullOrEmpty(variables.Descrip_filtro) == false && string.IsNullOrEmpty(variables.User_filtro) == false)
+            {
+                opc = 3;
+            }
+            List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, opc, "PEN", "", "");
             dt.Columns.Add("num_OTS", typeof(string));
             dt.Columns.Add("tipo_OTS", typeof(string));
             dt.Columns.Add("userResp", typeof(string));

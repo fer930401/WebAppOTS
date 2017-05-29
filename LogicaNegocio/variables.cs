@@ -52,5 +52,19 @@ namespace LogicaNegocio
             get { return variables.M_statusOpc; }
             set { variables.M_statusOpc = value; }
         }
+
+        static string user_filtro;
+        public static string User_filtro
+        {
+            get { return variables.user_filtro; }
+            set { variables.user_filtro = value; }
+        }
+
+        static string descr_filtro;
+        public static string Descrip_filtro
+        {
+            get { return variables.descr_filtro; }
+            set { variables.descr_filtro = value; }
+        }
     }
 }
