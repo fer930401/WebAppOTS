@@ -8,76 +8,43 @@
         user_cve.Text = Session["user_cve"].ToString().ToUpper();
     %>
     <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>-->
-    <!--<script src="htp://ajax.aspnetcdn.com/ajax/jQuery/jquer-1.10.0.min.js" type="text/javascript"></script>-->
+    <!--<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.0.min.js" type="text/javascript"></script>-->
     <script type="text/javascript">
+
         $(function () {
-            $("#<%=GridView1.ClientID%> [id='hijosReng']").on("click", function () {
-                var tr = $(this).parent().parent().parent().parent().parent().parent();
-                var id_OTS = $("td:eq(0)", tr).html();
-                var tip_OTS = $("td:eq(1)", tr).html();
+            $("#btnImg").on("click", function () {
+                var id_OTS = document.getElementById("<%=lblNumOts.ClientID%>").innerHTML;
+                var tip_OTS = document.getElementById("<%=lblTipoOts.ClientID%>").innerHTML;
                 var dWidth = $(window).width() * 0.9;
                 var dHeight = $(window).height() * 0.9;
-                //alert(id_OTS);
+                //alert('img.aspx?num_OTS=' + id_OTS + '&tip_OTS=' + tip_OTS);
                 $('<div>').dialog({
                     modal: true,
                     open: function () {
-                        $(this).load('C_HijosOTS.aspx?num_OTS=' + id_OTS + '&tip_OTS=' + tip_OTS);
+                        $(this).load('img.aspx?num_OTS=' + id_OTS + '&tip_OTS=' + tip_OTS);
                     },
                     width: dWidth,
                     height: dHeight,
                     draggable: false,
-                    responsive: true
-                });
+                    responsive: true,
+                    close: function (e, ui) {
+                        window.location.href = 'C_subOTS.aspx?num_OTS=' + id_OTS + '&tip_OTS=' + tip_OTS;
+                    }
+                }).prev(".ui-dialog-titlebar").css("background", "#042644");
             });
         });
-        $(function () {
-            $("#<%=GridView1.ClientID%> [id='imgOTS']").on("click", function () {
-              var tr = $(this).parent().parent().parent().parent().parent().parent();
-              var id_OTS = $("td:eq(0)", tr).html();
-              var tip_OTS = $("td:eq(1)", tr).html();
-              var dWidth = $(window).width() * 0.9;
-              var dHeight = $(window).height() * 0.9;
-              //alert('C_imgOTS.aspx?num_OTS=' + id_OTS + '&tip_OTS=' + tip_OTS);
-              $('<div>').dialog({
-                  modal: true,
-                  open: function () {
-                      $(this).load('C_imgOTS.aspx?num_OTS=' + id_OTS + '&tip_OTS=' + tip_OTS);
-                  },
-                  width: dWidth,
-                  height: dHeight,
-                  draggable: false,
-                  responsive: true
-              });
-          });
-      });
-
-      $(document).ready(function () {
-          // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-          $('.modal-trigger').leanModal();
-      });
-
-      function confirmar() {
-          if (confirm('Desea eliminar este soporte?')) {
-              alert("Soporte Eliminado");
-              window.location.href = 'C_Soportes.aspx';
-          } else {
-              return false;
-          }
-      }
-      /*$(document).ready(function () {
-          $("#<=GridView1.ClientID%> [id='paroOTS']").click(function () {
-              var tr = $(this).parent().parent();
-              var id_OTS = $("td:eq(0)", tr).html();
-              var tip_OTST = $("td:eq(1)", tr).html();
-              var status_OTST = $("td:eq(4)", tr).html();
-              '<Session["variableSession"] = " id_OTS "; %>';
-            //alert(status_OTST);
-            window.location.href = "A_Paros.aspx?num_OTS=" + id_OTS + "&status=" + status_OTST + "&tipoOTS=" + tip_OTST;
-        });*/
-      //});
-      $(document).ready(function () {
-          $('select').material_select();
-      });
+        
+        function confirmar() {
+            if (confirm('Desea eliminar este soporte?')) {
+                alert("Soporte Eliminado");
+                window.location.href = 'C_Soportes.aspx';
+            } else {
+                return false;
+            }
+        }
+        $(document).ready(function () {
+            $('select').material_select();
+        });
     </script>
     <style>
         .pagination-ys {
@@ -138,6 +105,27 @@
                     background-color: #eeeeee;
                     border-color: #dddddd;
                 }
+
+        .ui-dialog {
+            z-index: 1000000000;
+            top: 0;
+            left: 0;
+            margin: auto;
+            position: fixed;
+            max-width: 100%;
+            max-height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+            .ui-dialog .ui-dialog-content {
+                flex: 1;
+            }
+
+            .ui-dialog .ui-dialog-buttonpane {
+                background: white;
+            }
     </style>
 
     <asp:ScriptManager ID="ScriptManager1" EnablePartialRendering="true" runat="server" EnablePageMethods="true"></asp:ScriptManager>
@@ -158,7 +146,7 @@
             <% 
                 for (int i = 1; i <= GridView1.Rows.Count; i++)
                 {
-                    if (rol_cve.Text == "PRG")
+                    if (rol_cve.Text == "PRG" || rol_cve.Text == "ASG")
                     {
                         foreach (GridViewRow row in GridView1.Rows)
                         {
@@ -216,26 +204,34 @@
                     <table>
                         <thead>
                             <tr>
+                                <th>Num OTS:</th>
                                 <th>Tipo OTS:</th>
                                 <th>Descripcion</th>
                                 <th>Aplica para:</th>
                                 <th>Status:</th>
+                                <th>Imagen:</th>
                             </tr>
                         </thead>
 
                         <tbody>
                             <tr>
                                 <td>
-                                    <asp:Label ID="lblTipoOts" runat="server" Text="Label"></asp:Label>
+                                    <asp:Label ID="lblNumOts" runat="server" Text=""></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:Label ID="lblDescripcion" runat="server" Text="Label"></asp:Label>
+                                    <asp:Label ID="lblTipoOts" runat="server" Text=""></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:Label ID="lblAplica" runat="server" Text="Label"></asp:Label>
+                                    <asp:Label ID="lblDescripcion" runat="server" Text=""></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:Label ID="lblStatus" runat="server" Text="Label"></asp:Label>
+                                    <asp:Label ID="lblAplica" runat="server" Text=""></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
+                                </td>
+                                <td>
+                                    <a id="btnImg" class="waves-effect waves-light btn light-blue darken-4">ver imagenes</a>
                                 </td>
                             </tr>
                         </tbody>
@@ -286,4 +282,6 @@
             </div>
         </div>
     </div>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/jquery-ui.min.js" type="text/javascript"></script>
+    <link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/themes/blitzer/jquery-ui.css" rel="Stylesheet" type="text/css" /> 
 </asp:Content>

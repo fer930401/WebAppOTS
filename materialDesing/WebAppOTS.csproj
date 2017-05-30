@@ -90,6 +90,7 @@
     <Content Include="C_Usuarios.aspx" />
     <Content Include="font\material-design-icons\LICENSE.txt" />
     <Content Include="font\material-design-icons\Material-Design-Icons.svg" />
+    <Content Include="img.aspx" />
     <Content Include="Inicio.aspx" />
     <Content Include="js\adapters\standalone-framework.js" />
     <Content Include="js\adapters\standalone-framework.src.js" />
@@ -264,6 +265,13 @@
     </Compile>
     <Compile Include="C_Usuarios.aspx.designer.cs">
       <DependentUpon>C_Usuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="img.aspx.cs">
+      <DependentUpon>img.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="img.aspx.designer.cs">
+      <DependentUpon>img.aspx</DependentUpon>
     </Compile>
     <Compile Include="Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>

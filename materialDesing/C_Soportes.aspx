@@ -228,7 +228,7 @@
                                             <ul>
                                                 <li><a class="btn-floating green darken-3 click-to-toggle tooltipped" id="btnAgregar" data-position="top" data-delay="50" data-tooltip="Agrega Sub OTS"><i class="material-icons">add</i></a></li>
                                                 <li><a class="btn-floating cyan darken-4 click-to-toggle tooltipped" id="subReng" data-position="top" data-delay="50" data-tooltip="Sub OTS"><i class="material-icons">message</i></a></li>
-                                                <li><a class="btn-floating green darken-3 click-to-toggle tooltipped" id="imgOTS" data-position="top" data-delay="50" data-tooltip="Img. OTS"><i class="material-icons">perm_media</i></a></li>
+                                                <!--<li><a class="btn-floating green darken-3 click-to-toggle tooltipped" id="imgOTS" data-position="top" data-delay="50" data-tooltip="Img. OTS"><i class="material-icons">perm_media</i></a></li>-->
                                                 <li><a class="btn-floating red darken-3 click-to-toggle tooltipped" id="btnReasignar" data-position="top" data-delay="50" data-tooltip="Reasigna"><i class="material-icons">replay</i></a></li>
                                             </ul>
                                         </div>

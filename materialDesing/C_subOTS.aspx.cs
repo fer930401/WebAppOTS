@@ -20,14 +20,19 @@ namespace materialDesing
         string statusC = "";
         int num_OTSU = 0;
         string tip_OTSU = "";
+        string tip_OTS = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             num_OTSU = Int32.Parse(Request["num_OTS"].ToString());
             tip_OTSU = Request["tip_OTS"].ToString().ToUpper();
+            tip_OTS = Request["tip_OTS"].ToString().ToUpper();
             tip_OTSU = tip_OTSU.Substring(0, 3);
+            consultaEncabezado(num_OTSU,tip_OTSU);
             if (Session["user_cve"] != null)
             {
                 string clave = Session["user_cve"].ToString();
+                
+
                 if (logicaNegocio.validarRol(clave, "PRG") != null)
                 {
                     usuarioC = clave.ToUpper();
@@ -37,7 +42,7 @@ namespace materialDesing
                 }
                 else
                 {
-                    usuarioC = "S/U";
+                    usuarioC = "ASG";
                     statusC = "1";
                     rol_cve.Text = logicaNegocio.validarRol(clave.ToUpper(), "ASG");
                     GridView1.Columns[2].Visible = true;
@@ -224,6 +229,25 @@ namespace materialDesing
         {
             Response.Redirect("C_Soportes.aspx");
         }
-
+        public void consultaEncabezado(int num_OTSc, string tipo_OTSc)
+        {
+            DataTable encabezado = new DataTable(); ;
+            SqlConnection _conn = new SqlConnection(variables.Conexion);
+            SqlCommand _cmd = new SqlCommand();
+            _cmd.Connection = _conn;
+            _cmd.CommandType = CommandType.Text;
+            _cmd.CommandText = String.Format("select num_OTS,tipo_OTS,descripcion,aplica,sts_prog,isnull(nomImg,'') as nomImg from otsemov where num_OTS = '{0}' and tipo_OTS = '{1}'", num_OTSc, tipo_OTSc);
+            SqlDataAdapter _da = new SqlDataAdapter(_cmd);
+            _conn.Open();
+            _cmd.ExecuteNonQuery();
+            _da.Fill(encabezado);
+            _conn.Close();
+            lblNumOts.Text = encabezado.Rows[0][0].ToString().TrimEnd(' ');
+            lblTipoOts.Text = encabezado.Rows[0][1].ToString().TrimEnd(' ');
+            lblDescripcion.Text = encabezado.Rows[0][2].ToString().TrimEnd(' ');
+            lblAplica.Text = encabezado.Rows[0][3].ToString().TrimEnd(' ');
+            lblStatus.Text = encabezado.Rows[0][4].ToString().TrimEnd(' ');
+            //lblImg.Text = encabezado.Rows[0][4].ToString().TrimEnd(' ');
+        }
     }
 }
