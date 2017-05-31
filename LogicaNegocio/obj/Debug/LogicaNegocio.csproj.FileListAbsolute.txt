@@ -42,14 +42,3 @@ C:\Projects\WebAppOTS\LogicaNegocio\bin\Debug\EntityFramework.xml
 C:\Projects\WebAppOTS\LogicaNegocio\obj\Debug\LogicaNegocio.csprojResolveAssemblyReference.cache
 C:\Projects\WebAppOTS\LogicaNegocio\obj\Debug\LogicaNegocio.dll
 C:\Projects\WebAppOTS\LogicaNegocio\obj\Debug\LogicaNegocio.pdb
-C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\LogicaNegocio\bin\Debug\LogicaNegocio.dll
-C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\LogicaNegocio\bin\Debug\LogicaNegocio.pdb
-C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\LogicaNegocio\bin\Debug\AccesoDatos.dll
-C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\LogicaNegocio\bin\Debug\Entidades.dll
-C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\LogicaNegocio\bin\Debug\EntityFramework.dll
-C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\LogicaNegocio\bin\Debug\AccesoDatos.pdb
-C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\LogicaNegocio\bin\Debug\Entidades.pdb
-C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\LogicaNegocio\bin\Debug\EntityFramework.xml
-C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\LogicaNegocio\obj\Debug\LogicaNegocio.csprojResolveAssemblyReference.cache
-C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\LogicaNegocio\obj\Debug\LogicaNegocio.dll
-C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\LogicaNegocio\obj\Debug\LogicaNegocio.pdb

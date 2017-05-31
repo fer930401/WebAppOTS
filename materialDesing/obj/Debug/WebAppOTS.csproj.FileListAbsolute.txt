@@ -34,15 +34,3 @@ C:\Projects\WebAppOTS\materialDesing\bin\EntityFramework.xml
 C:\Projects\WebAppOTS\materialDesing\obj\Debug\WebAppOTS.csprojResolveAssemblyReference.cache
 C:\Projects\WebAppOTS\materialDesing\obj\Debug\materialDesing.dll
 C:\Projects\WebAppOTS\materialDesing\obj\Debug\materialDesing.pdb
-C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\materialDesing\bin\materialDesing.dll.config
-C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\materialDesing\bin\materialDesing.dll
-C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\materialDesing\bin\materialDesing.pdb
-C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\materialDesing\bin\AccesoDatos.dll
-C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\materialDesing\bin\LogicaNegocio.dll
-C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\materialDesing\bin\EntityFramework.dll
-C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\materialDesing\bin\AccesoDatos.pdb
-C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\materialDesing\bin\LogicaNegocio.pdb
-C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\materialDesing\bin\EntityFramework.xml
-C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\materialDesing\obj\Debug\WebAppOTS.csprojResolveAssemblyReference.cache
-C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\materialDesing\obj\Debug\materialDesing.dll
-C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\materialDesing\obj\Debug\materialDesing.pdb
