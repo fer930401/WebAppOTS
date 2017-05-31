@@ -101,28 +101,6 @@
             text-transform: uppercase;
         }
     </style>
-    <!--<div class="side-nav-button">
-      <a id="sidebar-nav" href="#sidr" data-tooltip="Open side navbar">
-        <i class="medium material-icons">view_headline</i>
-      </a>
-    </div>
-
-    <div id="sidr" class="sidr left" style="display: none;">
-      <div class="container" style="margin-top:30px;width:90%;">
-        <img class="circle responsive-img" width="200" src="<%=ResolveUrl("~/Media/usuarioD.png") %>"/>
-            
-      </div>
-      <div class="side-navbar">
-        <ul style="margin-top:50px;">
-          <li><a href="#" class="active">Login</a></li>
-          <li><a href="#" class="side--blog">Inicio</a></li>
-          <li><a href="#" class="side--archive">Opcion 1</a></li>
-          <li><a href="#" class="side--projects">Opcion 2</a></li>
-          <li><a href="#" class="side--about">Opcion 3</a></li>
-          <li><a href="#" class="side--contact">Opcion 4</a></li>
-        </ul>
-      </div>
-    </div>-->
 
     <form id="form1" runat="server">
         <div class="container">
@@ -133,9 +111,7 @@
                         <img class="left responsive-img" src="<%=ResolveUrl("~/Media/skytex.png") %>" />
                     </div>
                     <div class="col s12 m7">
-                        <!--<h4><strong>OTS</strong></h4>
-                  <h4>On Time System</h4>-->
-                        <img class="right responsive-img" src="<%=ResolveUrl("~/Media/logo OTS5.png") %>" width="60%" height="10%" />
+                        <img class="right responsive-img" src="<%=ResolveUrl("~/Media/logo_OTS.png") %>" width="60%" height="10%" />
                     </div>
                 </div>
                 <div class="row">
@@ -158,14 +134,13 @@
                                 <i class="material-icons prefix">account_circle</i>
                                 <label for="claveUser">Clave de usuario:</label>
                                 <br /><br />
-                                <%--<asp:TextBox ID="claveUse" runat="server" Type="text" class="validate mayusculas" Required></asp:TextBox>--%>
                                 <asp:DropDownList ID="claveUser" runat="server" CssClass="browser-default"></asp:DropDownList>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s8">
                                 <i class="material-icons prefix">https</i>
-                                <input id="password" name="password" type="password" /><div id="error" class="chip amber darken-3 white-text">El bloqueo de mayusculas esta activado.</div>
+                                <input id="password" name="password" type="password" /><div id="error" class="chip amber darken-3 white-text">El bloqueo de mayusculas esta activado. sdfasfdasdf</div>
                                 <label for="password">Contraseña:</label>
                             </div>
                         </div>
@@ -178,7 +153,6 @@
             </div>
         </div>
     </form>
-    <!-- <footer class="page-footer light-blue darken-4"> -->
     <footer class="page-footer">
         <div class="container">
             <div class="row">

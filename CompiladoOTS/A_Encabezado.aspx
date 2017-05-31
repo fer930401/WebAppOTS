@@ -18,7 +18,7 @@
     <div class="container">
         <div class="col s12 card-panel grey lighten-5 z-depth-1">
             <div class="row">
-              <img class="right responsive-img" src="<%=ResolveUrl("~/Media/logo OTS5.png") %>" width="350" height="100"/>
+              <img class="right responsive-img" src="<%=ResolveUrl("~/Media/logo_OTS.png") %>" width="350" height="100"/>
               <br />
               <h4 class="center grey-text">Alta de Pendientes/Soportes</h4>
               <div class="col s12 m3">
@@ -30,8 +30,6 @@
                 <div class="col s12">
                     <div class="row">
                         <div class="input-field col s6">
-                            <!--<input id="ss" name="ss" type="text" class="validate"/>
-                            <label for="ss">Sub-Sistema:</label>-->
                             <label for="ss">Sub Sistema:</label><br /><br />
                             <asp:dropdownlist id ="ss" runat ="server" DataTextField="nombre"  DataValueField="elm_cve" ></asp:dropdownlist>                            
                         </div>
@@ -52,20 +50,9 @@
                             <input id="nomOTS" name="nomOTS" type="text" class="validate" required=""/>
                             <label for="nomOTS">Nombre del nuevo OTS:</label>
                         </div>
-                        <div class="input-field col s6">
-                            <!--<input id="otsP" name="otsP" type="hidden" value="1" readonly/>
-                            <label for="otsP">OTS padre:</label>-->
-                        </div>
-                        <div class="input-field col s6">
-                            <!--<input id="otsT" name="otsT" type="hidden" value="SOP" readonly/>
-                            <label for="otsT">OTS tipo:(tipo del ots padre)</label>-->
-                        </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s6">
-                            <%--<!--<textarea id="operacion" name="operacion" class="materialize-textarea" length="120"></textarea>-->
-                            <label for="operacion">Operación</label><br /><br />
-                            <asp:DropDownList ID="opr" runat="server" DataTextField="nombre"  DataValueField="elm_cve" ></asp:DropDownList>--%>
                             <label for="responsable">Programador Responsable:</label><br /><br />
                             <asp:dropdownlist id ="prg_res" runat ="server" DataTextField="nombre"  DataValueField="user_cve" ></asp:dropdownlist>                            
                         </div>
@@ -99,7 +86,7 @@
                                     <asp:FileUpload ID="uploadFile1" runat="server" class="multi" maxlength="3" accept=".gif,.jpg,.png" AllowMultiple="true" />
                                 </div>
                                 <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text" placeholder="Imagenes acerca del Pendiente/Soporte" required="">
+                                    <input class="file-path validate" type="text" placeholder="Imagenes acerca del Pendiente/Soporte" required=""/>
                                 </div>
                             </div>
                         </div>
@@ -108,7 +95,6 @@
                         <div class="input-field col s6">
                             <label for="aplica">Aplica Para:</label><br /><br />
                             <asp:CheckBoxList ID="apl_para2" runat="server" DataTextField="nombre"  DataValueField="elm_cve" ></asp:CheckBoxList>
-                            <!--<asp:dropdownlist id ="apl_para" runat ="server" DataTextField="nombre"  DataValueField="elm_cve" ></asp:dropdownlist>-->
                         </div>
                     </div>
                     <div class="row">
@@ -148,13 +134,12 @@
             firstDay: 1,
             isRTL: false,
             showMonthAfterYear: false,
-            yearSuffix: ''
+            yearSuffix: '',
+            minDate: 0
         };
         $.datepicker.setDefaults($.datepicker.regional['es']);
         $(function () {
             $("#fechaIni").datepicker();
             });
         </script>
-    <!--<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>-->
-    
 </asp:Content>

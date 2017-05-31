@@ -6,8 +6,6 @@
         usuario.Text = Session["nombre"].ToString();
         user_cve.Text = Session["user_cve"].ToString().ToUpper();
     %>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
-  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.0.min.js" type="text/javascript"></script>
   <script type="text/javascript">
       $(document).ready(function () {
           $("#<%=GridView1.ClientID%> [id='subReng']").click(function () {
@@ -28,29 +26,37 @@
           });
       });
       $(document).ready(function () {
-        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-        $('.modal-trigger').leanModal();
+          $("#<%=GridView1.ClientID%> [id='btnAgregar']").click(function () {
+              var tr = $(this).parent().parent().parent().parent().parent().parent();
+              var id_OTS = $("td:eq(0)", tr).html();
+              //alert(id_OTS);
+              window.location.href = "A_Detalle.aspx?num_OTS=" + id_OTS;
+          });
       });
-      $(document).ready(function () {
-          $('select').material_select();
+      $(function () {
+          $("#<%=GridView1.ClientID%> [id='btnReasignar']").click(function () {
+              var tr = $(this).parent().parent().parent().parent().parent().parent();;
+                    var id_OTS = $("td:eq(0)", tr).html();
+                    var tip_OTS = $("td:eq(1)", tr).html();
+                    var nom_resp = $("td:eq(2)", tr).html();
+                    var dWidth = $(window).width() * 0.9;
+                    var dHeight = $(window).height() * 0.9;
+                    //alert(id_OTS);
+                    $('<div>').dialog({
+                        modal: true,
+                        open: function () {
+                            $(this).load('ReasignaOTS.aspx?num_OTS=' + id_OTS + '&tip_OTS=' + tip_OTS);
+                        },
+                        width: dWidth,
+                        height: dHeight,
+                        draggable: false,
+                        responsive: true,
+                        title: 'reasignar ots'
+                    });
+                });
       });
     </script>
     <style>
-        *{
-	        margin: 0;
-	        padding: 0;
-        }
-        #contenedor{
-	        margin: 10px auto;
-	        width: 540px;
-	        height: 115px;
-        }
-        .reloj{
-	        float: left;
-	        font-size: 80px;
-	        font-family: Courier,sans-serif;
-	        color: #363431;
-        }
         .pagination-ys {
             /*display: inline-block;*/
                 padding-left: 0;
@@ -134,7 +140,7 @@
         
         <div class="col s12 card-panel grey lighten-5 z-depth-1">
             <div class="row">
-              <img class="right responsive-img" src="<%=ResolveUrl("~/Media/logo OTS5.png") %>" width="350" height="100"/>
+              <img class="right responsive-img" src="<%=ResolveUrl("~/Media/logo_OTS.png") %>" width="350" height="100"/>
               <br />
               <h4 class="center grey-text">Consulta de Soportes</h4>
               <div class="col s12 m3">
@@ -146,54 +152,35 @@
             <% 
                 for (int i=1; i <= GridView1.Rows.Count; i++)
                 {
-                    /*if (rol_cve.Text == "PRG")
-                    {  */                      
+                     
                         foreach (GridViewRow row in GridView1.Rows)
                         {
                             if (row.Cells[5].Text.Equals("Terminada") == true)
                             {
                                 row.BackColor = System.Drawing.ColorTranslator.FromHtml("#81c784");
                                 row.Cells[8].Text = "";
-                                /*row.Cells[10].Text = "";
-                                row.Cells[11].Text = "";*/
                             }
                             else if (row.Cells[5].Text.Equals("Desactivada") == true)
                             {
                                 row.Cells[4].Text = "";
-                                /* si hay alguna OTS desactivada los botones de ocultan */
-                                /*row.Cells[9].Text = "";
-                                row.Cells[10].Text = "";
-                                row.Cells[11].Text = "";*/
                             }
                             else if (row.Cells[5].Text.Equals("Pausa") == true)
                             {
                                 row.BackColor = System.Drawing.ColorTranslator.FromHtml("#FFA024");
                                 row.Cells[4].Text = "";
-                                /*row.Cells[9].Text = "";
-                                row.Cells[10].Text = "";*/
                                 int numOTSPausa = Int32.Parse(row.Cells[0].Text);
                             }
                             else if (row.Cells[5].Text.Equals("Iniciada") == true)
                             {
                                 row.BackColor = System.Drawing.ColorTranslator.FromHtml("#ffe0b2");
-                                /*row.Cells[9].Text = "";
-                                row.Cells[10].Visible = true;
-                                row.Cells[11].Visible = true;*/
                                 row.Cells[4].Text = "";
                                 int numOTSPausa = Int32.Parse(row.Cells[0].Text);
                             }
                             else if (row.Cells[5].Text.Equals("No Iniciada") == true)
                             {
                                 row.Cells[4].Text = "";
-                                /*row.Cells[9].Visible = true;
-                                row.Cells[10].Text = "";
-                                row.Cells[11].Text = ""; */
                             }
                         }
-                    /*}else
-                    {
-                            
-                    }*/
                 }
             %>
             <br />
@@ -215,7 +202,7 @@
             </div>
             <div>
                 <asp:GridView ID="GridView1" HeaderStyle-BackColor="#042644" HeaderStyle-ForeColor="White" 
-                        runat="server" AutoGenerateColumns="false" OnSelectedIndexChanged="OnSelectedIndexChanged" CssClass="responsive-table"
+                        runat="server" AutoGenerateColumns="false" CssClass="responsive-table"
                         PageSize="5" AllowPaging="true" OnPageIndexChanging="GridView1_PageIndexChanging" EmptyDataText="No hay resultados" >
                         <HeaderStyle BackColor="#042644" Font-Bold="True" />
                         <pagerstyle CssClass="pagination-ys" />
@@ -225,90 +212,34 @@
                             <asp:BoundField DataField="num_OTS" HeaderText="Folio:" ItemStyle-Width="150" />
                             <asp:BoundField DataField="tipo_OTS" HeaderText="Tipo OTS:" ItemStyle-Width="150" />
                             <asp:BoundField DataField="userResp" HeaderText="Responsable:" ItemStyle-Width="150" />
+                            <asp:BoundField DataField="descripcion" HeaderText="Descripcion:" ItemStyle-Width="150" />
                             <asp:BoundField DataField="fec_asig" HeaderText="Fecha Asignada:" ItemStyle-Width="150" />
                             <asp:BoundField DataField="fec_fin" HeaderText="Fecha Final:" ItemStyle-Width="150" />
                             <asp:BoundField DataField="sts_prog" HeaderText="Status:" ItemStyle-Width="150" />
                             <asp:BoundField DataField="aplica" HeaderText="Aplica Para:" ItemStyle-Width="150" />
                             <asp:BoundField DataField="fec_prom" HeaderText="Fecha Prometida:" ItemStyle-Width="150" />
-                            <asp:TemplateField HeaderText="Agrega Sub OTS:" ItemStyle-Width="150">
+                            
+                            
+                            <asp:TemplateField HeaderText="Detalles OTS:" ItemStyle-Width="900">
                                 <ItemTemplate>
-                                    <asp:Button Text="Agregar" ID="lnkSelect" runat="server" CommandName="Select" CssClass="waves-effect waves-light btn  green darken-4" />
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Detalles OTS:" ItemStyle-Width="150">
-                                <ItemTemplate>
-                                    <div style="position: relative; height: 70px;">
+                                    <div style="position: relative; height: 70px; text-align:left;">
                                         <div class="fixed-action-btn horizontal click-to-toggle tooltipped" data-position="top" data-delay="50" data-tooltip="Detalles" style="position: relative; display: inline-block; height: 70px;">
                                             <a class="btn-floating btn-large red darken-4"><i class="material-icons">toc</i></a>
                                             <ul>
+                                                <li><a class="btn-floating green darken-3 click-to-toggle tooltipped" id="btnAgregar" data-position="top" data-delay="50" data-tooltip="Agrega Sub OTS"><i class="material-icons">add</i></a></li>
                                                 <li><a class="btn-floating cyan darken-4 click-to-toggle tooltipped" id="subReng" data-position="top" data-delay="50" data-tooltip="Sub OTS"><i class="material-icons">message</i></a></li>
-                                                <li><a class="btn-floating green darken-3 click-to-toggle tooltipped" id="imgOTS" data-position="top" data-delay="50" data-tooltip="Img. OTS"><i class="material-icons">perm_media</i></a></li>
+                                                <!--<li><a class="btn-floating green darken-3 click-to-toggle tooltipped" id="imgOTS" data-position="top" data-delay="50" data-tooltip="Img. OTS"><i class="material-icons">perm_media</i></a></li>-->
+                                                <li><a class="btn-floating red darken-3 click-to-toggle tooltipped" id="btnReasignar" data-position="top" data-delay="50" data-tooltip="Reasigna"><i class="material-icons">replay</i></a></li>
                                             </ul>
                                         </div>
                                     </div>
                                 </ItemTemplate>
                             </asp:TemplateField>
+
                         </Columns>
                     </asp:GridView>
                 <br />
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="<%= ResolveUrl("js/pickadate.legacy.js") %>"></script>
-    <script type="text/javascript">
-        $('[type=date], .datepicker').pickadate()
-    </script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.0.min.js" type="text/javascript"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/jquery-ui.min.js" type="text/javascript"></script>
-    <link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/themes/blitzer/jquery-ui.css" rel="Stylesheet" type="text/css" /> 
-    <script type="text/javascript">
-        var user_cveF = $('#<%= cmbProgramador.ClientID %>').val();
-        if (user_cveF == null) {
-            user_cveF = $('#<%= user_cve.ClientID %>').val();
-        }
-        $(function () {
-            $("[id$=descripcion]").autocomplete({
-                source: function (request, response) {
-                    AjaxCall("C_Soportes.aspx/GetDescripcion", request.term, 0, response, user_cveF)
-                    //alert(user_cveF);
-                },
-                select: function (e, i) {
-                    $("[id$=hfCustomerId]").val(i.item.val);
-                },
-                minLength: 1
-            });
-        });
-        function AjaxCall(url, prefix, parentId, response, user_cveF) {
-            $.ajax({
-                url: url,
-                data: "{ 'prefix': '" + prefix + "', parentId: " + parentId + ", 'user_cveF': '" + user_cveF + "'}",
-                dataType: "json",
-                type: "POST",
-                contentType: "application/json; charset=utf-8",
-                success: function (data) {
-                    response($.map(data.d, function (item) {
-                        return {
-                            label: item.split('-')[0],
-                            val: item.split('-')[1]
-                        }
-                    }))
-                },
-                error: function (response) {
-                    alert(r.responseText);
-                },
-                failure: function (response) {
-                    alert(r.responseText);
-                }
-            });
-        }
-        function tab_btn() {
-            /*var t = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
-            if ((t == 9) || (t == 13)) {*/
-            document.getElementById('txtName').focus();
-            __doPostBack("txtName", "TextChanged");
-            return false;
-            /*}
-            return true;*/
-        }
-    </script>
 </asp:Content>

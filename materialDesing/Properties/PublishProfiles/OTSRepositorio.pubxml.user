@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\CompiladoOTS</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="AdmOpciones.aspx">
+      <publishTime>05/25/2017 09:37:32</publishTime>
+    </File>
+    <File Include="AdmUsuarios.aspx">
+      <publishTime>05/24/2017 08:53:29</publishTime>
+    </File>
+    <File Include="A_Detalle.aspx">
+      <publishTime>05/23/2017 14:01:17</publishTime>
+    </File>
+    <File Include="A_Encabezado.aspx">
+      <publishTime>05/23/2017 14:01:17</publishTime>
+    </File>
+    <File Include="A_Opciones.aspx">
+      <publishTime>05/25/2017 09:37:32</publishTime>
+    </File>
+    <File Include="A_Paros.aspx">
+      <publishTime>05/11/2017 09:34:14</publishTime>
+    </File>
+    <File Include="A_Usuarios.aspx">
+      <publishTime>05/23/2017 14:01:17</publishTime>
+    </File>
+    <File Include="bin/AccesoDatos.dll">
+      <publishTime>05/31/2017 08:59:41</publishTime>
+    </File>
+    <File Include="bin/DotNet.Highcharts.dll">
+      <publishTime>05/23/2014 11:33:56</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>05/02/2016 16:00:54</publishTime>
+    </File>
+    <File Include="bin/LogicaNegocio.dll">
+      <publishTime>05/31/2017 08:59:41</publishTime>
+    </File>
+    <File Include="bin/materialDesing.dll">
+      <publishTime>05/31/2017 08:59:42</publishTime>
+    </File>
+    <File Include="css/default.css">
+      <publishTime>04/20/2015 00:56:36</publishTime>
+    </File>
+    <File Include="css/default.date.css">
+      <publishTime>04/20/2015 00:56:36</publishTime>
+    </File>
+    <File Include="css/demo.css">
+      <publishTime>11/03/2016 12:26:45</publishTime>
+    </File>
+    <File Include="css/jquery.mmenu.all.css">
+      <publishTime>05/02/2016 14:14:54</publishTime>
+    </File>
+    <File Include="css/materialize.css">
+      <publishTime>05/26/2017 16:37:59</publishTime>
+    </File>
+    <File Include="css/materialize.min.css">
+      <publishTime>03/15/2017 10:56:30</publishTime>
+    </File>
+    <File Include="css/pickadate.01.default.css">
+      <publishTime>05/17/2013 04:46:06</publishTime>
+    </File>
+    <File Include="css/rtl.css">
+      <publishTime>04/10/2016 13:50:06</publishTime>
+    </File>
+    <File Include="css/style.css">
+      <publishTime>11/01/2015 23:28:12</publishTime>
+    </File>
+    <File Include="css/style2.css">
+      <publishTime>05/17/2013 04:46:06</publishTime>
+    </File>
+    <File Include="css/styleMenu.css">
+      <publishTime>06/21/2016 16:52:00</publishTime>
+    </File>
+    <File Include="C_imgOTS.aspx">
+      <publishTime>05/23/2017 14:01:18</publishTime>
+    </File>
+    <File Include="C_Pendientes.aspx">
+      <publishTime>05/31/2017 08:46:13</publishTime>
+    </File>
+    <File Include="C_Soportes.aspx">
+      <publishTime>05/31/2017 08:46:13</publishTime>
+    </File>
+    <File Include="C_subOTS.aspx">
+      <publishTime>05/31/2017 08:46:13</publishTime>
+    </File>
+    <File Include="C_Usuarios.aspx">
+      <publishTime>05/23/2017 14:01:17</publishTime>
+    </File>
+    <File Include="font/material-design-icons/LICENSE.txt">
+      <publishTime>04/08/2015 21:00:06</publishTime>
+    </File>
+    <File Include="font/material-design-icons/Material-Design-Icons.eot">
+      <publishTime>11/01/2015 23:28:12</publishTime>
+    </File>
+    <File Include="font/material-design-icons/Material-Design-Icons.svg">
+      <publishTime>11/01/2015 23:28:12</publishTime>
+    </File>
+    <File Include="font/material-design-icons/Material-Design-Icons.ttf">
+      <publishTime>11/01/2015 23:28:12</publishTime>
+    </File>
+    <File Include="font/material-design-icons/Material-Design-Icons.woff">
+      <publishTime>11/01/2015 23:28:12</publishTime>
+    </File>
+    <File Include="font/material-design-icons/Material-Design-Icons.woff2">
+      <publishTime>11/01/2015 23:28:12</publishTime>
+    </File>
+    <File Include="font/roboto/Roboto-Bold.eot">
+      <publishTime>12/21/2015 02:36:46</publishTime>
+    </File>
+    <File Include="font/roboto/Roboto-Bold.ttf">
+      <publishTime>04/08/2015 21:00:06</publishTime>
+    </File>
+    <File Include="font/roboto/Roboto-Bold.woff">
+      <publishTime>11/01/2015 23:28:12</publishTime>
+    </File>
+    <File Include="font/roboto/Roboto-Bold.woff2">
+      <publishTime>11/01/2015 23:28:12</publishTime>
+    </File>
+    <File Include="font/roboto/Roboto-Light.eot">
+      <publishTime>12/21/2015 02:36:46</publishTime>
+    </File>
+    <File Include="font/roboto/Roboto-Light.ttf">
+      <publishTime>04/08/2015 21:00:06</publishTime>
+    </File>
+    <File Include="font/roboto/Roboto-Light.woff">
+      <publishTime>11/01/2015 23:28:12</publishTime>
+    </File>
+    <File Include="font/roboto/Roboto-Light.woff2">
+      <publishTime>11/01/2015 23:28:12</publishTime>
+    </File>
+    <File Include="font/roboto/Roboto-Medium.eot">
+      <publishTime>12/21/2015 02:36:46</publishTime>
+    </File>
+    <File Include="font/roboto/Roboto-Medium.ttf">
+      <publishTime>04/08/2015 21:00:06</publishTime>
+    </File>
+    <File Include="font/roboto/Roboto-Medium.woff">
+      <publishTime>11/01/2015 23:28:12</publishTime>
+    </File>
+    <File Include="font/roboto/Roboto-Medium.woff2">
+      <publishTime>11/01/2015 23:28:12</publishTime>
+    </File>
+    <File Include="font/roboto/Roboto-Regular.eot">
+      <publishTime>12/21/2015 02:36:46</publishTime>
+    </File>
+    <File Include="font/roboto/Roboto-Regular.ttf">
+      <publishTime>04/08/2015 21:00:06</publishTime>
+    </File>
+    <File Include="font/roboto/Roboto-Regular.woff">
+      <publishTime>11/01/2015 23:28:12</publishTime>
+    </File>
+    <File Include="font/roboto/Roboto-Regular.woff2">
+      <publishTime>11/01/2015 23:28:12</publishTime>
+    </File>
+    <File Include="font/roboto/Roboto-Thin.eot">
+      <publishTime>12/21/2015 02:36:46</publishTime>
+    </File>
+    <File Include="font/roboto/Roboto-Thin.ttf">
+      <publishTime>04/08/2015 21:00:06</publishTime>
+    </File>
+    <File Include="font/roboto/Roboto-Thin.woff">
+      <publishTime>11/01/2015 23:28:12</publishTime>
+    </File>
+    <File Include="font/roboto/Roboto-Thin.woff2">
+      <publishTime>11/01/2015 23:28:12</publishTime>
+    </File>
+    <File Include="img.aspx">
+      <publishTime>05/31/2017 08:46:13</publishTime>
+    </File>
+    <File Include="Inicio.aspx">
+      <publishTime>05/26/2017 11:15:11</publishTime>
+    </File>
+    <File Include="js/adapters/standalone-framework.js">
+      <publishTime>04/14/2016 16:16:12</publishTime>
+    </File>
+    <File Include="js/adapters/standalone-framework.src.js">
+      <publishTime>04/14/2016 16:16:20</publishTime>
+    </File>
+    <File Include="js/grid-light.js">
+      <publishTime>05/03/2016 12:33:10</publishTime>
+    </File>
+    <File Include="js/highcharts-3d.js">
+      <publishTime>04/14/2016 16:05:52</publishTime>
+    </File>
+    <File Include="js/highcharts-3d.src.js">
+      <publishTime>04/14/2016 16:16:12</publishTime>
+    </File>
+    <File Include="js/highcharts-more.js">
+      <publishTime>04/14/2016 16:05:48</publishTime>
+    </File>
+    <File Include="js/highcharts-more.src.js">
+      <publishTime>04/14/2016 16:16:12</publishTime>
+    </File>
+    <File Include="js/highcharts.js">
+      <publishTime>04/14/2016 16:05:40</publishTime>
+    </File>
+    <File Include="js/highcharts.src.js">
+      <publishTime>04/14/2016 16:16:12</publishTime>
+    </File>
+    <File Include="js/index.js">
+      <publishTime>06/02/2016 11:29:35</publishTime>
+    </File>
+    <File Include="js/init.js">
+      <publishTime>07/07/2016 17:26:16</publishTime>
+    </File>
+    <File Include="js/jquery.mmenu.all.min.js">
+      <publishTime>05/02/2016 14:14:54</publishTime>
+    </File>
+    <File Include="js/materialize.js">
+      <publishTime>05/12/2017 16:39:58</publishTime>
+    </File>
+    <File Include="js/materialize.min.js">
+      <publishTime>12/22/2015 05:10:12</publishTime>
+    </File>
+    <File Include="js/modules/boost.js">
+      <publishTime>04/14/2016 16:16:12</publishTime>
+    </File>
+    <File Include="js/modules/boost.src.js">
+      <publishTime>04/14/2016 16:16:12</publishTime>
+    </File>
+    <File Include="js/modules/broken-axis.js">
+      <publishTime>04/14/2016 16:16:12</publishTime>
+    </File>
+    <File Include="js/modules/broken-axis.src.js">
+      <publishTime>04/14/2016 16:16:12</publishTime>
+    </File>
+    <File Include="js/modules/canvas-tools.js">
+      <publishTime>04/14/2016 16:16:12</publishTime>
+    </File>
+    <File Include="js/modules/canvas-tools.src.js">
+      <publishTime>04/14/2016 16:16:12</publishTime>
+    </File>
+    <File Include="js/modules/data.js">
+      <publishTime>04/14/2016 16:16:12</publishTime>
+    </File>
+    <File Include="js/modules/data.src.js">
+      <publishTime>04/14/2016 16:16:12</publishTime>
+    </File>
+    <File Include="js/modules/drilldown.js">
+      <publishTime>04/14/2016 16:16:12</publishTime>
+    </File>
+    <File Include="js/modules/drilldown.src.js">
+      <publishTime>04/14/2016 16:16:12</publishTime>
+    </File>
+    <File Include="js/modules/exporting.js">
+      <publishTime>04/14/2016 16:16:12</publishTime>
+    </File>
+    <File Include="js/modules/exporting.src.js">
+      <publishTime>04/14/2016 16:16:12</publishTime>
+    </File>
+    <File Include="js/modules/funnel.js">
+      <publishTime>04/14/2016 16:16:12</publishTime>
+    </File>
+    <File Include="js/modules/funnel.src.js">
+      <publishTime>04/14/2016 16:16:12</publishTime>
+    </File>
+    <File Include="js/modules/heatmap.js">
+      <publishTime>04/14/2016 16:16:12</publishTime>
+    </File>
+    <File Include="js/modules/heatmap.src.js">
+      <publishTime>04/14/2016 16:16:12</publishTime>
+    </File>
+    <File Include="js/modules/no-data-to-display.js">
+      <publishTime>04/14/2016 16:16:12</publishTime>
+    </File>
+    <File Include="js/modules/no-data-to-display.src.js">
+      <publishTime>04/14/2016 16:16:12</publishTime>
+    </File>
+    <File Include="js/modules/offline-exporting.js">
+      <publishTime>04/14/2016 16:16:12</publishTime>
+    </File>
+    <File Include="js/modules/offline-exporting.src.js">
+      <publishTime>04/14/2016 16:16:12</publishTime>
+    </File>
+    <File Include="js/modules/solid-gauge.js">
+      <publishTime>04/14/2016 16:16:12</publishTime>
+    </File>
+    <File Include="js/modules/solid-gauge.src.js">
+      <publishTime>04/14/2016 16:16:12</publishTime>
+    </File>
+    <File Include="js/modules/treemap.js">
+      <publishTime>04/14/2016 16:16:12</publishTime>
+    </File>
+    <File Include="js/modules/treemap.src.js">
+      <publishTime>04/14/2016 16:16:12</publishTime>
+    </File>
+    <File Include="js/pickadate.legacy.js">
+      <publishTime>05/17/2013 04:46:06</publishTime>
+    </File>
+    <File Include="js/themes/dark-blue.js">
+      <publishTime>04/14/2016 16:16:20</publishTime>
+    </File>
+    <File Include="js/themes/dark-green.js">
+      <publishTime>04/14/2016 16:16:20</publishTime>
+    </File>
+    <File Include="js/themes/dark-unica.js">
+      <publishTime>04/14/2016 16:16:20</publishTime>
+    </File>
+    <File Include="js/themes/gray.js">
+      <publishTime>04/14/2016 16:16:12</publishTime>
+    </File>
+    <File Include="js/themes/grid-light.js">
+      <publishTime>04/14/2016 16:16:20</publishTime>
+    </File>
+    <File Include="js/themes/grid.js">
+      <publishTime>04/14/2016 16:16:12</publishTime>
+    </File>
+    <File Include="js/themes/sand-signika.js">
+      <publishTime>04/14/2016 16:16:20</publishTime>
+    </File>
+    <File Include="js/themes/skies.js">
+      <publishTime>04/14/2016 16:16:12</publishTime>
+    </File>
+    <File Include="Login.aspx">
+      <publishTime>05/26/2017 10:43:50</publishTime>
+    </File>
+    <File Include="ReasignaOTS.aspx">
+      <publishTime>01/20/2017 10:55:18</publishTime>
+    </File>
+    <File Include="ReporteActividadesOTS.aspx">
+      <publishTime>07/20/2016 16:23:13</publishTime>
+    </File>
+    <File Include="Reportes.aspx">
+      <publishTime>05/23/2017 14:01:18</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>05/31/2017 08:59:43</publishTime>
+    </File>
+    <File Include="WebApp.Master">
+      <publishTime>05/31/2017 08:46:13</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

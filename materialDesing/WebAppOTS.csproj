@@ -169,6 +169,7 @@
     <Content Include="font\roboto\Roboto-Thin.woff" />
     <Content Include="font\roboto\Roboto-Thin.woff2" />
     <None Include="Properties\PublishProfiles\OTS.pubxml" />
+    <None Include="Properties\PublishProfiles\OTSRepositorio.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

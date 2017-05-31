@@ -18,7 +18,7 @@
         
         <div class="col s12 card-panel grey lighten-5 z-depth-1">
             <div class="row">
-              <img class="right responsive-img" src="<%=ResolveUrl("~/Media/logo OTS5.png") %>" width="350" height="100"/>
+              <img class="right responsive-img" src="<%=ResolveUrl("~/Media/logo_OTS.png") %>" width="350" height="100"/>
               <br />
               <h4 class="center grey-text">Alta de Usuarios</h4>
               <div class="col s12 m3">
@@ -40,21 +40,21 @@
                     <div class="row">
                         <label>Nombre del Usuario</label>
                         <div class="input-field col s11">
-                            <input id="nu" name="nu" type="text" class="validate" onchange="user_cve()"/>
+                            <input id="nu" name="nu" type="text" class="validate" onchange="user_cve()" required=""/>
                             <label for="nu">Nombre:</label>
                         </div>
                         <div class="input-field col s11">
-                            <input id="pu" name="pu" type="text" class="validate" onchange="user_cve()"/>
+                            <input id="pu" name="pu" type="text" class="validate" onchange="user_cve()" required=""/>
                             <label for="nu">Apellido Paterno:</label>
                         </div>
                         <div class="input-field col s11">
-                            <input id="mu" name="mu" type="text" class="validate" onchange="user_cve()"/>
+                            <input id="mu" name="mu" type="text" class="validate" onchange="user_cve()" required=""/>
                             <label for="nu">Apellido Materno:</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s11">
-                            <input id="co" name="co" type="password" class="validate"/>
+                            <input id="co" name="co" type="password" class="validate" required=""/>
                             <label for="co">Contraseña</label>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s11">
-                            <input id="eu" name="eu" class="validate" type="email"/>
+                            <input id="eu" name="eu" class="validate" type="email" required=""/>
                             <label for="eu">Email Usuario:</label>
                         </div>
                     </div>
@@ -95,17 +95,5 @@
             </div>
             </div>                          
         </div>
-    
     <script type="text/javascript" src="<%= ResolveUrl("js/pickadate.legacy.js") %>"></script>
-    <script type="text/javascript">
-        $('[type=date], .datepicker').pickadate()
-    </script>
-    <script>
-        /*$(document).ready(function () {
-            $('select').material_select();
-        });*/
-      </script>
-
-    <!--<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>-->
-    
 </asp:Content>

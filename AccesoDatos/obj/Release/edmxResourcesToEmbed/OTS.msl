@@ -24,6 +24,7 @@
     <EntitySetMapping Name="otsdcatlgos">
       <EntityTypeMapping TypeName="DBOTSModel.otsdcatlgos">
         <MappingFragment StoreEntitySet="otsdcatlgos">
+          <ScalarProperty Name="nom_catlgo" ColumnName="nom_catlgo" />
           <ScalarProperty Name="fec_ultact" ColumnName="fec_ultact" />
           <ScalarProperty Name="status" ColumnName="status" />
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
@@ -34,6 +35,7 @@
     <EntitySetMapping Name="otscatlgos">
       <EntityTypeMapping TypeName="DBOTSModel.otscatlgos">
         <MappingFragment StoreEntitySet="otscatlgos">
+          <ScalarProperty Name="status" ColumnName="status" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="elm_cve" ColumnName="elm_cve" />
           <ScalarProperty Name="cve_catlgo" ColumnName="cve_catlgo" />
@@ -113,19 +115,6 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_WebAppOTSConsultaUser" FunctionName="DBOTSModel.Store.sp_WebAppOTSConsultaUser">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="DBOTSModel.sp_WebAppOTSConsultaUser_Result">
-          <ScalarProperty Name="user_cve" ColumnName="user_cve" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="password" ColumnName="password" />
-          <ScalarProperty Name="mail" ColumnName="mail" />
-          <ScalarProperty Name="fec_ultact" ColumnName="fec_ultact" />
-          <ScalarProperty Name="status_usr" ColumnName="status_usr" />
-          <ScalarProperty Name="cve_rol" ColumnName="cve_rol" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_WebAppOTSAdmOTS" FunctionName="DBOTSModel.Store.sp_WebAppOTSAdmOTS">
       <ResultMapping>
         <ComplexTypeMapping TypeName="DBOTSModel.sp_WebAppOTSAdmOTS_Result">
@@ -148,6 +137,27 @@
           <ScalarProperty Name="fec_prom" ColumnName="fec_prom" />
           <ScalarProperty Name="aplica" ColumnName="aplica" />
           <ScalarProperty Name="sts_prog" ColumnName="sts_prog" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_WebAppOTSConsultaUser" FunctionName="DBOTSModel.Store.sp_WebAppOTSConsultaUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBOTSModel.sp_WebAppOTSConsultaUser_Result">
+          <ScalarProperty Name="user_cve" ColumnName="user_cve" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="fec_ultact" ColumnName="fec_ultact" />
+          <ScalarProperty Name="status_usr" ColumnName="status_usr" />
+          <ScalarProperty Name="cve_rol" ColumnName="cve_rol" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_WebAppOTSAdmOpc" FunctionName="DBOTSModel.Store.sp_WebAppOTSAdmOpc">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBOTSModel.sp_WebAppOTSAdmOpc_Result">
+          <ScalarProperty Name="error" ColumnName="error" />
+          <ScalarProperty Name="mensaje" ColumnName="mensaje" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

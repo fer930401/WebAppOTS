@@ -18,3 +18,13 @@ C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebAppOTS\AccesoDatos\bin\Re
 C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebAppOTS\AccesoDatos\obj\Release\AccesoDatos.csprojResolveAssemblyReference.cache
 C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebAppOTS\AccesoDatos\obj\Release\AccesoDatos.dll
 C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebAppOTS\AccesoDatos\obj\Release\AccesoDatos.pdb
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\AccesoDatos\bin\Release\AccesoDatos.dll.config
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\AccesoDatos\bin\Release\AccesoDatos.dll
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\AccesoDatos\bin\Release\AccesoDatos.pdb
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\AccesoDatos\bin\Release\Entidades.dll
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\AccesoDatos\bin\Release\EntityFramework.dll
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\AccesoDatos\bin\Release\Entidades.pdb
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\AccesoDatos\bin\Release\EntityFramework.xml
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\AccesoDatos\obj\Release\AccesoDatos.csprojResolveAssemblyReference.cache
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\AccesoDatos\obj\Release\AccesoDatos.dll
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\AccesoDatos\obj\Release\AccesoDatos.pdb

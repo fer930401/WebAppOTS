@@ -12,3 +12,10 @@ C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebAppOTS\Entidades\bin\Rele
 C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebAppOTS\Entidades\bin\Release\EntityFramework.xml
 C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebAppOTS\Entidades\obj\Release\Entidades.dll
 C:\Users\fernando.garcia\Documents\Proyectos Skytex\WebAppOTS\Entidades\obj\Release\Entidades.pdb
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\Entidades\bin\Release\Entidades.dll.config
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\Entidades\bin\Release\Entidades.dll
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\Entidades\bin\Release\Entidades.pdb
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\Entidades\bin\Release\EntityFramework.dll
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\Entidades\bin\Release\EntityFramework.xml
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\Entidades\obj\Release\Entidades.dll
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\Entidades\obj\Release\Entidades.pdb

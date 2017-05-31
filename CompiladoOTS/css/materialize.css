@@ -828,11 +828,11 @@
 }
 
 .light-blue.darken-4 {
-  background-color: #01579b !important;
+  background-color: #042644 !important;
 }
 
 .light-blue-text.text-darken-4 {
-  color: #01579b !important;
+  color: #042644 !important;
 }
 
 .light-blue.accent-1 {
@@ -8331,13 +8331,13 @@ button.btn-floating {
 }
 
 .fixed-action-btn.horizontal ul {
-  text-align: right;
-  right: 64px;
-  top: 50%;
+  text-align: left;
+  left: 94px;
+  top: 40%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   height: 100%;
-  left: initial;
+  right: initial;
   width: 500px;
   /*width 100% only goes to width of button container */
 }
@@ -11441,10 +11441,10 @@ label:focus {
   transform: translate3d(-240px, 0, 0);
   transition: transform 0.35s;
   /*background-color:rgba(225, 224, 223, 0.5);*/
-  z-index:99;
+  z-index:999;
 }
 .menu label.menu-toggle {
-  position: absolute;
+  position: fixed;
   right: -60px;
   width: 60px;
   height: 60px;
@@ -11452,7 +11452,7 @@ label:focus {
   display: block;
   padding: 0;
   text-indent: -9999px;
-  background: #fff url(https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/menu-alt-512.png) 50% 50%/25px 25px no-repeat;
+  background: url(https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/menu-alt-512.png) 50% 50%/25px 25px no-repeat;
 }
 .menu ul li > label {
   background: url(https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-arrow-right-b-128.png) 95% 50%/16px 16px no-repeat;
