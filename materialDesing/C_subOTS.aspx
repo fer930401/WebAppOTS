@@ -231,7 +231,7 @@
                                     <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
                                 </td>
                                 <td>
-                                    <a id="btnImg" class="waves-effect waves-light btn light-blue darken-4">ver imagenes</a>
+                                    <a id="btnImg" class="waves-effect waves-light btn light-blue darken-4" <% Response.Write(Session["visibleSOTS"]); %>>ver imagenes</a>
                                 </td>
                             </tr>
                         </tbody>

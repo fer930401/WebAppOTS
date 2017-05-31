@@ -247,7 +247,14 @@ namespace materialDesing
             lblDescripcion.Text = encabezado.Rows[0][2].ToString().TrimEnd(' ');
             lblAplica.Text = encabezado.Rows[0][3].ToString().TrimEnd(' ');
             lblStatus.Text = encabezado.Rows[0][4].ToString().TrimEnd(' ');
-            //lblImg.Text = encabezado.Rows[0][4].ToString().TrimEnd(' ');
+            if (string.IsNullOrEmpty(encabezado.Rows[0][5].ToString()))
+            {
+                Session["visibleSOTS"] = "style = 'display:none'"; 
+            }
+            else
+            {
+                Session["visibleSOTS"] = "";
+            }
         }
     }
 }
