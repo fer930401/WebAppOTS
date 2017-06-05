@@ -28,19 +28,19 @@ namespace materialDesing
                     opr.DataTextField = "nombre";
                     opr.DataValueField = "elm_cve";
                     opr.DataBind();
-                    int valor = Int32.Parse(Request["num_OTS"].ToString());
-                    List<AccesoDatos.otsemov> consultaOTSE = logicaNegocio.consulta_OTS(valor, clave);
+                    int num_folOTS = Int32.Parse(Request["num_OTS"].ToString());
+                    List<AccesoDatos.otsemov> OTSEncabezado = logicaNegocio.consulta_OTS(num_folOTS, clave);
 
-                    num_OTS.Text = consultaOTSE[0].num_OTS.ToString();
-                    tipo_OTS.Text = consultaOTSE[0].tipo_OTS.ToString();
-                    descripcion.Text = consultaOTSE[0].descripcion.ToString();
-                    fechaIni.Text = Convert.ToDateTime(consultaOTSE[0].fec_asig.ToString()).ToString("yyyy-MM-dd HH:MM:ss");
-                    fechaFin.Text = Convert.ToDateTime(consultaOTSE[0].fec_fin.ToString()).ToString("yyyy-MM-dd HH:MM:ss");
+                    num_OTS.Text = OTSEncabezado[0].num_OTS.ToString();
+                    tipo_OTS.Text = OTSEncabezado[0].tipo_OTS.ToString();
+                    descripcion.Text = OTSEncabezado[0].descripcion.ToString();
+                    fechaIni.Text = Convert.ToDateTime(OTSEncabezado[0].fec_asig.ToString()).ToString("yyyy-MM-dd HH:MM:ss");
+                    fechaFin.Text = Convert.ToDateTime(OTSEncabezado[0].fec_fin.ToString()).ToString("yyyy-MM-dd HH:MM:ss");
                     string idEntidad = "";
                     string nomEntidad = "";
-                    idEntidad = consultaOTSE[0].aplica.ToString();
+                    idEntidad = OTSEncabezado[0].aplica.ToString();
                     nomEntidad = entiFinancieras(idEntidad);
-                    string status = consultaOTSE[0].sts_prog.ToString().Trim();
+                    string status = OTSEncabezado[0].sts_prog.ToString().Trim();
 
                     cls.DataSource = logicaNegocio.ListadoCLSOTS();
                     cls.DataTextField = "nombre";
