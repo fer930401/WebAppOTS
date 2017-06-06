@@ -23,9 +23,12 @@ namespace materialDesing
             {
                 int num_OTSU = Int32.Parse(Request["num_OTS"].ToString());
                 string tip_OTSU = Request["tip_OTS"].ToString().ToUpper();
+                int opc = Int32.Parse(Request["opc"].ToString());
+                int ots_padre = Int32.Parse(Request["ots_padre"].ToString());
+                //Response.Write(opc);
                 tip_OTSU = tip_OTSU.Substring(0, 3);
                 txtNumOTS.Text = num_OTSU.ToString();
-                DataTable dt_OTS = reasignacion(num_OTSU, tip_OTSU);
+                DataTable dt_OTS = reasignacion(num_OTSU, ots_padre, tip_OTSU, opc);
                 txtResponsable.Text = dt_OTS.Rows[0][2].ToString();
                 txtTipoOTS.Text = Request["tip_OTS"].ToString();
                 DataTable datos = new DataTable();
@@ -40,7 +43,7 @@ namespace materialDesing
             }
             
         }
-        public DataTable reasignacion(int numOTS, string tip_OTSU)
+        public DataTable reasignacion(int numOTS, int ots_padre, string tip_OTSU, int opc)
         {
             DataTable dt = new DataTable();
             try
@@ -49,7 +52,15 @@ namespace materialDesing
                 SqlCommand _cmd = new SqlCommand();
                 _cmd.Connection = _conn;
                 _cmd.CommandType = CommandType.Text;
-                _cmd.CommandText = String.Format("select num_OTS,otscatlgos2.nombre,usuarios.nombre,descripcion from otsemov join otscatlgos otscatlgos2 on otscatlgos2.elm_cve = otsemov.tipo_OTS and otscatlgos2.cve_catlgo in ('OTS') join usuarios on usuarios.user_cve = otsemov.userResp and usuarios.status_usr = 1 where num_OTS = '{0}' and tipo_OTS = '{1}'", numOTS, tip_OTSU);
+                if (opc == 1)
+                {
+                    _cmd.CommandText = String.Format("select num_OTS,otscatlgos2.nombre,usuarios.nombre,descripcion from otsemov join otscatlgos otscatlgos2 on otscatlgos2.elm_cve = otsemov.tipo_OTS and otscatlgos2.cve_catlgo in ('OTS') join usuarios on usuarios.user_cve = otsemov.userResp and usuarios.status_usr = 1 where num_OTS = '{0}' and tipo_OTS = '{1}'", numOTS, tip_OTSU);
+                }
+                else if (opc == 2)
+                {
+                    _cmd.CommandText = String.Format("select num_reng,otscatlgos2.nombre,usuarios.nombre,descrip from otsdmov join otscatlgos otscatlgos2 on otscatlgos2.elm_cve = otsdmov.tipo_OTS and otscatlgos2.cve_catlgo in ('OTS') join usuarios on usuarios.user_cve = otsdmov.id_user and usuarios.status_usr = 1 where num_OTS= {0} and  num_reng = {1} and tipo_OTS = '{2}'", ots_padre, numOTS, tip_OTSU);
+                }
+                
                 SqlDataAdapter _da = new SqlDataAdapter(_cmd);
                 _conn.Open();
                 _cmd.ExecuteNonQuery();
@@ -69,11 +80,21 @@ namespace materialDesing
             string tipo_OTSU = Request["tip_OTS"].ToString();
             /* variable para la busqueda de valores extra en el mail */
             string tip_OTSU = Request["tip_OTS"].ToString().ToUpper();
+            int opc = Int32.Parse(Request["opc"].ToString());
+            int ots_padre = Int32.Parse(Request["ots_padre"].ToString());
             tip_OTSU = tip_OTSU.Substring(0, 3);
             DateTime fechaReasignado = Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyy"));
-            DataTable dt_OTS = reasignacion(numOTS, tip_OTSU);
+            DataTable dt_OTS = reasignacion(numOTS, ots_padre, tip_OTSU, opc);
             string nuevoRespo = cmbResponsable.SelectedValue.ToString();
-            sp_WebAppOTSAdmOTS_Result updateOTSE = logicaNegocio.admOTS("", tip_OTSU, nuevoRespo, numOTS, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "reasignarOTS", "", DateTime.Now);
+            sp_WebAppOTSAdmOTS_Result updateOTSE = null;
+            if (opc == 1)
+            {
+                updateOTSE = logicaNegocio.admOTS("", tip_OTSU, nuevoRespo, numOTS, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "reasignarOTS", "", DateTime.Now);
+            }
+            else if (opc == 2)
+            {
+                updateOTSE = logicaNegocio.admOTS(ots_padre.ToString(), tip_OTSU, nuevoRespo, numOTS, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "reasignarSubOTS", "", DateTime.Now);
+            }            
             if (updateOTSE != null)
             {
                 error = updateOTSE.error;
@@ -86,16 +107,17 @@ namespace materialDesing
                 }
                 else
                 {
-                    Response.Write("<script type=\"text/javascript\">alert('Se Encontro Un Error " + mensaje + " \\nIntente De Nuevo.');  window.location.href = 'C_Soportes.aspx';</script>");
+                    Response.Write("<script type=\"text/javascript\">alert('Se Encontro Un Error " + mensaje + " \\nIntente De Nuevo.');  window.location.href = 'Inicio.aspx';</script>");
                 }
             }
         }
         public void sendEmail(string responsable, string tip_OTS, string operacion, string descripcion, DateTime fechaFin)
         {
             string emailRespon = emailResponsable(responsable);
-            var to = emailRespon;
-            var cc = "Programador.Web1@Skytex.com.mx";
-            var bcc = "Programador.Web1@Skytex.com.mx";
+            //var to = emailRespon;
+            var to = "fernando.garcia@Skytex.com.mx";
+            var cc = "fernando.garcia@Skytex.com.mx";
+            var bcc = "fernando.garcia@Skytex.com.mx";
             var emailRemitente = "soludin@skytex.com.mx";
 
             var eMailSubject = "Reasignacion de OTS";

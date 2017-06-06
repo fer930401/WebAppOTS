@@ -51,20 +51,22 @@
                 var id_OTS = $("td:eq(0)", tr).html();
                 var tip_OTS = $("td:eq(1)", tr).html();
                 var nom_resp = $("td:eq(2)", tr).html();
+                var tipoReasigna = 2;
+                var ots_padre = document.getElementById("<%=lblNumOts.ClientID%>").innerHTML;
                 var dWidth = $(window).width() * 0.9;
                 var dHeight = $(window).height() * 0.9;
-                alert(id_OTS);
-                /*$('<div>').dialog({
+                //alert(ots_padre);
+                $('<div>').dialog({
                     modal: true,
                     open: function () {
-                        $(this).load('ReasignaOTS.aspx?num_OTS=' + id_OTS + '&tip_OTS=' + tip_OTS);
+                        $(this).load('ReasignaOTS.aspx?num_OTS=' + id_OTS + '&ots_padre=' + ots_padre + '&tip_OTS=' + tip_OTS + '&opc=' + tipoReasigna);
                     },
                     width: dWidth,
                     height: dHeight,
                     draggable: false,
                     responsive: true,
-                    title: 'reasignar ots'
-                });*/
+                    title: 'reasignar subOTS'
+                });
             });
         });
     </script>
@@ -148,6 +150,10 @@
         .ui-dialog .ui-dialog-buttonpane {
             background: white;
         }
+        .ui-dialog .ui-dialog-titlebar {
+            background:#042644;
+            border-color:#042644;
+        }
     </style>
 
     <asp:ScriptManager ID="ScriptManager1" EnablePartialRendering="true" runat="server" EnablePageMethods="true"></asp:ScriptManager>
@@ -179,6 +185,7 @@
                                 row.Cells[9].Text = "";
                                 row.Cells[10].Text = "";
                                 row.Cells[11].Text = "";
+                                row.Cells[12].Text = "";
                             }
                             else if (row.Cells[5].Text.Equals("Desactivada") == true)
                             {
@@ -196,6 +203,7 @@
                                 row.Cells[8].Text = "";
                                 row.Cells[9].Text = "";
                                 row.Cells[10].Text = "";
+                                row.Cells[12].Text = "";
                                 int numOTSPausa = Int32.Parse(row.Cells[0].Text);
                             }
                             else if (row.Cells[5].Text.Equals("Iniciada") == true)
@@ -204,6 +212,7 @@
                                 row.Cells[8].Text = "";
                                 row.Cells[11].Text = "";
                                 row.Cells[4].Text = "";
+                                row.Cells[12].Text = "";
                                 int numOTSPausa = Int32.Parse(row.Cells[0].Text);
                             }
                             else if (row.Cells[5].Text.Equals("No Iniciada") == true)
@@ -298,7 +307,7 @@
                                 <asp:Button Text="Continuar" ID="continuar" runat="server" CommandName="Select" CssClass="waves-effect waves-light btn red darken-4" OnClick="continuar_Click" />
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Detalles OTS:" ItemStyle-Width="900">
+                        <asp:TemplateField HeaderText="Reasignar SubOTS:">
                                 <ItemTemplate>
                                     <a class="btn-floating red darken-3 click-to-toggle tooltipped" id="btnReasignar" data-position="top" data-delay="50" data-tooltip="Reasigna"><i class="material-icons">replay</i></a>
                                 </ItemTemplate>

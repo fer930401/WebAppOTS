@@ -31,13 +31,15 @@ namespace materialDesing
                     cmbProgramador.Visible = false;
                     lblRespon.Visible = false;
                     GridView1.Columns[2].Visible = false;
+                    Session["visibleReasigna"] = "style = 'display:none'";
                 }
                 else
                 {
                     usuarioC = "ASG";
                     statusC = "1";
                     rol_cve.Text = logicaNegocio.validarRol(clave.ToUpper(), "ASG");
-                    cmbProgramador.Visible = true;                    
+                    cmbProgramador.Visible = true;
+                    Session["visibleAgregar"] = "style = 'display:none'";
                 }
                 if (!IsPostBack)
                 {
@@ -81,8 +83,10 @@ namespace materialDesing
                             dr["descripcion"] = elemento.descripcion;
                             dt.Rows.Add(dr);
                             i++;
+                            //Page.ClientScript.RegisterStartupScript(this.GetType(), "clientscript", "document.getElementById('btnReasignar').style.visibility = 'hidden';", true);
                         }
                     }
+                    
                     ViewState["dt"] = dt;
                     this.BindGrid();
                 }

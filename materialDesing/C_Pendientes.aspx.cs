@@ -30,6 +30,7 @@ namespace materialDesing
                     cmbProgramador.Visible = false;
                     lblRespon.Visible = false;
                     GridView1.Columns[2].Visible = false;
+                    Session["visibleReasigna"] = "style = 'display:none'";
                 }
                 else
                 {
@@ -37,6 +38,7 @@ namespace materialDesing
                     statusC = "1";
                     rol_cve.Text = logicaNegocio.validarRol(clave.ToUpper(), "ASG");
                     cmbProgramador.Visible = true;
+                    Session["visibleAgregar"] = "style = 'display:none'";
                 }
                 if (!IsPostBack)
                 {

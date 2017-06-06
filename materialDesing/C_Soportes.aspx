@@ -39,20 +39,25 @@
                     var id_OTS = $("td:eq(0)", tr).html();
                     var tip_OTS = $("td:eq(1)", tr).html();
                     var nom_resp = $("td:eq(2)", tr).html();
+                    var tipoReasigna = 1;
+                    var ots_padre = 0;
                     var dWidth = $(window).width() * 0.9;
                     var dHeight = $(window).height() * 0.9;
                     //alert(id_OTS);
                     $('<div>').dialog({
                         modal: true,
                         open: function () {
-                            $(this).load('ReasignaOTS.aspx?num_OTS=' + id_OTS + '&tip_OTS=' + tip_OTS);
+                            $(this).load('ReasignaOTS.aspx?num_OTS=' + id_OTS + '&ots_padre=' + ots_padre + '&tip_OTS=' + tip_OTS + '&opc=' + tipoReasigna);
                         },
                         width: dWidth,
                         height: dHeight,
                         draggable: false,
                         responsive: true,
-                        title: 'reasignar ots'
-                    });
+                        title: 'reasignar ots',
+                        close: function(e, ui) {
+                            window.location.href = 'C_Soportes.aspx';
+                        }
+                    })
                 });
       });
     </script>
@@ -133,8 +138,12 @@
         .ui-dialog .ui-dialog-buttonpane {
             background:white;
         }
+        .ui-dialog .ui-dialog-titlebar {
+            background:#042644;
+            border-color:#042644;
+        }
     </style>
-           
+
     <asp:ScriptManager ID="ScriptManager1" EnablePartialRendering="true" runat="server" EnablePageMethods="true"></asp:ScriptManager>
     <div class="container">
         
@@ -146,9 +155,12 @@
               <div class="col s12 m3">
                 <asp:TextBox ID="usuario" runat="server" ReadOnly="true" hidden></asp:TextBox>
                 <asp:TextBox ID="user_cve" runat="server" ReadOnly="true" hidden></asp:TextBox>
-                <asp:TextBox ID="rol_cve" runat="server" ReadOnly="true" hidden></asp:TextBox>
+                <asp:TextBox ID="rol_cve" runat="server" ReadOnly="true" ></asp:TextBox>
               </div>
-            </div>            
+            </div>  
+            <script>
+                //document.getElementById("btnReasignar").style.display = "none"
+            </script>          
             <% 
                 for (int i=1; i <= GridView1.Rows.Count; i++)
                 {
@@ -226,10 +238,10 @@
                                         <div class="fixed-action-btn horizontal click-to-toggle tooltipped" data-position="top" data-delay="50" data-tooltip="Detalles" style="position: relative; display: inline-block; height: 70px;">
                                             <a class="btn-floating btn-large red darken-4"><i class="material-icons">toc</i></a>
                                             <ul>
-                                                <li><a class="btn-floating green darken-3 click-to-toggle tooltipped" id="btnAgregar" data-position="top" data-delay="50" data-tooltip="Agrega Sub OTS"><i class="material-icons">add</i></a></li>
+                                                <li><a class="btn-floating green darken-3 click-to-toggle tooltipped" id="btnAgregar" data-position="top" data-delay="50" data-tooltip="Agrega Sub OTS" <% Response.Write(Session["visibleAgregar"]); %>><i class="material-icons">add</i></a></li>
                                                 <li><a class="btn-floating cyan darken-4 click-to-toggle tooltipped" id="subReng" data-position="top" data-delay="50" data-tooltip="Sub OTS"><i class="material-icons">message</i></a></li>
                                                 <!--<li><a class="btn-floating green darken-3 click-to-toggle tooltipped" id="imgOTS" data-position="top" data-delay="50" data-tooltip="Img. OTS"><i class="material-icons">perm_media</i></a></li>-->
-                                                <li><a class="btn-floating red darken-3 click-to-toggle tooltipped" id="btnReasignar" data-position="top" data-delay="50" data-tooltip="Reasigna"><i class="material-icons">replay</i></a></li>
+                                                <li><a class="btn-floating red darken-3 click-to-toggle tooltipped" id="btnReasignar" data-position="top" data-delay="50" data-tooltip="Reasigna" <% Response.Write(Session["visibleReasigna"]); %>><i class="material-icons">replay</i></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -242,4 +254,6 @@
             </div>
         </div>
     </div>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/jquery-ui.min.js" type="text/javascript"></script>
+    <link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/themes/blitzer/jquery-ui.css" rel="Stylesheet" type="text/css" /> 
 </asp:Content>

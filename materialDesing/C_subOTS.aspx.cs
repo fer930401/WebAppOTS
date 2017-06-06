@@ -39,6 +39,7 @@ namespace materialDesing
                     statusC = "1";
                     rol_cve.Text = logicaNegocio.validarRol(clave.ToUpper(), "PRG");
                     GridView1.Columns[2].Visible = false;
+                    GridView1.Columns[12].Visible = false;
                 }
                 else
                 {
