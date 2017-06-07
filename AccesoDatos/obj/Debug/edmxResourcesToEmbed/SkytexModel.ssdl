@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="skytexModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="xcuser">
+    <Key>
+      <PropertyRef Name="ef_cve" />
+      <PropertyRef Name="user_cve" />
+    </Key>
+    <Property Name="ef_cve" Type="nchar" MaxLength="3" Nullable="false" />
+    <Property Name="div_cve" Type="nchar" MaxLength="3" Nullable="false" />
+    <Property Name="user_cve" Type="nchar" MaxLength="3" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="dest_mail" Type="nvarchar" MaxLength="40" />
+    <Property Name="idioma" Type="nchar" MaxLength="3" />
+    <Property Name="srv_cve" Type="nvarchar" MaxLength="25" />
+    <Property Name="path_adobe" Type="nvarchar" MaxLength="255" />
+    <Property Name="status" Type="smallint" />
+  </EntityType>
+  <EntityContainer Name="skytexModelStoreContainer">
+    <EntitySet Name="xcuser" EntityType="Self.xcuser" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

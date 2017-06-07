@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="skytexModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="skytexEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="xcuser" EntityType="skytexModel.xcuser" />
+  </EntityContainer>
+  <EntityType Name="xcuser">
+    <Key>
+      <PropertyRef Name="ef_cve" />
+      <PropertyRef Name="user_cve" />
+    </Key>
+    <Property Name="ef_cve" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
+    <Property Name="div_cve" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
+    <Property Name="user_cve" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="dest_mail" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="idioma" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+    <Property Name="srv_cve" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="path_adobe" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="Int16" />
+  </EntityType>
+</Schema>
