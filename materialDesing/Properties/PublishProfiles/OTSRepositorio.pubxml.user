@@ -16,7 +16,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/24/2017 08:53:29</publishTime>
     </File>
     <File Include="A_Detalle.aspx">
-      <publishTime>05/23/2017 14:01:17</publishTime>
+      <publishTime>06/07/2017 13:44:36</publishTime>
     </File>
     <File Include="A_Encabezado.aspx">
       <publishTime>05/23/2017 14:01:17</publishTime>
@@ -31,7 +31,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/23/2017 14:01:17</publishTime>
     </File>
     <File Include="bin/AccesoDatos.dll">
-      <publishTime>05/31/2017 08:59:41</publishTime>
+      <publishTime>06/07/2017 13:58:01</publishTime>
     </File>
     <File Include="bin/DotNet.Highcharts.dll">
       <publishTime>05/23/2014 11:33:56</publishTime>
@@ -40,10 +40,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/02/2016 16:00:54</publishTime>
     </File>
     <File Include="bin/LogicaNegocio.dll">
-      <publishTime>05/31/2017 08:59:41</publishTime>
+      <publishTime>06/07/2017 13:58:02</publishTime>
     </File>
     <File Include="bin/materialDesing.dll">
-      <publishTime>05/31/2017 08:59:42</publishTime>
+      <publishTime>06/07/2017 13:58:02</publishTime>
     </File>
     <File Include="css/default.css">
       <publishTime>04/20/2015 00:56:36</publishTime>
@@ -82,13 +82,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/23/2017 14:01:18</publishTime>
     </File>
     <File Include="C_Pendientes.aspx">
-      <publishTime>05/31/2017 08:46:13</publishTime>
+      <publishTime>06/07/2017 13:44:36</publishTime>
     </File>
     <File Include="C_Soportes.aspx">
-      <publishTime>05/31/2017 08:46:13</publishTime>
+      <publishTime>06/07/2017 13:44:36</publishTime>
     </File>
     <File Include="C_subOTS.aspx">
-      <publishTime>05/31/2017 08:46:13</publishTime>
+      <publishTime>06/07/2017 13:44:36</publishTime>
     </File>
     <File Include="C_Usuarios.aspx">
       <publishTime>05/23/2017 14:01:17</publishTime>
@@ -175,7 +175,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/31/2017 08:46:13</publishTime>
     </File>
     <File Include="Inicio.aspx">
-      <publishTime>05/26/2017 11:15:11</publishTime>
+      <publishTime>06/01/2017 11:46:54</publishTime>
     </File>
     <File Include="js/adapters/standalone-framework.js">
       <publishTime>04/14/2016 16:16:12</publishTime>
@@ -322,7 +322,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/26/2017 10:43:50</publishTime>
     </File>
     <File Include="ReasignaOTS.aspx">
-      <publishTime>01/20/2017 10:55:18</publishTime>
+      <publishTime>06/07/2017 13:44:36</publishTime>
     </File>
     <File Include="ReporteActividadesOTS.aspx">
       <publishTime>07/20/2016 16:23:13</publishTime>
@@ -331,10 +331,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/23/2017 14:01:18</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/31/2017 08:59:43</publishTime>
+      <publishTime>06/07/2017 13:58:03</publishTime>
     </File>
     <File Include="WebApp.Master">
-      <publishTime>05/31/2017 08:46:13</publishTime>
+      <publishTime>06/07/2017 13:55:35</publishTime>
     </File>
   </ItemGroup>
 </Project>

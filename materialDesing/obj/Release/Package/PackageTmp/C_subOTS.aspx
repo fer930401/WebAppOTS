@@ -45,6 +45,30 @@
         $(document).ready(function () {
             $('select').material_select();
         });
+        $(function () {
+            $("#<%=GridView1.ClientID%> [id='btnReasignar']").click(function () {
+                var tr = $(this).parent().parent();
+                var id_OTS = $("td:eq(0)", tr).html();
+                var tip_OTS = $("td:eq(1)", tr).html();
+                var nom_resp = $("td:eq(2)", tr).html();
+                var tipoReasigna = 2;
+                var ots_padre = document.getElementById("<%=lblNumOts.ClientID%>").innerHTML;
+                var dWidth = $(window).width() * 0.9;
+                var dHeight = $(window).height() * 0.9;
+                //alert(ots_padre);
+                $('<div>').dialog({
+                    modal: true,
+                    open: function () {
+                        $(this).load('ReasignaOTS.aspx?num_OTS=' + id_OTS + '&ots_padre=' + ots_padre + '&tip_OTS=' + tip_OTS + '&opc=' + tipoReasigna);
+                    },
+                    width: dWidth,
+                    height: dHeight,
+                    draggable: false,
+                    responsive: true,
+                    title: 'reasignar subOTS'
+                });
+            });
+        });
     </script>
     <style>
         .pagination-ys {
@@ -53,58 +77,58 @@
             border-radius: 4px;
         }
 
-            .pagination-ys table > tbody > tr > td {
-                display: inline;
-            }
+        .pagination-ys table > tbody > tr > td {
+            display: inline;
+        }
 
-                .pagination-ys table > tbody > tr > td > a,
-                .pagination-ys table > tbody > tr > td > span {
-                    position: relative;
-                    float: left;
-                    padding: 8px 12px;
-                    line-height: 1.42857143;
-                    text-decoration: none;
-                    color: #dd4814;
-                    background-color: #ffffff;
-                    border: 1px solid #dddddd;
-                    margin-left: -1px;
-                }
+        .pagination-ys table > tbody > tr > td > a,
+        .pagination-ys table > tbody > tr > td > span {
+            position: relative;
+            float: left;
+            padding: 8px 12px;
+            line-height: 1.42857143;
+            text-decoration: none;
+            color: #dd4814;
+            background-color: #ffffff;
+            border: 1px solid #dddddd;
+            margin-left: -1px;
+        }
 
-                .pagination-ys table > tbody > tr > td > span {
-                    position: relative;
-                    float: left;
-                    padding: 8px 12px;
-                    line-height: 1.42857143;
-                    text-decoration: none;
-                    margin-left: -1px;
-                    z-index: 2;
-                    color: #aea79f;
-                    background-color: #f5f5f5;
-                    border-color: #dddddd;
-                    cursor: default;
-                }
+        .pagination-ys table > tbody > tr > td > span {
+            position: relative;
+            float: left;
+            padding: 8px 12px;
+            line-height: 1.42857143;
+            text-decoration: none;
+            margin-left: -1px;
+            z-index: 2;
+            color: #aea79f;
+            background-color: #f5f5f5;
+            border-color: #dddddd;
+            cursor: default;
+        }
 
-                .pagination-ys table > tbody > tr > td:first-child > a,
-                .pagination-ys table > tbody > tr > td:first-child > span {
-                    margin-left: 0;
-                    border-bottom-left-radius: 4px;
-                    border-top-left-radius: 4px;
-                }
+        .pagination-ys table > tbody > tr > td:first-child > a,
+        .pagination-ys table > tbody > tr > td:first-child > span {
+            margin-left: 0;
+            border-bottom-left-radius: 4px;
+            border-top-left-radius: 4px;
+        }
 
-                .pagination-ys table > tbody > tr > td:last-child > a,
-                .pagination-ys table > tbody > tr > td:last-child > span {
-                    border-bottom-right-radius: 4px;
-                    border-top-right-radius: 4px;
-                }
+        .pagination-ys table > tbody > tr > td:last-child > a,
+        .pagination-ys table > tbody > tr > td:last-child > span {
+            border-bottom-right-radius: 4px;
+            border-top-right-radius: 4px;
+        }
 
-                .pagination-ys table > tbody > tr > td > a:hover,
-                .pagination-ys table > tbody > tr > td > span:hover,
-                .pagination-ys table > tbody > tr > td > a:focus,
-                .pagination-ys table > tbody > tr > td > span:focus {
-                    color: #97310e;
-                    background-color: #eeeeee;
-                    border-color: #dddddd;
-                }
+        .pagination-ys table > tbody > tr > td > a:hover,
+        .pagination-ys table > tbody > tr > td > span:hover,
+        .pagination-ys table > tbody > tr > td > a:focus,
+        .pagination-ys table > tbody > tr > td > span:focus {
+            color: #97310e;
+            background-color: #eeeeee;
+            border-color: #dddddd;
+        }
 
         .ui-dialog {
             z-index: 1000000000;
@@ -119,13 +143,17 @@
             align-items: stretch;
         }
 
-            .ui-dialog .ui-dialog-content {
-                flex: 1;
-            }
+        .ui-dialog .ui-dialog-content {
+            flex: 1;
+        }
 
-            .ui-dialog .ui-dialog-buttonpane {
-                background: white;
-            }
+        .ui-dialog .ui-dialog-buttonpane {
+            background: white;
+        }
+        .ui-dialog .ui-dialog-titlebar {
+            background:#042644;
+            border-color:#042644;
+        }
     </style>
 
     <asp:ScriptManager ID="ScriptManager1" EnablePartialRendering="true" runat="server" EnablePageMethods="true"></asp:ScriptManager>
@@ -140,7 +168,7 @@
                     <asp:TextBox ID="usuario" runat="server" ReadOnly="true" hidden></asp:TextBox>
                     <asp:TextBox ID="user_cve" runat="server" ReadOnly="true" hidden></asp:TextBox>
                     <asp:TextBox ID="rol_cve" runat="server" ReadOnly="true" hidden></asp:TextBox>
-                    <asp:Button ID="soportes" runat="server" Text="Ir a soportes" OnClick="soportes_Click" CssClass="waves-effect waves-light btn  green darken-4" />
+                    <%--<asp:Button ID="soportes" runat="server" Text="Ir a soportes" OnClick="soportes_Click" CssClass="waves-effect waves-light btn  green darken-4" />--%>
                 </div>
             </div>
             <% 
@@ -157,6 +185,7 @@
                                 row.Cells[9].Text = "";
                                 row.Cells[10].Text = "";
                                 row.Cells[11].Text = "";
+                                row.Cells[12].Text = "";
                             }
                             else if (row.Cells[5].Text.Equals("Desactivada") == true)
                             {
@@ -174,6 +203,7 @@
                                 row.Cells[8].Text = "";
                                 row.Cells[9].Text = "";
                                 row.Cells[10].Text = "";
+                                row.Cells[12].Text = "";
                                 int numOTSPausa = Int32.Parse(row.Cells[0].Text);
                             }
                             else if (row.Cells[5].Text.Equals("Iniciada") == true)
@@ -182,6 +212,7 @@
                                 row.Cells[8].Text = "";
                                 row.Cells[11].Text = "";
                                 row.Cells[4].Text = "";
+                                row.Cells[12].Text = "";
                                 int numOTSPausa = Int32.Parse(row.Cells[0].Text);
                             }
                             else if (row.Cells[5].Text.Equals("No Iniciada") == true)
@@ -276,6 +307,11 @@
                                 <asp:Button Text="Continuar" ID="continuar" runat="server" CommandName="Select" CssClass="waves-effect waves-light btn red darken-4" OnClick="continuar_Click" />
                             </ItemTemplate>
                         </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Reasignar SubOTS:">
+                                <ItemTemplate>
+                                    <a class="btn-floating red darken-3 click-to-toggle tooltipped" id="btnReasignar" data-position="top" data-delay="50" data-tooltip="Reasigna"><i class="material-icons">replay</i></a>
+                                </ItemTemplate>
+                            </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
                 <br />
