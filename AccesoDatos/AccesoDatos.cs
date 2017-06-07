@@ -81,9 +81,9 @@ namespace AccesoDatos
         {
             return (contextoOTS.sp_WebAppOTSAdmParos(numOTS, tipoOTS, motivo, opcion, numReng)).FirstOrDefault();
         }
-        public List<otsemov> consulta_OTS(int numOTS, string user_cve)
+        public List<otsemov> consulta_OTS(int numOTS, string tipoOTS, string user_cve)
         {
-            var consulta = from e in contextoOTS.otsemov where e.num_OTS == numOTS && e.userResp == user_cve select e;
+            var consulta = from e in contextoOTS.otsemov where e.num_OTS == numOTS && e.userResp == user_cve && e.tipo_OTS == tipoOTS select e;
             return consulta.ToList();
         }
         public List<otscatlgos> ListaCLSOTS()

@@ -103,7 +103,14 @@ namespace materialDesing
                 if (Convert.ToInt32(error) == 0)
                 {
                     sendEmail(nuevoRespo, tipo_OTSU, dt_OTS.Rows[0][1].ToString(), dt_OTS.Rows[0][3].ToString(), fechaReasignado);
-                    Response.Write("<script type=\"text/javascript\">alert('" + mensaje + "');  window.location.href = 'C_Soportes.aspx';</script>");
+                    if (tip_OTSU.Equals("SOP") == true)
+                    {
+                        Response.Write("<script type=\"text/javascript\">alert('" + mensaje + "');  window.location.href = 'C_Soportes.aspx';</script>");
+                    }
+                    else if (tip_OTSU.Equals("PEN") == true)
+                    {
+                        Response.Write("<script type=\"text/javascript\">alert('" + mensaje + "');  window.location.href = 'C_Pendientes.aspx';</script>");
+                    }
                 }
                 else
                 {

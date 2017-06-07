@@ -30,7 +30,7 @@ namespace materialDesing
                     rol_cve.Text = logicaNegocio.validarRol(clave, "PRG");
                     cmbProgramador.Visible = false;
                     lblRespon.Visible = false;
-                    GridView1.Columns[2].Visible = false;
+                    //GridView1.Columns[2].Visible = false;
                     Session["visibleReasigna"] = "style = 'display:none'";
                 }
                 else

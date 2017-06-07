@@ -29,8 +29,10 @@
           $("#<%=GridView1.ClientID%> [id='btnAgregar']").click(function () {
               var tr = $(this).parent().parent().parent().parent().parent().parent();
               var id_OTS = $("td:eq(0)", tr).html();
-              alert(id_OTS);
-              window.location.href = "A_Detalle.aspx?num_OTS=" + id_OTS;
+              var tip_OTST = $("td:eq(1)", tr).html();
+              tip_OTST = tip_OTST.substring(0, 3);
+              //alert(id_OTS);
+              window.location.href = "A_Detalle.aspx?num_OTS=" + id_OTS + "&tip_OTS=" + tip_OTST;
           });
       });
       $(function () {

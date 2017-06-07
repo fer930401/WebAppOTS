@@ -168,7 +168,7 @@
                     <asp:TextBox ID="usuario" runat="server" ReadOnly="true" hidden></asp:TextBox>
                     <asp:TextBox ID="user_cve" runat="server" ReadOnly="true" hidden></asp:TextBox>
                     <asp:TextBox ID="rol_cve" runat="server" ReadOnly="true" hidden></asp:TextBox>
-                    <asp:Button ID="soportes" runat="server" Text="Ir a soportes" OnClick="soportes_Click" CssClass="waves-effect waves-light btn  green darken-4" />
+                    <%--<asp:Button ID="soportes" runat="server" Text="Ir a soportes" OnClick="soportes_Click" CssClass="waves-effect waves-light btn  green darken-4" />--%>
                 </div>
             </div>
             <% 

@@ -64,9 +64,9 @@ namespace LogicaNegocio
         {
             return datos.admParos(numOTS, tipoOTS, motivo, opcion, numReng);
         }
-        public List<AccesoDatos.otsemov> consulta_OTS(int numOTS, string user_cve)
+        public List<AccesoDatos.otsemov> consulta_OTS(int numOTS, string tipoOTS, string user_cve)
         {
-            return datos.consulta_OTS(numOTS, user_cve);
+            return datos.consulta_OTS(numOTS, tipoOTS, user_cve);
         }
         public List<AccesoDatos.otscatlgos> ListadoCLSOTS()
         {

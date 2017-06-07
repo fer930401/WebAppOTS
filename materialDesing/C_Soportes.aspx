@@ -29,8 +29,10 @@
           $("#<%=GridView1.ClientID%> [id='btnAgregar']").click(function () {
               var tr = $(this).parent().parent().parent().parent().parent().parent();
               var id_OTS = $("td:eq(0)", tr).html();
+              var tip_OTST = $("td:eq(1)", tr).html();
+              tip_OTST = tip_OTST.substring(0, 3);
               //alert(id_OTS);
-              window.location.href = "A_Detalle.aspx?num_OTS=" + id_OTS;
+              window.location.href = "A_Detalle.aspx?num_OTS=" + id_OTS + "&tip_OTS=" + tip_OTST;
           });
       });
       $(function () {
@@ -155,7 +157,7 @@
               <div class="col s12 m3">
                 <asp:TextBox ID="usuario" runat="server" ReadOnly="true" hidden></asp:TextBox>
                 <asp:TextBox ID="user_cve" runat="server" ReadOnly="true" hidden></asp:TextBox>
-                <asp:TextBox ID="rol_cve" runat="server" ReadOnly="true" ></asp:TextBox>
+                <asp:TextBox ID="rol_cve" runat="server" ReadOnly="true" hidden></asp:TextBox>
               </div>
             </div>  
             <script>

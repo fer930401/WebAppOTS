@@ -5,6 +5,10 @@
     <script type="text/javascript">
         document.getElementById("error").required = true;
         $('#error').prop('required', true);
+        function quitaValidacion() {
+            //alert("quito validacion");
+            $("#form1").attr("novalidate", "novalidate");
+        }
     </script>
     <div class="container">
         <div class="col s12 card-panel grey lighten-4 z-depth-1">
@@ -35,7 +39,7 @@
                             <label for="operacion">Proceso a realizar:</label>
                         </div>
                         <div class="input-field col s6">
-                            <asp:TextBox ID="nom_proceso" runat="server" name="nom_proceso" ></asp:TextBox>
+                            <asp:TextBox ID="nom_proceso" runat="server" name="nom_proceso" required></asp:TextBox>
                             <label for="nom_proceso">Nombre del Proceso:</label>
                         </div>
                     </div>
@@ -92,7 +96,7 @@
                         <div >
                             <asp:Button ID="btnGuardarOTSD" runat="server" Text="Guardar" CssClass="waves-effect green darken-4 btn" OnClick="btnGuardarOTSD_Click" />
                             <asp:Button ID="btnTerminarOTS" runat="server" Text="Terminar OTS" CssClass="waves-effect green darken-4 btn" OnClick="btnTerminarOTS_Click"/>
-                            <a class="waves-effect red darken-4 btn " href="C_Soportes.aspx">Cancelar</a>
+                            <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" CssClass="waves-effect red darken-4 btn" OnClick="btnCancelar_Click" OnClientClick="quitaValidacion()"/>
                         </div>
                     </div>
                 </div>

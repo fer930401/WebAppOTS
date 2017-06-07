@@ -29,7 +29,8 @@ namespace materialDesing
                     opr.DataValueField = "elm_cve";
                     opr.DataBind();
                     int num_folOTS = Int32.Parse(Request["num_OTS"].ToString());
-                    List<AccesoDatos.otsemov> OTSEncabezado = logicaNegocio.consulta_OTS(num_folOTS, clave);
+                    string tip_OTS = Request["tip_OTS"].ToString().ToUpper();
+                    List<AccesoDatos.otsemov> OTSEncabezado = logicaNegocio.consulta_OTS(num_folOTS, tip_OTS, clave);
 
                     num_OTS.Text = OTSEncabezado[0].num_OTS.ToString();
                     tipo_OTS.Text = OTSEncabezado[0].tipo_OTS.ToString();
@@ -82,11 +83,11 @@ namespace materialDesing
                 //si no se regreso ningun error
                 if (Convert.ToInt32(error) == 0)
                 {
-                    Response.Write("<script type=\"text/javascript\">alert('El Detalle del OTS a sido creado.'); window.location.href = 'C_Soportes.aspx';</script>");
+                    Response.Write("<script type=\"text/javascript\">alert('El Detalle del OTS a sido creado.'); window.location.href = 'A_Detalle.aspx?num_OTS=" + numOTS + "&tip_OTS=" + tip_OTS + "';</script>");
                 }
                 else
                 {
-                    Response.Write("<script type=\"text/javascript\">alert('Se Encontro Un Error " + mensaje + " \\nIntente De Nuevo.');  window.location.href = 'A_Detalle.aspx';</script>");
+                    Response.Write("<script type=\"text/javascript\">alert('Se Encontro Un Error " + mensaje + " \\nIntente De Nuevo.');  window.location.href = 'A_Detalle.aspx?num_OTS=" + numOTS + "&tip_OTS=" + tip_OTS + "';</script>");
                 }
             }
         }
@@ -94,6 +95,7 @@ namespace materialDesing
         protected void btnTerminarOTS_Click(object sender, EventArgs e)
         {
             int valor = Int32.Parse(Request.QueryString["num_OTS"]);
+            string tip_OTS = Request["tip_OTS"].ToString().ToUpper();
             string dificultad = Request["dificultad"];
             int numOTS = valor;
             string nom_OTS = "";
@@ -109,11 +111,11 @@ namespace materialDesing
                 if (Convert.ToInt32(error) == 0)
                 {
 
-                    Response.Write("<script type=\"text/javascript\">alert('El Detalle del OTS a sido terminado.'); window.location.href = 'C_Soportes.aspx';</script>");
+                    Response.Write("<script type=\"text/javascript\">alert('El Detalle del OTS a sido terminado.'); window.location.href = 'A_Detalle.aspx" + numOTS + "&tip_OTS=" + tip_OTS + "';</script>");
                 }
                 else
                 {
-                    Response.Write("<script type=\"text/javascript\">alert('Se Encontro Un Error " + mensaje + " \\nIntente De Nuevo.');  window.location.href = 'A_Detalle.aspx';</script>");
+                    Response.Write("<script type=\"text/javascript\">alert('Se Encontro Un Error " + mensaje + " \\nIntente De Nuevo.');  window.location.href = 'A_Detalle.aspx" + numOTS + "&tip_OTS=" + tip_OTS + "';</script>");
                 }
             }
         }
@@ -135,6 +137,20 @@ namespace materialDesing
             }
             nomEntidades = nomEntidades.Substring(0, nomEntidades.Length - 2);
             return nomEntidades;
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            int num_folOTS = Int32.Parse(Request["num_OTS"].ToString());
+            string tip_OTS = Request["tip_OTS"].ToString().ToUpper();
+            if (tip_OTS.Equals("SOP") == true)
+            {
+                Response.Redirect("C_Soportes.aspx");
+            }
+            else if (tip_OTS.Equals("PEN") == true)
+            {
+                Response.Redirect("C_Pendientes.aspx");
+            }
         }
     }
 }
