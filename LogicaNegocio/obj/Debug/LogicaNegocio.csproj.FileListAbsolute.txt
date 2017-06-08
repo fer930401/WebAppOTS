@@ -53,3 +53,14 @@ C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\LogicaNegocio\bin\Debu
 C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\LogicaNegocio\obj\Debug\LogicaNegocio.csprojResolveAssemblyReference.cache
 C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\LogicaNegocio\obj\Debug\LogicaNegocio.dll
 C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\LogicaNegocio\obj\Debug\LogicaNegocio.pdb
+C:\Users\jose.polledo\Documents\Repo_Github\WebAppOTS\LogicaNegocio\bin\Debug\LogicaNegocio.dll
+C:\Users\jose.polledo\Documents\Repo_Github\WebAppOTS\LogicaNegocio\bin\Debug\LogicaNegocio.pdb
+C:\Users\jose.polledo\Documents\Repo_Github\WebAppOTS\LogicaNegocio\bin\Debug\AccesoDatos.dll
+C:\Users\jose.polledo\Documents\Repo_Github\WebAppOTS\LogicaNegocio\bin\Debug\Entidades.dll
+C:\Users\jose.polledo\Documents\Repo_Github\WebAppOTS\LogicaNegocio\bin\Debug\EntityFramework.dll
+C:\Users\jose.polledo\Documents\Repo_Github\WebAppOTS\LogicaNegocio\bin\Debug\AccesoDatos.pdb
+C:\Users\jose.polledo\Documents\Repo_Github\WebAppOTS\LogicaNegocio\bin\Debug\Entidades.pdb
+C:\Users\jose.polledo\Documents\Repo_Github\WebAppOTS\LogicaNegocio\bin\Debug\EntityFramework.xml
+C:\Users\jose.polledo\Documents\Repo_Github\WebAppOTS\LogicaNegocio\obj\Debug\LogicaNegocio.csprojResolveAssemblyReference.cache
+C:\Users\jose.polledo\Documents\Repo_Github\WebAppOTS\LogicaNegocio\obj\Debug\LogicaNegocio.dll
+C:\Users\jose.polledo\Documents\Repo_Github\WebAppOTS\LogicaNegocio\obj\Debug\LogicaNegocio.pdb

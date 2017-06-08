@@ -55,33 +55,48 @@ namespace materialDesing
                 //si no se regreso ningun error
                 if (Convert.ToInt32(error) == 0)
                 {
+                    int rols = 0;
                     foreach (ListItem item in rol_cve.Items)
                     {
                         if (item.Selected)
                         {
-                            AccesoDatos.sp_WebAppOTSAdmUsers_Result RolUser = logicaNegocio.admUserOTS(user_cve.ToUpper(), "", "", 0, "", item.Value, "nRol");
-                            if (RolUser != null)
-                            {
-                                error = RolUser.error;
-                                mensaje = RolUser.mensaje;
-                            }
+                            rols++;
                         }
-                        else if (item.Selected == false)
+                    }
+                    if (rols>0)
+                    {
+                        foreach (ListItem item in rol_cve.Items)
                         {
-                            AccesoDatos.sp_WebAppOTSAdmUsers_Result RolUser = logicaNegocio.admUserOTS(user_cve.ToUpper(), "", "", 0, "", item.Value, "eRol");
-                            if (RolUser != null)
+                            if (item.Selected)
                             {
-                                error = RolUser.error;
-                                mensaje = RolUser.mensaje;
+                                AccesoDatos.sp_WebAppOTSAdmUsers_Result RolUser = logicaNegocio.admUserOTS(user_cve.ToUpper(), "", "", 0, "", item.Value, "nRol");
+                                if (RolUser != null)
+                                {
+                                    error = RolUser.error;
+                                    mensaje = RolUser.mensaje;
+                                }
+                            }
+                            else if (item.Selected == false)
+                            {
+                                AccesoDatos.sp_WebAppOTSAdmUsers_Result RolUser = logicaNegocio.admUserOTS(user_cve.ToUpper(), "", "", 0, "", item.Value, "eRol");
+                                if (RolUser != null)
+                                {
+                                    error = RolUser.error;
+                                    mensaje = RolUser.mensaje;
+                                }
                             }
                         }
+                        Response.Write("<script type=\"text/javascript\">alert('El Usuario: " + nombre.ToUpper() + " \\nHa Sido Modificado.');  window.location.href = 'C_Usuarios.aspx';</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script type=\"text/javascript\">alert('Seleccione al menos 1 rol para el usuario \\nIntente De Nuevo.');</script>");
                     }
                     /*variables.M_User_cve = null;
                     variables.M_Nombre = null;
                     variables.M_Email = null;
                     variables.M_Status = null;
                     variables.M_Roles = null;*/
-                    Response.Write("<script type=\"text/javascript\">alert('El Usuario: " + nombre.ToUpper() + " \\nHa Sido Modificado.');  window.location.href = 'C_Usuarios.aspx';</script>");
                 }
                 else
                 {

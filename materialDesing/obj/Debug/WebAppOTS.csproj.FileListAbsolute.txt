@@ -46,3 +46,15 @@ C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\materialDesing\bin\Ent
 C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\materialDesing\obj\Debug\WebAppOTS.csprojResolveAssemblyReference.cache
 C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\materialDesing\obj\Debug\materialDesing.dll
 C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\materialDesing\obj\Debug\materialDesing.pdb
+C:\Users\jose.polledo\Documents\Repo_Github\WebAppOTS\materialDesing\bin\materialDesing.dll.config
+C:\Users\jose.polledo\Documents\Repo_Github\WebAppOTS\materialDesing\bin\materialDesing.dll
+C:\Users\jose.polledo\Documents\Repo_Github\WebAppOTS\materialDesing\bin\materialDesing.pdb
+C:\Users\jose.polledo\Documents\Repo_Github\WebAppOTS\materialDesing\bin\AccesoDatos.dll
+C:\Users\jose.polledo\Documents\Repo_Github\WebAppOTS\materialDesing\bin\LogicaNegocio.dll
+C:\Users\jose.polledo\Documents\Repo_Github\WebAppOTS\materialDesing\bin\EntityFramework.dll
+C:\Users\jose.polledo\Documents\Repo_Github\WebAppOTS\materialDesing\bin\AccesoDatos.pdb
+C:\Users\jose.polledo\Documents\Repo_Github\WebAppOTS\materialDesing\bin\LogicaNegocio.pdb
+C:\Users\jose.polledo\Documents\Repo_Github\WebAppOTS\materialDesing\bin\EntityFramework.xml
+C:\Users\jose.polledo\Documents\Repo_Github\WebAppOTS\materialDesing\obj\Debug\WebAppOTS.csprojResolveAssemblyReference.cache
+C:\Users\jose.polledo\Documents\Repo_Github\WebAppOTS\materialDesing\obj\Debug\materialDesing.dll
+C:\Users\jose.polledo\Documents\Repo_Github\WebAppOTS\materialDesing\obj\Debug\materialDesing.pdb
