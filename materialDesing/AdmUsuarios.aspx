@@ -22,7 +22,7 @@
                     <div class="row">
                         <div class="input-field col s11">
                             <span class="grey-text">Clave del Usuario (User_cve)</span>
-                            <asp:TextBox ID="txtUser_cve" runat="server" CssClass="validate" required></asp:TextBox>
+                            <asp:TextBox ID="txtUser_cve" runat="server" CssClass="validate" ReadOnly="true"></asp:TextBox>
                         </div>
                     </div>
                     <div class="row">
