@@ -17,7 +17,7 @@
                 <div class="col s12">
                     <div class="row">
                         <div class="input-field col s6">
-                            <asp:DropDownList ID="cmbOpciones" runat="server" OnSelectedIndexChanged="cmbOpciones_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                            <asp:DropDownList ID="cmbOpciones" runat="server" OnSelectedIndexChanged="cmbOpciones_SelectedIndexChanged" AutoPostBack="true" required></asp:DropDownList>
                             <label for="opciones">Opciones disponibles:</label>
                         </div>
                         <div class="input-field col s6">
@@ -47,7 +47,7 @@
                     <br />
                     <div class="row">
                         <div >
-                            <asp:Button ID="btnGuardarOpc" runat="server" Text="Guardar" CssClass="waves-effect green darken-4 btn" OnClick="btnGuardarOpc_Click" />
+                            <asp:Button ID="btnGuardarOpc" runat="server" Text="Guardar" CssClass="waves-effect green darken-4 btn" OnClick="btnGuardarOpc_Click" OnClientClick="return ValidaCombo();" />
                             <a class="waves-effect red darken-4 btn " href="Inicio.aspx">Cancelar</a>
                         </div>
                     </div>
@@ -55,4 +55,16 @@
             </div>
         </div>
     </div>
+<script type="text/javascript">
+    function ValidaCombo() {
+        var combo = document.getElementById('<%=cmbOpciones.ClientID%>').selectedIndex;
+        if (combo==0) {
+            alert("Selecciona una opcion");
+            return false;
+        } else {
+            return true;
+        }
+        
+    }
+</script>
 </asp:Content>

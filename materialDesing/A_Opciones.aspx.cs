@@ -39,23 +39,50 @@ namespace materialDesing
         protected void btnGuardarOpc_Click(object sender, EventArgs e)
         {
             string newCve_catlgo = cmbOpciones.SelectedValue;
-            string newElm_cve = elm_cve.Text;
-            string newNombre = nom_catlgo.Text;
+            string newElm_cve = elm_cve.Text.TrimEnd(' ');
+            string newNombre = nom_catlgo.Text.TrimEnd(' ');
             short? newStatus = short.Parse(Request["status"].ToString());
             string opcion = "alta";
-            AccesoDatos.sp_WebAppOTSAdmOpc_Result insOpcOTS = logicaNegocio.opcOTS(newCve_catlgo,newElm_cve,newNombre,newStatus,opcion);
-            if (insOpcOTS != null)
+            bool valido = false;
+            if (newCve_catlgo=="APL")
             {
-                error = insOpcOTS.error;
-                mensaje = insOpcOTS.mensaje;
-                //si no se regreso ningun error
-                if (Convert.ToInt32(error) == 0)
+                if (string.IsNullOrEmpty(newNombre) == false)
                 {
-                    Response.Write("<script type=\"text/javascript\">alert('La nueva opcion a sido creado.'); window.location.href = 'Inicio.aspx';</script>");
+                    valido = true;
                 }
                 else
                 {
-                    Response.Write("<script type=\"text/javascript\">alert('Se Encontro Un Error " + mensaje + " \\nIntente mas tarde.');  window.location.href = 'Inicio.aspx';</script>");
+                    Response.Write("<script type=\"text/javascript\">alert('Llenar todos los campos');</script>");
+                }
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(newElm_cve) == false && string.IsNullOrEmpty(newNombre) == false)
+                {
+                    valido = true;
+                }
+                else
+                {
+                    Response.Write("<script type=\"text/javascript\">alert('Llenar todos los campos');</script>");
+                }
+            }
+
+            if (valido)
+            {
+                AccesoDatos.sp_WebAppOTSAdmOpc_Result insOpcOTS = logicaNegocio.opcOTS(newCve_catlgo, newElm_cve, newNombre, newStatus, opcion);
+                if (insOpcOTS != null)
+                {
+                    error = insOpcOTS.error;
+                    mensaje = insOpcOTS.mensaje;
+                    //si no se regreso ningun error
+                    if (Convert.ToInt32(error) == 0)
+                    {
+                        Response.Write("<script type=\"text/javascript\">alert('La nueva opcion a sido creado.'); window.location.href = 'Inicio.aspx';</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script type=\"text/javascript\">alert('Se Encontro Un Error " + mensaje + " \\nIntente mas tarde.');  window.location.href = 'Inicio.aspx';</script>");
+                    }
                 }
             }
         }
@@ -64,6 +91,7 @@ namespace materialDesing
         {
             if (cmbOpciones.SelectedValue.Equals("APL") == true)
             {
+                elm_cve.Text = "";
                 elm_cve.Enabled = false;
             }
             else
