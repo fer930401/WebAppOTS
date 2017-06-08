@@ -36,11 +36,12 @@ namespace materialDesing
 
         protected void btnBuscaClave_Click(object sender, EventArgs e)
         {
-            Literal1.Text = "";
+            
             string elmto_cve = elm_cve.Text;
             List<AccesoDatos.otscatlgos> catOTS = logicaNegocio.infoOpc(elmto_cve);
             if (catOTS != null && catOTS.Count > 0)
             {
+                Literal1.Text = "";
                 foreach (var elemento in catOTS)
                 {
                     variables.M_StatusOpc = elemento.status.ToString();
