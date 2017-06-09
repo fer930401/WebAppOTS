@@ -66,5 +66,26 @@ namespace LogicaNegocio
             get { return variables.descr_filtro; }
             set { variables.descr_filtro = value; }
         }
+
+        static int num_OTS;
+        public static int Num_OTS
+        {
+            get { return variables.num_OTS; }
+            set { variables.num_OTS = value; }
+        }
+
+        static string tipo_OTS;
+        public static string Tipo_OTS
+        {
+            get { return variables.tipo_OTS; }
+            set { variables.tipo_OTS = value; }
+        }
+
+        static string user_OTS;
+        public static string User_OTS
+        {
+            get { return variables.user_OTS; }
+            set { variables.user_OTS = value; }
+        }
     }
 }
