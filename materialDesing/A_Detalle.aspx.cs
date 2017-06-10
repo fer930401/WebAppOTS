@@ -52,30 +52,37 @@ namespace materialDesing
         protected void btnGuardarOTSD_Click(object sender, EventArgs e)
         {
             string oper = opr.SelectedValue;
-            string nom_OTS = nom_proceso.Text;
-            string desc = descripcion.Text;
-            string fecha_Ini = fechaIni.Text;
-            string fecha_Fin = fechaFin.Text;
+            string nom_OTS = nom_proceso.Text.TrimEnd(' ');
+            string desc = descripcion.Text.TrimEnd(' ');
+            string fecha_Ini = fechaIni.Text.TrimEnd(' ');
+            string fecha_Fin = fechaFin.Text.TrimEnd(' ');
             string dificultad = "0";
-            string error_ots = Request["error"];
-            string solucion = Request["solucion"];
-            string observaciones = Request["obs"];
+            string error_ots = Request["error"].ToString().TrimEnd(' ');
+            string solucion = Request["solucion"].ToString().TrimEnd(' ');
+            string observaciones = Request["obs"].ToString().TrimEnd(' ');
             string clasificacion = cls.SelectedValue.TrimStart(' ').TrimEnd(' ');
             string aplica = "";
             string status = "2";
-            AccesoDatos.sp_WebAppOTSAdmOTS_Result insertOTSD = logicaNegocio.admOTS("", variables.Tipo_OTS.ToUpper(), dificultad, variables.Num_OTS, "", "", variables.User_OTS.ToUpper(), status, desc, Convert.ToDateTime(fecha_Ini).ToString("yyyy-MM-dd HH:MM:ss"), Convert.ToDateTime(fecha_Fin).ToString("yyyy-MM-dd HH:MM:ss"), aplica, oper, nom_OTS, error_ots, solucion, observaciones, clasificacion, "altaDet", "", DateTime.Now);
-            if (insertOTSD != null)
+            if (string.IsNullOrEmpty(oper) == false && string.IsNullOrEmpty(nom_OTS) == false && string.IsNullOrEmpty(desc) == false && string.IsNullOrEmpty(fecha_Ini) == false && string.IsNullOrEmpty(fecha_Fin) == false && string.IsNullOrEmpty(error_ots) == false && string.IsNullOrEmpty(solucion) == false && string.IsNullOrEmpty(observaciones) == false)
             {
-                error = insertOTSD.error;
-                mensaje = insertOTSD.mensaje;
-                if (Convert.ToInt32(error) == 0)
+                AccesoDatos.sp_WebAppOTSAdmOTS_Result insertOTSD = logicaNegocio.admOTS("", variables.Tipo_OTS.ToUpper(), dificultad, variables.Num_OTS, "", "", variables.User_OTS.ToUpper(), status, desc, Convert.ToDateTime(fecha_Ini).ToString("yyyy-MM-dd HH:MM:ss"), Convert.ToDateTime(fecha_Fin).ToString("yyyy-MM-dd HH:MM:ss"), aplica, oper, nom_OTS, error_ots, solucion, observaciones, clasificacion, "altaDet", "", DateTime.Now);
+                if (insertOTSD != null)
                 {
-                    Response.Write("<script type=\"text/javascript\">alert('El Detalle del OTS a sido creado.'); window.location.href = 'A_Detalle.aspx';</script>");
+                    error = insertOTSD.error;
+                    mensaje = insertOTSD.mensaje;
+                    if (Convert.ToInt32(error) == 0)
+                    {
+                        Response.Write("<script type=\"text/javascript\">alert('El Detalle del OTS a sido creado.'); window.location.href = 'A_Detalle.aspx';</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script type=\"text/javascript\">alert('Se Encontro Un Error " + mensaje + " \\nIntente De Nuevo.');  window.location.href = 'A_Detalle.aspx';</script>");
+                    }
                 }
-                else
-                {
-                    Response.Write("<script type=\"text/javascript\">alert('Se Encontro Un Error " + mensaje + " \\nIntente De Nuevo.');  window.location.href = 'A_Detalle.aspx';</script>");
-                }
+            }
+            else
+            {
+                Response.Write("<script type=\"text/javascript\">alert('No puedes dejar campos vacios, ni espacios en blanco');</script>");
             }
         }
         
