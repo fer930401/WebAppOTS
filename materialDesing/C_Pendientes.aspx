@@ -28,7 +28,7 @@
               var id_OTS = $("td:eq(0)", tr).html();
               var tip_OTST = $("td:eq(1)", tr).html();
               //alert(id_OTS);
-              window.location.href = "C_imgOTS.aspx?num_OTS=" + id_OTS + "&tip_OTS=" + tip_OTST;
+              //window.location.href = "C_imgOTS.aspx?num_OTS=" + id_OTS + "&tip_OTS=" + tip_OTST;
           });
       });
       $(document).ready(function () {
@@ -38,7 +38,7 @@
               var tip_OTST = $("td:eq(1)", tr).html();
               tip_OTST = tip_OTST.substring(0, 3);
               //alert(id_OTS);
-              window.location.href = "A_Detalle.aspx?num_OTS=" + id_OTS + "&tip_OTS=" + tip_OTST;
+              //window.location.href = "A_Detalle.aspx?num_OTS=" + id_OTS + "&tip_OTS=" + tip_OTST;
           });
       });
       $(function () {
@@ -239,7 +239,8 @@
                                         <div class="fixed-action-btn horizontal click-to-toggle tooltipped" data-position="top" data-delay="50" data-tooltip="Detalles" style="position: relative; display: inline-block; height: 70px;">
                                             <a class="btn-floating btn-large red darken-4"><i class="material-icons">toc</i></a>
                                             <ul>
-                                                <li><a class="btn-floating green darken-3 click-to-toggle tooltipped" id="btnAgregar" data-position="top" data-delay="50" data-tooltip="Agrega Sub OTS" <% Response.Write(Session["visibleAgregar"]); %>><i class="material-icons">add</i></a></li>
+                                                <!--<li><a class="btn-floating green darken-3 click-to-toggle tooltipped" id="btnAgregar" data-position="top" data-delay="50" data-tooltip="Agrega Sub OTS" < Response.Write(Session["visibleAgregar"]); %>><i class="material-icons">add</i></a></li>-->
+                                                <li><asp:Button ID="btnAgregar" CssClass="btn-floating green darken-3 click-to-toggle tooltipped material-icons" data-position="top" data-delay="50" data-tooltip="Agrega Sub OTS" OnClick="btnAgregar_Click" runat="server" Text="add" /></li>
                                                 <!--<li><a class="btn-floating cyan darken-4 click-to-toggle tooltipped" id="subReng" data-position="top" data-delay="50" data-tooltip="Sub OTS"><i class="material-icons">message</i></a></li>-->
                                                 <li><asp:Button ID="btnSubOts" CssClass="btn-floating cyan darken-4 click-to-toggle tooltipped material-icons" data-position="top" data-delay="50" data-tooltip="Sub OTS" OnClick="btnSubOts_Click" runat="server" Text="message" /></li>
                                                 <!--<li><a class="btn-floating green darken-3 click-to-toggle tooltipped" id="imgOTS" data-position="top" data-delay="50" data-tooltip="Img. OTS"><i class="material-icons">perm_media</i></a></li>-->

@@ -321,5 +321,22 @@ namespace materialDesing
             /* redirigimos a la consulta de los subOTS */
             Response.Redirect("C_subOTS.aspx");
         }
+
+        protected void btnAgregar_Click(object sender, EventArgs e)
+        {
+            /* obtenemos el numero del renglon seleccionado del gridview */
+            int row = ((sender as Button).NamingContainer as GridViewRow).RowIndex;
+            /* asignamos el valor del num_OTS seleccionado */
+            variables.Num_OTS = Int32.Parse(GridView1.Rows[row].Cells[0].Text);
+            /* asignamos el valor del tipo_OTS seleccionado */
+            variables.Tipo_OTS = GridView1.Rows[row].Cells[1].Text.Substring(0, 3).ToUpper();
+            /* asignamos y formateamos el valor del user_OTS seleccionado ya que solo necesitamos la clave */
+            string user_OTS = GridView1.Rows[row].Cells[2].Text;
+            user_OTS = user_OTS.Substring(user_OTS.IndexOf('(') + 1);
+            user_OTS = user_OTS.Substring(0, user_OTS.IndexOf(')'));
+            variables.User_OTS = user_OTS;
+            /* redirigimos a la alta de los subOTS */
+            Response.Redirect("A_Detalle.aspx");
+        }
     }
 }

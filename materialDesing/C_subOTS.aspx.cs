@@ -32,6 +32,7 @@ namespace materialDesing
                     sts_consulta = "1";
                     rol_cve.Text = logicaNegocio.validarRol(clave.ToUpper(), "PRG");
                     GridView1.Columns[2].Visible = false;
+                    GridView1.Columns[6].Visible = false;
                     GridView1.Columns[12].Visible = false;
                 }
                 else
@@ -40,6 +41,7 @@ namespace materialDesing
                     sts_consulta = "1";
                     rol_cve.Text = logicaNegocio.validarRol(clave.ToUpper(), "ASG");
                     GridView1.Columns[2].Visible = true;
+                    GridView1.Columns[6].Visible = false;
                     GridView1.Columns[8].Visible = false;
                     GridView1.Columns[9].Visible = false;
                     GridView1.Columns[10].Visible = false;
