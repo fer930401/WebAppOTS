@@ -29,7 +29,6 @@ namespace materialDesing
                     rol_cve.Text = logicaNegocio.validarRol(clave.ToUpper(), "PRG");
                     cmbProgramador.Visible = false;
                     lblRespon.Visible = false;
-                    //GridView1.Columns[2].Visible = false;
                     Session["visibleReasigna"] = "style = 'display:none'";
                 }
                 else
@@ -58,6 +57,7 @@ namespace materialDesing
                     dt.Columns.Add("num_OTS", typeof(string));
                     dt.Columns.Add("tipo_OTS", typeof(string));
                     dt.Columns.Add("userResp", typeof(string));
+                    dt.Columns.Add("descripcion", typeof(string));
                     dt.Columns.Add("fec_asig", typeof(string));
                     dt.Columns.Add("fec_fin", typeof(string));
                     dt.Columns.Add("sts_prog", typeof(string));
@@ -73,6 +73,7 @@ namespace materialDesing
                             dr["num_OTS"] = elemento.num_OTS;
                             dr["tipo_OTS"] = elemento.tipo_OTS;
                             dr["userResp"] = elemento.userResp;
+                            dr["descripcion"] = elemento.descripcion;
                             dr["fec_asig"] = elemento.fec_asig;
                             dr["fec_fin"] = elemento.fec_fin;
                             dr["sts_prog"] = elemento.sts_prog;
@@ -127,33 +128,35 @@ namespace materialDesing
                 }
 
             }
-                dt.Columns.Add("num_OTS", typeof(string));
-                dt.Columns.Add("tipo_OTS", typeof(string));
-                dt.Columns.Add("userResp", typeof(string));
-                dt.Columns.Add("fec_asig", typeof(string));
-                dt.Columns.Add("fec_fin", typeof(string));
-                dt.Columns.Add("sts_prog", typeof(string));
-                dt.Columns.Add("aplica", typeof(string));
-                dt.Columns.Add("fec_prom", typeof(string));
+            dt.Columns.Add("num_OTS", typeof(string));
+            dt.Columns.Add("tipo_OTS", typeof(string));
+            dt.Columns.Add("userResp", typeof(string));
+            dt.Columns.Add("descripcion", typeof(string));
+            dt.Columns.Add("fec_asig", typeof(string));
+            dt.Columns.Add("fec_fin", typeof(string));
+            dt.Columns.Add("sts_prog", typeof(string));
+            dt.Columns.Add("aplica", typeof(string));
+            dt.Columns.Add("fec_prom", typeof(string));
 
-                if (listaOTS != null)
+            if (listaOTS != null)
+            {
+                int i = 0;
+                foreach (var elemento in listaOTS)
                 {
-                    int i = 0;
-                    foreach (var elemento in listaOTS)
-                    {
-                        dr = dt.NewRow();
-                        dr["num_OTS"] = elemento.num_OTS;
-                        dr["tipo_OTS"] = elemento.tipo_OTS;
-                        dr["userResp"] = elemento.userResp;
-                        dr["fec_asig"] = elemento.fec_asig;
-                        dr["fec_fin"] = elemento.fec_fin;
-                        dr["sts_prog"] = elemento.sts_prog;
-                        dr["aplica"] = entiFinancieras(elemento.aplica);
-                        dr["fec_prom"] = elemento.fec_prom;
-                        dt.Rows.Add(dr);
-                        i++;
-                    }
+                    dr = dt.NewRow();
+                    dr["num_OTS"] = elemento.num_OTS;
+                    dr["tipo_OTS"] = elemento.tipo_OTS;
+                    dr["userResp"] = elemento.userResp;
+                    dr["descripcion"] = elemento.descripcion;
+                    dr["fec_asig"] = elemento.fec_asig;
+                    dr["fec_fin"] = elemento.fec_fin;
+                    dr["sts_prog"] = elemento.sts_prog;
+                    dr["aplica"] = entiFinancieras(elemento.aplica);
+                    dr["fec_prom"] = elemento.fec_prom;
+                    dt.Rows.Add(dr);
+                    i++;
                 }
+            }
             ViewState["dt"] = dt;
             this.BindGrid();
         }
@@ -200,7 +203,6 @@ namespace materialDesing
             dt.Columns.Add("num_OTS", typeof(string));
             dt.Columns.Add("tipo_OTS", typeof(string));
             dt.Columns.Add("userResp", typeof(string));
-            dt.Columns.Add("operacion", typeof(string));
             dt.Columns.Add("descripcion", typeof(string));
             dt.Columns.Add("fec_asig", typeof(string));
             dt.Columns.Add("fec_fin", typeof(string));
@@ -217,12 +219,11 @@ namespace materialDesing
                     dr["num_OTS"] = elemento.num_OTS;
                     dr["tipo_OTS"] = elemento.tipo_OTS;
                     dr["userResp"] = elemento.userResp;
-                    dr["operacion"] = elemento.operacion;
                     dr["descripcion"] = elemento.descripcion;
                     dr["fec_asig"] = elemento.fec_asig;
                     dr["fec_fin"] = elemento.fec_fin;
                     dr["sts_prog"] = elemento.sts_prog;
-                    dr["aplica"] = elemento.aplica;
+                    dr["aplica"] = entiFinancieras(elemento.aplica);
                     dr["fec_prom"] = elemento.fec_prom;
                     dt.Rows.Add(dr);
                     i++;
@@ -254,6 +255,7 @@ namespace materialDesing
             dt.Columns.Add("num_OTS", typeof(string));
             dt.Columns.Add("tipo_OTS", typeof(string));
             dt.Columns.Add("userResp", typeof(string));
+            dt.Columns.Add("descripcion", typeof(string));
             dt.Columns.Add("fec_asig", typeof(string));
             dt.Columns.Add("fec_fin", typeof(string));
             dt.Columns.Add("sts_prog", typeof(string));
@@ -269,6 +271,7 @@ namespace materialDesing
                     dr["num_OTS"] = elemento.num_OTS;
                     dr["tipo_OTS"] = elemento.tipo_OTS;
                     dr["userResp"] = elemento.userResp;
+                    dr["descripcion"] = elemento.descripcion;
                     dr["fec_asig"] = elemento.fec_asig;
                     dr["fec_fin"] = elemento.fec_fin;
                     dr["sts_prog"] = elemento.sts_prog;

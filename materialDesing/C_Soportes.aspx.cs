@@ -30,7 +30,6 @@ namespace materialDesing
                     rol_cve.Text = logicaNegocio.validarRol(clave, "PRG");
                     cmbProgramador.Visible = false;
                     lblRespon.Visible = false;
-                    //GridView1.Columns[2].Visible = false;
                     Session["visibleReasigna"] = "style = 'display:none'";
                 }
                 else
@@ -59,12 +58,13 @@ namespace materialDesing
                     dt.Columns.Add("num_OTS", typeof(string));
                     dt.Columns.Add("tipo_OTS", typeof(string));
                     dt.Columns.Add("userResp", typeof(string));
+                    dt.Columns.Add("descripcion", typeof(string));
                     dt.Columns.Add("fec_asig", typeof(string));
                     dt.Columns.Add("fec_fin", typeof(string));
                     dt.Columns.Add("sts_prog", typeof(string));
                     dt.Columns.Add("aplica", typeof(string));
                     dt.Columns.Add("fec_prom", typeof(string));
-                    dt.Columns.Add("descripcion", typeof(string));
+                    
 
                     if (listaOTS != null)
                     {
@@ -75,15 +75,14 @@ namespace materialDesing
                             dr["num_OTS"] = elemento.num_OTS;
                             dr["tipo_OTS"] = elemento.tipo_OTS;
                             dr["userResp"] = elemento.userResp;
+                            dr["descripcion"] = elemento.descripcion;
                             dr["fec_asig"] = elemento.fec_asig;
                             dr["fec_fin"] = elemento.fec_fin;
                             dr["sts_prog"] = elemento.sts_prog;
                             dr["aplica"] = entiFinancieras(elemento.aplica);
                             dr["fec_prom"] = elemento.fec_prom;
-                            dr["descripcion"] = elemento.descripcion;
                             dt.Rows.Add(dr);
                             i++;
-                            //Page.ClientScript.RegisterStartupScript(this.GetType(), "clientscript", "document.getElementById('btnReasignar').style.visibility = 'hidden';", true);
                         }
                     }
                     
@@ -132,35 +131,35 @@ namespace materialDesing
                 }
                 
             }
-                dt.Columns.Add("num_OTS", typeof(string));
-                dt.Columns.Add("tipo_OTS", typeof(string));
-                dt.Columns.Add("userResp", typeof(string));
-                dt.Columns.Add("fec_asig", typeof(string));
-                dt.Columns.Add("fec_fin", typeof(string));
-                dt.Columns.Add("sts_prog", typeof(string));
-                dt.Columns.Add("aplica", typeof(string));
-                dt.Columns.Add("fec_prom", typeof(string));
-                dt.Columns.Add("descripcion", typeof(string));
+            dt.Columns.Add("num_OTS", typeof(string));
+            dt.Columns.Add("tipo_OTS", typeof(string));
+            dt.Columns.Add("userResp", typeof(string));
+            dt.Columns.Add("descripcion", typeof(string));
+            dt.Columns.Add("fec_asig", typeof(string));
+            dt.Columns.Add("fec_fin", typeof(string));
+            dt.Columns.Add("sts_prog", typeof(string));
+            dt.Columns.Add("aplica", typeof(string));
+            dt.Columns.Add("fec_prom", typeof(string));
 
-                if (listaOTS != null)
+            if (listaOTS != null)
+            {
+                int i = 0;
+                foreach (var elemento in listaOTS)
                 {
-                    int i = 0;
-                    foreach (var elemento in listaOTS)
-                    {
-                        dr = dt.NewRow();
-                        dr["num_OTS"] = elemento.num_OTS;
-                        dr["tipo_OTS"] = elemento.tipo_OTS;
-                        dr["userResp"] = elemento.userResp;
-                        dr["fec_asig"] = elemento.fec_asig;
-                        dr["fec_fin"] = elemento.fec_fin;
-                        dr["sts_prog"] = elemento.sts_prog;
-                        dr["aplica"] = entiFinancieras(elemento.aplica);
-                        dr["fec_prom"] = elemento.fec_prom;
-                        dr["descripcion"] = elemento.descripcion;
-                        dt.Rows.Add(dr);
-                        i++;
-                    }
+                    dr = dt.NewRow();
+                    dr["num_OTS"] = elemento.num_OTS;
+                    dr["tipo_OTS"] = elemento.tipo_OTS;
+                    dr["userResp"] = elemento.userResp;
+                    dr["descripcion"] = elemento.descripcion;
+                    dr["fec_asig"] = elemento.fec_asig;
+                    dr["fec_fin"] = elemento.fec_fin;
+                    dr["sts_prog"] = elemento.sts_prog;
+                    dr["aplica"] = entiFinancieras(elemento.aplica);
+                    dr["fec_prom"] = elemento.fec_prom;
+                    dt.Rows.Add(dr);
+                    i++;
                 }
+            }
             ViewState["dt"] = dt;
             this.BindGrid();
         }
@@ -203,12 +202,11 @@ namespace materialDesing
                     listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 3, "SOP", variables.User_filtro, descr + "%");
                 }
             }
-            
-            
+
+
             dt.Columns.Add("num_OTS", typeof(string));
             dt.Columns.Add("tipo_OTS", typeof(string));
             dt.Columns.Add("userResp", typeof(string));
-            dt.Columns.Add("operacion", typeof(string));
             dt.Columns.Add("descripcion", typeof(string));
             dt.Columns.Add("fec_asig", typeof(string));
             dt.Columns.Add("fec_fin", typeof(string));
@@ -225,14 +223,12 @@ namespace materialDesing
                     dr["num_OTS"] = elemento.num_OTS;
                     dr["tipo_OTS"] = elemento.tipo_OTS;
                     dr["userResp"] = elemento.userResp;
-                    dr["operacion"] = elemento.operacion;
                     dr["descripcion"] = elemento.descripcion;
                     dr["fec_asig"] = elemento.fec_asig;
                     dr["fec_fin"] = elemento.fec_fin;
                     dr["sts_prog"] = elemento.sts_prog;
-                    dr["aplica"] = elemento.aplica;
+                    dr["aplica"] = entiFinancieras(elemento.aplica);
                     dr["fec_prom"] = elemento.fec_prom;
-                    
                     dt.Rows.Add(dr);
                     i++;
                 }
@@ -263,12 +259,12 @@ namespace materialDesing
             dt.Columns.Add("num_OTS", typeof(string));
             dt.Columns.Add("tipo_OTS", typeof(string));
             dt.Columns.Add("userResp", typeof(string));
+            dt.Columns.Add("descripcion", typeof(string));
             dt.Columns.Add("fec_asig", typeof(string));
             dt.Columns.Add("fec_fin", typeof(string));
             dt.Columns.Add("sts_prog", typeof(string));
             dt.Columns.Add("aplica", typeof(string));
             dt.Columns.Add("fec_prom", typeof(string));
-            dt.Columns.Add("descripcion", typeof(string));
 
             if (listaOTS != null)
             {
@@ -279,12 +275,12 @@ namespace materialDesing
                     dr["num_OTS"] = elemento.num_OTS;
                     dr["tipo_OTS"] = elemento.tipo_OTS;
                     dr["userResp"] = elemento.userResp;
+                    dr["descripcion"] = elemento.descripcion;
                     dr["fec_asig"] = elemento.fec_asig;
                     dr["fec_fin"] = elemento.fec_fin;
                     dr["sts_prog"] = elemento.sts_prog;
                     dr["aplica"] = entiFinancieras(elemento.aplica);
                     dr["fec_prom"] = elemento.fec_prom;
-                    dr["descripcion"] = elemento.descripcion;
                     dt.Rows.Add(dr);
                     i++;
                 }
@@ -312,6 +308,21 @@ namespace materialDesing
             nomEntidades = nomEntidades.Substring(0, nomEntidades.Length - 2);
             return nomEntidades;
         }
-        
+        protected void btnSubOts_Click(object sender, EventArgs e)
+        {
+            /* obtenemos el numero del renglon seleccionado del gridview */
+            int row = ((sender as Button).NamingContainer as GridViewRow).RowIndex;
+            /* asignamos el valor del num_OTS seleccionado */
+            variables.Num_OTS = Int32.Parse(GridView1.Rows[row].Cells[0].Text);
+            /* asignamos el valor del tipo_OTS seleccionado */
+            variables.Tipo_OTS = GridView1.Rows[row].Cells[1].Text.Substring(0, 3).ToUpper();
+            /* asignamos y formateamos el valor del user_OTS seleccionado ya que solo necesitamos la clave */
+            string user_OTS = GridView1.Rows[row].Cells[2].Text;
+            user_OTS = user_OTS.Substring(user_OTS.IndexOf('(') + 1);
+            user_OTS = user_OTS.Substring(0, user_OTS.IndexOf(')'));
+            variables.User_OTS = user_OTS;
+            /* redirigimos a la consulta de los subOTS */
+            Response.Redirect("C_subOTS.aspx");
+        }
     }
 }

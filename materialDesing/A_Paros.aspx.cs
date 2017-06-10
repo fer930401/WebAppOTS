@@ -14,16 +14,20 @@ namespace materialDesing
         string mensaje = "";
         short? error = 0;
         string status;
-        string numOTS;
+        int numOTS;
         string tipOTS;
-        string numReng;
+        int numReng;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            status = Request.QueryString["status"].ToString();
+            /*status = Request.QueryString["status"].ToString();
             numOTS = Request.QueryString["num_OTS"].ToString();
             tipOTS = Request.QueryString["tipoOTS"].ToString();
-            numReng = Request.QueryString["num_reng"].ToString();
+            numReng = Request.QueryString["num_reng"].ToString();*/
+            status = variables.Sts_OTS;
+            numOTS = variables.Num_OTS;
+            tipOTS = variables.Tipo_OTS;
+            numReng = variables.Num_rengOTS;
             if (status.Equals("Pausa") == true)
             {
                 btnAltaParo.Visible = false;
@@ -36,10 +40,10 @@ namespace materialDesing
                 btnReanudarParo.Visible = false;
                 Session["visibleSD" + numOTS] = "";
             }
-            num_otsTB.Text = numOTS;
+            num_otsTB.Text = numOTS.ToString();
             tipOTSTB.Text = tipOTS;
             statusOTS.Text = status;
-            num_reng.Text = numReng;
+            num_reng.Text = numReng.ToString();
         }
         protected void btnAltaParo_Click(object sender, EventArgs e)
         {
@@ -47,16 +51,14 @@ namespace materialDesing
             string motivoParo = motivo.Text;
             string tipOTS = tipOTSTB.Text;
             string numReng = num_reng.Text;
-            Session["paroActivo" + numOTS] = "1";
             AccesoDatos.sp_WebAppOTSAdmParos_Result insertOTSP = logicaNegocio.admParos(Int32.Parse(numOTS), tipOTS.ToUpper().Substring(0, 3), motivoParo, "altaParo", Int32.Parse(numReng));
             if (insertOTSP != null)
             {
                 error = insertOTSP.error;
                 mensaje = insertOTSP.mensaje;
-                //si no se regreso ningun error
                 if (Convert.ToInt32(error) == 0)
                 {
-                    Response.Write("<script type=\"text/javascript\">alert('La actividad se a detenido.'); window.location.href = 'C_subOTS.aspx?num_OTS=" + numOTS + "&tip_OTS="+tipOTS+"';</script>");
+                    Response.Write("<script type=\"text/javascript\">alert('La actividad se a detenido.'); window.location.href = 'C_subOTS.aspx';</script>");
                 }
                 else
                 {
@@ -71,16 +73,14 @@ namespace materialDesing
             string motivoParo = motivo.Text;
             string tipOTS = tipOTSTB.Text;
             string numReng = num_reng.Text;
-            Session["paroActivo" + numOTS] = "0";
             AccesoDatos.sp_WebAppOTSAdmParos_Result insertOTSP = logicaNegocio.admParos(Int32.Parse(numOTS), tipOTS.ToUpper().Substring(0, 3), motivoParo, "termParo", Int32.Parse(numReng));
             if (insertOTSP != null)
             {
                 error = insertOTSP.error;
                 mensaje = insertOTSP.mensaje;
-                //si no se regreso ningun error
                 if (Convert.ToInt32(error) == 0)
                 {
-                    Response.Write("<script type=\"text/javascript\">alert('La actividad se a reanudado.'); window.location.href = 'C_subOTS.aspx?num_OTS=" + numOTS + "&tip_OTS=" + tipOTS + "';</script>");
+                    Response.Write("<script type=\"text/javascript\">alert('La actividad se a reanudado.'); window.location.href = 'C_subOTS.aspx';</script>");
                 }
                 else
                 {
@@ -91,7 +91,8 @@ namespace materialDesing
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("C_subOTS.aspx?num_OTS=" + numOTS + "&tip_OTS=" + tipOTS);
+            //Response.Redirect("C_subOTS.aspx?num_OTS=" + numOTS + "&tip_OTS=" + tipOTS);
+            Response.Redirect("C_subOTS.aspx");
         }
     }
 }

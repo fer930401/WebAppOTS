@@ -223,14 +223,15 @@
                         <AlternatingRowStyle BackColor="#E4EDF6" />
                         <FooterStyle BackColor="Tan" />
                         <Columns>
-                            <asp:BoundField DataField="num_OTS" HeaderText="Folio:" ItemStyle-Width="150" />
-                            <asp:BoundField DataField="tipo_OTS" HeaderText="Tipo OTS:" ItemStyle-Width="150" />
-                            <asp:BoundField DataField="userResp" HeaderText="Responsable:" ItemStyle-Width="150" />
-                            <asp:BoundField DataField="fec_asig" HeaderText="Fecha Asignada:" ItemStyle-Width="150" />
-                            <asp:BoundField DataField="fec_fin" HeaderText="Fecha Final:" ItemStyle-Width="150" />
-                            <asp:BoundField DataField="sts_prog" HeaderText="Status:" ItemStyle-Width="150" />
-                            <asp:BoundField DataField="aplica" HeaderText="Aplica Para:" ItemStyle-Width="150" />
-                            <asp:BoundField DataField="fec_prom" HeaderText="Fecha Prometida:" ItemStyle-Width="150" />
+                            <asp:BoundField DataField="num_OTS" HeaderText="Folio:"/>
+                            <asp:BoundField DataField="tipo_OTS" HeaderText="Tipo OTS:"/>
+                            <asp:BoundField DataField="userResp" HeaderText="Responsable:"/>
+                            <asp:BoundField DataField="descripcion" HeaderText="Descripcion:"/>
+                            <asp:BoundField DataField="fec_asig" HeaderText="Fecha Asignada:"/>
+                            <asp:BoundField DataField="fec_fin" HeaderText="Fecha Final:"/>
+                            <asp:BoundField DataField="sts_prog" HeaderText="Status:"/>
+                            <asp:BoundField DataField="aplica" HeaderText="Aplica Para:"/>
+                            <asp:BoundField DataField="fec_prom" HeaderText="Fecha Prometida:"/>
                             
                             <asp:TemplateField HeaderText="Detalles OTS:" ItemStyle-Width="900">
                                 <ItemTemplate>

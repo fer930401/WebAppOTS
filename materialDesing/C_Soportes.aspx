@@ -13,7 +13,7 @@
               var id_OTS = $("td:eq(0)", tr).html();
               var tip_OTST = $("td:eq(1)", tr).html();
               //alert(id_OTS);
-              window.location.href = "C_subOTS.aspx?num_OTS=" + id_OTS + "&tip_OTS=" + tip_OTST;
+              //window.location.href = "C_subOTS.aspx?num_OTS=" + id_OTS + "&tip_OTS=" + tip_OTST;
         });
       });
       $(document).ready(function () {
@@ -223,15 +223,15 @@
                         <AlternatingRowStyle BackColor="#E4EDF6" />
                         <FooterStyle BackColor="Tan" />
                         <Columns>
-                            <asp:BoundField DataField="num_OTS" HeaderText="Folio:" ItemStyle-Width="150" />
-                            <asp:BoundField DataField="tipo_OTS" HeaderText="Tipo OTS:" ItemStyle-Width="150" />
-                            <asp:BoundField DataField="userResp" HeaderText="Responsable:" ItemStyle-Width="150" />
-                            <asp:BoundField DataField="descripcion" HeaderText="Descripcion:" ItemStyle-Width="150" />
-                            <asp:BoundField DataField="fec_asig" HeaderText="Fecha Asignada:" ItemStyle-Width="150" />
-                            <asp:BoundField DataField="fec_fin" HeaderText="Fecha Final:" ItemStyle-Width="150" />
-                            <asp:BoundField DataField="sts_prog" HeaderText="Status:" ItemStyle-Width="150" />
-                            <asp:BoundField DataField="aplica" HeaderText="Aplica Para:" ItemStyle-Width="150" />
-                            <asp:BoundField DataField="fec_prom" HeaderText="Fecha Prometida:" ItemStyle-Width="150" />
+                            <asp:BoundField DataField="num_OTS" HeaderText="Folio:"/>
+                            <asp:BoundField DataField="tipo_OTS" HeaderText="Tipo OTS:"/>
+                            <asp:BoundField DataField="userResp" HeaderText="Responsable:"/>
+                            <asp:BoundField DataField="descripcion" HeaderText="Descripcion:"/>
+                            <asp:BoundField DataField="fec_asig" HeaderText="Fecha Asignada:"/>
+                            <asp:BoundField DataField="fec_fin" HeaderText="Fecha Final:"/>
+                            <asp:BoundField DataField="sts_prog" HeaderText="Status:"/>
+                            <asp:BoundField DataField="aplica" HeaderText="Aplica Para:"/>
+                            <asp:BoundField DataField="fec_prom" HeaderText="Fecha Prometida:"/>
                             
                             
                             <asp:TemplateField HeaderText="Detalles OTS:" ItemStyle-Width="900">
@@ -241,7 +241,8 @@
                                             <a class="btn-floating btn-large red darken-4"><i class="material-icons">toc</i></a>
                                             <ul>
                                                 <li><a class="btn-floating green darken-3 click-to-toggle tooltipped" id="btnAgregar" data-position="top" data-delay="50" data-tooltip="Agrega Sub OTS" <% Response.Write(Session["visibleAgregar"]); %>><i class="material-icons">add</i></a></li>
-                                                <li><a class="btn-floating cyan darken-4 click-to-toggle tooltipped" id="subReng" data-position="top" data-delay="50" data-tooltip="Sub OTS"><i class="material-icons">message</i></a></li>
+                                                <!--<li><a class="btn-floating cyan darken-4 click-to-toggle tooltipped" id="subReng" data-position="top" data-delay="50" data-tooltip="Sub OTS"><i class="material-icons">message</i></a></li>-->
+                                                <li><asp:Button ID="btnSubOts" CssClass="btn-floating cyan darken-4 click-to-toggle tooltipped material-icons" data-position="top" data-delay="50" data-tooltip="Sub OTS" OnClick="btnSubOts_Click" runat="server" Text="message" /></li>
                                                 <!--<li><a class="btn-floating green darken-3 click-to-toggle tooltipped" id="imgOTS" data-position="top" data-delay="50" data-tooltip="Img. OTS"><i class="material-icons">perm_media</i></a></li>-->
                                                 <li><a class="btn-floating red darken-3 click-to-toggle tooltipped" id="btnReasignar" data-position="top" data-delay="50" data-tooltip="Reasigna" <% Response.Write(Session["visibleReasigna"]); %>><i class="material-icons">replay</i></a></li>
                                             </ul>

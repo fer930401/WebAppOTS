@@ -74,6 +74,13 @@ namespace LogicaNegocio
             set { variables.num_OTS = value; }
         }
 
+        static int num_rengOTS;
+        public static int Num_rengOTS
+        {
+            get { return variables.num_rengOTS; }
+            set { variables.num_rengOTS = value; }
+        }
+
         static string tipo_OTS;
         public static string Tipo_OTS
         {
@@ -86,6 +93,13 @@ namespace LogicaNegocio
         {
             get { return variables.user_OTS; }
             set { variables.user_OTS = value; }
+        }
+
+        static string sts_OTS;
+        public static string Sts_OTS
+        {
+            get { return variables.sts_OTS; }
+            set { variables.sts_OTS = value; }
         }
     }
 }

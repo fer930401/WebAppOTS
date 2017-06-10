@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-  <% string numOTS = Request.QueryString["num_OTS"].ToString(); %>
+  <% int numOTS = LogicaNegocio.variables.Num_OTS; %>
     <div class="container">        
         <div class="col s12 card-panel grey lighten-5 z-depth-1">
             <div class="row">
