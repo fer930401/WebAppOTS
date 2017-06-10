@@ -34,14 +34,6 @@
             });
         });
         
-        function confirmar() {
-            if (confirm('Desea eliminar este soporte?')) {
-                alert("Soporte Eliminado");
-                window.location.href = 'C_Soportes.aspx';
-            } else {
-                return false;
-            }
-        }
         $(document).ready(function () {
             $('select').material_select();
         });

@@ -182,24 +182,18 @@ namespace materialDesing
         protected void paro_Click(object sender, EventArgs e)
         {
             int row = ((sender as Button).NamingContainer as GridViewRow).RowIndex;
-            //int num_SubOTS = Int32.Parse(GridView1.Rows[row].Cells[0].Text);
             variables.Num_rengOTS = Int32.Parse(GridView1.Rows[row].Cells[0].Text);
-            //string sts_SubOTS = GridView1.Rows[row].Cells[5].Text;
             variables.Sts_OTS = GridView1.Rows[row].Cells[5].Text;
             
-            //Response.Redirect("A_Paros.aspx?num_OTS=" + variables.Num_OTS + "&num_reng=" + num_SubOTS + "&status=" + sts_SubOTS + "&tipoOTS=" + variables.Tipo_OTS);
             Response.Redirect("A_Paros.aspx");
         }
 
         protected void continuar_Click(object sender, EventArgs e)
         {
             int row = ((sender as Button).NamingContainer as GridViewRow).RowIndex;
-            //int num_SubOTS = Int32.Parse(GridView1.Rows[row].Cells[0].Text);
             variables.Num_rengOTS = Int32.Parse(GridView1.Rows[row].Cells[0].Text);
-            //string sts_SubOTS = GridView1.Rows[row].Cells[5].Text;
             variables.Sts_OTS = GridView1.Rows[row].Cells[5].Text;
 
-            //Response.Redirect("A_Paros.aspx?num_OTS=" + variables.Num_OTS + "&num_reng=" + num_SubOTS + "&status=" + sts_SubOTS + "&tipoOTS=" + variables.Tipo_OTS);
             Response.Redirect("A_Paros.aspx");
         }
 

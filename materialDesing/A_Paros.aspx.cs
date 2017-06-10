@@ -20,10 +20,6 @@ namespace materialDesing
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*status = Request.QueryString["status"].ToString();
-            numOTS = Request.QueryString["num_OTS"].ToString();
-            tipOTS = Request.QueryString["tipoOTS"].ToString();
-            numReng = Request.QueryString["num_reng"].ToString();*/
             status = variables.Sts_OTS;
             numOTS = variables.Num_OTS;
             tipOTS = variables.Tipo_OTS;
@@ -91,7 +87,6 @@ namespace materialDesing
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-            //Response.Redirect("C_subOTS.aspx?num_OTS=" + numOTS + "&tip_OTS=" + tipOTS);
             Response.Redirect("C_subOTS.aspx");
         }
     }
