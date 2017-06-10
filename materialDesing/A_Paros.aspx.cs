@@ -47,18 +47,21 @@ namespace materialDesing
             string motivoParo = motivo.Text;
             string tipOTS = tipOTSTB.Text;
             string numReng = num_reng.Text;
-            AccesoDatos.sp_WebAppOTSAdmParos_Result insertOTSP = logicaNegocio.admParos(Int32.Parse(numOTS), tipOTS.ToUpper().Substring(0, 3), motivoParo, "altaParo", Int32.Parse(numReng));
-            if (insertOTSP != null)
-            {
-                error = insertOTSP.error;
-                mensaje = insertOTSP.mensaje;
-                if (Convert.ToInt32(error) == 0)
+            if (string.IsNullOrEmpty(motivoParo.TrimEnd(' ')) == false)
+            {            
+                AccesoDatos.sp_WebAppOTSAdmParos_Result insertOTSP = logicaNegocio.admParos(Int32.Parse(numOTS), tipOTS.ToUpper().Substring(0, 3), motivoParo, "altaParo", Int32.Parse(numReng));
+                if (insertOTSP != null)
                 {
-                    Response.Write("<script type=\"text/javascript\">alert('La actividad se a detenido.'); window.location.href = 'C_subOTS.aspx';</script>");
-                }
-                else
-                {
-                    Response.Write("<script type=\"text/javascript\">alert('Se Encontro Un Error " + mensaje + " \\nIntente De Nuevo.');  window.location.href = 'A_Paros.aspx';</script>");
+                    error = insertOTSP.error;
+                    mensaje = insertOTSP.mensaje;
+                    if (Convert.ToInt32(error) == 0)
+                    {
+                        Response.Write("<script type=\"text/javascript\">alert('La actividad se a detenido.'); window.location.href = 'C_subOTS.aspx';</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script type=\"text/javascript\">alert('Se Encontro Un Error " + mensaje + " \\nIntente De Nuevo.');  window.location.href = 'A_Paros.aspx';</script>");
+                    }
                 }
             }
         }

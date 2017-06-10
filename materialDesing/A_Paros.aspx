@@ -2,7 +2,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-  <% int numOTS = LogicaNegocio.variables.Num_OTS; %>
+    <script>
+        function quitaValidacion() {
+            //alert("quito validacion");
+            $("#form1").attr("novalidate", "novalidate");
+        }
+    </script>
+    <% int numOTS = LogicaNegocio.variables.Num_OTS; %>
     <div class="container">        
         <div class="col s12 card-panel grey lighten-5 z-depth-1">
             <div class="row">
@@ -35,7 +41,7 @@
                     </div>
                     <div class="row" <% Response.Write(Session["visibleSD" + numOTS]); %>>
                         <div class="input-field col s11">
-                            <asp:TextBox ID="motivo" runat="server" CssClass="validate" length="254"></asp:TextBox><br />
+                            <asp:TextBox ID="motivo" runat="server" CssClass="validate" length="254" required></asp:TextBox><br />
                             <label >Motivo de Paro:</label>
                         </div>
                     </div>
@@ -44,8 +50,8 @@
                         <br />
                         <div class="row">
                           <asp:Button ID="btnAltaParo" runat="server" Text="Guardar Paro"  CssClass="waves-effect waves-green btn amber darken-4" OnClick="btnAltaParo_Click" />
-                          <asp:Button ID="btnReanudarParo" runat="server" Text="Reanudar Actividad"  CssClass="waves-effect waves-green btn green darken-4" OnClick="btnReanudarParo_Click" />
-                          <asp:Button ID="btnCancelar" runat="server" Text="Cancelar"  CssClass="waves-effect waves-green btn red darken-4" OnClick="btnCancelar_Click" />
+                          <asp:Button ID="btnReanudarParo" runat="server" Text="Reanudar Actividad"  CssClass="waves-effect waves-green btn green darken-4" OnClick="btnReanudarParo_Click" OnClientClick="quitaValidacion()"/>
+                          <asp:Button ID="btnCancelar" runat="server" Text="Cancelar"  CssClass="waves-effect waves-green btn red darken-4" OnClick="btnCancelar_Click" OnClientClick="quitaValidacion()"/>
                         </div>
                         <br />
                         <br />
