@@ -52,10 +52,10 @@ namespace materialDesing
             string sub_sistema = ss.SelectedValue;
             string tip_OTS = Request["tipo"];
             string asigna = user_cve.Text.ToUpper();
-            string nom_OTS = Request["nomOTS"];
+            string nom_OTS = Request["nomOTS"].ToString().TrimEnd(' ');
             string responsable = prg_res.SelectedValue;
             string status = Request["status"];
-            string descripcion = Request["descripcion"];
+            string descripcion = Request["descripcion"].ToString().TrimEnd(' ');
             DateTime fechaIni = DateTime.Now;
             DateTime fechaProm = Convert.ToDateTime(Request["fechaIni"]);
             string nomImagenes = "";
@@ -79,22 +79,27 @@ namespace materialDesing
                 }
             }
             string aplica = selectedValue;
-            AccesoDatos.sp_WebAppOTSAdmOTS_Result insertOTSE = logicaNegocio.admOTS(sub_sistema, tip_OTS, asigna, 0, "", "", responsable, status, descripcion, fechaIni.ToString("yyyy/MM/dd"), "", aplica, "", nom_OTS, "", "", "", "", "alta", nomImagenes, fechaProm);
-            if (insertOTSE != null)
+            if (string.IsNullOrEmpty(nom_OTS) == false && string.IsNullOrEmpty(descripcion) == false)
             {
-                error = insertOTSE.error;
-                mensaje = insertOTSE.mensaje;
-                //si no se regreso ningun error
-                if (Convert.ToInt32(error) == 0)
+                AccesoDatos.sp_WebAppOTSAdmOTS_Result insertOTSE = logicaNegocio.admOTS(sub_sistema, tip_OTS, asigna, 0, "", "", responsable, status, descripcion, fechaIni.ToString("yyyy/MM/dd"), "", aplica, "", nom_OTS, "", "", "", "", "alta", nomImagenes, fechaProm);
+                if (insertOTSE != null)
                 {
-                    //agregar el envio del email
-                    sendEmail(responsable, nom_OTS, "", descripcion, fechaIni, aplica);
-                    Response.Write("<script type=\"text/javascript\">alert('El OTS a sido creado.'); window.location.href = 'A_Encabezado.aspx';</script>");
+                    error = insertOTSE.error;
+                    mensaje = insertOTSE.mensaje;
+                    if (Convert.ToInt32(error) == 0)
+                    {
+                        sendEmail(responsable, nom_OTS, "", descripcion, fechaIni, aplica);
+                        Response.Write("<script type=\"text/javascript\">alert('El OTS a sido creado.'); window.location.href = 'A_Encabezado.aspx';</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script type=\"text/javascript\">alert('Se Encontro Un Error " + mensaje + " \\nIntente De Nuevo.');  window.location.href = 'A_Encabezado.aspx';</script>");
+                    }
                 }
-                else
-                {
-                    Response.Write("<script type=\"text/javascript\">alert('Se Encontro Un Error " + mensaje + " \\nIntente De Nuevo.');  window.location.href = 'A_Encabezado.aspx';</script>");
-                }
+            }
+            else
+            {
+                Response.Write("<script type=\"text/javascript\">alert('No puedes dejar campos vacios, ni espacios en blanco');</script>");
             }
         }
         public void sendEmail(string responsable, string nom_OTS, string operacion, string descripcion, DateTime fechaFin, string aplica)

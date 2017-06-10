@@ -86,7 +86,7 @@
                                     <asp:FileUpload ID="uploadFile1" runat="server" class="multi" maxlength="3" accept=".gif,.jpg,.png" AllowMultiple="true" />
                                 </div>
                                 <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text" placeholder="Imagenes acerca del Pendiente/Soporte" required=""/>
+                                    <input class="file-path validate" type="text" placeholder="Imagenes acerca del Pendiente/Soporte"/>
                                 </div>
                             </div>
                         </div>
