@@ -153,7 +153,7 @@
 
         <div class="col s12 card-panel grey lighten-5 z-depth-1">
             <div class="row">
-                <img class="right responsive-img" src="<%=ResolveUrl("~/Media/logo_OTS.png") %>" width="350" height="100" />
+                <a <asp:Literal ID="href" runat="server"></asp:Literal>><img class="right responsive-img" src="<%=ResolveUrl("~/Media/logo_OTS.png") %>" width="350" height="100" /></a>
                 <br />
                 <h4 class="center grey-text">Consulta SubOTS</h4>
                 <div class="col s12 m3">

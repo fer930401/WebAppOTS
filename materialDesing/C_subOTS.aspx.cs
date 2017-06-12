@@ -26,6 +26,15 @@ namespace materialDesing
             if (Session["user_cve"] != null)
             {
                 string clave = Session["user_cve"].ToString();
+                if (variables.Tipo_OTS.Equals("SOP") == true)
+                {
+                    href.Text = "href = 'C_Soportes.aspx'";
+                }
+                else if (variables.Tipo_OTS.Equals("PEN") == true)
+                {
+                    href.Text = "href = 'C_Pendientes.aspx'";
+                }
+                
                 if (logicaNegocio.validarRol(clave, "PRG") != null)
                 {
                     user_consulta = clave.ToUpper();

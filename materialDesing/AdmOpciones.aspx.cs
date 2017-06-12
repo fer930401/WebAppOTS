@@ -51,6 +51,10 @@ namespace materialDesing
                         claveCat.Text = elemento.cve_catlgo;
                     }
                 }
+                else
+                {
+                    Literal1.Text = "style='display:none'";
+                }
             }
             else
             {
