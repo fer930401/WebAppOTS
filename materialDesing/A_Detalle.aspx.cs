@@ -63,9 +63,10 @@ namespace materialDesing
             string clasificacion = cls.SelectedValue.TrimStart(' ').TrimEnd(' ');
             string aplica = "";
             string status = "2";
+            string userRespSubOTS = Session["user_cve"].ToString().ToUpper();
             if (string.IsNullOrEmpty(oper) == false && string.IsNullOrEmpty(nom_OTS) == false && string.IsNullOrEmpty(desc) == false && string.IsNullOrEmpty(fecha_Ini) == false && string.IsNullOrEmpty(fecha_Fin) == false && string.IsNullOrEmpty(error_ots) == false && string.IsNullOrEmpty(solucion) == false && string.IsNullOrEmpty(observaciones) == false)
             {
-                AccesoDatos.sp_WebAppOTSAdmOTS_Result insertOTSD = logicaNegocio.admOTS("", variables.Tipo_OTS.ToUpper(), dificultad, variables.Num_OTS, "", "", variables.User_OTS.ToUpper(), status, desc, Convert.ToDateTime(fecha_Ini).ToString("yyyy-MM-dd HH:MM:ss"), Convert.ToDateTime(fecha_Fin).ToString("yyyy-MM-dd HH:MM:ss"), aplica, oper, nom_OTS, error_ots, solucion, observaciones, clasificacion, "altaDet", "", DateTime.Now);
+                AccesoDatos.sp_WebAppOTSAdmOTS_Result insertOTSD = logicaNegocio.admOTS("", variables.Tipo_OTS.ToUpper(), dificultad, variables.Num_OTS, "", "", userRespSubOTS, status, desc, Convert.ToDateTime(fecha_Ini).ToString("yyyy-MM-dd HH:MM:ss"), Convert.ToDateTime(fecha_Fin).ToString("yyyy-MM-dd HH:MM:ss"), aplica, oper, nom_OTS, error_ots, solucion, observaciones, clasificacion, "altaDet", "", DateTime.Now);
                 if (insertOTSD != null)
                 {
                     error = insertOTSD.error;

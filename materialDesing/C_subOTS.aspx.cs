@@ -141,9 +141,11 @@ namespace materialDesing
         {
             int row = ((sender as Button).NamingContainer as GridViewRow).RowIndex;
             int num_SubOTS = Int32.Parse(GridView1.Rows[row].Cells[0].Text);
+            string tipo_SubOTS = GridView1.Rows[row].Cells[1].Text.Substring(0, 3).ToUpper();
+            string userRespSubOTS = Session["user_cve"].ToString().ToUpper();
             string sts_SubOTS = "2";
 
-            AccesoDatos.sp_WebAppOTSAdmOTS_Result insertOTSD = logicaNegocio.admOTS("", "", "", variables.Num_OTS, num_SubOTS.ToString(), "", "", sts_SubOTS, "", "", "", "", "", "", "", "", "", "", "iniDet", "", DateTime.Now);
+            AccesoDatos.sp_WebAppOTSAdmOTS_Result insertOTSD = logicaNegocio.admOTS("", tipo_SubOTS, "", variables.Num_OTS, num_SubOTS.ToString(), "", userRespSubOTS, sts_SubOTS, "", "", "", "", "", "", "", "", "", "", "iniDet", "", DateTime.Now);
             if (insertOTSD != null)
             {
                 error = insertOTSD.error;
@@ -163,9 +165,11 @@ namespace materialDesing
         {
             int row = ((sender as Button).NamingContainer as GridViewRow).RowIndex;
             int num_SubOTS = Int32.Parse(GridView1.Rows[row].Cells[0].Text);
+            string tipo_SubOTS = GridView1.Rows[row].Cells[1].Text.Substring(0, 3).ToUpper();
+            string userRespSubOTS = Session["user_cve"].ToString().ToUpper();
             string sts_SubOTS = "3";
 
-            AccesoDatos.sp_WebAppOTSAdmOTS_Result insertOTSD = logicaNegocio.admOTS("", "", "", variables.Num_OTS, num_SubOTS.ToString(), "", "", sts_SubOTS, "", "", "", "", "", "", "", "", "", "", "iniDet", "", DateTime.Now);
+            AccesoDatos.sp_WebAppOTSAdmOTS_Result insertOTSD = logicaNegocio.admOTS("", tipo_SubOTS, "", variables.Num_OTS, num_SubOTS.ToString(), "", userRespSubOTS, sts_SubOTS, "", "", "", "", "", "", "", "", "", "", "terminaDet", "", DateTime.Now);
             if (insertOTSD != null)
             {
                 error = insertOTSD.error;

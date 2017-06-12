@@ -15,8 +15,8 @@ namespace materialDesing
         {
             if (Session["nombre"] != null)
             {
-                String user = Session["nombre"].ToString();
-                String clave = Session["user_cve"].ToString().ToUpper();
+                string user = Session["nombre"].ToString();
+                string clave = Session["user_cve"].ToString().ToUpper();
             }
             else
             {

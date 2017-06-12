@@ -22,7 +22,7 @@
               var id_OTS = $("td:eq(0)", tr).html();
               var tip_OTST = $("td:eq(1)", tr).html();
               //alert(id_OTS);
-              window.location.href = "C_imgOTS.aspx?num_OTS=" + id_OTS + "&tip_OTS=" + tip_OTST;
+              //window.location.href = "C_imgOTS.aspx?num_OTS=" + id_OTS + "&tip_OTS=" + tip_OTST;
           });
       });
       $(document).ready(function () {
@@ -32,7 +32,7 @@
               var tip_OTST = $("td:eq(1)", tr).html();
               tip_OTST = tip_OTST.substring(0, 3);
               //alert(id_OTS);
-              window.location.href = "A_Detalle.aspx?num_OTS=" + id_OTS + "&tip_OTS=" + tip_OTST;
+              //window.location.href = "A_Detalle.aspx?num_OTS=" + id_OTS + "&tip_OTS=" + tip_OTST;
           });
       });
       $(function () {
@@ -169,30 +169,30 @@
                      
                         foreach (GridViewRow row in GridView1.Rows)
                         {
-                            if (row.Cells[5].Text.Equals("Terminada") == true)
+                            if (row.Cells[6].Text.Equals("Terminada") == true)
                             {
                                 row.BackColor = System.Drawing.ColorTranslator.FromHtml("#81c784");
-                                row.Cells[8].Text = "";
+                                //row.Cells[8].Text = "";
                             }
-                            else if (row.Cells[5].Text.Equals("Desactivada") == true)
+                            else if (row.Cells[6].Text.Equals("Desactivada") == true)
                             {
-                                row.Cells[4].Text = "";
+                                //row.Cells[4].Text = "";
                             }
-                            else if (row.Cells[5].Text.Equals("Pausa") == true)
+                            else if (row.Cells[6].Text.Equals("Pausa") == true)
                             {
                                 row.BackColor = System.Drawing.ColorTranslator.FromHtml("#FFA024");
-                                row.Cells[4].Text = "";
-                                int numOTSPausa = Int32.Parse(row.Cells[0].Text);
+                                //row.Cells[4].Text = "";
+                                //int numOTSPausa = Int32.Parse(row.Cells[0].Text);
                             }
-                            else if (row.Cells[5].Text.Equals("Iniciada") == true)
+                            else if (row.Cells[6].Text.Equals("Iniciada") == true)
                             {
                                 row.BackColor = System.Drawing.ColorTranslator.FromHtml("#ffe0b2");
-                                row.Cells[4].Text = "";
-                                int numOTSPausa = Int32.Parse(row.Cells[0].Text);
+                                //row.Cells[4].Text = "";
+                                //int numOTSPausa = Int32.Parse(row.Cells[0].Text);
                             }
-                            else if (row.Cells[5].Text.Equals("No Iniciada") == true)
+                            else if (row.Cells[6].Text.Equals("No Iniciada") == true)
                             {
-                                row.Cells[4].Text = "";
+                                //row.Cells[4].Text = "";
                             }
                         }
                 }
