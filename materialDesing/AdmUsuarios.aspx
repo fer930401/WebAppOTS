@@ -48,7 +48,7 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s11">
-                            <asp:TextBox ID="txtEmail" runat="server" CssClass="validate"></asp:TextBox>
+                            <asp:TextBox ID="txtEmail" type="email" runat="server" CssClass="validate" required></asp:TextBox>
                             <label for="txtEmail">Email Usuario:</label>
                         </div>
                     </div>

@@ -46,62 +46,63 @@ namespace materialDesing
             string user_cve = txtUser_cve.Text;
             short? status = short.Parse(Request["status"]);
             string email = txtEmail.Text;
-
-            AccesoDatos.sp_WebAppOTSAdmUsers_Result actualizaUser = logicaNegocio.admUserOTS(user_cve, nombre, "", status, email, "", "actualiza");
-            if (actualizaUser != null)
+            if (string.IsNullOrEmpty(nombre.TrimEnd(' ')) == false && string.IsNullOrEmpty(user_cve.TrimEnd(' ')) == false && string.IsNullOrEmpty(email.TrimEnd(' ')) == false)
             {
-                error = actualizaUser.error;
-                mensaje = actualizaUser.mensaje;
-                //si no se regreso ningun error
-                if (Convert.ToInt32(error) == 0)
+                AccesoDatos.sp_WebAppOTSAdmUsers_Result actualizaUser = logicaNegocio.admUserOTS(user_cve, nombre, "", status, email, "", "actualiza");
+                if (actualizaUser != null)
                 {
-                    int rols = 0;
-                    foreach (ListItem item in rol_cve.Items)
+                    error = actualizaUser.error;
+                    mensaje = actualizaUser.mensaje;
+                    //si no se regreso ningun error
+                    if (Convert.ToInt32(error) == 0)
                     {
-                        if (item.Selected)
-                        {
-                            rols++;
-                        }
-                    }
-                    if (rols>0)
-                    {
+                        int rols = 0;
                         foreach (ListItem item in rol_cve.Items)
                         {
                             if (item.Selected)
                             {
-                                AccesoDatos.sp_WebAppOTSAdmUsers_Result RolUser = logicaNegocio.admUserOTS(user_cve.ToUpper(), "", "", 0, "", item.Value, "nRol");
-                                if (RolUser != null)
-                                {
-                                    error = RolUser.error;
-                                    mensaje = RolUser.mensaje;
-                                }
-                            }
-                            else if (item.Selected == false)
-                            {
-                                AccesoDatos.sp_WebAppOTSAdmUsers_Result RolUser = logicaNegocio.admUserOTS(user_cve.ToUpper(), "", "", 0, "", item.Value, "eRol");
-                                if (RolUser != null)
-                                {
-                                    error = RolUser.error;
-                                    mensaje = RolUser.mensaje;
-                                }
+                                rols++;
                             }
                         }
-                        Response.Write("<script type=\"text/javascript\">alert('El Usuario: " + nombre.ToUpper() + " \\nHa Sido Modificado.');  window.location.href = 'C_Usuarios.aspx';</script>");
+                        if (rols>0)
+                        {
+                            foreach (ListItem item in rol_cve.Items)
+                            {
+                                if (item.Selected)
+                                {
+                                    AccesoDatos.sp_WebAppOTSAdmUsers_Result RolUser = logicaNegocio.admUserOTS(user_cve.ToUpper(), "", "", 0, "", item.Value, "nRol");
+                                    if (RolUser != null)
+                                    {
+                                        error = RolUser.error;
+                                        mensaje = RolUser.mensaje;
+                                    }
+                                }
+                                else if (item.Selected == false)
+                                {
+                                    AccesoDatos.sp_WebAppOTSAdmUsers_Result RolUser = logicaNegocio.admUserOTS(user_cve.ToUpper(), "", "", 0, "", item.Value, "eRol");
+                                    if (RolUser != null)
+                                    {
+                                        error = RolUser.error;
+                                        mensaje = RolUser.mensaje;
+                                    }
+                                }
+                            }
+                            Response.Write("<script type=\"text/javascript\">alert('El Usuario: " + nombre.ToUpper() + " \\nHa Sido Modificado.');  window.location.href = 'C_Usuarios.aspx';</script>");
+                        }
+                        else
+                        {
+                            Response.Write("<script type=\"text/javascript\">alert('Seleccione al menos 1 rol para el usuario \\nIntente De Nuevo.');</script>");
+                        }
                     }
                     else
                     {
-                        Response.Write("<script type=\"text/javascript\">alert('Seleccione al menos 1 rol para el usuario \\nIntente De Nuevo.');</script>");
+                        Response.Write("<script type=\"text/javascript\">alert('Se Encontro Un Error " + mensaje + " \\nIntente De Nuevo.');  window.location.href = 'C_Usuarios.aspx';</script>");
                     }
-                    /*variables.M_User_cve = null;
-                    variables.M_Nombre = null;
-                    variables.M_Email = null;
-                    variables.M_Status = null;
-                    variables.M_Roles = null;*/
                 }
-                else
-                {
-                    Response.Write("<script type=\"text/javascript\">alert('Se Encontro Un Error " + mensaje + " \\nIntente De Nuevo.');  window.location.href = 'C_Usuarios.aspx';</script>");
-                }
+            }
+            else
+            {
+                Response.Write("<script type=\"text/javascript\">alert('No puedes dejar campos vacios, ni espacios en blanco'); window.location.href = 'AdmUsuarios.aspx';</script>");
             }
         }
     }
