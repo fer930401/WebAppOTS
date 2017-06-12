@@ -77,7 +77,7 @@
                     
                     <ul class="side-nav" id="mobile-demo">
                         <li>.</li>
-                        <li class="light-blue-text text-darken-4"><i class="material-icons right">perm_identity</i> <% Response.Write(Session["nombre"]); %></li>
+                        <li class="light-blue-text text-darken-4" style="font-size:smaller"><i class="material-icons right">perm_identity</i> <% Response.Write(Session["nombre"].ToString()); %></li>
                         <li><a class="light-blue-text text-darken-4 tooltipped" href="Inicio.aspx" data-position="right" data-delay="50" data-tooltip="Regresa al inicio"><i class="material-icons right">store</i>Inicio</a></li>
                         <%  
                             if (validarRol(Session["user_cve"].ToString().ToUpper(), "ADM") != null)

@@ -13,19 +13,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/25/2017 09:37:32</publishTime>
     </File>
     <File Include="AdmUsuarios.aspx">
-      <publishTime>05/24/2017 08:53:29</publishTime>
+      <publishTime>06/12/2017 16:03:42</publishTime>
     </File>
     <File Include="A_Detalle.aspx">
-      <publishTime>06/07/2017 13:44:36</publishTime>
+      <publishTime>06/12/2017 16:03:42</publishTime>
     </File>
     <File Include="A_Encabezado.aspx">
-      <publishTime>05/23/2017 14:01:17</publishTime>
+      <publishTime>06/12/2017 16:03:42</publishTime>
     </File>
     <File Include="A_Opciones.aspx">
-      <publishTime>05/25/2017 09:37:32</publishTime>
+      <publishTime>06/08/2017 13:12:12</publishTime>
     </File>
     <File Include="A_Paros.aspx">
-      <publishTime>05/11/2017 09:34:14</publishTime>
+      <publishTime>06/12/2017 16:03:42</publishTime>
     </File>
     <File Include="A_Usuarios.aspx">
       <publishTime>05/23/2017 14:01:17</publishTime>
@@ -40,10 +40,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/02/2016 16:00:54</publishTime>
     </File>
     <File Include="bin/LogicaNegocio.dll">
-      <publishTime>06/07/2017 13:58:02</publishTime>
+      <publishTime>06/12/2017 16:16:03</publishTime>
     </File>
     <File Include="bin/materialDesing.dll">
-      <publishTime>06/07/2017 13:58:02</publishTime>
+      <publishTime>06/12/2017 16:16:04</publishTime>
     </File>
     <File Include="css/default.css">
       <publishTime>04/20/2015 00:56:36</publishTime>
@@ -82,13 +82,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/07/2017 16:33:11</publishTime>
     </File>
     <File Include="C_Pendientes.aspx">
-      <publishTime>06/07/2017 13:44:36</publishTime>
+      <publishTime>06/12/2017 16:03:42</publishTime>
     </File>
     <File Include="C_Soportes.aspx">
-      <publishTime>06/07/2017 13:44:36</publishTime>
+      <publishTime>06/12/2017 16:03:42</publishTime>
     </File>
     <File Include="C_subOTS.aspx">
-      <publishTime>06/07/2017 13:44:36</publishTime>
+      <publishTime>06/12/2017 16:03:42</publishTime>
     </File>
     <File Include="C_Usuarios.aspx">
       <publishTime>05/23/2017 14:01:17</publishTime>
@@ -319,10 +319,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/14/2016 16:16:12</publishTime>
     </File>
     <File Include="Login.aspx">
-      <publishTime>05/26/2017 10:43:50</publishTime>
+      <publishTime>06/12/2017 16:03:42</publishTime>
     </File>
     <File Include="ReasignaOTS.aspx">
-      <publishTime>06/07/2017 13:44:36</publishTime>
+      <publishTime>06/12/2017 16:03:42</publishTime>
     </File>
     <File Include="ReporteActividadesOTS.aspx">
       <publishTime>07/20/2016 16:23:13</publishTime>
@@ -334,7 +334,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/07/2017 13:58:03</publishTime>
     </File>
     <File Include="WebApp.Master">
-      <publishTime>06/07/2017 13:55:35</publishTime>
+      <publishTime>06/12/2017 16:03:42</publishTime>
     </File>
   </ItemGroup>
 </Project>

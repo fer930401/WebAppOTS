@@ -22,7 +22,7 @@
                     <div class="row">
                         <div class="input-field col s11">
                             <span class="grey-text">Clave del Usuario (User_cve)</span>
-                            <asp:TextBox ID="txtUser_cve" runat="server" CssClass="validate" required></asp:TextBox>
+                            <asp:TextBox ID="txtUser_cve" runat="server" CssClass="validate" ReadOnly="true"></asp:TextBox>
                         </div>
                     </div>
                     <div class="row">
@@ -35,11 +35,11 @@
                         <div class="input-field col s11">
                             <br />
                             <p>
-                              <input class="with-gap" name="status" type="radio" id="desactivado" value="0" <% if (LogicaNegocio.variables.M_Status.Equals("0") == true && !IsPostBack) { Response.Write("checked"); }; %> />
+                              <input class="with-gap" name="status" type="radio" id="desactivado" value="0" <% if (LogicaNegocio.variables.M_Status.Equals("0") == true /*&& !IsPostBack*/) { Response.Write("checked"); }; %> />
                               <label for="desactivado">Desactivado</label>
                             </p>
                             <p>
-                              <input class="with-gap" name="status" type="radio" id="activo" value="1" <% if (LogicaNegocio.variables.M_Status.Equals("1") == true && !IsPostBack) { Response.Write("checked"); }; %>/>
+                              <input class="with-gap" name="status" type="radio" id="activo" value="1" <% if (LogicaNegocio.variables.M_Status.Equals("1") == true /*&& !IsPostBack*/) { Response.Write("checked"); }; %>/>
                               <label for="activo">Activo</label>
                             </p>
                             <label for="su">Status del Usuario:</label>
@@ -48,7 +48,7 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s11">
-                            <asp:TextBox ID="txtEmail" runat="server" CssClass="validate"></asp:TextBox>
+                            <asp:TextBox ID="txtEmail" type="email" runat="server" CssClass="validate" required></asp:TextBox>
                             <label for="txtEmail">Email Usuario:</label>
                         </div>
                     </div>

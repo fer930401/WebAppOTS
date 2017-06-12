@@ -10,10 +10,16 @@
       $(document).ready(function () {
           $("#<%=GridView1.ClientID%> [id='subReng']").click(function () {
               var tr = $(this).parent().parent().parent().parent().parent().parent();
-              var id_OTS = $("td:eq(0)", tr).html();
-              var tip_OTST = $("td:eq(1)", tr).html();
+              var num_OTS = $("td:eq(0)", tr).html();
+              var tipo_OTS = $("td:eq(1)", tr).html().substring(0,3);
+              var user_OTS = $("td:eq(2)", tr).html();
+              user_OTS = user_OTS.substring(user_OTS.indexOf('(') + 1);
+              user_OTS = user_OTS.substring(0, user_OTS.indexOf(')'));
+              /*document.getElementById("<=txtnum_OTS.ClientID%>").value = num_OTS;
+              document.getElementById("<=txttipo_OTS.ClientID%>").value = tipo_OTS;
+              document.getElementById("<=txtuser_OTS.ClientID%>").value = user_OTS;*/
               //alert(id_OTS);
-              window.location.href = "C_subOTS.aspx?num_OTS=" + id_OTS + "&tip_OTS=" + tip_OTST;
+              //window.location.href = "C_subOTS.aspx?num_OTS=" + id_OTS + "&tip_OTS=" + tip_OTST;
           });
       });
       $(document).ready(function () {
@@ -22,7 +28,7 @@
               var id_OTS = $("td:eq(0)", tr).html();
               var tip_OTST = $("td:eq(1)", tr).html();
               //alert(id_OTS);
-              window.location.href = "C_imgOTS.aspx?num_OTS=" + id_OTS + "&tip_OTS=" + tip_OTST;
+              //window.location.href = "C_imgOTS.aspx?num_OTS=" + id_OTS + "&tip_OTS=" + tip_OTST;
           });
       });
       $(document).ready(function () {
@@ -32,7 +38,7 @@
               var tip_OTST = $("td:eq(1)", tr).html();
               tip_OTST = tip_OTST.substring(0, 3);
               //alert(id_OTS);
-              window.location.href = "A_Detalle.aspx?num_OTS=" + id_OTS + "&tip_OTS=" + tip_OTST;
+              //window.location.href = "A_Detalle.aspx?num_OTS=" + id_OTS + "&tip_OTS=" + tip_OTST;
           });
       });
       $(function () {
@@ -163,30 +169,30 @@
                      
                         foreach (GridViewRow row in GridView1.Rows)
                         {
-                            if (row.Cells[5].Text.Equals("Terminada") == true)
+                            if (row.Cells[6].Text.Equals("Terminada") == true)
                             {
                                 row.BackColor = System.Drawing.ColorTranslator.FromHtml("#81c784");
-                                row.Cells[8].Text = "";
+                                //row.Cells[8].Text = "";
                             }
-                            else if (row.Cells[5].Text.Equals("Desactivada") == true)
+                            else if (row.Cells[6].Text.Equals("Desactivada") == true)
                             {
-                                row.Cells[4].Text = "";
+                                //row.Cells[4].Text = "";
                             }
-                            else if (row.Cells[5].Text.Equals("Pausa") == true)
+                            else if (row.Cells[6].Text.Equals("Pausa") == true)
                             {
                                 row.BackColor = System.Drawing.ColorTranslator.FromHtml("#FFA024");
-                                row.Cells[4].Text = "";
-                                int numOTSPausa = Int32.Parse(row.Cells[0].Text);
+                                //row.Cells[4].Text = "";
+                                //int numOTSPausa = Int32.Parse(row.Cells[0].Text);
                             }
-                            else if (row.Cells[5].Text.Equals("Iniciada") == true)
+                            else if (row.Cells[6].Text.Equals("Iniciada") == true)
                             {
                                 row.BackColor = System.Drawing.ColorTranslator.FromHtml("#ffe0b2");
-                                row.Cells[4].Text = "";
-                                int numOTSPausa = Int32.Parse(row.Cells[0].Text);
+                                //row.Cells[4].Text = "";
+                                //int numOTSPausa = Int32.Parse(row.Cells[0].Text);
                             }
-                            else if (row.Cells[5].Text.Equals("No Iniciada") == true)
+                            else if (row.Cells[6].Text.Equals("No Iniciada") == true)
                             {
-                                row.Cells[4].Text = "";
+                                //row.Cells[4].Text = "";
                             }
                         }
                 }
@@ -217,14 +223,15 @@
                         <AlternatingRowStyle BackColor="#E4EDF6" />
                         <FooterStyle BackColor="Tan" />
                         <Columns>
-                            <asp:BoundField DataField="num_OTS" HeaderText="Folio:" ItemStyle-Width="150" />
-                            <asp:BoundField DataField="tipo_OTS" HeaderText="Tipo OTS:" ItemStyle-Width="150" />
-                            <asp:BoundField DataField="userResp" HeaderText="Responsable:" ItemStyle-Width="150" />
-                            <asp:BoundField DataField="fec_asig" HeaderText="Fecha Asignada:" ItemStyle-Width="150" />
-                            <asp:BoundField DataField="fec_fin" HeaderText="Fecha Final:" ItemStyle-Width="150" />
-                            <asp:BoundField DataField="sts_prog" HeaderText="Status:" ItemStyle-Width="150" />
-                            <asp:BoundField DataField="aplica" HeaderText="Aplica Para:" ItemStyle-Width="150" />
-                            <asp:BoundField DataField="fec_prom" HeaderText="Fecha Prometida:" ItemStyle-Width="150" />
+                            <asp:BoundField DataField="num_OTS" HeaderText="Folio:"/>
+                            <asp:BoundField DataField="tipo_OTS" HeaderText="Tipo OTS:"/>
+                            <asp:BoundField DataField="userResp" HeaderText="Responsable:"/>
+                            <asp:BoundField DataField="descripcion" HeaderText="Descripcion:"/>
+                            <asp:BoundField DataField="fec_asig" HeaderText="Fecha Asignada:"/>
+                            <asp:BoundField DataField="fec_fin" HeaderText="Fecha Final:"/>
+                            <asp:BoundField DataField="sts_prog" HeaderText="Status:"/>
+                            <asp:BoundField DataField="aplica" HeaderText="Aplica Para:"/>
+                            <asp:BoundField DataField="fec_prom" HeaderText="Fecha Prometida:"/>
                             
                             <asp:TemplateField HeaderText="Detalles OTS:" ItemStyle-Width="900">
                                 <ItemTemplate>
@@ -232,8 +239,10 @@
                                         <div class="fixed-action-btn horizontal click-to-toggle tooltipped" data-position="top" data-delay="50" data-tooltip="Detalles" style="position: relative; display: inline-block; height: 70px;">
                                             <a class="btn-floating btn-large red darken-4"><i class="material-icons">toc</i></a>
                                             <ul>
-                                                <li><a class="btn-floating green darken-3 click-to-toggle tooltipped" id="btnAgregar" data-position="top" data-delay="50" data-tooltip="Agrega Sub OTS" <% Response.Write(Session["visibleAgregar"]); %>><i class="material-icons">add</i></a></li>
-                                                <li><a class="btn-floating cyan darken-4 click-to-toggle tooltipped" id="subReng" data-position="top" data-delay="50" data-tooltip="Sub OTS"><i class="material-icons">message</i></a></li>
+                                                <!--<li><a class="btn-floating green darken-3 click-to-toggle tooltipped" id="btnAgregar" data-position="top" data-delay="50" data-tooltip="Agrega Sub OTS" < Response.Write(Session["visibleAgregar"]); %>><i class="material-icons">add</i></a></li>-->
+                                                <li><asp:Button ID="btnAgregar" CssClass="btn-floating green darken-3 click-to-toggle tooltipped material-icons" data-position="top" data-delay="50" data-tooltip="Agrega Sub OTS" OnClick="btnAgregar_Click" runat="server" Text="add" /></li>
+                                                <!--<li><a class="btn-floating cyan darken-4 click-to-toggle tooltipped" id="subReng" data-position="top" data-delay="50" data-tooltip="Sub OTS"><i class="material-icons">message</i></a></li>-->
+                                                <li><asp:Button ID="btnSubOts" CssClass="btn-floating cyan darken-4 click-to-toggle tooltipped material-icons" data-position="top" data-delay="50" data-tooltip="Sub OTS" OnClick="btnSubOts_Click" runat="server" Text="message" /></li>
                                                 <!--<li><a class="btn-floating green darken-3 click-to-toggle tooltipped" id="imgOTS" data-position="top" data-delay="50" data-tooltip="Img. OTS"><i class="material-icons">perm_media</i></a></li>-->
                                                 <li><a class="btn-floating red darken-3 click-to-toggle tooltipped" id="btnReasignar" data-position="top" data-delay="50" data-tooltip="Reasigna" <% Response.Write(Session["visibleReasigna"]); %>><i class="material-icons">replay</i></a></li>
                                             </ul>

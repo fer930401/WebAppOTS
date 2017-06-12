@@ -24,15 +24,15 @@
         <div class="container">
             <div class="row">
                 <label>Num. de OTS:</label>
-                <asp:TextBox ID="txtNumOTS" runat="server" CssClass="validate" required></asp:TextBox>
+                <asp:TextBox ID="txtNumOTS" runat="server" CssClass="validate" ReadOnly="true" required></asp:TextBox>
             </div>
             <div class="row">
                 <label>Tipo OTS:</label>
-                <asp:TextBox ID="txtTipoOTS" runat="server" CssClass="validate" required></asp:TextBox>
+                <asp:TextBox ID="txtTipoOTS" runat="server" CssClass="validate" ReadOnly="true" required></asp:TextBox>
             </div>
             <div class="row">
                 <label>Responsable:</label>
-                <asp:TextBox ID="txtResponsable" runat="server" CssClass="validate" required></asp:TextBox>
+                <asp:TextBox ID="txtResponsable" runat="server" CssClass="validate" ReadOnly="true" required></asp:TextBox>
             </div>
             <div class="row">
                 <label>Nuevo Responsable:</label>

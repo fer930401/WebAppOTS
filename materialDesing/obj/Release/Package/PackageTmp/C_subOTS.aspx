@@ -34,14 +34,6 @@
             });
         });
         
-        function confirmar() {
-            if (confirm('Desea eliminar este soporte?')) {
-                alert("Soporte Eliminado");
-                window.location.href = 'C_Soportes.aspx';
-            } else {
-                return false;
-            }
-        }
         $(document).ready(function () {
             $('select').material_select();
         });
@@ -286,7 +278,7 @@
                         <asp:BoundField DataField="fec_fin" HeaderText="Fecha Final:" />
                         <asp:BoundField DataField="sts_prog" HeaderText="Status:" />
                         <asp:BoundField DataField="descripcion" HeaderText="Descripcion:" />
-                        <asp:BoundField DataField="operacion" HeaderText="Operacion:" />
+                        <asp:BoundField DataField="operacion" HeaderText="Descripcion del Sub OTS:" />
                         <asp:TemplateField HeaderText="Iniciar:">
                             <ItemTemplate>
                                 <asp:Button Text="Iniciar" ID="iniciar" runat="server" CommandName="Select" CssClass="waves-effect waves-light btn  green darken-4" OnClick="iniciar_Click" />

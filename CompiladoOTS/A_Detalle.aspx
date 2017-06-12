@@ -40,13 +40,13 @@
                         </div>
                         <div class="input-field col s6">
                             <asp:TextBox ID="nom_proceso" runat="server" name="nom_proceso" required></asp:TextBox>
-                            <label for="nom_proceso">Nombre del Proceso:</label>
+                            <label for="nom_proceso">Descripcion del Sub OTS:</label>
                         </div>
                     </div>
                     <div class="row" >
                         <div class="input-field col s12">
                             <asp:TextBox ID="descripcion" runat="server" name="descripcion" ReadOnly="true"></asp:TextBox>
-                            <label for="descripcion">Descripcion</label>
+                            <label for="descripcion">Descripcion del OTS</label>
                         </div>
                     </div>
                     <div class="row">
@@ -59,20 +59,11 @@
                             <label for="fechaFin">Fecha Final:</label>
                         </div>
                     </div>
-                    <div class="row" <% Response.Write(Session["visibleSD"]); %>>
-                        <div class="input-field col s6">
-                            <p class="range-field">
-                              <input type="range" id="dificultad" name="dificultad" min="0" max="10" />
-                            </p>
-                            <label for="dificultad">Dificultad:</label>
-                        </div>
-                    </div>
                     <div class="row">
                         <div class="input-field col s12" >
                             <textarea id="error" name="error" class="materialize-textarea" length="254" required> </textarea>
                             <label for="error">Error:</label>
                         </div>
-                        
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
@@ -95,7 +86,6 @@
                     <div class="row">
                         <div >
                             <asp:Button ID="btnGuardarOTSD" runat="server" Text="Guardar" CssClass="waves-effect green darken-4 btn" OnClick="btnGuardarOTSD_Click" />
-                            <asp:Button ID="btnTerminarOTS" runat="server" Text="Terminar OTS" CssClass="waves-effect green darken-4 btn" OnClick="btnTerminarOTS_Click"/>
                             <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" CssClass="waves-effect red darken-4 btn" OnClick="btnCancelar_Click" OnClientClick="quitaValidacion()"/>
                         </div>
                     </div>
