@@ -140,7 +140,7 @@
                         <div class="row">
                             <div class="input-field col s8">
                                 <i class="material-icons prefix">https</i>
-                                <input id="password" name="password" type="password" /><div id="error" class="chip amber darken-3 white-text">El bloqueo de mayusculas esta activado. sdfasfdasdf</div>
+                                <input id="password" name="password" type="password" required/><div id="error" class="chip amber darken-3 white-text">El bloqueo de mayusculas esta activado.</div>
                                 <label for="password">Contraseña:</label>
                             </div>
                         </div>
@@ -169,35 +169,5 @@
             </div>
         </div>
     </footer>
-    <script>
-        $(document).ready(function () {
-            var toggle = -1;
-            $('.slider').slider({ full_width: true, indicators: false, transition: 1300, interval: 5000 });
-            $('#sidebar-nav').sidr();
-            $('body').on('click', '.all-body-click-region', function () {
-                //$('.toc').fadeIn();
-                $.sidr('close');
-                $('.cover__container').css({ 'display': 'block' })
-            });
-            $('.side-nav-button').click(function () {
-                toggle *= -1;
-                if (toggle === 1) {
-                    $('.cover__container').css({ 'display': 'none' })
-                }
-                else {
-                    $('.cover__container').css({ 'display': 'block' })
-                }
-            });
-
-            setTimeout(function () {
-                var firstSliderImage = document.getElementById('slide-image-1');
-                firstSliderImage.src = "/media/img/main__site_1.jpg";
-                firstSliderImage.onload = function () {
-                    $('.all-body-click-region.inner__wrapper').css({ 'display': 'block' });
-                    $('.loader').css({ 'display': 'none' })
-                };
-            }, 100);
-        });
-    </script>
 </body>
 </html>
