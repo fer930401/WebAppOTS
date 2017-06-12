@@ -35,22 +35,27 @@ namespace materialDesing
             short? user_status = short.Parse(Request["status"]);
             string user_email = Request["eu"];
             string user_rol = roles.SelectedValue;
-            AccesoDatos.sp_WebAppOTSAdmUsers_Result insertaUser = logicaNegocio.admUserOTS(user_cve,user_nom,user_pass,user_status,user_email,user_rol,"alta");
-            if (insertaUser != null)
-            {
-                error = insertaUser.error;
-                mensaje = insertaUser.mensaje;
-                //si no se regreso ningun error
-                if (Convert.ToInt32(error) == 0)
+            if (string.IsNullOrEmpty(user_cve.TrimEnd(' ')) == false && string.IsNullOrEmpty(user_nom.TrimEnd(' ')) == false && string.IsNullOrEmpty(user_pass.TrimEnd(' ')) == false)
+            { 
+                AccesoDatos.sp_WebAppOTSAdmUsers_Result insertaUser = logicaNegocio.admUserOTS(user_cve,user_nom,user_pass,user_status,user_email,user_rol,"alta");
+                if (insertaUser != null)
                 {
-                    Response.Write("<script type=\"text/javascript\">alert('El Usuario: " + user_nom.ToUpper() + " \\nHa Sido Registrado.');  window.location.href = 'A_Usuarios.aspx';</script>");
-                }
-                else
-                {
-                    Response.Write("<script type=\"text/javascript\">alert('Se Encontro Un Error " + mensaje + " \\nIntente De Nuevo.');  window.location.href = 'A_Usuarios.aspx';</script>");
+                    error = insertaUser.error;
+                    mensaje = insertaUser.mensaje;
+                    if (Convert.ToInt32(error) == 0)
+                    {
+                        Response.Write("<script type=\"text/javascript\">alert('El Usuario: " + user_nom.ToUpper() + " \\nHa Sido Registrado.');  window.location.href = 'A_Usuarios.aspx';</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script type=\"text/javascript\">alert('Se Encontro Un Error " + mensaje + " \\nIntente De Nuevo.');  window.location.href = 'A_Usuarios.aspx';</script>");
+                    }
                 }
             }
-            
+            else
+            {
+                Response.Write("<script type=\"text/javascript\">alert('No puedes dejar campos vacios, ni espacios en blanco'); window.location.href = 'A_Usuarios.aspx';</script>");
+            }
         }
         private string GetSHA1HashData(string data)
         {
