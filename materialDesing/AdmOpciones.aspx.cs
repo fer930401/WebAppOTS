@@ -38,17 +38,25 @@ namespace materialDesing
         {
             
             string elmto_cve = elm_cve.Text;
-            List<AccesoDatos.otscatlgos> catOTS = logicaNegocio.infoOpc(elmto_cve);
-            if (catOTS != null && catOTS.Count > 0)
+            if (string.IsNullOrEmpty(elmto_cve.TrimEnd(' ')) == false)
             {
-                Literal1.Text = "";
-                foreach (var elemento in catOTS)
+                List<AccesoDatos.otscatlgos> catOTS = logicaNegocio.infoOpc(elmto_cve);
+                if (catOTS != null && catOTS.Count > 0)
                 {
-                    variables.M_StatusOpc = elemento.status.ToString();
-                    nom_catlgo.Text = elemento.nombre;
-                    claveCat.Text = elemento.cve_catlgo;
+                    Literal1.Text = "";
+                    foreach (var elemento in catOTS)
+                    {
+                        variables.M_StatusOpc = elemento.status.ToString();
+                        nom_catlgo.Text = elemento.nombre;
+                        claveCat.Text = elemento.cve_catlgo;
+                    }
                 }
             }
+            else
+            {
+                Response.Write("<script type=\"text/javascript\">alert('No puedes buscar campos vacios, ni espacios en blanco'); window.location.href = 'AdmOpciones.aspx';</script>");
+            }
+            
         }
 
         protected void btnGuardarOpc_Click(object sender, EventArgs e)
