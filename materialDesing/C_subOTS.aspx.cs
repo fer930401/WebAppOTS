@@ -165,7 +165,7 @@ namespace materialDesing
                 }
                 else
                 {
-                    Response.Write("<script type=\"text/javascript\">alert('Se Encontro Un Error " + mensaje + " \\nIntente De Nuevo.');  window.location.href = 'A_Detalle.aspx';</script>");
+                    Response.Write("<script type=\"text/javascript\">alert('Se Encontro Un Error " + mensaje + " \\nIntente De Nuevo.');  window.location.href = 'C_subOTS.aspx';</script>");
                 }
             }
         }
@@ -189,7 +189,7 @@ namespace materialDesing
                 }
                 else
                 {
-                    Response.Write("<script type=\"text/javascript\">alert('Se Encontro Un Error " + mensaje + " \\nIntente De Nuevo.');  window.location.href = 'A_Detalle.aspx';</script>");
+                    Response.Write("<script type=\"text/javascript\">alert('Se Encontro Un Error " + mensaje + " \\nIntente De Nuevo.');  window.location.href = 'C_subOTS.aspx';</script>");
                 }
             }
         }
