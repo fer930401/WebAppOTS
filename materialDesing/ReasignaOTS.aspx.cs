@@ -121,8 +121,8 @@ namespace materialDesing
         public void sendEmail(string responsable, string tip_OTS, string operacion, string descripcion, DateTime fechaFin)
         {
             string emailRespon = emailResponsable(responsable);
-            //var to = emailRespon;
-            var to = "fernando.garcia@Skytex.com.mx";
+            var to = emailRespon;
+            //var to = "fernando.garcia@Skytex.com.mx";
             var cc = "fernando.garcia@Skytex.com.mx";
             var bcc = "fernando.garcia@Skytex.com.mx";
             var emailRemitente = "soludin@skytex.com.mx";
