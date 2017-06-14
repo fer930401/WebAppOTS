@@ -31,11 +31,32 @@ namespace materialDesing
                     TimeSpan ts = fecActual - fecAsig;
                     if (ts.Hours >= 1)
                     {
-                        lblFechaIni.Text = ts.Hours.ToString() + ":" + ts.Minutes.ToString() + " H.";
+                        if (ts.Hours < 10)
+                        {
+                            if (ts.Minutes < 10)
+                            {
+                                lblFechaIni.Text = "0" + ts.Hours.ToString() + ":" + "0" + ts.Minutes.ToString() + " H.";
+                            }
+                            else
+                            {
+                                lblFechaIni.Text = "0" + ts.Hours.ToString() + ":" + ts.Minutes.ToString() + " H.";
+                            }
+                        }
+                        else
+                        {
+                            lblFechaIni.Text = ts.Hours.ToString() + ":" + ts.Minutes.ToString() + " H.";
+                        }                        
                     }
                     else
                     {
-                        lblFechaIni.Text = ts.Minutes.ToString() + " Min.";
+                        if (ts.Minutes < 10)
+                        {
+                            lblFechaIni.Text = "0" + ts.Minutes.ToString() + " Min.";
+                        }
+                        else
+                        {
+                            lblFechaIni.Text = ts.Minutes.ToString() + " Min.";
+                        }
                     }
                     
                     if (lblStatus.Text.Equals("Iniciada") == true)
