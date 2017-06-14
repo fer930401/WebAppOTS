@@ -22,15 +22,15 @@ namespace materialDesing
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            consultaEncabezado(variables.Num_OTS, variables.Tipo_OTS);
+            consultaEncabezado(variables.Num_OTS, variables.Tipo_OTS.ToString().Substring(0,3));
             if (Session["user_cve"] != null)
             {
                 string clave = Session["user_cve"].ToString();
-                if (variables.Tipo_OTS.Equals("SOP") == true)
+                if (variables.Tipo_OTS.Substring(0, 3).Equals("SOP") == true)
                 {
                     href.Text = "href = 'C_Soportes.aspx'";
                 }
-                else if (variables.Tipo_OTS.Equals("PEN") == true)
+                else if (variables.Tipo_OTS.Substring(0, 3).Equals("PEN") == true)
                 {
                     href.Text = "href = 'C_Pendientes.aspx'";
                 }
@@ -60,7 +60,7 @@ namespace materialDesing
                 {
                     DataTable dt = new DataTable();
                     DataRow dr;
-                    List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(user_consulta, sts_consulta, 4, variables.Tipo_OTS, variables.Num_OTS.ToString(), "");
+                    List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(user_consulta, sts_consulta, 4, variables.Tipo_OTS.Substring(0,3), variables.Num_OTS.ToString(), "");
                     dt.Columns.Add("num_OTS", typeof(string));
                     dt.Columns.Add("tipo_OTS", typeof(string));
                     dt.Columns.Add("operacion", typeof(string));
@@ -112,7 +112,7 @@ namespace materialDesing
             
             DataTable dt = new DataTable();
             DataRow dr;
-            List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(user_consulta, sts_consulta, 4, variables.Tipo_OTS, variables.Num_OTS.ToString(), "");
+            List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(user_consulta, sts_consulta, 4, variables.Tipo_OTS.Substring(0,3), variables.Num_OTS.ToString(), "");
             dt.Columns.Add("num_OTS", typeof(string));
             dt.Columns.Add("tipo_OTS", typeof(string));
             dt.Columns.Add("operacion", typeof(string));
