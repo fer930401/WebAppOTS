@@ -44,7 +44,14 @@ namespace materialDesing
                         }
                         else
                         {
-                            lblFechaIni.Text = ts.Hours.ToString() + ":" + ts.Minutes.ToString() + " H.";
+                            if (ts.Minutes < 10)
+                            {
+                                lblFechaIni.Text = ts.Hours.ToString() + ":" + "0" + ts.Minutes.ToString() + " H.";
+                            }
+                            else
+                            {
+                                lblFechaIni.Text = ts.Hours.ToString() + ":" + ts.Minutes.ToString() + " H.";
+                            }
                         }                        
                     }
                     else
