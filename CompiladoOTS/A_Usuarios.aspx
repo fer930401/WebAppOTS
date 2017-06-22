@@ -40,15 +40,15 @@
                     <div class="row">
                         <label>Nombre del Usuario</label>
                         <div class="input-field col s11">
-                            <input id="nu" name="nu" type="text" class="validate" onchange="user_cve()" required=""/>
+                            <input id="nu" name="nu" type="text" class="validate" onchange="user_cve()" required="" maxlength="30"/>
                             <label for="nu">Nombre:</label>
                         </div>
                         <div class="input-field col s11">
-                            <input id="pu" name="pu" type="text" class="validate" onchange="user_cve()" required=""/>
+                            <input id="pu" name="pu" type="text" class="validate" onchange="user_cve()" required="" maxlength="10"/>
                             <label for="nu">Apellido Paterno:</label>
                         </div>
                         <div class="input-field col s11">
-                            <input id="mu" name="mu" type="text" class="validate" onchange="user_cve()" required=""/>
+                            <input id="mu" name="mu" type="text" class="validate" onchange="user_cve()" required="" maxlength="10"/>
                             <label for="nu">Apellido Materno:</label>
                         </div>
                     </div>
