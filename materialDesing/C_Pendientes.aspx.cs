@@ -112,7 +112,7 @@ namespace materialDesing
                 }
                 else
                 {
-                    listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 3, "PEN", user_filtro, variables.Descrip_filtro + "%");
+                    listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 3, "PEN", user_filtro, "%" + variables.Descrip_filtro + "%");
                 }
 
             }
@@ -124,7 +124,7 @@ namespace materialDesing
                 }
                 else
                 {
-                    listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 2, "PEN", "", variables.Descrip_filtro + "%");
+                    listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 2, "PEN", "", "%" + variables.Descrip_filtro + "%");
                 }
 
             }
@@ -192,11 +192,11 @@ namespace materialDesing
                 }
                 if (string.IsNullOrEmpty(variables.User_filtro) == true)
                 {
-                    listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 2, "SOP", "", descr + "%");
+                    listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 2, "SOP", "", "%" + descr + "%");
                 }
                 else
                 {
-                    listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 3, "SOP", variables.User_filtro, descr + "%");
+                    listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 3, "SOP", variables.User_filtro, "%" + descr + "%");
                 }
             }
 
