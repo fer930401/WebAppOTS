@@ -29,43 +29,45 @@ namespace materialDesing
                     DateTime fecAsig = Convert.ToDateTime(OTSActivo[0].fec_asig.ToString());
                     DateTime fecActual = DateTime.Now;
                     TimeSpan ts = fecActual - fecAsig;
+                    string dias = "0";
+                    string horas = "0";
+                    string minutos = "0";
+
+                    if (ts.Days >= 1)
+                    {
+                        if (ts.Days < 10)
+                        {
+                            dias = "0" + ts.Days.ToString();
+                        }
+                        else
+                        {
+                            dias = ts.Days.ToString();
+                        }
+                    }
                     if (ts.Hours >= 1)
                     {
                         if (ts.Hours < 10)
                         {
-                            if (ts.Minutes < 10)
-                            {
-                                lblFechaIni.Text = "0" + ts.Hours.ToString() + ":" + "0" + ts.Minutes.ToString() + " H.";
-                            }
-                            else
-                            {
-                                lblFechaIni.Text = "0" + ts.Hours.ToString() + ":" + ts.Minutes.ToString() + " H.";
-                            }
+                            horas = "0" + ts.Hours.ToString();
                         }
                         else
                         {
-                            if (ts.Minutes < 10)
-                            {
-                                lblFechaIni.Text = ts.Hours.ToString() + ":" + "0" + ts.Minutes.ToString() + " H.";
-                            }
-                            else
-                            {
-                                lblFechaIni.Text = ts.Hours.ToString() + ":" + ts.Minutes.ToString() + " H.";
-                            }
-                        }                        
+                            horas = ts.Hours.ToString();
+                        }
                     }
-                    else
+                    if (ts.Minutes >= 1)
                     {
                         if (ts.Minutes < 10)
                         {
-                            lblFechaIni.Text = "0" + ts.Minutes.ToString() + " Min.";
+                            minutos = "0" + ts.Minutes.ToString();
                         }
                         else
                         {
-                            lblFechaIni.Text = ts.Minutes.ToString() + " Min.";
+                            minutos = ts.Minutes.ToString();
                         }
                     }
-                    
+
+                    lblFechaIni.Text = dias + " Dias.," + horas+" Horas.," + minutos + " Min.";
                     if (lblStatus.Text.Equals("Iniciada") == true)
                     {
                         btnContinuar.Visible = false;

@@ -16,10 +16,9 @@ namespace AccesoDatos
     {
         public usuarios()
         {
-            this.rolesxUsr = new HashSet<rolesxUsr>();
-            this.otsdmov = new HashSet<otsdmov>();
             this.otsemov = new HashSet<otsemov>();
             this.otsemov1 = new HashSet<otsemov>();
+            this.rolesxUsr = new HashSet<rolesxUsr>();
         }
     
         public string user_cve { get; set; }
@@ -27,11 +26,10 @@ namespace AccesoDatos
         public string password { get; set; }
         public string mail { get; set; }
         public Nullable<System.DateTime> fec_ultact { get; set; }
-        public short status_usr { get; set; }
+        public bool status_usr { get; set; }
     
-        public virtual ICollection<rolesxUsr> rolesxUsr { get; set; }
-        public virtual ICollection<otsdmov> otsdmov { get; set; }
         public virtual ICollection<otsemov> otsemov { get; set; }
         public virtual ICollection<otsemov> otsemov1 { get; set; }
+        public virtual ICollection<rolesxUsr> rolesxUsr { get; set; }
     }
 }

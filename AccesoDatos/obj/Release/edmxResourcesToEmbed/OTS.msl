@@ -1,18 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="DBOTSModelStoreContainer" CdmEntityContainer="DBOTSEntities">
-    <EntitySetMapping Name="usuarios">
-      <EntityTypeMapping TypeName="DBOTSModel.usuarios">
-        <MappingFragment StoreEntitySet="usuarios">
-          <ScalarProperty Name="status_usr" ColumnName="status_usr" />
-          <ScalarProperty Name="fec_ultact" ColumnName="fec_ultact" />
-          <ScalarProperty Name="mail" ColumnName="mail" />
-          <ScalarProperty Name="password" ColumnName="password" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="user_cve" ColumnName="user_cve" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="rolesxUsr">
       <EntityTypeMapping TypeName="DBOTSModel.rolesxUsr">
         <MappingFragment StoreEntitySet="rolesxUsr">
@@ -161,5 +149,17 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="usuarios">
+      <EntityTypeMapping TypeName="DBOTSModel.usuarios">
+        <MappingFragment StoreEntitySet="usuarios">
+          <ScalarProperty Name="status_usr" ColumnName="status_usr" />
+          <ScalarProperty Name="fec_ultact" ColumnName="fec_ultact" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="user_cve" ColumnName="user_cve" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

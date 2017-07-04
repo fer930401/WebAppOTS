@@ -5,18 +5,17 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="8820e214d37c4e6cb9076466d9af868c" Name="Diagram1">
-        <EntityTypeShape EntityType="DBOTSModel.usuarios" Width="1.5" PointX="3.25" PointY="0.5" />
         <EntityTypeShape EntityType="DBOTSModel.rolesxUsr" Width="1.5" PointX="1.375" PointY="0.5" />
-        <AssociationConnector Association="DBOTSModel.FK_rolesxUsr_usuarios" />
         <EntityTypeShape EntityType="DBOTSModel.otsdcatlgos" Width="1.5" PointX="9.75" PointY="0.5" />
         <EntityTypeShape EntityType="DBOTSModel.otscatlgos" Width="1.5" PointX="11.625" PointY="0.5" />
         <AssociationConnector Association="DBOTSModel.FK_otscatlgos_otsdcatlgos" />
         <EntityTypeShape EntityType="DBOTSModel.otsdmov" Width="1.5" PointX="7.5" PointY="0.5" />
         <EntityTypeShape EntityType="DBOTSModel.otsemov" Width="1.5" PointX="5.375" PointY="0.5" />
-        <AssociationConnector Association="DBOTSModel.FK_otsdmov_usuarios" />
+        <EntityTypeShape EntityType="DBOTSModel.paros" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DBOTSModel.usuarios" Width="1.5" PointX="3.25" PointY="0.625" />
         <AssociationConnector Association="DBOTSModel.FK_otsemov_usuarios" />
         <AssociationConnector Association="DBOTSModel.FK_otsemov_usuarios1" />
-        <EntityTypeShape EntityType="DBOTSModel.paros" Width="1.5" PointX="0.75" PointY="3.75" />
+        <AssociationConnector Association="DBOTSModel.FK_rolesxUsr_usuarios" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

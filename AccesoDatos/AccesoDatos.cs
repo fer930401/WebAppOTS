@@ -23,7 +23,7 @@ namespace AccesoDatos
         {
             String resultado;
             var consultaLogin = (from u in contextoOTS.usuarios
-                                 where u.status_usr == 1
+                                 where u.status_usr.Equals(true)
                                          && u.user_cve.Equals(user)
                                          && u.password.Equals(pass)
                                  select u).SingleOrDefault();
@@ -43,7 +43,7 @@ namespace AccesoDatos
         }
         public List<usuarios> ListaUsuarios()
         {
-            return (from u in contextoOTS.usuarios where u.status_usr == 1 orderby u.nombre select u).ToList();
+            return (from u in contextoOTS.usuarios where u.status_usr.Equals(true) orderby u.nombre select u).ToList();
         }
         public List<sp_WebAppOTSConsultaUser_Result> ListaProgramadores(int status, string rol)
         {

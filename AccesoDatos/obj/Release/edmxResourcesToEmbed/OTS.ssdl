@@ -116,7 +116,7 @@ warning 6002: The table/view 'DBOTS.dbo.rolesxUsr' does not have a primary key d
     <Property Name="password" Type="nvarchar" MaxLength="120" Nullable="false" />
     <Property Name="mail" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="fec_ultact" Type="datetime" />
-    <Property Name="status_usr" Type="smallint" Nullable="false" />
+    <Property Name="status_usr" Type="bit" Nullable="false" />
   </EntityType>
   <Association Name="FK_otscatlgos_otsdcatlgos">
     <End Role="otsdcatlgos" Type="Self.otsdcatlgos" Multiplicity="1" />

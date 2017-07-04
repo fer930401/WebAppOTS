@@ -35,6 +35,5 @@ C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\Entidades\bin\Debug\En
 C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\Entidades\bin\Debug\Entidades.pdb
 C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\Entidades\bin\Debug\EntityFramework.dll
 C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\Entidades\bin\Debug\EntityFramework.xml
-C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
 C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\Entidades\obj\Debug\Entidades.dll
 C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\Entidades\obj\Debug\Entidades.pdb

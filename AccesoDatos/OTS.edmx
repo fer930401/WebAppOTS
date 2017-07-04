@@ -121,7 +121,7 @@ warning 6002: The table/view 'DBOTS.dbo.rolesxUsr' does not have a primary key d
           <Property Name="password" Type="nvarchar" MaxLength="120" Nullable="false" />
           <Property Name="mail" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="fec_ultact" Type="datetime" />
-          <Property Name="status_usr" Type="smallint" Nullable="false" />
+          <Property Name="status_usr" Type="bit" Nullable="false" />
         </EntityType>
         <Association Name="FK_otscatlgos_otsdcatlgos">
           <End Role="otsdcatlgos" Type="Self.otsdcatlgos" Multiplicity="1" />
@@ -319,12 +319,7 @@ FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
     <edmx:ConceptualModels>
       <Schema Namespace="DBOTSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="DBOTSEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="usuarios" EntityType="DBOTSModel.usuarios" />
           <EntitySet Name="rolesxUsr" EntityType="DBOTSModel.rolesxUsr" />
-          <AssociationSet Name="FK_rolesxUsr_usuarios" Association="DBOTSModel.FK_rolesxUsr_usuarios">
-            <End Role="usuarios" EntitySet="usuarios" />
-            <End Role="rolesxUsr" EntitySet="rolesxUsr" />
-          </AssociationSet>
           <EntitySet Name="otsdcatlgos" EntityType="DBOTSModel.otsdcatlgos" />
           <EntitySet Name="otscatlgos" EntityType="DBOTSModel.otscatlgos" />
           <AssociationSet Name="FK_otscatlgos_otsdcatlgos" Association="DBOTSModel.FK_otscatlgos_otsdcatlgos">
@@ -333,18 +328,6 @@ FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
           </AssociationSet>
           <EntitySet Name="otsdmov" EntityType="DBOTSModel.otsdmov" />
           <EntitySet Name="otsemov" EntityType="DBOTSModel.otsemov" />
-          <AssociationSet Name="FK_otsdmov_usuarios" Association="DBOTSModel.FK_otsdmov_usuarios">
-            <End Role="usuarios" EntitySet="usuarios" />
-            <End Role="otsdmov" EntitySet="otsdmov" />
-          </AssociationSet>
-          <AssociationSet Name="FK_otsemov_usuarios" Association="DBOTSModel.FK_otsemov_usuarios">
-            <End Role="usuarios" EntitySet="usuarios" />
-            <End Role="otsemov" EntitySet="otsemov" />
-          </AssociationSet>
-          <AssociationSet Name="FK_otsemov_usuarios1" Association="DBOTSModel.FK_otsemov_usuarios1">
-            <End Role="usuarios" EntitySet="usuarios" />
-            <End Role="otsemov" EntitySet="otsemov" />
-          </AssociationSet>
           <FunctionImport Name="sp_WebAppOTSAdmUsers" ReturnType="Collection(DBOTSModel.sp_WebAppOTSAdmUsers_Result)">
             <Parameter Name="user_cve" Mode="In" Type="String" />
             <Parameter Name="user_nom" Mode="In" Type="String" />
@@ -404,22 +387,20 @@ FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
             <Parameter Name="status" Mode="In" Type="Int16" />
             <Parameter Name="opcion" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="usuarios" EntityType="DBOTSModel.usuarios" />
+          <AssociationSet Name="FK_otsemov_usuarios" Association="DBOTSModel.FK_otsemov_usuarios">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="otsemov" EntitySet="otsemov" />
+          </AssociationSet>
+          <AssociationSet Name="FK_otsemov_usuarios1" Association="DBOTSModel.FK_otsemov_usuarios1">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="otsemov" EntitySet="otsemov" />
+          </AssociationSet>
+          <AssociationSet Name="FK_rolesxUsr_usuarios" Association="DBOTSModel.FK_rolesxUsr_usuarios">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="rolesxUsr" EntitySet="rolesxUsr" />
+          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="usuarios">
-          <Key>
-            <PropertyRef Name="user_cve" />
-          </Key>
-          <Property Name="user_cve" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
-          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="password" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="true" />
-          <Property Name="mail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="fec_ultact" Type="DateTime" Precision="3" />
-          <Property Name="status_usr" Type="Int16" Nullable="false" />
-          <NavigationProperty Name="rolesxUsr" Relationship="DBOTSModel.FK_rolesxUsr_usuarios" FromRole="usuarios" ToRole="rolesxUsr" />
-          <NavigationProperty Name="otsdmov" Relationship="DBOTSModel.FK_otsdmov_usuarios" FromRole="usuarios" ToRole="otsdmov" />
-          <NavigationProperty Name="otsemov" Relationship="DBOTSModel.FK_otsemov_usuarios" FromRole="usuarios" ToRole="otsemov" />
-          <NavigationProperty Name="otsemov1" Relationship="DBOTSModel.FK_otsemov_usuarios1" FromRole="usuarios" ToRole="otsemov" />
-        </EntityType>
         <EntityType Name="rolesxUsr">
           <Key>
             <PropertyRef Name="cve_rol" />
@@ -429,18 +410,6 @@ FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
           <Property Name="user_cve" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="usuarios" Relationship="DBOTSModel.FK_rolesxUsr_usuarios" FromRole="rolesxUsr" ToRole="usuarios" />
         </EntityType>
-        <Association Name="FK_rolesxUsr_usuarios">
-          <End Type="DBOTSModel.usuarios" Role="usuarios" Multiplicity="1" />
-          <End Type="DBOTSModel.rolesxUsr" Role="rolesxUsr" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="usuarios">
-              <PropertyRef Name="user_cve" />
-            </Principal>
-            <Dependent Role="rolesxUsr">
-              <PropertyRef Name="user_cve" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="otsdcatlgos">
           <Key>
             <PropertyRef Name="cve_catlgo" />
@@ -500,7 +469,6 @@ FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
           <Property Name="clasificacion" Type="Int16" />
           <Property Name="status" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
           <Property Name="aplica_para" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="usuarios" Relationship="DBOTSModel.FK_otsdmov_usuarios" FromRole="otsdmov" ToRole="usuarios" />
         </EntityType>
         <EntityType Name="otsemov">
           <Key>
@@ -524,47 +492,11 @@ FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
           <Property Name="aplica" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="true" />
           <Property Name="tipo_OTSP" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
           <Property Name="num_OTSP" Type="Int32" />
-          <NavigationProperty Name="usuarios" Relationship="DBOTSModel.FK_otsemov_usuarios" FromRole="otsemov" ToRole="usuarios" />
-          <NavigationProperty Name="usuarios1" Relationship="DBOTSModel.FK_otsemov_usuarios1" FromRole="otsemov" ToRole="usuarios" />
           <Property Name="nomImg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="fec_prom" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="usuarios" Relationship="DBOTSModel.FK_otsemov_usuarios" FromRole="otsemov" ToRole="usuarios" />
+          <NavigationProperty Name="usuarios1" Relationship="DBOTSModel.FK_otsemov_usuarios1" FromRole="otsemov" ToRole="usuarios" />
         </EntityType>
-        <Association Name="FK_otsdmov_usuarios">
-          <End Type="DBOTSModel.usuarios" Role="usuarios" Multiplicity="1" />
-          <End Type="DBOTSModel.otsdmov" Role="otsdmov" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="usuarios">
-              <PropertyRef Name="user_cve" />
-            </Principal>
-            <Dependent Role="otsdmov">
-              <PropertyRef Name="id_user" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_otsemov_usuarios">
-          <End Type="DBOTSModel.usuarios" Role="usuarios" Multiplicity="1" />
-          <End Type="DBOTSModel.otsemov" Role="otsemov" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="usuarios">
-              <PropertyRef Name="user_cve" />
-            </Principal>
-            <Dependent Role="otsemov">
-              <PropertyRef Name="userAsig" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_otsemov_usuarios1">
-          <End Type="DBOTSModel.usuarios" Role="usuarios" Multiplicity="0..1" />
-          <End Type="DBOTSModel.otsemov" Role="otsemov" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="usuarios">
-              <PropertyRef Name="user_cve" />
-            </Principal>
-            <Dependent Role="otsemov">
-              <PropertyRef Name="userResp" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <ComplexType Name="sp_WebAppOTSAdmUsers_Result">
           <Property Type="Int16" Name="error" Nullable="true" />
           <Property Type="String" Name="mensaje" Nullable="true" MaxLength="255" />
@@ -621,24 +553,62 @@ FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
           <Property Type="Int16" Name="error" Nullable="true" />
           <Property Type="String" Name="mensaje" Nullable="true" MaxLength="255" />
         </ComplexType>
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="user_cve" />
+          </Key>
+          <Property Name="user_cve" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="mail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fec_ultact" Type="DateTime" Precision="3" />
+          <Property Name="status_usr" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="otsemov" Relationship="DBOTSModel.FK_otsemov_usuarios" FromRole="usuarios" ToRole="otsemov" />
+          <NavigationProperty Name="otsemov1" Relationship="DBOTSModel.FK_otsemov_usuarios1" FromRole="usuarios" ToRole="otsemov" />
+          <NavigationProperty Name="rolesxUsr" Relationship="DBOTSModel.FK_rolesxUsr_usuarios" FromRole="usuarios" ToRole="rolesxUsr" />
+        </EntityType>
+        <Association Name="FK_otsemov_usuarios">
+          <End Type="DBOTSModel.usuarios" Role="usuarios" Multiplicity="1" />
+          <End Type="DBOTSModel.otsemov" Role="otsemov" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="user_cve" />
+            </Principal>
+            <Dependent Role="otsemov">
+              <PropertyRef Name="userAsig" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_otsemov_usuarios1">
+          <End Type="DBOTSModel.usuarios" Role="usuarios" Multiplicity="0..1" />
+          <End Type="DBOTSModel.otsemov" Role="otsemov" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="user_cve" />
+            </Principal>
+            <Dependent Role="otsemov">
+              <PropertyRef Name="userResp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_rolesxUsr_usuarios">
+          <End Type="DBOTSModel.usuarios" Role="usuarios" Multiplicity="1" />
+          <End Type="DBOTSModel.rolesxUsr" Role="rolesxUsr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="user_cve" />
+            </Principal>
+            <Dependent Role="rolesxUsr">
+              <PropertyRef Name="user_cve" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="DBOTSModelStoreContainer" CdmEntityContainer="DBOTSEntities">
-          <EntitySetMapping Name="usuarios">
-            <EntityTypeMapping TypeName="DBOTSModel.usuarios">
-              <MappingFragment StoreEntitySet="usuarios">
-                <ScalarProperty Name="status_usr" ColumnName="status_usr" />
-                <ScalarProperty Name="fec_ultact" ColumnName="fec_ultact" />
-                <ScalarProperty Name="mail" ColumnName="mail" />
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="user_cve" ColumnName="user_cve" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="rolesxUsr">
             <EntityTypeMapping TypeName="DBOTSModel.rolesxUsr">
               <MappingFragment StoreEntitySet="rolesxUsr">
@@ -787,6 +757,18 @@ FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="usuarios">
+            <EntityTypeMapping TypeName="DBOTSModel.usuarios">
+              <MappingFragment StoreEntitySet="usuarios">
+                <ScalarProperty Name="status_usr" ColumnName="status_usr" />
+                <ScalarProperty Name="fec_ultact" ColumnName="fec_ultact" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="user_cve" ColumnName="user_cve" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -28,13 +28,13 @@ namespace AccesoDatos
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<usuarios> usuarios { get; set; }
         public DbSet<rolesxUsr> rolesxUsr { get; set; }
         public DbSet<otsdcatlgos> otsdcatlgos { get; set; }
         public DbSet<otscatlgos> otscatlgos { get; set; }
         public DbSet<otsdmov> otsdmov { get; set; }
         public DbSet<otsemov> otsemov { get; set; }
         public DbSet<paros> paros { get; set; }
+        public DbSet<usuarios> usuarios { get; set; }
     
         public virtual ObjectResult<sp_WebAppOTSAdmUsers_Result> sp_WebAppOTSAdmUsers(string user_cve, string user_nom, string user_pass, Nullable<short> user_status, string user_email, string user_rol, string opcion)
         {
