@@ -43,7 +43,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/03/2017 16:40:29</publishTime>
     </File>
     <File Include="bin/materialDesing.dll">
-      <publishTime>07/03/2017 16:40:29</publishTime>
+      <publishTime>07/04/2017 08:48:47</publishTime>
     </File>
     <File Include="css/default.css">
       <publishTime>04/20/2015 00:56:36</publishTime>

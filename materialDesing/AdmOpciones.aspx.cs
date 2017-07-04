@@ -13,7 +13,6 @@ namespace materialDesing
         LogicaNegocioCls logicaNegocio = new LogicaNegocioCls();
         string mensaje = "";
         short? error = 0;
-        string visible;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["user_cve"] != null)

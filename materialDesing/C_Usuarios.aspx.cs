@@ -14,8 +14,6 @@ namespace materialDesing
     public partial class C_Usuarios : System.Web.UI.Page
     {
         LogicaNegocioCls logicaNegocio = new LogicaNegocioCls();
-        string mensaje = "";
-        short? error = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
