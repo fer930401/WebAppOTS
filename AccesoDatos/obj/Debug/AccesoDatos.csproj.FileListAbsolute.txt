@@ -53,8 +53,10 @@ C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\AccesoDatos\bin\Debug\
 C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\AccesoDatos\bin\Debug\AccesoDatos.pdb
 C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\AccesoDatos\bin\Debug\Entidades.dll
 C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\AccesoDatos\bin\Debug\EntityFramework.dll
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\AccesoDatos\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\AccesoDatos\bin\Debug\Entidades.pdb
 C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\AccesoDatos\bin\Debug\EntityFramework.xml
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\AccesoDatos\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\AccesoDatos\obj\Debug\AccesoDatos.csprojResolveAssemblyReference.cache
 C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\AccesoDatos\obj\Debug\AccesoDatos.dll
 C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\AccesoDatos\obj\Debug\AccesoDatos.pdb

@@ -1,103 +1,107 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="DBOTSModelStoreContainer" CdmEntityContainer="DBOTSEntities">
-    <EntitySetMapping Name="rolesxUsr">
-      <EntityTypeMapping TypeName="DBOTSModel.rolesxUsr">
-        <MappingFragment StoreEntitySet="rolesxUsr">
-          <ScalarProperty Name="user_cve" ColumnName="user_cve" />
-          <ScalarProperty Name="cve_rol" ColumnName="cve_rol" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="otsdcatlgos">
       <EntityTypeMapping TypeName="DBOTSModel.otsdcatlgos">
         <MappingFragment StoreEntitySet="otsdcatlgos">
-          <ScalarProperty Name="nom_catlgo" ColumnName="nom_catlgo" />
-          <ScalarProperty Name="fec_ultact" ColumnName="fec_ultact" />
-          <ScalarProperty Name="status" ColumnName="status" />
-          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
           <ScalarProperty Name="cve_catlgo" ColumnName="cve_catlgo" />
+          <ScalarProperty Name="nom_catlgo" ColumnName="nom_catlgo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="fec_ultact" ColumnName="fec_ultact" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuarios">
+      <EntityTypeMapping TypeName="DBOTSModel.usuarios">
+        <MappingFragment StoreEntitySet="usuarios">
+          <ScalarProperty Name="user_cve" ColumnName="user_cve" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="fec_ultact" ColumnName="fec_ultact" />
+          <ScalarProperty Name="status_usr" ColumnName="status_usr" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="otscatlgos">
       <EntityTypeMapping TypeName="DBOTSModel.otscatlgos">
         <MappingFragment StoreEntitySet="otscatlgos">
-          <ScalarProperty Name="status" ColumnName="status" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="elm_cve" ColumnName="elm_cve" />
           <ScalarProperty Name="cve_catlgo" ColumnName="cve_catlgo" />
+          <ScalarProperty Name="elm_cve" ColumnName="elm_cve" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="status" ColumnName="status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="otsdmov">
       <EntityTypeMapping TypeName="DBOTSModel.otsdmov">
         <MappingFragment StoreEntitySet="otsdmov">
-          <ScalarProperty Name="aplica_para" ColumnName="aplica_para" />
-          <ScalarProperty Name="status" ColumnName="status" />
-          <ScalarProperty Name="clasificacion" ColumnName="clasificacion" />
-          <ScalarProperty Name="obs" ColumnName="obs" />
-          <ScalarProperty Name="solucion" ColumnName="solucion" />
-          <ScalarProperty Name="error" ColumnName="error" />
-          <ScalarProperty Name="id_user" ColumnName="id_user" />
-          <ScalarProperty Name="fec_fin" ColumnName="fec_fin" />
-          <ScalarProperty Name="fec_ini" ColumnName="fec_ini" />
-          <ScalarProperty Name="dificultad" ColumnName="dificultad" />
-          <ScalarProperty Name="descrip" ColumnName="descrip" />
-          <ScalarProperty Name="nom_proceso" ColumnName="nom_proceso" />
-          <ScalarProperty Name="tip_proceso" ColumnName="tip_proceso" />
-          <ScalarProperty Name="num_reng" ColumnName="num_reng" />
-          <ScalarProperty Name="tipo_OTS" ColumnName="tipo_OTS" />
           <ScalarProperty Name="num_OTS" ColumnName="num_OTS" />
+          <ScalarProperty Name="tipo_OTS" ColumnName="tipo_OTS" />
+          <ScalarProperty Name="num_reng" ColumnName="num_reng" />
+          <ScalarProperty Name="tip_proceso" ColumnName="tip_proceso" />
+          <ScalarProperty Name="nom_proceso" ColumnName="nom_proceso" />
+          <ScalarProperty Name="descrip" ColumnName="descrip" />
+          <ScalarProperty Name="dificultad" ColumnName="dificultad" />
+          <ScalarProperty Name="fec_ini" ColumnName="fec_ini" />
+          <ScalarProperty Name="fec_fin" ColumnName="fec_fin" />
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="error" ColumnName="error" />
+          <ScalarProperty Name="solucion" ColumnName="solucion" />
+          <ScalarProperty Name="obs" ColumnName="obs" />
+          <ScalarProperty Name="clasificacion" ColumnName="clasificacion" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="aplica_para" ColumnName="aplica_para" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="otsemov">
       <EntityTypeMapping TypeName="DBOTSModel.otsemov">
         <MappingFragment StoreEntitySet="otsemov">
-          <ScalarProperty Name="fec_prom" ColumnName="fec_prom" />
-          <ScalarProperty Name="nomImg" ColumnName="nomImg" />
-          <ScalarProperty Name="num_OTSP" ColumnName="num_OTSP" />
-          <ScalarProperty Name="tipo_OTSP" ColumnName="tipo_OTSP" />
-          <ScalarProperty Name="aplica" ColumnName="aplica" />
-          <ScalarProperty Name="fec_fin" ColumnName="fec_fin" />
-          <ScalarProperty Name="fec_asig" ColumnName="fec_asig" />
-          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-          <ScalarProperty Name="sts_prog" ColumnName="sts_prog" />
-          <ScalarProperty Name="userResp" ColumnName="userResp" />
-          <ScalarProperty Name="operacion" ColumnName="operacion" />
-          <ScalarProperty Name="userAsig" ColumnName="userAsig" />
-          <ScalarProperty Name="ss_cve" ColumnName="ss_cve" />
-          <ScalarProperty Name="tipo_OTS" ColumnName="tipo_OTS" />
           <ScalarProperty Name="num_OTS" ColumnName="num_OTS" />
+          <ScalarProperty Name="tipo_OTS" ColumnName="tipo_OTS" />
+          <ScalarProperty Name="ss_cve" ColumnName="ss_cve" />
+          <ScalarProperty Name="userAsig" ColumnName="userAsig" />
+          <ScalarProperty Name="operacion" ColumnName="operacion" />
+          <ScalarProperty Name="userResp" ColumnName="userResp" />
+          <ScalarProperty Name="sts_prog" ColumnName="sts_prog" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="fec_asig" ColumnName="fec_asig" />
+          <ScalarProperty Name="fec_fin" ColumnName="fec_fin" />
+          <ScalarProperty Name="aplica" ColumnName="aplica" />
+          <ScalarProperty Name="tipo_OTSP" ColumnName="tipo_OTSP" />
+          <ScalarProperty Name="num_OTSP" ColumnName="num_OTSP" />
+          <ScalarProperty Name="nomImg" ColumnName="nomImg" />
+          <ScalarProperty Name="fec_prom" ColumnName="fec_prom" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="sp_WebAppOTSAdmUsers" FunctionName="DBOTSModel.Store.sp_WebAppOTSAdmUsers">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="DBOTSModel.sp_WebAppOTSAdmUsers_Result">
-          <ScalarProperty Name="error" ColumnName="error" />
-          <ScalarProperty Name="mensaje" ColumnName="mensaje" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
     <EntitySetMapping Name="paros">
       <EntityTypeMapping TypeName="DBOTSModel.paros">
         <MappingFragment StoreEntitySet="paros">
-          <ScalarProperty Name="Sw_activo" ColumnName="Sw_activo" />
-          <ScalarProperty Name="Motivo" ColumnName="Motivo" />
-          <ScalarProperty Name="fec_fin" ColumnName="fec_fin" />
-          <ScalarProperty Name="fec_ini" ColumnName="fec_ini" />
-          <ScalarProperty Name="sub_reng" ColumnName="sub_reng" />
-          <ScalarProperty Name="num_reng" ColumnName="num_reng" />
-          <ScalarProperty Name="tipo_OTS" ColumnName="tipo_OTS" />
           <ScalarProperty Name="num_OTS" ColumnName="num_OTS" />
+          <ScalarProperty Name="tipo_OTS" ColumnName="tipo_OTS" />
+          <ScalarProperty Name="num_reng" ColumnName="num_reng" />
+          <ScalarProperty Name="sub_reng" ColumnName="sub_reng" />
+          <ScalarProperty Name="fec_ini" ColumnName="fec_ini" />
+          <ScalarProperty Name="fec_fin" ColumnName="fec_fin" />
+          <ScalarProperty Name="Motivo" ColumnName="Motivo" />
+          <ScalarProperty Name="Sw_activo" ColumnName="Sw_activo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="sp_WebAppOTSAdmParos" FunctionName="DBOTSModel.Store.sp_WebAppOTSAdmParos">
+    <EntitySetMapping Name="rolesxUsr">
+      <EntityTypeMapping TypeName="DBOTSModel.rolesxUsr">
+        <MappingFragment StoreEntitySet="rolesxUsr">
+          <ScalarProperty Name="cve_rol" ColumnName="cve_rol" />
+          <ScalarProperty Name="user_cve" ColumnName="user_cve" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_WebAppOTSAdmOpc" FunctionName="DBOTSModel.Store.sp_WebAppOTSAdmOpc">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DBOTSModel.sp_WebAppOTSAdmParos_Result">
+        <ComplexTypeMapping TypeName="DBOTSModel.sp_WebAppOTSAdmOpc_Result">
           <ScalarProperty Name="error" ColumnName="error" />
           <ScalarProperty Name="mensaje" ColumnName="mensaje" />
         </ComplexTypeMapping>
@@ -106,6 +110,22 @@
     <FunctionImportMapping FunctionImportName="sp_WebAppOTSAdmOTS" FunctionName="DBOTSModel.Store.sp_WebAppOTSAdmOTS">
       <ResultMapping>
         <ComplexTypeMapping TypeName="DBOTSModel.sp_WebAppOTSAdmOTS_Result">
+          <ScalarProperty Name="error" ColumnName="error" />
+          <ScalarProperty Name="mensaje" ColumnName="mensaje" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_WebAppOTSAdmParos" FunctionName="DBOTSModel.Store.sp_WebAppOTSAdmParos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBOTSModel.sp_WebAppOTSAdmParos_Result">
+          <ScalarProperty Name="error" ColumnName="error" />
+          <ScalarProperty Name="mensaje" ColumnName="mensaje" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_WebAppOTSAdmUsers" FunctionName="DBOTSModel.Store.sp_WebAppOTSAdmUsers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBOTSModel.sp_WebAppOTSAdmUsers_Result">
           <ScalarProperty Name="error" ColumnName="error" />
           <ScalarProperty Name="mensaje" ColumnName="mensaje" />
         </ComplexTypeMapping>
@@ -141,33 +161,23 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_WebAppOTSAdmOpc" FunctionName="DBOTSModel.Store.sp_WebAppOTSAdmOpc">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="DBOTSModel.sp_WebAppOTSAdmOpc_Result">
-          <ScalarProperty Name="error" ColumnName="error" />
-          <ScalarProperty Name="mensaje" ColumnName="mensaje" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <EntitySetMapping Name="usuarios">
-      <EntityTypeMapping TypeName="DBOTSModel.usuarios">
-        <MappingFragment StoreEntitySet="usuarios">
-          <ScalarProperty Name="status_usr" ColumnName="status_usr" />
-          <ScalarProperty Name="fec_ultact" ColumnName="fec_ultact" />
-          <ScalarProperty Name="mail" ColumnName="mail" />
-          <ScalarProperty Name="password" ColumnName="password" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="user_cve" ColumnName="user_cve" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ChatGrupales">
-      <EntityTypeMapping TypeName="DBOTSModel.ChatGrupales">
-        <MappingFragment StoreEntitySet="ChatGrupales">
+    <EntitySetMapping Name="ChatsGrupales">
+      <EntityTypeMapping TypeName="DBOTSModel.ChatsGrupales">
+        <MappingFragment StoreEntitySet="ChatsGrupales">
           <ScalarProperty Name="fecha" ColumnName="fecha" />
           <ScalarProperty Name="mail" ColumnName="mail" />
           <ScalarProperty Name="mensaje" ColumnName="mensaje" />
           <ScalarProperty Name="user_cve" ColumnName="user_cve" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChatsPrivados">
+      <EntityTypeMapping TypeName="DBOTSModel.ChatsPrivados">
+        <MappingFragment StoreEntitySet="ChatsPrivados">
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="user_cve" ColumnName="user_cve" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -177,6 +187,18 @@
           <ScalarProperty Name="mensaje" ColumnName="mensaje" />
           <ScalarProperty Name="receptor_chat" ColumnName="receptor_chat" />
           <ScalarProperty Name="emisor_chat" ColumnName="emisor_chat" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChatUserDetalle">
+      <EntityTypeMapping TypeName="DBOTSModel.ChatUserDetalle">
+        <MappingFragment StoreEntitySet="ChatUserDetalle">
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="user_nom" ColumnName="user_nom" />
+          <ScalarProperty Name="user_cve" ColumnName="user_cve" />
+          <ScalarProperty Name="connection_id" ColumnName="connection_id" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

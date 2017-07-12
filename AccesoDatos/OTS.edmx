@@ -5,34 +5,42 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="DBOTSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'DBOTS.dbo.ChatGrupales' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="ChatGrupales">
+        <EntityType Name="ChatsGrupales">
           <Key>
-            <PropertyRef Name="user_cve" />
-            <PropertyRef Name="fecha" />
+            <PropertyRef Name="ID" />
           </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="user_cve" Type="nchar" MaxLength="3" Nullable="false" />
-          <Property Name="mensaje" Type="nvarchar(max)" />
-          <Property Name="mail" Type="nvarchar" MaxLength="50" />
+          <Property Name="mensaje" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="mail" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="fecha" Type="datetime" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'DBOTS.dbo.ChatsPrivados' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="ChatsPrivados">
-          <Property Name="user_cve" Type="nchar" MaxLength="3" />
-          <Property Name="mail" Type="nvarchar" MaxLength="50" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'DBOTS.dbo.ChatsPrivadosDetalles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_cve" Type="nchar" MaxLength="3" Nullable="false" />
+          <Property Name="mail" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="ChatsPrivadosDetalles">
           <Key>
-            <PropertyRef Name="emisor_chat" />
-            <PropertyRef Name="receptor_chat" />
+            <PropertyRef Name="ID" />
           </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="emisor_chat" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="receptor_chat" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="mensaje" Type="nvarchar(max)" />
+          <Property Name="mensaje" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ChatUserDetalle">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="connection_id" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="user_cve" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="user_nom" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="mail" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'DBOTS.dbo.otscatlgos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -259,87 +267,76 @@ warning 6002: The table/view 'DBOTS.dbo.rolesxUsr' does not have a primary key d
           <Parameter Name="rol" Type="nvarchar" Mode="In" />
         </Function>
         <EntityContainer Name="DBOTSModelStoreContainer">
+          <EntitySet Name="ChatsGrupales" EntityType="Self.ChatsGrupales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChatsPrivados" EntityType="Self.ChatsPrivados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChatsPrivadosDetalles" EntityType="Self.ChatsPrivadosDetalles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChatUserDetalle" EntityType="Self.ChatUserDetalle" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="otsdcatlgos" EntityType="Self.otsdcatlgos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ChatGrupales" EntityType="Self.ChatGrupales" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[ChatGrupales].[user_cve] AS [user_cve], 
-[ChatGrupales].[mensaje] AS [mensaje], 
-[ChatGrupales].[mail] AS [mail], 
-[ChatGrupales].[fecha] AS [fecha]
-FROM [dbo].[ChatGrupales] AS [ChatGrupales]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="ChatsPrivadosDetalles" EntityType="Self.ChatsPrivadosDetalles" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[ChatsPrivadosDetalles].[emisor_chat] AS [emisor_chat], 
-[ChatsPrivadosDetalles].[receptor_chat] AS [receptor_chat], 
-[ChatsPrivadosDetalles].[mensaje] AS [mensaje]
-FROM [dbo].[ChatsPrivadosDetalles] AS [ChatsPrivadosDetalles]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="otscatlgos" EntityType="Self.otscatlgos" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
-[otscatlgos].[cve_catlgo] AS [cve_catlgo], 
-[otscatlgos].[elm_cve] AS [elm_cve], 
-[otscatlgos].[nombre] AS [nombre], 
-[otscatlgos].[status] AS [status]
-FROM [dbo].[otscatlgos] AS [otscatlgos]</DefiningQuery>
+    [otscatlgos].[cve_catlgo] AS [cve_catlgo], 
+    [otscatlgos].[elm_cve] AS [elm_cve], 
+    [otscatlgos].[nombre] AS [nombre], 
+    [otscatlgos].[status] AS [status]
+    FROM [dbo].[otscatlgos] AS [otscatlgos]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="otsdmov" EntityType="Self.otsdmov" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
-[otsdmov].[num_OTS] AS [num_OTS], 
-[otsdmov].[tipo_OTS] AS [tipo_OTS], 
-[otsdmov].[num_reng] AS [num_reng], 
-[otsdmov].[tip_proceso] AS [tip_proceso], 
-[otsdmov].[nom_proceso] AS [nom_proceso], 
-[otsdmov].[descrip] AS [descrip], 
-[otsdmov].[dificultad] AS [dificultad], 
-[otsdmov].[fec_ini] AS [fec_ini], 
-[otsdmov].[fec_fin] AS [fec_fin], 
-[otsdmov].[id_user] AS [id_user], 
-[otsdmov].[error] AS [error], 
-[otsdmov].[solucion] AS [solucion], 
-[otsdmov].[obs] AS [obs], 
-[otsdmov].[clasificacion] AS [clasificacion], 
-[otsdmov].[status] AS [status], 
-[otsdmov].[aplica_para] AS [aplica_para]
-FROM [dbo].[otsdmov] AS [otsdmov]</DefiningQuery>
+    [otsdmov].[num_OTS] AS [num_OTS], 
+    [otsdmov].[tipo_OTS] AS [tipo_OTS], 
+    [otsdmov].[num_reng] AS [num_reng], 
+    [otsdmov].[tip_proceso] AS [tip_proceso], 
+    [otsdmov].[nom_proceso] AS [nom_proceso], 
+    [otsdmov].[descrip] AS [descrip], 
+    [otsdmov].[dificultad] AS [dificultad], 
+    [otsdmov].[fec_ini] AS [fec_ini], 
+    [otsdmov].[fec_fin] AS [fec_fin], 
+    [otsdmov].[id_user] AS [id_user], 
+    [otsdmov].[error] AS [error], 
+    [otsdmov].[solucion] AS [solucion], 
+    [otsdmov].[obs] AS [obs], 
+    [otsdmov].[clasificacion] AS [clasificacion], 
+    [otsdmov].[status] AS [status], 
+    [otsdmov].[aplica_para] AS [aplica_para]
+    FROM [dbo].[otsdmov] AS [otsdmov]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="otsemov" EntityType="Self.otsemov" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
-[otsemov].[num_OTS] AS [num_OTS], 
-[otsemov].[tipo_OTS] AS [tipo_OTS], 
-[otsemov].[ss_cve] AS [ss_cve], 
-[otsemov].[userAsig] AS [userAsig], 
-[otsemov].[operacion] AS [operacion], 
-[otsemov].[userResp] AS [userResp], 
-[otsemov].[sts_prog] AS [sts_prog], 
-[otsemov].[descripcion] AS [descripcion], 
-[otsemov].[fec_asig] AS [fec_asig], 
-[otsemov].[fec_fin] AS [fec_fin], 
-[otsemov].[aplica] AS [aplica], 
-[otsemov].[tipo_OTSP] AS [tipo_OTSP], 
-[otsemov].[num_OTSP] AS [num_OTSP], 
-[otsemov].[nomImg] AS [nomImg], 
-[otsemov].[fec_prom] AS [fec_prom]
-FROM [dbo].[otsemov] AS [otsemov]</DefiningQuery>
+    [otsemov].[num_OTS] AS [num_OTS], 
+    [otsemov].[tipo_OTS] AS [tipo_OTS], 
+    [otsemov].[ss_cve] AS [ss_cve], 
+    [otsemov].[userAsig] AS [userAsig], 
+    [otsemov].[operacion] AS [operacion], 
+    [otsemov].[userResp] AS [userResp], 
+    [otsemov].[sts_prog] AS [sts_prog], 
+    [otsemov].[descripcion] AS [descripcion], 
+    [otsemov].[fec_asig] AS [fec_asig], 
+    [otsemov].[fec_fin] AS [fec_fin], 
+    [otsemov].[aplica] AS [aplica], 
+    [otsemov].[tipo_OTSP] AS [tipo_OTSP], 
+    [otsemov].[num_OTSP] AS [num_OTSP], 
+    [otsemov].[nomImg] AS [nomImg], 
+    [otsemov].[fec_prom] AS [fec_prom]
+    FROM [dbo].[otsemov] AS [otsemov]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="paros" EntityType="Self.paros" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
-[paros].[num_OTS] AS [num_OTS], 
-[paros].[tipo_OTS] AS [tipo_OTS], 
-[paros].[num_reng] AS [num_reng], 
-[paros].[sub_reng] AS [sub_reng], 
-[paros].[fec_ini] AS [fec_ini], 
-[paros].[fec_fin] AS [fec_fin], 
-[paros].[Motivo] AS [Motivo], 
-[paros].[Sw_activo] AS [Sw_activo]
-FROM [dbo].[paros] AS [paros]</DefiningQuery>
+    [paros].[num_OTS] AS [num_OTS], 
+    [paros].[tipo_OTS] AS [tipo_OTS], 
+    [paros].[num_reng] AS [num_reng], 
+    [paros].[sub_reng] AS [sub_reng], 
+    [paros].[fec_ini] AS [fec_ini], 
+    [paros].[fec_fin] AS [fec_fin], 
+    [paros].[Motivo] AS [Motivo], 
+    [paros].[Sw_activo] AS [Sw_activo]
+    FROM [dbo].[paros] AS [paros]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="rolesxUsr" EntityType="Self.rolesxUsr" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
-[rolesxUsr].[cve_rol] AS [cve_rol], 
-[rolesxUsr].[user_cve] AS [user_cve]
-FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
+    [rolesxUsr].[cve_rol] AS [cve_rol], 
+    [rolesxUsr].[user_cve] AS [user_cve]
+    FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_otscatlgos_otsdcatlgos" Association="Self.FK_otscatlgos_otsdcatlgos">
             <End Role="otsdcatlgos" EntitySet="otsdcatlgos" />
@@ -362,32 +359,200 @@ FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBOTSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="otsdcatlgos">
+          <Key>
+            <PropertyRef Name="cve_catlgo" />
+          </Key>
+          <Property Name="cve_catlgo" Type="String" MaxLength="3" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="nom_catlgo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="120" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="status" Type="Int16" Nullable="false" />
+          <Property Name="fec_ultact" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="otscatlgos" Relationship="Self.FK_otscatlgos_otsdcatlgos" FromRole="otsdcatlgos" ToRole="otscatlgos" />
+        </EntityType>
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="user_cve" />
+          </Key>
+          <Property Name="user_cve" Type="String" MaxLength="3" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="120" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fec_ultact" Type="DateTime" Precision="3" />
+          <Property Name="status_usr" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="otsemov" Relationship="Self.FK_otsemov_usuarios" FromRole="usuarios" ToRole="otsemov" />
+          <NavigationProperty Name="otsemov1" Relationship="Self.FK_otsemov_usuarios1" FromRole="usuarios" ToRole="otsemov" />
+          <NavigationProperty Name="rolesxUsr" Relationship="Self.FK_rolesxUsr_usuarios" FromRole="usuarios" ToRole="rolesxUsr" />
+        </EntityType>
+        <EntityType Name="otscatlgos">
+          <Key>
+            <PropertyRef Name="cve_catlgo" />
+            <PropertyRef Name="elm_cve" />
+            <PropertyRef Name="nombre" />
+          </Key>
+          <Property Name="cve_catlgo" Type="String" MaxLength="3" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="elm_cve" Type="String" MaxLength="3" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="status" Type="Int16" />
+          <NavigationProperty Name="otsdcatlgos" Relationship="Self.FK_otscatlgos_otsdcatlgos" FromRole="otscatlgos" ToRole="otsdcatlgos" />
+        </EntityType>
+        <EntityType Name="otsdmov">
+          <Key>
+            <PropertyRef Name="num_OTS" />
+            <PropertyRef Name="tipo_OTS" />
+            <PropertyRef Name="num_reng" />
+            <PropertyRef Name="fec_fin" />
+            <PropertyRef Name="id_user" />
+          </Key>
+          <Property Name="num_OTS" Type="Int32" Nullable="false" />
+          <Property Name="tipo_OTS" Type="String" MaxLength="6" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="num_reng" Type="Int32" Nullable="false" />
+          <Property Name="tip_proceso" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
+          <Property Name="nom_proceso" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="descrip" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="dificultad" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="fec_ini" Type="DateTime" Precision="3" />
+          <Property Name="fec_fin" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="id_user" Type="String" MaxLength="3" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="error" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="solucion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="obs" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="clasificacion" Type="Int16" />
+          <Property Name="status" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="aplica_para" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="otsemov">
+          <Key>
+            <PropertyRef Name="num_OTS" />
+            <PropertyRef Name="tipo_OTS" />
+            <PropertyRef Name="ss_cve" />
+            <PropertyRef Name="userAsig" />
+            <PropertyRef Name="fec_asig" />
+            <PropertyRef Name="aplica" />
+          </Key>
+          <Property Name="num_OTS" Type="Int32" Nullable="false" />
+          <Property Name="tipo_OTS" Type="String" MaxLength="6" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="ss_cve" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="userAsig" Type="String" MaxLength="3" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="operacion" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="userResp" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="sts_prog" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fec_asig" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fec_fin" Type="DateTime" Precision="3" />
+          <Property Name="aplica" Type="String" MaxLength="120" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tipo_OTSP" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
+          <Property Name="num_OTSP" Type="Int32" />
+          <Property Name="nomImg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fec_prom" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="usuarios" Relationship="Self.FK_otsemov_usuarios" FromRole="otsemov" ToRole="usuarios" />
+          <NavigationProperty Name="usuarios1" Relationship="Self.FK_otsemov_usuarios1" FromRole="otsemov" ToRole="usuarios" />
+        </EntityType>
+        <EntityType Name="paros">
+          <Key>
+            <PropertyRef Name="num_OTS" />
+            <PropertyRef Name="tipo_OTS" />
+            <PropertyRef Name="num_reng" />
+            <PropertyRef Name="sub_reng" />
+            <PropertyRef Name="fec_ini" />
+            <PropertyRef Name="Sw_activo" />
+          </Key>
+          <Property Name="num_OTS" Type="Int32" Nullable="false" />
+          <Property Name="tipo_OTS" Type="String" MaxLength="6" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="num_reng" Type="Int16" Nullable="false" />
+          <Property Name="sub_reng" Type="Int16" Nullable="false" />
+          <Property Name="fec_ini" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fec_fin" Type="DateTime" Precision="3" />
+          <Property Name="Motivo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Sw_activo" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rolesxUsr">
+          <Key>
+            <PropertyRef Name="cve_rol" />
+            <PropertyRef Name="user_cve" />
+          </Key>
+          <Property Name="cve_rol" Type="String" MaxLength="3" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="user_cve" Type="String" MaxLength="3" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="usuarios" Relationship="Self.FK_rolesxUsr_usuarios" FromRole="rolesxUsr" ToRole="usuarios" />
+        </EntityType>
+        <Association Name="FK_otscatlgos_otsdcatlgos">
+          <End Role="otsdcatlgos" Type="Self.otsdcatlgos" Multiplicity="1" />
+          <End Role="otscatlgos" Type="Self.otscatlgos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="otsdcatlgos">
+              <PropertyRef Name="cve_catlgo" />
+            </Principal>
+            <Dependent Role="otscatlgos">
+              <PropertyRef Name="cve_catlgo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_otsemov_usuarios">
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="1" />
+          <End Role="otsemov" Type="Self.otsemov" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="user_cve" />
+            </Principal>
+            <Dependent Role="otsemov">
+              <PropertyRef Name="userAsig" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_otsemov_usuarios1">
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="0..1" />
+          <End Role="otsemov" Type="Self.otsemov" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="user_cve" />
+            </Principal>
+            <Dependent Role="otsemov">
+              <PropertyRef Name="userResp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_rolesxUsr_usuarios">
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="1" />
+          <End Role="rolesxUsr" Type="Self.rolesxUsr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="user_cve" />
+            </Principal>
+            <Dependent Role="rolesxUsr">
+              <PropertyRef Name="user_cve" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="DBOTSEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="rolesxUsr" EntityType="DBOTSModel.rolesxUsr" />
-          <EntitySet Name="otsdcatlgos" EntityType="DBOTSModel.otsdcatlgos" />
-          <EntitySet Name="otscatlgos" EntityType="DBOTSModel.otscatlgos" />
-          <AssociationSet Name="FK_otscatlgos_otsdcatlgos" Association="DBOTSModel.FK_otscatlgos_otsdcatlgos">
+          <EntitySet Name="otsdcatlgos" EntityType="Self.otsdcatlgos" />
+          <EntitySet Name="usuarios" EntityType="Self.usuarios" />
+          <EntitySet Name="otscatlgos" EntityType="Self.otscatlgos" />
+          <EntitySet Name="otsdmov" EntityType="Self.otsdmov" />
+          <EntitySet Name="otsemov" EntityType="Self.otsemov" />
+          <EntitySet Name="paros" EntityType="Self.paros" />
+          <EntitySet Name="rolesxUsr" EntityType="Self.rolesxUsr" />
+          <AssociationSet Name="FK_otscatlgos_otsdcatlgos" Association="Self.FK_otscatlgos_otsdcatlgos">
             <End Role="otsdcatlgos" EntitySet="otsdcatlgos" />
             <End Role="otscatlgos" EntitySet="otscatlgos" />
           </AssociationSet>
-          <EntitySet Name="otsdmov" EntityType="DBOTSModel.otsdmov" />
-          <EntitySet Name="otsemov" EntityType="DBOTSModel.otsemov" />
-          <FunctionImport Name="sp_WebAppOTSAdmUsers" ReturnType="Collection(DBOTSModel.sp_WebAppOTSAdmUsers_Result)">
-            <Parameter Name="user_cve" Mode="In" Type="String" />
-            <Parameter Name="user_nom" Mode="In" Type="String" />
-            <Parameter Name="user_pass" Mode="In" Type="String" />
-            <Parameter Name="user_status" Mode="In" Type="Int16" />
-            <Parameter Name="user_email" Mode="In" Type="String" />
-            <Parameter Name="user_rol" Mode="In" Type="String" />
+          <AssociationSet Name="FK_otsemov_usuarios" Association="Self.FK_otsemov_usuarios">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="otsemov" EntitySet="otsemov" />
+          </AssociationSet>
+          <AssociationSet Name="FK_otsemov_usuarios1" Association="Self.FK_otsemov_usuarios1">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="otsemov" EntitySet="otsemov" />
+          </AssociationSet>
+          <AssociationSet Name="FK_rolesxUsr_usuarios" Association="Self.FK_rolesxUsr_usuarios">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="rolesxUsr" EntitySet="rolesxUsr" />
+          </AssociationSet>
+          <FunctionImport Name="sp_WebAppOTSAdmOpc" ReturnType="Collection(DBOTSModel.sp_WebAppOTSAdmOpc_Result)">
+            <Parameter Name="cve_catlgo" Mode="In" Type="String" />
+            <Parameter Name="elm_cve" Mode="In" Type="String" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="status" Mode="In" Type="Int16" />
             <Parameter Name="opcion" Mode="In" Type="String" />
-          </FunctionImport>
-          <EntitySet Name="paros" EntityType="DBOTSModel.paros" />
-          <FunctionImport Name="sp_WebAppOTSAdmParos" ReturnType="Collection(DBOTSModel.sp_WebAppOTSAdmParos_Result)">
-            <Parameter Name="numOTS" Mode="In" Type="Int32" />
-            <Parameter Name="tipoOTS" Mode="In" Type="String" />
-            <Parameter Name="motivo" Mode="In" Type="String" />
-            <Parameter Name="opcion" Mode="In" Type="String" />
-            <Parameter Name="numReng" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_WebAppOTSAdmOTS" ReturnType="Collection(DBOTSModel.sp_WebAppOTSAdmOTS_Result)">
             <Parameter Name="sub_sistema" Mode="In" Type="String" />
@@ -412,6 +577,22 @@ FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
             <Parameter Name="nomImg" Mode="In" Type="String" />
             <Parameter Name="fec_prom" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <FunctionImport Name="sp_WebAppOTSAdmParos" ReturnType="Collection(DBOTSModel.sp_WebAppOTSAdmParos_Result)">
+            <Parameter Name="numOTS" Mode="In" Type="Int32" />
+            <Parameter Name="tipoOTS" Mode="In" Type="String" />
+            <Parameter Name="motivo" Mode="In" Type="String" />
+            <Parameter Name="opcion" Mode="In" Type="String" />
+            <Parameter Name="numReng" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_WebAppOTSAdmUsers" ReturnType="Collection(DBOTSModel.sp_WebAppOTSAdmUsers_Result)">
+            <Parameter Name="user_cve" Mode="In" Type="String" />
+            <Parameter Name="user_nom" Mode="In" Type="String" />
+            <Parameter Name="user_pass" Mode="In" Type="String" />
+            <Parameter Name="user_status" Mode="In" Type="Int16" />
+            <Parameter Name="user_email" Mode="In" Type="String" />
+            <Parameter Name="user_rol" Mode="In" Type="String" />
+            <Parameter Name="opcion" Mode="In" Type="String" />
+          </FunctionImport>
           <FunctionImport Name="sp_WebAppOTSConsultaOTS" ReturnType="Collection(DBOTSModel.sp_WebAppOTSConsultaOTS_Result)">
             <Parameter Name="user_cve" Mode="In" Type="String" />
             <Parameter Name="status" Mode="In" Type="String" />
@@ -424,152 +605,24 @@ FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
             <Parameter Name="status" Mode="In" Type="Int32" />
             <Parameter Name="rol" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="sp_WebAppOTSAdmOpc" ReturnType="Collection(DBOTSModel.sp_WebAppOTSAdmOpc_Result)">
-            <Parameter Name="cve_catlgo" Mode="In" Type="String" />
-            <Parameter Name="elm_cve" Mode="In" Type="String" />
-            <Parameter Name="nombre" Mode="In" Type="String" />
-            <Parameter Name="status" Mode="In" Type="Int16" />
-            <Parameter Name="opcion" Mode="In" Type="String" />
-          </FunctionImport>
-          <EntitySet Name="usuarios" EntityType="DBOTSModel.usuarios" />
-          <AssociationSet Name="FK_otsemov_usuarios" Association="DBOTSModel.FK_otsemov_usuarios">
-            <End Role="usuarios" EntitySet="usuarios" />
-            <End Role="otsemov" EntitySet="otsemov" />
-          </AssociationSet>
-          <AssociationSet Name="FK_otsemov_usuarios1" Association="DBOTSModel.FK_otsemov_usuarios1">
-            <End Role="usuarios" EntitySet="usuarios" />
-            <End Role="otsemov" EntitySet="otsemov" />
-          </AssociationSet>
-          <AssociationSet Name="FK_rolesxUsr_usuarios" Association="DBOTSModel.FK_rolesxUsr_usuarios">
-            <End Role="usuarios" EntitySet="usuarios" />
-            <End Role="rolesxUsr" EntitySet="rolesxUsr" />
-          </AssociationSet>
-          <EntitySet Name="ChatGrupales" EntityType="DBOTSModel.ChatGrupales" />
+          <EntitySet Name="ChatsGrupales" EntityType="DBOTSModel.ChatsGrupales" />
+          <EntitySet Name="ChatsPrivados" EntityType="DBOTSModel.ChatsPrivados" />
           <EntitySet Name="ChatsPrivadosDetalles" EntityType="DBOTSModel.ChatsPrivadosDetalles" />
+          <EntitySet Name="ChatUserDetalle" EntityType="DBOTSModel.ChatUserDetalle" />
         </EntityContainer>
-        <EntityType Name="rolesxUsr">
-          <Key>
-            <PropertyRef Name="cve_rol" />
-            <PropertyRef Name="user_cve" />
-          </Key>
-          <Property Name="cve_rol" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
-          <Property Name="user_cve" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="usuarios" Relationship="DBOTSModel.FK_rolesxUsr_usuarios" FromRole="rolesxUsr" ToRole="usuarios" />
-        </EntityType>
-        <EntityType Name="otsdcatlgos">
-          <Key>
-            <PropertyRef Name="cve_catlgo" />
-          </Key>
-          <Property Name="cve_catlgo" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
-          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="true" />
-          <Property Name="status" Type="Int16" Nullable="false" />
-          <Property Name="fec_ultact" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="otscatlgos" Relationship="DBOTSModel.FK_otscatlgos_otsdcatlgos" FromRole="otsdcatlgos" ToRole="otscatlgos" />
-          <Property Name="nom_catlgo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="otscatlgos">
-          <Key>
-            <PropertyRef Name="cve_catlgo" />
-            <PropertyRef Name="elm_cve" />
-            <PropertyRef Name="nombre" />
-          </Key>
-          <Property Name="cve_catlgo" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
-          <Property Name="elm_cve" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
-          <Property Name="nombre" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="otsdcatlgos" Relationship="DBOTSModel.FK_otscatlgos_otsdcatlgos" FromRole="otscatlgos" ToRole="otsdcatlgos" />
-          <Property Name="status" Type="Int16" />
-        </EntityType>
-        <Association Name="FK_otscatlgos_otsdcatlgos">
-          <End Type="DBOTSModel.otsdcatlgos" Role="otsdcatlgos" Multiplicity="1" />
-          <End Type="DBOTSModel.otscatlgos" Role="otscatlgos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="otsdcatlgos">
-              <PropertyRef Name="cve_catlgo" />
-            </Principal>
-            <Dependent Role="otscatlgos">
-              <PropertyRef Name="cve_catlgo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="otsdmov">
-          <Key>
-            <PropertyRef Name="num_OTS" />
-            <PropertyRef Name="tipo_OTS" />
-            <PropertyRef Name="num_reng" />
-            <PropertyRef Name="fec_fin" />
-            <PropertyRef Name="id_user" />
-          </Key>
-          <Property Name="num_OTS" Type="Int32" Nullable="false" />
-          <Property Name="tipo_OTS" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="true" />
-          <Property Name="num_reng" Type="Int16" Nullable="false" />
-          <Property Name="tip_proceso" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
-          <Property Name="nom_proceso" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="descrip" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="dificultad" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
-          <Property Name="fec_ini" Type="DateTime" Precision="3" />
-          <Property Name="fec_fin" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="id_user" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
-          <Property Name="error" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="solucion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="obs" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="clasificacion" Type="Int16" />
-          <Property Name="status" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
-          <Property Name="aplica_para" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="otsemov">
-          <Key>
-            <PropertyRef Name="num_OTS" />
-            <PropertyRef Name="tipo_OTS" />
-            <PropertyRef Name="ss_cve" />
-            <PropertyRef Name="userAsig" />
-            <PropertyRef Name="fec_asig" />
-            <PropertyRef Name="aplica" />
-          </Key>
-          <Property Name="num_OTS" Type="Int32" Nullable="false" />
-          <Property Name="tipo_OTS" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="true" />
-          <Property Name="ss_cve" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
-          <Property Name="userAsig" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
-          <Property Name="operacion" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
-          <Property Name="userResp" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
-          <Property Name="sts_prog" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
-          <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="fec_asig" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="fec_fin" Type="DateTime" Precision="3" />
-          <Property Name="aplica" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="true" />
-          <Property Name="tipo_OTSP" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
-          <Property Name="num_OTSP" Type="Int32" />
-          <Property Name="nomImg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="fec_prom" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="usuarios" Relationship="DBOTSModel.FK_otsemov_usuarios" FromRole="otsemov" ToRole="usuarios" />
-          <NavigationProperty Name="usuarios1" Relationship="DBOTSModel.FK_otsemov_usuarios1" FromRole="otsemov" ToRole="usuarios" />
-        </EntityType>
-        <ComplexType Name="sp_WebAppOTSAdmUsers_Result">
-          <Property Type="Int16" Name="error" Nullable="true" />
-          <Property Type="String" Name="mensaje" Nullable="true" MaxLength="255" />
-        </ComplexType>
-        <EntityType Name="paros">
-          <Key>
-            <PropertyRef Name="num_OTS" />
-            <PropertyRef Name="tipo_OTS" />
-            <PropertyRef Name="num_reng" />
-            <PropertyRef Name="sub_reng" />
-            <PropertyRef Name="fec_ini" />
-            <PropertyRef Name="Sw_activo" />
-          </Key>
-          <Property Name="num_OTS" Type="Int32" Nullable="false" />
-          <Property Name="tipo_OTS" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="true" />
-          <Property Name="num_reng" Type="Int16" Nullable="false" />
-          <Property Name="sub_reng" Type="Int16" Nullable="false" />
-          <Property Name="fec_ini" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="fec_fin" Type="DateTime" Precision="3" />
-          <Property Name="Motivo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Sw_activo" Type="Int16" Nullable="false" />
-        </EntityType>
-        <ComplexType Name="sp_WebAppOTSAdmParos_Result">
+        <ComplexType Name="sp_WebAppOTSAdmOpc_Result">
           <Property Type="Int16" Name="error" Nullable="true" />
           <Property Type="String" Name="mensaje" Nullable="true" MaxLength="255" />
         </ComplexType>
         <ComplexType Name="sp_WebAppOTSAdmOTS_Result">
+          <Property Type="Int16" Name="error" Nullable="true" />
+          <Property Type="String" Name="mensaje" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="sp_WebAppOTSAdmParos_Result">
+          <Property Type="Int16" Name="error" Nullable="true" />
+          <Property Type="String" Name="mensaje" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="sp_WebAppOTSAdmUsers_Result">
           <Property Type="Int16" Name="error" Nullable="true" />
           <Property Type="String" Name="mensaje" Nullable="true" MaxLength="255" />
         </ComplexType>
@@ -578,8 +631,8 @@ FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
           <Property Type="String" Name="tipo_OTS" Nullable="false" MaxLength="40" />
           <Property Type="String" Name="userAsig" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="operacion" Nullable="false" MaxLength="1" />
-          <Property Type="String" Name="userResp" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="descripcion" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="userResp" Nullable="true" MaxLength="56" />
+          <Property Type="String" Name="descripcion" Nullable="true" />
           <Property Type="DateTime" Name="fec_asig" Nullable="false" Precision="23" />
           <Property Type="DateTime" Name="fec_fin" Nullable="true" Precision="23" />
           <Property Type="DateTime" Name="fec_prom" Nullable="true" Precision="23" />
@@ -595,78 +648,42 @@ FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
           <Property Type="String" Name="status_usr" Nullable="false" MaxLength="40" />
           <Property Type="String" Name="cve_rol" Nullable="false" MaxLength="3" />
         </ComplexType>
-        <ComplexType Name="sp_WebAppOTSAdmOpc_Result">
-          <Property Type="Int16" Name="error" Nullable="true" />
-          <Property Type="String" Name="mensaje" Nullable="true" MaxLength="255" />
-        </ComplexType>
-        <EntityType Name="usuarios">
+        <EntityType Name="ChatsGrupales">
           <Key>
-            <PropertyRef Name="user_cve" />
+            <PropertyRef Name="ID" />
           </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="user_cve" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
-          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="password" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="mensaje" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="mail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="fec_ultact" Type="DateTime" Precision="3" />
-          <Property Name="status_usr" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="otsemov" Relationship="DBOTSModel.FK_otsemov_usuarios" FromRole="usuarios" ToRole="otsemov" />
-          <NavigationProperty Name="otsemov1" Relationship="DBOTSModel.FK_otsemov_usuarios1" FromRole="usuarios" ToRole="otsemov" />
-          <NavigationProperty Name="rolesxUsr" Relationship="DBOTSModel.FK_rolesxUsr_usuarios" FromRole="usuarios" ToRole="rolesxUsr" />
-        </EntityType>
-        <Association Name="FK_otsemov_usuarios">
-          <End Type="DBOTSModel.usuarios" Role="usuarios" Multiplicity="1" />
-          <End Type="DBOTSModel.otsemov" Role="otsemov" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="usuarios">
-              <PropertyRef Name="user_cve" />
-            </Principal>
-            <Dependent Role="otsemov">
-              <PropertyRef Name="userAsig" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_otsemov_usuarios1">
-          <End Type="DBOTSModel.usuarios" Role="usuarios" Multiplicity="0..1" />
-          <End Type="DBOTSModel.otsemov" Role="otsemov" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="usuarios">
-              <PropertyRef Name="user_cve" />
-            </Principal>
-            <Dependent Role="otsemov">
-              <PropertyRef Name="userResp" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_rolesxUsr_usuarios">
-          <End Type="DBOTSModel.usuarios" Role="usuarios" Multiplicity="1" />
-          <End Type="DBOTSModel.rolesxUsr" Role="rolesxUsr" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="usuarios">
-              <PropertyRef Name="user_cve" />
-            </Principal>
-            <Dependent Role="rolesxUsr">
-              <PropertyRef Name="user_cve" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="ChatGrupales">
-          <Key>
-            <PropertyRef Name="user_cve" />
-            <PropertyRef Name="fecha" />
-          </Key>
-          <Property Name="user_cve" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
-          <Property Name="mensaje" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="ChatsPrivados">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_cve" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="mail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ChatsPrivadosDetalles">
           <Key>
-            <PropertyRef Name="emisor_chat" />
-            <PropertyRef Name="receptor_chat" />
+            <PropertyRef Name="ID" />
           </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="emisor_chat" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="receptor_chat" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="mensaje" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="mensaje" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ChatUserDetalle">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="connection_id" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="user_cve" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="user_nom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -674,103 +691,107 @@ FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="DBOTSModelStoreContainer" CdmEntityContainer="DBOTSEntities">
-          <EntitySetMapping Name="rolesxUsr">
-            <EntityTypeMapping TypeName="DBOTSModel.rolesxUsr">
-              <MappingFragment StoreEntitySet="rolesxUsr">
-                <ScalarProperty Name="user_cve" ColumnName="user_cve" />
-                <ScalarProperty Name="cve_rol" ColumnName="cve_rol" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="otsdcatlgos">
             <EntityTypeMapping TypeName="DBOTSModel.otsdcatlgos">
               <MappingFragment StoreEntitySet="otsdcatlgos">
-                <ScalarProperty Name="nom_catlgo" ColumnName="nom_catlgo" />
-                <ScalarProperty Name="fec_ultact" ColumnName="fec_ultact" />
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
                 <ScalarProperty Name="cve_catlgo" ColumnName="cve_catlgo" />
+                <ScalarProperty Name="nom_catlgo" ColumnName="nom_catlgo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="fec_ultact" ColumnName="fec_ultact" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuarios">
+            <EntityTypeMapping TypeName="DBOTSModel.usuarios">
+              <MappingFragment StoreEntitySet="usuarios">
+                <ScalarProperty Name="user_cve" ColumnName="user_cve" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="fec_ultact" ColumnName="fec_ultact" />
+                <ScalarProperty Name="status_usr" ColumnName="status_usr" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="otscatlgos">
             <EntityTypeMapping TypeName="DBOTSModel.otscatlgos">
               <MappingFragment StoreEntitySet="otscatlgos">
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="elm_cve" ColumnName="elm_cve" />
                 <ScalarProperty Name="cve_catlgo" ColumnName="cve_catlgo" />
+                <ScalarProperty Name="elm_cve" ColumnName="elm_cve" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="status" ColumnName="status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="otsdmov">
             <EntityTypeMapping TypeName="DBOTSModel.otsdmov">
               <MappingFragment StoreEntitySet="otsdmov">
-                <ScalarProperty Name="aplica_para" ColumnName="aplica_para" />
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="clasificacion" ColumnName="clasificacion" />
-                <ScalarProperty Name="obs" ColumnName="obs" />
-                <ScalarProperty Name="solucion" ColumnName="solucion" />
-                <ScalarProperty Name="error" ColumnName="error" />
-                <ScalarProperty Name="id_user" ColumnName="id_user" />
-                <ScalarProperty Name="fec_fin" ColumnName="fec_fin" />
-                <ScalarProperty Name="fec_ini" ColumnName="fec_ini" />
-                <ScalarProperty Name="dificultad" ColumnName="dificultad" />
-                <ScalarProperty Name="descrip" ColumnName="descrip" />
-                <ScalarProperty Name="nom_proceso" ColumnName="nom_proceso" />
-                <ScalarProperty Name="tip_proceso" ColumnName="tip_proceso" />
-                <ScalarProperty Name="num_reng" ColumnName="num_reng" />
-                <ScalarProperty Name="tipo_OTS" ColumnName="tipo_OTS" />
                 <ScalarProperty Name="num_OTS" ColumnName="num_OTS" />
+                <ScalarProperty Name="tipo_OTS" ColumnName="tipo_OTS" />
+                <ScalarProperty Name="num_reng" ColumnName="num_reng" />
+                <ScalarProperty Name="tip_proceso" ColumnName="tip_proceso" />
+                <ScalarProperty Name="nom_proceso" ColumnName="nom_proceso" />
+                <ScalarProperty Name="descrip" ColumnName="descrip" />
+                <ScalarProperty Name="dificultad" ColumnName="dificultad" />
+                <ScalarProperty Name="fec_ini" ColumnName="fec_ini" />
+                <ScalarProperty Name="fec_fin" ColumnName="fec_fin" />
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="error" ColumnName="error" />
+                <ScalarProperty Name="solucion" ColumnName="solucion" />
+                <ScalarProperty Name="obs" ColumnName="obs" />
+                <ScalarProperty Name="clasificacion" ColumnName="clasificacion" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="aplica_para" ColumnName="aplica_para" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="otsemov">
             <EntityTypeMapping TypeName="DBOTSModel.otsemov">
               <MappingFragment StoreEntitySet="otsemov">
-                <ScalarProperty Name="fec_prom" ColumnName="fec_prom" />
-                <ScalarProperty Name="nomImg" ColumnName="nomImg" />
-                <ScalarProperty Name="num_OTSP" ColumnName="num_OTSP" />
-                <ScalarProperty Name="tipo_OTSP" ColumnName="tipo_OTSP" />
-                <ScalarProperty Name="aplica" ColumnName="aplica" />
-                <ScalarProperty Name="fec_fin" ColumnName="fec_fin" />
-                <ScalarProperty Name="fec_asig" ColumnName="fec_asig" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="sts_prog" ColumnName="sts_prog" />
-                <ScalarProperty Name="userResp" ColumnName="userResp" />
-                <ScalarProperty Name="operacion" ColumnName="operacion" />
-                <ScalarProperty Name="userAsig" ColumnName="userAsig" />
-                <ScalarProperty Name="ss_cve" ColumnName="ss_cve" />
-                <ScalarProperty Name="tipo_OTS" ColumnName="tipo_OTS" />
                 <ScalarProperty Name="num_OTS" ColumnName="num_OTS" />
+                <ScalarProperty Name="tipo_OTS" ColumnName="tipo_OTS" />
+                <ScalarProperty Name="ss_cve" ColumnName="ss_cve" />
+                <ScalarProperty Name="userAsig" ColumnName="userAsig" />
+                <ScalarProperty Name="operacion" ColumnName="operacion" />
+                <ScalarProperty Name="userResp" ColumnName="userResp" />
+                <ScalarProperty Name="sts_prog" ColumnName="sts_prog" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="fec_asig" ColumnName="fec_asig" />
+                <ScalarProperty Name="fec_fin" ColumnName="fec_fin" />
+                <ScalarProperty Name="aplica" ColumnName="aplica" />
+                <ScalarProperty Name="tipo_OTSP" ColumnName="tipo_OTSP" />
+                <ScalarProperty Name="num_OTSP" ColumnName="num_OTSP" />
+                <ScalarProperty Name="nomImg" ColumnName="nomImg" />
+                <ScalarProperty Name="fec_prom" ColumnName="fec_prom" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="sp_WebAppOTSAdmUsers" FunctionName="DBOTSModel.Store.sp_WebAppOTSAdmUsers">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DBOTSModel.sp_WebAppOTSAdmUsers_Result">
-                <ScalarProperty Name="error" ColumnName="error" />
-                <ScalarProperty Name="mensaje" ColumnName="mensaje" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <EntitySetMapping Name="paros">
             <EntityTypeMapping TypeName="DBOTSModel.paros">
               <MappingFragment StoreEntitySet="paros">
-                <ScalarProperty Name="Sw_activo" ColumnName="Sw_activo" />
-                <ScalarProperty Name="Motivo" ColumnName="Motivo" />
-                <ScalarProperty Name="fec_fin" ColumnName="fec_fin" />
-                <ScalarProperty Name="fec_ini" ColumnName="fec_ini" />
-                <ScalarProperty Name="sub_reng" ColumnName="sub_reng" />
-                <ScalarProperty Name="num_reng" ColumnName="num_reng" />
-                <ScalarProperty Name="tipo_OTS" ColumnName="tipo_OTS" />
                 <ScalarProperty Name="num_OTS" ColumnName="num_OTS" />
+                <ScalarProperty Name="tipo_OTS" ColumnName="tipo_OTS" />
+                <ScalarProperty Name="num_reng" ColumnName="num_reng" />
+                <ScalarProperty Name="sub_reng" ColumnName="sub_reng" />
+                <ScalarProperty Name="fec_ini" ColumnName="fec_ini" />
+                <ScalarProperty Name="fec_fin" ColumnName="fec_fin" />
+                <ScalarProperty Name="Motivo" ColumnName="Motivo" />
+                <ScalarProperty Name="Sw_activo" ColumnName="Sw_activo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="sp_WebAppOTSAdmParos" FunctionName="DBOTSModel.Store.sp_WebAppOTSAdmParos">
+          <EntitySetMapping Name="rolesxUsr">
+            <EntityTypeMapping TypeName="DBOTSModel.rolesxUsr">
+              <MappingFragment StoreEntitySet="rolesxUsr">
+                <ScalarProperty Name="cve_rol" ColumnName="cve_rol" />
+                <ScalarProperty Name="user_cve" ColumnName="user_cve" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_WebAppOTSAdmOpc" FunctionName="DBOTSModel.Store.sp_WebAppOTSAdmOpc">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="DBOTSModel.sp_WebAppOTSAdmParos_Result">
+              <ComplexTypeMapping TypeName="DBOTSModel.sp_WebAppOTSAdmOpc_Result">
                 <ScalarProperty Name="error" ColumnName="error" />
                 <ScalarProperty Name="mensaje" ColumnName="mensaje" />
               </ComplexTypeMapping>
@@ -779,6 +800,22 @@ FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
           <FunctionImportMapping FunctionImportName="sp_WebAppOTSAdmOTS" FunctionName="DBOTSModel.Store.sp_WebAppOTSAdmOTS">
             <ResultMapping>
               <ComplexTypeMapping TypeName="DBOTSModel.sp_WebAppOTSAdmOTS_Result">
+                <ScalarProperty Name="error" ColumnName="error" />
+                <ScalarProperty Name="mensaje" ColumnName="mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_WebAppOTSAdmParos" FunctionName="DBOTSModel.Store.sp_WebAppOTSAdmParos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBOTSModel.sp_WebAppOTSAdmParos_Result">
+                <ScalarProperty Name="error" ColumnName="error" />
+                <ScalarProperty Name="mensaje" ColumnName="mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_WebAppOTSAdmUsers" FunctionName="DBOTSModel.Store.sp_WebAppOTSAdmUsers">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBOTSModel.sp_WebAppOTSAdmUsers_Result">
                 <ScalarProperty Name="error" ColumnName="error" />
                 <ScalarProperty Name="mensaje" ColumnName="mensaje" />
               </ComplexTypeMapping>
@@ -814,33 +851,23 @@ FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_WebAppOTSAdmOpc" FunctionName="DBOTSModel.Store.sp_WebAppOTSAdmOpc">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DBOTSModel.sp_WebAppOTSAdmOpc_Result">
-                <ScalarProperty Name="error" ColumnName="error" />
-                <ScalarProperty Name="mensaje" ColumnName="mensaje" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <EntitySetMapping Name="usuarios">
-            <EntityTypeMapping TypeName="DBOTSModel.usuarios">
-              <MappingFragment StoreEntitySet="usuarios">
-                <ScalarProperty Name="status_usr" ColumnName="status_usr" />
-                <ScalarProperty Name="fec_ultact" ColumnName="fec_ultact" />
-                <ScalarProperty Name="mail" ColumnName="mail" />
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="user_cve" ColumnName="user_cve" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ChatGrupales">
-            <EntityTypeMapping TypeName="DBOTSModel.ChatGrupales">
-              <MappingFragment StoreEntitySet="ChatGrupales">
+          <EntitySetMapping Name="ChatsGrupales">
+            <EntityTypeMapping TypeName="DBOTSModel.ChatsGrupales">
+              <MappingFragment StoreEntitySet="ChatsGrupales">
                 <ScalarProperty Name="fecha" ColumnName="fecha" />
                 <ScalarProperty Name="mail" ColumnName="mail" />
                 <ScalarProperty Name="mensaje" ColumnName="mensaje" />
                 <ScalarProperty Name="user_cve" ColumnName="user_cve" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChatsPrivados">
+            <EntityTypeMapping TypeName="DBOTSModel.ChatsPrivados">
+              <MappingFragment StoreEntitySet="ChatsPrivados">
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="user_cve" ColumnName="user_cve" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -850,6 +877,18 @@ FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
                 <ScalarProperty Name="mensaje" ColumnName="mensaje" />
                 <ScalarProperty Name="receptor_chat" ColumnName="receptor_chat" />
                 <ScalarProperty Name="emisor_chat" ColumnName="emisor_chat" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChatUserDetalle">
+            <EntityTypeMapping TypeName="DBOTSModel.ChatUserDetalle">
+              <MappingFragment StoreEntitySet="ChatUserDetalle">
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="user_nom" ColumnName="user_nom" />
+                <ScalarProperty Name="user_cve" ColumnName="user_cve" />
+                <ScalarProperty Name="connection_id" ColumnName="connection_id" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -869,7 +908,7 @@ FROM [dbo].[rolesxUsr] AS [rolesxUsr]</DefiningQuery>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>

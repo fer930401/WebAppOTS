@@ -17,6 +17,7 @@ namespace materialDesing
             {
                 string user = Session["nombre"].ToString();
                 string clave = Session["user_cve"].ToString().ToUpper();
+                lblUsuario.Text = user.Substring(0, user.IndexOf(' '));
                 List<Entidades.sp_WebAppOTSConsultaOTS_Result> OTSActivo = logicaNegocio.ListadoOTS(clave, "2", 5, "", "", "");
                 if (OTSActivo.Count != 0)
                 {

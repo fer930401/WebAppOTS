@@ -4,20 +4,22 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8820e214d37c4e6cb9076466d9af868c" Name="Diagram1">
-        <EntityTypeShape EntityType="DBOTSModel.rolesxUsr" Width="1.5" PointX="1.375" PointY="0.5" />
-        <EntityTypeShape EntityType="DBOTSModel.otsdcatlgos" Width="1.5" PointX="9.75" PointY="0.5" />
-        <EntityTypeShape EntityType="DBOTSModel.otscatlgos" Width="1.5" PointX="11.625" PointY="0.5" />
-        <AssociationConnector Association="DBOTSModel.FK_otscatlgos_otsdcatlgos" />
-        <EntityTypeShape EntityType="DBOTSModel.otsdmov" Width="1.5" PointX="7.5" PointY="0.5" />
-        <EntityTypeShape EntityType="DBOTSModel.otsemov" Width="1.5" PointX="5.375" PointY="0.5" />
-        <EntityTypeShape EntityType="DBOTSModel.paros" Width="1.5" PointX="0.75" PointY="3.75" />
-        <EntityTypeShape EntityType="DBOTSModel.usuarios" Width="1.5" PointX="3.25" PointY="0.625" />
-        <AssociationConnector Association="DBOTSModel.FK_otsemov_usuarios" />
-        <AssociationConnector Association="DBOTSModel.FK_otsemov_usuarios1" />
-        <AssociationConnector Association="DBOTSModel.FK_rolesxUsr_usuarios" />
-        <EntityTypeShape EntityType="DBOTSModel.ChatGrupales" Width="1.5" PointX="3.375" PointY="5.75" />
-        <EntityTypeShape EntityType="DBOTSModel.ChatsPrivadosDetalles" Width="1.5" PointX="5.375" PointY="5.75" />
+      <Diagram DiagramId="023e4d5c91084a658005fa874788a9f2" Name="Diagram1" ZoomLevel="96">
+        <EntityTypeShape EntityType="DBOTSModel.otsdcatlgos" Width="1.5" PointX="5.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBOTSModel.usuarios" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBOTSModel.otscatlgos" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBOTSModel.otsdmov" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBOTSModel.otsemov" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBOTSModel.paros" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBOTSModel.rolesxUsr" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <AssociationConnector Association="DBOTSModel.FK_otscatlgos_otsdcatlgos" ManuallyRouted="false" />
+        <AssociationConnector Association="DBOTSModel.FK_otsemov_usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="DBOTSModel.FK_otsemov_usuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="DBOTSModel.FK_rolesxUsr_usuarios" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DBOTSModel.ChatsGrupales" Width="1.5" PointX="5.375" PointY="4.75" />
+        <EntityTypeShape EntityType="DBOTSModel.ChatsPrivados" Width="1.5" PointX="7.375" PointY="4.75" />
+        <EntityTypeShape EntityType="DBOTSModel.ChatsPrivadosDetalles" Width="1.5" PointX="5.375" PointY="7.75" />
+        <EntityTypeShape EntityType="DBOTSModel.ChatUserDetalle" Width="1.5" PointX="7.375" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

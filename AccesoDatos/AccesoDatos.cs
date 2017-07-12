@@ -12,11 +12,9 @@ namespace AccesoDatos
 {
     public class AccesoDatosCls
     {
-        skytexEntities1 contexto;
         DBOTSEntities contextoOTS;
         public AccesoDatosCls()
         {
-            contexto = new skytexEntities1();
             contextoOTS = new DBOTSEntities();
         }
         public string LoginUserOTS(String user, String pass)
