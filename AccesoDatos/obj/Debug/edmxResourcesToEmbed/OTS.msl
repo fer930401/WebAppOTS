@@ -161,5 +161,24 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ChatGrupales">
+      <EntityTypeMapping TypeName="DBOTSModel.ChatGrupales">
+        <MappingFragment StoreEntitySet="ChatGrupales">
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="mensaje" ColumnName="mensaje" />
+          <ScalarProperty Name="user_cve" ColumnName="user_cve" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChatsPrivadosDetalles">
+      <EntityTypeMapping TypeName="DBOTSModel.ChatsPrivadosDetalles">
+        <MappingFragment StoreEntitySet="ChatsPrivadosDetalles">
+          <ScalarProperty Name="mensaje" ColumnName="mensaje" />
+          <ScalarProperty Name="receptor_chat" ColumnName="receptor_chat" />
+          <ScalarProperty Name="emisor_chat" ColumnName="emisor_chat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

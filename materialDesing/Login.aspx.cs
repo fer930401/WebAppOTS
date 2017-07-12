@@ -28,7 +28,7 @@ namespace materialDesing
         //metodo que ejecuta el procedimiento almacenado sp_WebAppOTSConsultaUser para obtener el listado de los usuarios activos
         protected void llenaUsuarios()
         {
-            List<AccesoDatos.sp_WebAppOTSConsultaUser_Result> usuario = logicaNegocio.ListadoProgramadores(1,"");
+            List<Entidades.sp_WebAppOTSConsultaUser_Result> usuario = logicaNegocio.ListadoProgramadores(1, "");
             //el resultado de la ejecucion la asignamos al combobox 
             claveUser.DataSource = usuario;
             claveUser.DataTextField = "nombre";

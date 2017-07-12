@@ -7,13 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AccesoDatos
+namespace Entidades
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class sp_WebAppOTSAdmOTS_Result
+    public partial class ChatsPrivadosDetalles
     {
-        public Nullable<short> error { get; set; }
+        public string emisor_chat { get; set; }
+        public string receptor_chat { get; set; }
         public string mensaje { get; set; }
     }
 }

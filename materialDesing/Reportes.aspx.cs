@@ -32,7 +32,7 @@ namespace materialDesing
         {
             int sopTerminados = 0;
             int penTerminados = 0;
-            AccesoDatos.sp_WebAppOTSAdmOTS_Result contadorSopT = logicaNegocio.admOTS("", "SOP", "", 3, "", "", user, "3", "", "", "", "", "", "", "", "", "", "", opcion, "", DateTime.Now); 
+            Entidades.sp_WebAppOTSAdmOTS_Result contadorSopT = logicaNegocio.admOTS("", "SOP", "", 3, "", "", user, "3", "", "", "", "", "", "", "", "", "", "", opcion, "", DateTime.Now); 
             if (contadorSopT != null)
             {
                 error = contadorSopT.error;
@@ -45,7 +45,7 @@ namespace materialDesing
                 }
             }
 
-            AccesoDatos.sp_WebAppOTSAdmOTS_Result contadorPenT = logicaNegocio.admOTS("", "PEN", "", 3, "", "", user, "3", "", "", "", "", "", "", "", "", "", "", opcion, "", DateTime.Now); 
+            Entidades.sp_WebAppOTSAdmOTS_Result contadorPenT = logicaNegocio.admOTS("", "PEN", "", 3, "", "", user, "3", "", "", "", "", "", "", "", "", "", "", opcion, "", DateTime.Now); 
             if (contadorPenT != null)
             {
                 error = contadorPenT.error;

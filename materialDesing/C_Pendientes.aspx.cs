@@ -53,7 +53,7 @@ namespace materialDesing
 
                     DataTable dt = new DataTable();
                     DataRow dr;
-                    List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 0, "PEN","", "");
+                    List<Entidades.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 0, "PEN", "", "");
                     dt.Columns.Add("num_OTS", typeof(string));
                     dt.Columns.Add("tipo_OTS", typeof(string));
                     dt.Columns.Add("userResp", typeof(string));
@@ -102,7 +102,7 @@ namespace materialDesing
             string user_filtro = cmbProgramador.SelectedValue;
             DataTable dt = new DataTable();
             DataRow dr;
-            List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS;
+            List<Entidades.sp_WebAppOTSConsultaOTS_Result> listaOTS;
             if (user_filtro.Equals("") == false)
             {
                 variables.User_filtro = user_filtro;
@@ -166,7 +166,7 @@ namespace materialDesing
             string descr = descripcion.Text;
             DataTable dt = new DataTable();
             DataRow dr;
-            List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS;
+            List<Entidades.sp_WebAppOTSConsultaOTS_Result> listaOTS;
             if (string.IsNullOrEmpty(descr) == true)
             {
                 variables.Descrip_filtro = "";
@@ -251,7 +251,7 @@ namespace materialDesing
             {
                 opc = 3;
             }
-            List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, opc, "PEN", "", "");
+            List<Entidades.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, opc, "PEN", "", "");
             dt.Columns.Add("num_OTS", typeof(string));
             dt.Columns.Add("tipo_OTS", typeof(string));
             dt.Columns.Add("userResp", typeof(string));

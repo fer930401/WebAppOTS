@@ -86,7 +86,7 @@ namespace materialDesing
             DateTime fechaReasignado = Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyy"));
             DataTable dt_OTS = reasignacion(numOTS, ots_padre, tip_OTSU, opc);
             string nuevoRespo = cmbResponsable.SelectedValue.ToString();
-            sp_WebAppOTSAdmOTS_Result updateOTSE = null;
+            Entidades.sp_WebAppOTSAdmOTS_Result updateOTSE = null;
             if (opc == 1)
             {
                 updateOTSE = logicaNegocio.admOTS("", tip_OTSU, nuevoRespo, numOTS, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "reasignarOTS", "", DateTime.Now);

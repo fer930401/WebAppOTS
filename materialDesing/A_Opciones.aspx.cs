@@ -69,7 +69,7 @@ namespace materialDesing
 
             if (valido)
             {
-                AccesoDatos.sp_WebAppOTSAdmOpc_Result insOpcOTS = logicaNegocio.opcOTS(newCve_catlgo, newElm_cve, newNombre, newStatus, opcion);
+                Entidades.sp_WebAppOTSAdmOpc_Result insOpcOTS = logicaNegocio.opcOTS(newCve_catlgo, newElm_cve, newNombre, newStatus, opcion);
                 if (insOpcOTS != null)
                 {
                     error = insOpcOTS.error;

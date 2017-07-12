@@ -82,6 +82,8 @@
       <End Role="usuarios" EntitySet="usuarios" />
       <End Role="rolesxUsr" EntitySet="rolesxUsr" />
     </AssociationSet>
+    <EntitySet Name="ChatGrupales" EntityType="DBOTSModel.ChatGrupales" />
+    <EntitySet Name="ChatsPrivadosDetalles" EntityType="DBOTSModel.ChatsPrivadosDetalles" />
   </EntityContainer>
   <EntityType Name="rolesxUsr">
     <Key>
@@ -285,4 +287,23 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="ChatGrupales">
+    <Key>
+      <PropertyRef Name="user_cve" />
+      <PropertyRef Name="fecha" />
+    </Key>
+    <Property Name="user_cve" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
+    <Property Name="mensaje" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="ChatsPrivadosDetalles">
+    <Key>
+      <PropertyRef Name="emisor_chat" />
+      <PropertyRef Name="receptor_chat" />
+    </Key>
+    <Property Name="emisor_chat" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="receptor_chat" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="mensaje" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

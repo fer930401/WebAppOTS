@@ -36,8 +36,8 @@ namespace materialDesing
             string user_email = Request["eu"];
             string user_rol = roles.SelectedValue;
             if (string.IsNullOrEmpty(user_cve.TrimEnd(' ')) == false && string.IsNullOrEmpty(user_nom.TrimEnd(' ')) == false && string.IsNullOrEmpty(user_pass.TrimEnd(' ')) == false)
-            { 
-                AccesoDatos.sp_WebAppOTSAdmUsers_Result insertaUser = logicaNegocio.admUserOTS(user_cve,user_nom,user_pass,user_status,user_email,user_rol,"alta");
+            {
+                Entidades.sp_WebAppOTSAdmUsers_Result insertaUser = logicaNegocio.admUserOTS(user_cve, user_nom, user_pass, user_status, user_email, user_rol, "alta");
                 if (insertaUser != null)
                 {
                     error = insertaUser.error;

@@ -58,3 +58,5 @@ C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\materialDesing\bin\Ent
 C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\materialDesing\obj\Debug\WebAppOTS.csprojResolveAssemblyReference.cache
 C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\materialDesing\obj\Debug\materialDesing.dll
 C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\materialDesing\obj\Debug\materialDesing.pdb
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\materialDesing\bin\Entidades.dll
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\materialDesing\bin\Entidades.pdb

@@ -48,8 +48,8 @@ namespace materialDesing
             string tipOTS = tipOTSTB.Text;
             string numReng = num_reng.Text;
             if (string.IsNullOrEmpty(motivoParo.TrimEnd(' ')) == false)
-            {            
-                AccesoDatos.sp_WebAppOTSAdmParos_Result insertOTSP = logicaNegocio.admParos(Int32.Parse(numOTS), tipOTS.ToUpper().Substring(0, 3), motivoParo, "altaParo", Int32.Parse(numReng));
+            {
+                Entidades.sp_WebAppOTSAdmParos_Result insertOTSP = logicaNegocio.admParos(Int32.Parse(numOTS), tipOTS.ToUpper().Substring(0, 3), motivoParo, "altaParo", Int32.Parse(numReng));
                 if (insertOTSP != null)
                 {
                     error = insertOTSP.error;
@@ -72,7 +72,7 @@ namespace materialDesing
             string motivoParo = motivo.Text;
             string tipOTS = tipOTSTB.Text;
             string numReng = num_reng.Text;
-            AccesoDatos.sp_WebAppOTSAdmParos_Result insertOTSP = logicaNegocio.admParos(Int32.Parse(numOTS), tipOTS.ToUpper().Substring(0, 3), motivoParo, "termParo", Int32.Parse(numReng));
+            Entidades.sp_WebAppOTSAdmParos_Result insertOTSP = logicaNegocio.admParos(Int32.Parse(numOTS), tipOTS.ToUpper().Substring(0, 3), motivoParo, "termParo", Int32.Parse(numReng));
             if (insertOTSP != null)
             {
                 error = insertOTSP.error;

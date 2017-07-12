@@ -48,7 +48,7 @@ namespace materialDesing
             string email = txtEmail.Text;
             if (string.IsNullOrEmpty(nombre.TrimEnd(' ')) == false && string.IsNullOrEmpty(user_cve.TrimEnd(' ')) == false && string.IsNullOrEmpty(email.TrimEnd(' ')) == false)
             {
-                AccesoDatos.sp_WebAppOTSAdmUsers_Result actualizaUser = logicaNegocio.admUserOTS(user_cve, nombre, "", status, email, "", "actualiza");
+                Entidades.sp_WebAppOTSAdmUsers_Result actualizaUser = logicaNegocio.admUserOTS(user_cve, nombre, "", status, email, "", "actualiza");
                 if (actualizaUser != null)
                 {
                     error = actualizaUser.error;
@@ -70,7 +70,7 @@ namespace materialDesing
                             {
                                 if (item.Selected)
                                 {
-                                    AccesoDatos.sp_WebAppOTSAdmUsers_Result RolUser = logicaNegocio.admUserOTS(user_cve.ToUpper(), "", "", 0, "", item.Value, "nRol");
+                                    Entidades.sp_WebAppOTSAdmUsers_Result RolUser = logicaNegocio.admUserOTS(user_cve.ToUpper(), "", "", 0, "", item.Value, "nRol");
                                     if (RolUser != null)
                                     {
                                         error = RolUser.error;
@@ -79,7 +79,7 @@ namespace materialDesing
                                 }
                                 else if (item.Selected == false)
                                 {
-                                    AccesoDatos.sp_WebAppOTSAdmUsers_Result RolUser = logicaNegocio.admUserOTS(user_cve.ToUpper(), "", "", 0, "", item.Value, "eRol");
+                                    Entidades.sp_WebAppOTSAdmUsers_Result RolUser = logicaNegocio.admUserOTS(user_cve.ToUpper(), "", "", 0, "", item.Value, "eRol");
                                     if (RolUser != null)
                                     {
                                         error = RolUser.error;

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AccesoDatos
+namespace Entidades
 {
     using System;
     using System.Data.Entity;
@@ -35,6 +35,8 @@ namespace AccesoDatos
         public DbSet<otsemov> otsemov { get; set; }
         public DbSet<paros> paros { get; set; }
         public DbSet<usuarios> usuarios { get; set; }
+        public DbSet<ChatGrupales> ChatGrupales { get; set; }
+        public DbSet<ChatsPrivadosDetalles> ChatsPrivadosDetalles { get; set; }
     
         public virtual ObjectResult<sp_WebAppOTSAdmUsers_Result> sp_WebAppOTSAdmUsers(string user_cve, string user_nom, string user_pass, Nullable<short> user_status, string user_email, string user_rol, string opcion)
         {

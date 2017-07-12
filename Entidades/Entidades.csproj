@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChatGrupales.cs">
+      <DependentUpon>OTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ChatsPrivadosDetalles.cs">
+      <DependentUpon>OTS.tt</DependentUpon>
+    </Compile>
     <Compile Include="OTS.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -74,16 +80,6 @@
     <Compile Include="rolesxUsr.cs">
       <DependentUpon>OTS.tt</DependentUpon>
     </Compile>
-    <Compile Include="SkytexModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SkytexModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SkytexModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SkytexModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="sp_WebAppOTSAdmOpc_Result.cs">
       <DependentUpon>OTS.tt</DependentUpon>
     </Compile>
@@ -105,35 +101,26 @@
     <Compile Include="usuarios.cs">
       <DependentUpon>OTS.tt</DependentUpon>
     </Compile>
-    <Compile Include="xcuser.cs">
-      <DependentUpon>SkytexModel.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="OTS.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>OTS.Context.cs</LastGenOutput>
-    </None>
-    <None Include="OTS.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>OTS.cs</LastGenOutput>
-    </None>
     <None Include="packages.config" />
-    <None Include="SkytexModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SkytexModel.Context.cs</LastGenOutput>
-    </None>
-    <None Include="SkytexModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SkytexModel.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="OTS.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>OTS.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="OTS.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>OTS.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

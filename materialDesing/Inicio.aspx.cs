@@ -37,7 +37,7 @@ namespace materialDesing
             int sopTerminados = 0;
             int penNoIniciados = 0;
             int penTerminados = 0;
-            AccesoDatos.sp_WebAppOTSAdmOTS_Result contadorSop = logicaNegocio.admOTS("", "SOP", "", 1, "", "", user, "1", "", "", "", "", "", "", "", "", "", "", opcion, "", DateTime.Now); 
+            Entidades.sp_WebAppOTSAdmOTS_Result contadorSop = logicaNegocio.admOTS("", "SOP", "", 1, "", "", user, "1", "", "", "", "", "", "", "", "", "", "", opcion, "", DateTime.Now); 
             if (contadorSop != null)
             {
                 error = contadorSop.error;
@@ -50,7 +50,7 @@ namespace materialDesing
                 }
             }
 
-            AccesoDatos.sp_WebAppOTSAdmOTS_Result contadorSopT = logicaNegocio.admOTS("", "SOP", "", 3, "", "", user, "3", "", "", "", "", "", "", "", "", "", "", opcion, "", DateTime.Now); ;
+            Entidades.sp_WebAppOTSAdmOTS_Result contadorSopT = logicaNegocio.admOTS("", "SOP", "", 3, "", "", user, "3", "", "", "", "", "", "", "", "", "", "", opcion, "", DateTime.Now); ;
             if (contadorSopT != null)
             {
                 error = contadorSopT.error;
@@ -62,7 +62,7 @@ namespace materialDesing
                     soportesTerminados.Text = sopTerminados.ToString();
                 }
             }
-            AccesoDatos.sp_WebAppOTSAdmOTS_Result contadorPen = logicaNegocio.admOTS("", "PEN", "", 1, "", "", user, "1", "", "", "", "", "", "", "", "", "", "", opcion, "", DateTime.Now);
+            Entidades.sp_WebAppOTSAdmOTS_Result contadorPen = logicaNegocio.admOTS("", "PEN", "", 1, "", "", user, "1", "", "", "", "", "", "", "", "", "", "", opcion, "", DateTime.Now);
             if (contadorPen != null)
             {
                 error = contadorPen.error;
@@ -74,7 +74,7 @@ namespace materialDesing
                     pendientesNoIniciados.Text = penNoIniciados.ToString();
                 }
             }
-            AccesoDatos.sp_WebAppOTSAdmOTS_Result contadorPenT = logicaNegocio.admOTS("", "PEN", "", 3, "", "", user, "3", "", "", "", "", "", "", "", "", "", "", opcion, "", DateTime.Now);
+            Entidades.sp_WebAppOTSAdmOTS_Result contadorPenT = logicaNegocio.admOTS("", "PEN", "", 3, "", "", user, "3", "", "", "", "", "", "", "", "", "", "", opcion, "", DateTime.Now);
             if (contadorPenT != null)
             {
                 error = contadorPenT.error;
@@ -89,7 +89,7 @@ namespace materialDesing
         }
         public void OTSGraf(string tipoOTS, int statusOTS, string userResp, string mes)
         {
-            AccesoDatos.sp_WebAppOTSAdmOTS_Result contadorPenT = logicaNegocio.admOTS("", tipoOTS, "", statusOTS, "", "", userResp, "", "", /*fecha*/"", "", "", "", "", "", "", "", "", "consultaOTSGraf", "", DateTime.Now);
+            Entidades.sp_WebAppOTSAdmOTS_Result contadorPenT = logicaNegocio.admOTS("", tipoOTS, "", statusOTS, "", "", userResp, "", "", /*fecha*/"", "", "", "", "", "", "", "", "", "consultaOTSGraf", "", DateTime.Now);
             Response.Write(contadorPenT.mensaje);
         }
     }

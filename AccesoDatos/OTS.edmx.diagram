@@ -16,6 +16,8 @@
         <AssociationConnector Association="DBOTSModel.FK_otsemov_usuarios" />
         <AssociationConnector Association="DBOTSModel.FK_otsemov_usuarios1" />
         <AssociationConnector Association="DBOTSModel.FK_rolesxUsr_usuarios" />
+        <EntityTypeShape EntityType="DBOTSModel.ChatGrupales" Width="1.5" PointX="3.375" PointY="5.75" />
+        <EntityTypeShape EntityType="DBOTSModel.ChatsPrivadosDetalles" Width="1.5" PointX="5.375" PointY="5.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

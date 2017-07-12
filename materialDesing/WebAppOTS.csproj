@@ -332,6 +332,10 @@
       <Project>{ac409023-1ce4-4452-9f4c-da2babc83687}</Project>
       <Name>AccesoDatos</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{b1101c2b-d170-4cf0-ad53-c97d4e4734f6}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LogicaNegocio\LogicaNegocio.csproj">
       <Project>{cb0a796b-e87e-41e6-a82b-fdcb6f7802e1}</Project>
       <Name>LogicaNegocio</Name>

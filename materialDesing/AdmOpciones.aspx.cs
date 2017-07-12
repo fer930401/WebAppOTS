@@ -39,7 +39,7 @@ namespace materialDesing
             string elmto_cve = elm_cve.Text;
             if (string.IsNullOrEmpty(elmto_cve.TrimEnd(' ')) == false)
             {
-                List<AccesoDatos.otscatlgos> catOTS = logicaNegocio.infoOpc(elmto_cve);
+                List<Entidades.otscatlgos> catOTS = logicaNegocio.infoOpc(elmto_cve);
                 if (catOTS != null && catOTS.Count > 0)
                 {
                     Literal1.Text = "";
@@ -69,7 +69,7 @@ namespace materialDesing
             string newNombre = nom_catlgo.Text;
             short? newStatus = short.Parse(Request["status"].ToString());
             string opcion = "modifica";
-            AccesoDatos.sp_WebAppOTSAdmOpc_Result insOpcOTS = logicaNegocio.opcOTS(newCve_catlgo, newElm_cve, newNombre, newStatus, opcion);
+            Entidades.sp_WebAppOTSAdmOpc_Result insOpcOTS = logicaNegocio.opcOTS(newCve_catlgo, newElm_cve, newNombre, newStatus, opcion);
             if (insOpcOTS != null)
             {
                 error = insOpcOTS.error;

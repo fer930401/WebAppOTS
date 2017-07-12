@@ -7,13 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AccesoDatos
+namespace Entidades
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class sp_WebAppOTSAdmOpc_Result
+    public partial class ChatGrupales
     {
-        public Nullable<short> error { get; set; }
+        public string user_cve { get; set; }
         public string mensaje { get; set; }
+        public string mail { get; set; }
+        public System.DateTime fecha { get; set; }
     }
 }

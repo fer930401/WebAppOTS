@@ -53,35 +53,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>OTS.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="OTS.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OTS.tt</DependentUpon>
-    </Compile>
     <Compile Include="OTS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>OTS.edmx</DependentUpon>
     </Compile>
-    <Compile Include="otscatlgos.cs">
-      <DependentUpon>OTS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="otsdcatlgos.cs">
-      <DependentUpon>OTS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="otsdmov.cs">
-      <DependentUpon>OTS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="otsemov.cs">
-      <DependentUpon>OTS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="paros.cs">
-      <DependentUpon>OTS.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="rolesxUsr.cs">
-      <DependentUpon>OTS.tt</DependentUpon>
-    </Compile>
     <Compile Include="SkytexModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -97,27 +74,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SkytexModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="sp_WebAppOTSAdmOpc_Result.cs">
-      <DependentUpon>OTS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_WebAppOTSAdmOTS_Result.cs">
-      <DependentUpon>OTS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_WebAppOTSAdmParos_Result.cs">
-      <DependentUpon>OTS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_WebAppOTSAdmUsers_Result.cs">
-      <DependentUpon>OTS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_WebAppOTSConsultaOTS_Result.cs">
-      <DependentUpon>OTS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_WebAppOTSConsultaUser_Result.cs">
-      <DependentUpon>OTS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="usuarios.cs">
-      <DependentUpon>OTS.tt</DependentUpon>
-    </Compile>
     <Compile Include="xcuser.cs">
       <DependentUpon>SkytexModel.tt</DependentUpon>
     </Compile>
@@ -132,14 +88,10 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>OTS.edmx</DependentUpon>
       <LastGenOutput>OTS.Context.cs</LastGenOutput>
+      <CustomToolNamespace>Entidades</CustomToolNamespace>
     </None>
     <None Include="OTS.edmx.diagram">
       <DependentUpon>OTS.edmx</DependentUpon>
-    </None>
-    <None Include="OTS.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>OTS.edmx</DependentUpon>
-      <LastGenOutput>OTS.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <EntityDeploy Include="SkytexModel.edmx">

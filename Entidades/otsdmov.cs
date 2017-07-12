@@ -30,7 +30,5 @@ namespace Entidades
         public Nullable<short> clasificacion { get; set; }
         public string status { get; set; }
         public string aplica_para { get; set; }
-    
-        public virtual usuarios usuarios { get; set; }
     }
 }

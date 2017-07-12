@@ -1,6 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DBOTSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <!--Errors Found During Generation:
+warning 6002: The table/view 'DBOTS.dbo.ChatGrupales' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ChatGrupales">
+    <Key>
+      <PropertyRef Name="user_cve" />
+      <PropertyRef Name="fecha" />
+    </Key>
+    <Property Name="user_cve" Type="nchar" MaxLength="3" Nullable="false" />
+    <Property Name="mensaje" Type="nvarchar(max)" />
+    <Property Name="mail" Type="nvarchar" MaxLength="50" />
+    <Property Name="fecha" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'DBOTS.dbo.ChatsPrivados' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="ChatsPrivados">
+          <Property Name="user_cve" Type="nchar" MaxLength="3" />
+          <Property Name="mail" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBOTS.dbo.ChatsPrivadosDetalles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ChatsPrivadosDetalles">
+    <Key>
+      <PropertyRef Name="emisor_chat" />
+      <PropertyRef Name="receptor_chat" />
+    </Key>
+    <Property Name="emisor_chat" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="receptor_chat" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="mensaje" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
 warning 6002: The table/view 'DBOTS.dbo.otscatlgos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="otscatlgos">
     <Key>
@@ -227,6 +256,21 @@ warning 6002: The table/view 'DBOTS.dbo.rolesxUsr' does not have a primary key d
   <EntityContainer Name="DBOTSModelStoreContainer">
     <EntitySet Name="otsdcatlgos" EntityType="Self.otsdcatlgos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChatGrupales" EntityType="Self.ChatGrupales" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[ChatGrupales].[user_cve] AS [user_cve], 
+[ChatGrupales].[mensaje] AS [mensaje], 
+[ChatGrupales].[mail] AS [mail], 
+[ChatGrupales].[fecha] AS [fecha]
+FROM [dbo].[ChatGrupales] AS [ChatGrupales]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ChatsPrivadosDetalles" EntityType="Self.ChatsPrivadosDetalles" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[ChatsPrivadosDetalles].[emisor_chat] AS [emisor_chat], 
+[ChatsPrivadosDetalles].[receptor_chat] AS [receptor_chat], 
+[ChatsPrivadosDetalles].[mensaje] AS [mensaje]
+FROM [dbo].[ChatsPrivadosDetalles] AS [ChatsPrivadosDetalles]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="otscatlgos" EntityType="Self.otscatlgos" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
 [otscatlgos].[cve_catlgo] AS [cve_catlgo], 

@@ -60,7 +60,7 @@ namespace materialDesing
                 {
                     DataTable dt = new DataTable();
                     DataRow dr;
-                    List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(user_consulta, sts_consulta, 4, variables.Tipo_OTS.Substring(0,3), variables.Num_OTS.ToString(), "");
+                    List<Entidades.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(user_consulta, sts_consulta, 4, variables.Tipo_OTS.Substring(0, 3), variables.Num_OTS.ToString(), "");
                     dt.Columns.Add("num_OTS", typeof(string));
                     dt.Columns.Add("tipo_OTS", typeof(string));
                     dt.Columns.Add("operacion", typeof(string));
@@ -112,7 +112,7 @@ namespace materialDesing
             
             DataTable dt = new DataTable();
             DataRow dr;
-            List<AccesoDatos.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(user_consulta, sts_consulta, 4, variables.Tipo_OTS.Substring(0,3), variables.Num_OTS.ToString(), "");
+            List<Entidades.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(user_consulta, sts_consulta, 4, variables.Tipo_OTS.Substring(0, 3), variables.Num_OTS.ToString(), "");
             dt.Columns.Add("num_OTS", typeof(string));
             dt.Columns.Add("tipo_OTS", typeof(string));
             dt.Columns.Add("operacion", typeof(string));
@@ -154,7 +154,7 @@ namespace materialDesing
             string userRespSubOTS = Session["user_cve"].ToString().ToUpper();
             string sts_SubOTS = "2";
 
-            AccesoDatos.sp_WebAppOTSAdmOTS_Result insertOTSD = logicaNegocio.admOTS("", tipo_SubOTS, "", variables.Num_OTS, num_SubOTS.ToString(), "", userRespSubOTS, sts_SubOTS, "", "", "", "", "", "", "", "", "", "", "iniDet", "", DateTime.Now);
+            Entidades.sp_WebAppOTSAdmOTS_Result insertOTSD = logicaNegocio.admOTS("", tipo_SubOTS, "", variables.Num_OTS, num_SubOTS.ToString(), "", userRespSubOTS, sts_SubOTS, "", "", "", "", "", "", "", "", "", "", "iniDet", "", DateTime.Now);
             if (insertOTSD != null)
             {
                 error = insertOTSD.error;
@@ -178,7 +178,7 @@ namespace materialDesing
             string userRespSubOTS = Session["user_cve"].ToString().ToUpper();
             string sts_SubOTS = "3";
 
-            AccesoDatos.sp_WebAppOTSAdmOTS_Result insertOTSD = logicaNegocio.admOTS("", tipo_SubOTS, "", variables.Num_OTS, num_SubOTS.ToString(), "", userRespSubOTS, sts_SubOTS, "", "", "", "", "", "", "", "", "", "", "terminaDet", "", DateTime.Now);
+            Entidades.sp_WebAppOTSAdmOTS_Result insertOTSD = logicaNegocio.admOTS("", tipo_SubOTS, "", variables.Num_OTS, num_SubOTS.ToString(), "", userRespSubOTS, sts_SubOTS, "", "", "", "", "", "", "", "", "", "", "terminaDet", "", DateTime.Now);
             if (insertOTSD != null)
             {
                 error = insertOTSD.error;
