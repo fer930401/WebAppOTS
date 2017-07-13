@@ -119,7 +119,7 @@ namespace materialDesing
                          {
                              UserName = a.user_cve,
                              Message = c.mensaje,
-                             ID = c.emisor_chat
+                             ID = c.ID
                          }).Take(take).ToList();
                 v = v.OrderBy(s => s.ID).ToList();
 

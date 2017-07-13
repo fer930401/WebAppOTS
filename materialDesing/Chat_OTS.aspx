@@ -56,7 +56,17 @@
                 }
             });
 
-            $("#txtUser_cve").keypress(function (e) {
+            $("#<%= txtUser_cve.ClientID %>").keypress(function (e) {
+                if (e.which == 13) {
+                    $("#btnStartChat").click();
+                }
+            });
+            $("#<%= txtUser.ClientID %>").keypress(function (e) {
+                if (e.which == 13) {
+                    $("#btnStartChat").click();
+                }
+            });
+            $("#<%= txtEmail.ClientID %>").keypress(function (e) {
                 if (e.which == 13) {
                     $("#btnStartChat").click();
                 }
@@ -166,10 +176,10 @@
             var code = "";
 
             if (userEmail == email && $('.loginUser').length == 0) {
-                code = $('<div class="loginUser">' + name + "</div>");
+                code = $('<div class="loginUser"><ul id="lista3"><li>' + name + "</li></ul></div>");
             }
             else {
-                code = $('<a id="' + id + '" class="user" >' + name + '<a>');
+                code = $('<a id="' + id + '" class="user" ><ul id="lista3"><li>' + name + '</li></ul><a>');
                 $(code).click(function () {
                     var id = $(this).attr('id');
                     if (userEmail != email) {
@@ -209,10 +219,10 @@
 
         function createPrivateChatWindow(chatHub, userId, ctrId, userName, userEmail, email) {
 
-            var div = '<div id="' + ctrId + '" class="ui-widget-content draggable" rel="0">' +
+            var div = '<div id="' + ctrId + '" class="ui-widget-content draggable z-depth-4" rel="0">' +
                         '<div class="header">' +
-                            '<div  style="float:right;">' +
-                                '<img id="imgDelete"  style="cursor:pointer;" src="/Media/delete.png"/>' +
+                            '<div  style="float:right; padding:2px;">' +
+                                '<img id="imgDelete"  style="cursor:pointer;" src="/Media/cerrar.png" />' +
                             '</div>' +
 
                             '<span class="selText" rel="0">' + userName + '</span>' +
@@ -222,11 +232,15 @@
 
                         '</div>' +
                         '<div class="buttonBar">' +
-                            '<input id="txtPrivateMessage" class="msgText" type="text"   />' +
-                            '<input id="btnSendMessage" class="submitButton button" type="button" value="Send"   />' +
+                            '<div class="row">' +
+                                '<div class="input-field col s12">' +
+                                    '<input id="txtPrivateMessage" class="validate col s8" style="font-size:small;" type="text"   />' +
+                                    '<input id="btnSendMessage" class="btn col s4" type="button" value="Enviar"   />' +
+                                '</div>' +
+                            '</div>' +
                         '</div>' +
                         '<div id="scrollLength"></div>' +
-                    '</div>';
+                      '</div>';
 
             var $div = $(div);
 
@@ -332,9 +346,9 @@
         document.onkeydown = checkKeyCode;
     </script>
     <div id="divContainer">
-        <div id="divLogin" class="login card blue-grey darken-1">
+        <div id="divLogin" class="login card grey lighten-3 z-depth-4">
           <div class="">
-            <div class="card-content white-text">
+            <div class="card-content ">
               <span class="card-title">Chat de Usuarios</span><br /><br />
               <div>
                 <asp:Label ID="lblUser_cve" runat="server" Text="Clave de Usuario:" Font-Bold="true"></asp:Label>
@@ -359,7 +373,7 @@
             
         </div>
         <br />
-        <div id="divChat" class="chatRoom">
+        <div id="divChat" class="chatRoom  z-depth-4">
             <nav>
                 <div class="nav-wrapper">
                     <div class="col s12">
@@ -374,8 +388,12 @@
                 </div>
             </div>
             <div class="messageBar">
-                <input class="form-control" type="text" id="txtMessage" />
-                <input id="btnSendMsg" type="button" value="Send" class="btn btn-success" />
+                <div class="row">
+                    <div class="input-field col s8">
+                        <input class="validate col s9" style="font-size:small;" type="text" id="txtMessage" />
+                        <input id="btnSendMsg" type="button" value="Enviar" class="btn" />
+                    </div>
+                </div>
             </div>
         </div>
 
