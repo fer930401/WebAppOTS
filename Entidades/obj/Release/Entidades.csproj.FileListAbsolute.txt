@@ -19,3 +19,5 @@ C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\Entidades\bin\Release\
 C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\Entidades\bin\Release\EntityFramework.xml
 C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\Entidades\obj\Release\Entidades.dll
 C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\Entidades\obj\Release\Entidades.pdb
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\Entidades\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\Entidades\bin\Release\EntityFramework.SqlServer.xml

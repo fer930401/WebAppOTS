@@ -28,3 +28,5 @@ C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\AccesoDatos\bin\Releas
 C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\AccesoDatos\obj\Release\AccesoDatos.csprojResolveAssemblyReference.cache
 C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\AccesoDatos\obj\Release\AccesoDatos.dll
 C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\AccesoDatos\obj\Release\AccesoDatos.pdb
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\AccesoDatos\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\AccesoDatos\bin\Release\EntityFramework.SqlServer.xml

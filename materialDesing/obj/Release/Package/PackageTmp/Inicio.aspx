@@ -26,8 +26,8 @@
               <br />
               <h5 class="center grey-text">Bienvenido: <strong><asp:Label ID="usuario" runat="server" Text="Label"></asp:Label></strong></h5>
               <div class="col s12 m3">
-                <asp:TextBox ID="user_cve" runat="server" ReadOnly="true" hidden></asp:TextBox>
-                <asp:TextBox ID="rol_cve" runat="server" ReadOnly="true" hidden></asp:TextBox>
+                <asp:TextBox ID="user_cve" runat="server" ReadOnly="true" hidden="true"></asp:TextBox>
+                <asp:TextBox ID="rol_cve" runat="server" ReadOnly="true" hidden="true"></asp:TextBox>
               </div>
             </div>
             <script type="text/javascript">
