@@ -87,6 +87,17 @@
                     $("#txtMessage").val('');
                 }
             });
+
+            $(document).ready(function () {
+                $('#txtMessage').keypress(function (e) {
+                    if (e.which == 13) {
+                        var user_cve = $('#hdUser_cve').val();
+                        chatHub.server.sendMessageToAll(user_cve, msg);
+                        $("#txtMessage").val('');
+                    }
+                });
+
+            });
         }
 
         function registerClientMethods(chatHub) {
@@ -222,7 +233,7 @@
             var div = '<div id="' + ctrId + '" class="ui-widget-content draggable z-depth-4" rel="0">' +
                         '<div class="header">' +
                             '<div  style="float:right; padding:2px;">' +
-                                '<img id="imgDelete"  style="cursor:pointer;" src="/Media/cerrar.png" />' +
+                                '<img id="imgDelete"  style="cursor:pointer;" src="~/Media/cerrar.png" />' +
                             '</div>' +
 
                             '<span class="selText" rel="0">' + userName + '</span>' +
@@ -234,7 +245,7 @@
                         '<div class="buttonBar">' +
                             '<div class="row">' +
                                 '<div class="input-field col s12">' +
-                                    '<input id="txtPrivateMessage" class="validate col s8" style="font-size:small;" type="text"   />' +
+                                    '<input id="txtPrivateMessage" class="validate col s8" style="font-size:small;" type="text" />' +
                                     '<input id="btnSendMessage" class="btn col s4" type="button" value="Enviar"   />' +
                                 '</div>' +
                             '</div>' +
@@ -286,6 +297,19 @@
                     chatHub.server.sendPrivateMessage(userId, msg, 'Click');
                     $textBox.val('');
                 }
+            });
+
+            $(document).ready(function () {
+
+                $('#txtPrivateMessage').keypress(function (e) {
+                    $textBox = $div.find("#txtPrivateMessage");
+                    var msg = $textBox.val();
+                    if (msg.length > 0) {
+                        chatHub.server.sendPrivateMessage(userId, msg, 'Click');
+                        $textBox.val('');
+                    }
+                });
+
             });
 
             // Text Box event

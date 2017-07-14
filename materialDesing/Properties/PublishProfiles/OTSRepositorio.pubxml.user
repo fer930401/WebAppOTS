@@ -76,7 +76,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/12/2017 11:56:23</publishTime>
     </File>
     <File Include="Chat_OTS.aspx">
-      <publishTime>07/14/2017 09:29:55</publishTime>
+      <publishTime>07/14/2017 15:37:40</publishTime>
     </File>
     <File Include="css/default.css">
       <publishTime>04/20/2015 00:56:36</publishTime>
@@ -775,7 +775,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/14/2017 12:48:38</publishTime>
     </File>
     <File Include="WebApp.Master">
-      <publishTime>07/12/2017 15:38:33</publishTime>
+      <publishTime>07/14/2017 13:07:56</publishTime>
     </File>
   </ItemGroup>
 </Project>
