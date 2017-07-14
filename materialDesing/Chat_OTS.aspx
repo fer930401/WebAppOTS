@@ -264,7 +264,7 @@
                             var curOffset = firstMsg.offset().top - $('#' + ctrId).find('#divMessage').scrollTop();
 
                             // Prepend
-                            $('#' + ctrId).find('#divMessage').prepend('<div class="message"><span class="userName">' + msg[i].userName + '</span>: ' + msg[i].message + '</div>');
+                            $('#' + ctrId).find('#divMessage').prepend('<div class="message" style="padding-top:50px;"><span class="userName">' + msg[i].userName + '</span>: ' + msg[i].message + '</div>');
 
                             // Offset to previous first message minus original offset/scroll
                             $('#' + ctrId).find('#divMessage').scrollTop(firstMsg.offset().top - curOffset);
