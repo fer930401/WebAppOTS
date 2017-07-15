@@ -31,7 +31,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/21/2017 13:22:24</publishTime>
     </File>
     <File Include="bin/AccesoDatos.dll">
-      <publishTime>07/14/2017 12:48:25</publishTime>
+      <publishTime>07/15/2017 09:56:22</publishTime>
     </File>
     <File Include="bin/DotNet.Highcharts.dll">
       <publishTime>05/23/2014 11:33:56</publishTime>
@@ -46,10 +46,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/12/2017 13:12:15</publishTime>
     </File>
     <File Include="bin/LogicaNegocio.dll">
-      <publishTime>07/14/2017 12:48:27</publishTime>
+      <publishTime>07/15/2017 09:56:22</publishTime>
     </File>
     <File Include="bin/materialDesing.dll">
-      <publishTime>07/14/2017 12:48:35</publishTime>
+      <publishTime>07/15/2017 09:56:24</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.SignalR.Core.dll">
       <publishTime>07/12/2017 11:56:23</publishTime>
@@ -76,7 +76,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/12/2017 11:56:23</publishTime>
     </File>
     <File Include="Chat_OTS.aspx">
-      <publishTime>07/14/2017 15:37:40</publishTime>
+      <publishTime>07/15/2017 09:52:10</publishTime>
     </File>
     <File Include="css/default.css">
       <publishTime>04/20/2015 00:56:36</publishTime>
@@ -103,7 +103,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/10/2016 13:50:06</publishTime>
     </File>
     <File Include="css/SignalRcss/ChatStyle.css">
-      <publishTime>07/14/2017 09:40:21</publishTime>
+      <publishTime>07/14/2017 17:25:36</publishTime>
     </File>
     <File Include="css/SignalRcss/JQueryUI/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png">
       <publishTime>03/11/2013 01:10:54</publishTime>

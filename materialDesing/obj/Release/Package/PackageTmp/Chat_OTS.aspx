@@ -134,7 +134,7 @@
                 var ctrId = 'private_' + id;
                 $('#' + ctrId).remove();
 
-                var disc = $('<div class="disconnect">"' + userName + '" logged off.</div>');
+                var disc = $('<div class="disconnect">"' + userName + '" se desconecto.</div>');
 
                 $(disc).hide();
                 $('#divusers').prepend(disc);
@@ -376,15 +376,15 @@
               <span class="card-title">Chat de Usuarios</span><br /><br />
               <div>
                 <asp:Label ID="lblUser_cve" runat="server" Text="Clave de Usuario:" Font-Bold="true"></asp:Label>
-                <asp:TextBox ID="txtUser_cve" runat="server" CssClass="validate"></asp:TextBox>
+                <asp:TextBox ID="txtUser_cve" runat="server" CssClass="validate" Readonly="true"></asp:TextBox>
               </div>
               <div>
                 <asp:Label ID="lblUser" runat="server" Text="Nombre de Usuario:"  Font-Bold="true"></asp:Label>
-                <asp:TextBox ID="txtUser" runat="server" CssClass="validate"></asp:TextBox>
+                <asp:TextBox ID="txtUser" runat="server" CssClass="validate" Readonly="true"></asp:TextBox>
               </div>
               <div>
-                <asp:Label ID="lblMail" runat="server" Text="Email:"  Font-Bold="true"></asp:Label>
-                <asp:TextBox ID="txtEmail" runat="server" CssClass="validate"></asp:TextBox>
+                <asp:Label ID="lblMail" runat="server" Text="Email:"  Font-Bold="true" ></asp:Label>
+                <asp:TextBox ID="txtEmail" runat="server" CssClass="validate" Readonly="true"></asp:TextBox>
               </div>
             </div>
             <div class="card-action">
@@ -421,8 +421,8 @@
             </div>
         </div>
 
-        <input id="hdUser_cve" type="text" />
-        <input id="hdUser" type="text" />
-        <input id="hdEmail" type="text" />
+        <input id="hdUser_cve" type="text" hidden/>
+        <input id="hdUser" type="text" hidden/>
+        <input id="hdEmail" type="text" style="color:white; cursor:default; text-shadow:white;" readonly/>
     </div>
 </asp:Content>

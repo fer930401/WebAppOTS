@@ -100,5 +100,19 @@ namespace AccesoDatos
         {
             return (from r in contextoOTS.otscatlgos where r.elm_cve.Equals(elm_cve) select r).ToList();
         }
+        public string consultaEmail(string user_cve)
+        {
+            string email = "";
+            var conEmail = (from u in contextoOTS.usuarios where u.user_cve.Equals(user_cve) select u).SingleOrDefault();
+            if (conEmail == null)
+            {
+                email = "";
+            }
+            else
+            {
+                email = conEmail.mail;
+            }
+            return email;
+        }
     }
 }

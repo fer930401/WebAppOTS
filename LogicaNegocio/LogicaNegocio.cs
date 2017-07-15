@@ -84,5 +84,9 @@ namespace LogicaNegocio
         {
             return datos.infoOpc(elm_cve);
         }
+        public string consultaEmail(string user_cve)
+        {
+            return datos.consultaEmail(user_cve);
+        }
     }
 }
