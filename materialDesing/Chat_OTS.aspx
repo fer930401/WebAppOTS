@@ -421,8 +421,8 @@
             </div>
         </div>
 
-        <input id="hdUser_cve" type="text" />
-        <input id="hdUser" type="text" />
-        <input id="hdEmail" type="text" />
+        <input id="hdUser_cve" type="text" hidden/>
+        <input id="hdUser" type="text" hidden/>
+        <input id="hdEmail" type="text" style="color:white; cursor:default; text-shadow:white;" readonly/>
     </div>
 </asp:Content>
