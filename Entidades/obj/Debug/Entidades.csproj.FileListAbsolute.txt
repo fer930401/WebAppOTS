@@ -30,12 +30,3 @@ C:\Projects\WebAppOTS\Entidades\bin\Debug\EntityFramework.xml
 C:\Projects\WebAppOTS\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
 C:\Projects\WebAppOTS\Entidades\obj\Debug\Entidades.dll
 C:\Projects\WebAppOTS\Entidades\obj\Debug\Entidades.pdb
-C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\Entidades\bin\Debug\Entidades.dll.config
-C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\Entidades\bin\Debug\Entidades.dll
-C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\Entidades\bin\Debug\Entidades.pdb
-C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\Entidades\bin\Debug\EntityFramework.dll
-C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\Entidades\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\Entidades\bin\Debug\EntityFramework.xml
-C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\Entidades\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\Entidades\obj\Debug\Entidades.dll
-C:\Users\fernando.garcia\Documents\Repositorios\WebAppOTS\Entidades\obj\Debug\Entidades.pdb

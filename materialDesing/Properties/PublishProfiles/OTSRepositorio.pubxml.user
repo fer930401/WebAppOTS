@@ -49,7 +49,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/15/2017 09:56:22</publishTime>
     </File>
     <File Include="bin/materialDesing.dll">
-      <publishTime>07/15/2017 09:56:24</publishTime>
+      <publishTime>07/15/2017 12:04:48</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.SignalR.Core.dll">
       <publishTime>07/12/2017 11:56:23</publishTime>
@@ -76,7 +76,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/12/2017 11:56:23</publishTime>
     </File>
     <File Include="Chat_OTS.aspx">
-      <publishTime>07/15/2017 09:52:10</publishTime>
+      <publishTime>07/15/2017 12:01:21</publishTime>
+    </File>
+    <File Include="Chat_OTS1.aspx">
+      <publishTime>07/15/2017 11:45:02</publishTime>
     </File>
     <File Include="css/default.css">
       <publishTime>04/20/2015 00:56:36</publishTime>
@@ -775,7 +778,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/14/2017 12:48:38</publishTime>
     </File>
     <File Include="WebApp.Master">
-      <publishTime>07/14/2017 13:07:56</publishTime>
+      <publishTime>07/15/2017 11:45:30</publishTime>
     </File>
   </ItemGroup>
 </Project>

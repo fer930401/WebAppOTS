@@ -113,6 +113,7 @@
     <Content Include="A_Paros.aspx" />
     <Content Include="A_Usuarios.aspx" />
     <Content Include="Chat_OTS.aspx" />
+    <Content Include="Chat_OTS1.aspx" />
     <Content Include="css\default.css" />
     <Content Include="css\default.date.css" />
     <Content Include="css\demo.css" />
@@ -417,6 +418,13 @@
     </Compile>
     <Compile Include="Chat_OTS.aspx.designer.cs">
       <DependentUpon>Chat_OTS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Chat_OTS1.aspx.cs">
+      <DependentUpon>Chat_OTS1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Chat_OTS1.aspx.designer.cs">
+      <DependentUpon>Chat_OTS1.aspx</DependentUpon>
     </Compile>
     <Compile Include="C_imgOTS.aspx.cs">
       <DependentUpon>C_imgOTS.aspx</DependentUpon>

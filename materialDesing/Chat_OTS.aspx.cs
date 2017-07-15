@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace materialDesing
 {
-    public partial class Chat_OTS : System.Web.UI.Page
+    public partial class Chat_OTS1 : System.Web.UI.Page
     {
         LogicaNegocioCls logicaNegocio = new LogicaNegocioCls();
         protected void Page_Load(object sender, EventArgs e)
@@ -20,6 +20,17 @@ namespace materialDesing
             txtUser_cve.Text = clave;
             txtUser.Text = user;
             txtEmail.Text = email;
+        }
+        public string validarRol(string cve_user, string rol)
+        {
+            return logicaNegocio.validarRol(cve_user, rol);
+        }
+        protected void CerrarSession(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.RemoveAll();
+            Session.Abandon();
+            Response.Redirect("Login.aspx");
         }
     }
 }
