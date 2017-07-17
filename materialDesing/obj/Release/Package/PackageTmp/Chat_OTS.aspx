@@ -26,8 +26,8 @@
     <link rel="stylesheet" href="<%=ResolveUrl("css/normaliz.min.css") %>" />
     <link rel="stylesheet" href="<%=ResolveUrl("css/animate.min.css") %>" />
     <!-- Cambios SignalR -->
-    <link rel="stylesheet" href="<%=ResolveUrl("Css/SignalRcss/ChatStyle.css") %>" />
-    <link rel="stylesheet" href="<%=ResolveUrl("Css/SignalRcss/JQueryUI/themes/base/jquery.ui.all.css") %>" />
+    <link rel="stylesheet" href="<%=ResolveUrl("css/SignalRcss/ChatStyle.css") %>" />
+    <link rel="stylesheet" href="<%=ResolveUrl("css/SignalRcss/JQueryUI/themes/base/jquery.ui.all.css") %>" />
 
       <!--Reference the jQuery library. -->
     
@@ -218,7 +218,7 @@
 
                 if (status == 'Type') {
                     if (fromUserId == windowId)
-                        $('#' + ctrId).find('#msgTypeingName').text('typing...');
+                        $('#' + ctrId).find('#msgTypeingName').text('escribiendo...');
                 }
                 else { $('#' + ctrId).find('#msgTypeingName').text(''); }
             }
@@ -277,7 +277,7 @@
             var div = '<div id="' + ctrId + '" class="ui-widget-content draggable z-depth-4" rel="0">' +
                         '<div class="header">' +
                             '<div  style="float:right; padding:2px;">' +
-                                '<img id="imgDelete"  style="cursor:pointer;" src="~/Media/cerrar.png" />' +
+                                '<img id="imgDelete"  style="cursor:pointer;" src="<%=ResolveUrl("~/Media/cerrar.png")%>" />' +
                             '</div>' +
 
                             '<span class="selText" rel="0">' + userName + '</span>' +

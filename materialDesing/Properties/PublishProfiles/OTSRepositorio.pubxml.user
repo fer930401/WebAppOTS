@@ -76,7 +76,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/12/2017 11:56:23</publishTime>
     </File>
     <File Include="Chat_OTS.aspx">
-      <publishTime>07/15/2017 12:01:21</publishTime>
+      <publishTime>07/17/2017 07:42:37</publishTime>
     </File>
     <File Include="Chat_OTS1.aspx">
       <publishTime>07/15/2017 11:45:02</publishTime>
@@ -106,7 +106,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/10/2016 13:50:06</publishTime>
     </File>
     <File Include="css/SignalRcss/ChatStyle.css">
-      <publishTime>07/14/2017 17:25:36</publishTime>
+      <publishTime>07/15/2017 12:56:31</publishTime>
     </File>
     <File Include="css/SignalRcss/JQueryUI/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png">
       <publishTime>03/11/2013 01:10:54</publishTime>

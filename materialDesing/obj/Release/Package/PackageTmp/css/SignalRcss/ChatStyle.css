@@ -61,11 +61,11 @@
     color: white; /* el color del texto */
     font-family: Arial, Sans-serif;
     font-size: 12px;
-    text-align: center;
     width: 150px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px;
+    word-wrap: break-word;
 }
 
 .chatRoom .content .chatWindow .message .userName
@@ -80,11 +80,11 @@
     color: white; /* el color del texto */
     font-family: Arial, Sans-serif;
     font-size: 12px;
-    text-align: center;
     width: 150px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px;
+    word-wrap: break-word;
 }
 .messageArea .message .userName
 {
@@ -188,7 +188,6 @@
   font-family: Arial, Sans-serif;
   font-size: 12px;
   padding: 20px 10px 10px 10px;
-  text-align: center;
   width: 200px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;

@@ -141,6 +141,7 @@
     position: absolute;
     border: #5f9482 solid 1px !important;
     width: 300px;
+    z-index:99;
 }
 
 .draggable .header

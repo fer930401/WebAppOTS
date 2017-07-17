@@ -123,8 +123,8 @@
             });
 
             $('#btnSendMsg').click(function () {
-                var msg = $("#txtMessage").val();
-                if (msg.length > 0) {
+                var msg = $("#txtMessage").text();
+                if (msg.length == 0) {
 
                     var user_cve = $('#hdUser_cve').val();
                     chatHub.server.sendMessageToAll(user_cve, msg);
@@ -277,7 +277,7 @@
             var div = '<div id="' + ctrId + '" class="ui-widget-content draggable z-depth-4" rel="0">' +
                         '<div class="header">' +
                             '<div  style="float:right; padding:2px;">' +
-                                '<img id="imgDelete"  style="cursor:pointer;" src="~/Media/cerrar.png" />' +
+                                '<img id="imgDelete"  style="cursor:pointer;" src="<%=ResolveUrl("~/Media/cerrar.png")%>" />' +
                             '</div>' +
 
                             '<span class="selText" rel="0">' + userName + '</span>' +
