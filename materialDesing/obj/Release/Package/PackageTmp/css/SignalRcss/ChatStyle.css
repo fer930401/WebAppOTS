@@ -141,6 +141,7 @@
     position: absolute;
     border: #5f9482 solid 1px !important;
     width: 300px;
+    z-index:999;
 }
 
 .draggable .header
@@ -180,29 +181,4 @@
     font-size:50px;
     vertical-align:middle;
     line-height:20px;
-}
-
-.speech-bubble {
-  background: #6495ED; /* el color de fondo */
-  color: #FFF; /* el color del texto */
-  font-family: Arial, Sans-serif;
-  font-size: 12px;
-  padding: 20px 10px 10px 10px;
-  width: 200px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-}
-.speech-bubble:after {
-  border: solid 10px transparent;
-  border-top-color: #6495ED;  /* igual al color de fondo */
-  border-bottom: 0;
-  bottom: -20px;  /* igual al borde + el padding-bottom de la definición anterior */
-  content: "";
-  display: block;
-  height: 0;
-  margin: auto;
-  overflow: hidden;
-  position: relative;
-  width: 0;
 }

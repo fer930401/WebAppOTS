@@ -47,6 +47,16 @@
 <body>
     <form id="form1" runat="server">
     <div>
+         <script type="text/javascript">
+             $(document).ready(function () {
+                 $('select').material_select();
+             });
+             $(document).ready(function () {
+                 $(window).scroll(function () {
+                     $('.flotante').slideDown(300);
+                 });
+             });
+    </script>
     <script type="text/javascript">
         $(function () {
             clearInterval(refreshId);
@@ -115,7 +125,7 @@
                     $("#btnStartChat").click();
                 }
             });
-
+            /* cuando dan enter en el textbox del chat grupal */
             $("#txtMessage").keypress(function (e) {
                 if (e.which == 13) {
                     $('#btnSendMsg').click();
@@ -123,9 +133,9 @@
             });
 
             $('#btnSendMsg').click(function () {
-                var msg = $("#txtMessage").text();
-                if (msg.length == 0) {
-
+                var msg = $("#txtMessage").val().trim();
+                /* validacion para que la variable mensaje contenga algun valor */
+                if (msg !== "") {
                     var user_cve = $('#hdUser_cve').val();
                     chatHub.server.sendMessageToAll(user_cve, msg);
                     $("#txtMessage").val('');
@@ -135,9 +145,13 @@
             $(document).ready(function () {
                 $('#txtMessage').keypress(function (e) {
                     if (e.which == 13) {
-                        var user_cve = $('#hdUser_cve').val();
-                        chatHub.server.sendMessageToAll(user_cve, msg);
-                        $("#txtMessage").val('');
+                        var msg = $("#txtMessage").val().trim();
+                        /* validacion para que la variable mensaje contenga algun valor */
+                        if (msg !== "") {
+                            var user_cve = $('#hdUser_cve').val();
+                            chatHub.server.sendMessageToAll(user_cve, msg);
+                            $("#txtMessage").val('');
+                        }
                     }
                 });
 
@@ -336,20 +350,19 @@
             // Send Button event
             $div.find("#btnSendMessage").click(function () {
                 $textBox = $div.find("#txtPrivateMessage");
-                var msg = $textBox.val();
-                if (msg.length > 0) {
+                var msg = $textBox.val().trim();
+                if (msg !== "") {
                     chatHub.server.sendPrivateMessage(userId, msg, 'Click');
                     $textBox.val('');
                 }
             });
 
             $(document).ready(function () {
-
                 $('#txtPrivateMessage').keypress(function (e) {
                     if (e.which == 13) {
                         $textBox = $div.find("#txtPrivateMessage");
-                        var msg = $textBox.val();
-                        if (msg.length > 0) {
+                        var msg = $textBox.val().trim();
+                        if (msg !== "") {
                             chatHub.server.sendPrivateMessage(userId, msg, 'Click');
                             $textBox.val('');
                         }
@@ -366,8 +379,8 @@
 
                 // Typing
                 $textBox = $div.find("#txtPrivateMessage");
-                var msg = $textBox.val();
-                if (msg.length > 0) {
+                var msg = $textBox.val().trim();
+                if (msg !== "") {
                     chatHub.server.sendPrivateMessage(userId, msg, 'Type');
                 }
                 else {
@@ -385,8 +398,8 @@
             refreshId = setInterval(function () {
                 // Typing
                 $textBox = $div.find("#txtPrivateMessage");
-                var msg = $textBox.val();
-                if (msg.length == 0) {
+                var msg = $textBox.val().trim();
+                if (msg !== "") {
                     chatHub.server.sendPrivateMessage(userId, msg, 'Empty');
                 }
             }, time);
@@ -396,6 +409,7 @@
             $('#divContainer').prepend($div);
             $div.draggable({
                 handle: ".header",
+                containment: "window",
                 stop: function () {
                 }
             });
@@ -403,18 +417,14 @@
         // ------------------------------------------------------------------End Private Chat ----------------------------------------------------------------------//
 
     </script>
-    <script language="javascript">
-        function checkKeyCode(evt) {
-
-            var evt = (evt) ? evt : ((event) ? event : null);
-            var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
-            if (event.keyCode == 116) {
-                evt.keyCode = 0;
-                return false
-            }
-        }
-        document.onkeydown = checkKeyCode;
-    </script>
+        <ul id="dropOpciones" class="dropdown-content">
+            <li><a href="A_Opciones.aspx" class="light-blue-text text-darken-4"><i class="material-icons left">note_add</i> Alta de opciones</a></li>
+            <li><a href="AdmOpciones.aspx" class="light-blue-text text-darken-4"><i class="material-icons left">new_releases</i> Modifica las opciones</a></li>
+        </ul>
+        <ul id="dropConsulta" class="dropdown-content">
+            <li><a class="light-blue-text text-darken-4" href="C_Soportes.aspx" ><i class="material-icons left">report_problem</i>Consulta de soportes</a></li>
+            <li><a class="light-blue-text text-darken-4" href="C_Pendientes.aspx" ><i class="material-icons left">new_releases</i>Consulta de pendientes</a></li>
+        </ul>
         <div class="navbar-fixed">
             <nav>
                 <div class="nav-wrapper container">
@@ -423,7 +433,7 @@
                     
                     <ul class="side-nav" id="mobile-demo">
                         <li>.</li>
-                        <li class="light-blue-text text-darken-4" style="font-size:smaller"><i class="material-icons right">perm_identity</i> <asp:Label ID="Label1" runat="server" Text=""></asp:Label></li>
+                        <li class="light-blue-text text-darken-4" style="font-size:smaller"><i class="material-icons right">perm_identity</i> <asp:Label ID="lblUsuarioOTS" runat="server" Text=""></asp:Label></li>
                         <li><a class="light-blue-text text-darken-4 tooltipped" href="Inicio.aspx" data-position="right" data-delay="50" data-tooltip="Regresa al inicio"><i class="material-icons right">store</i>Inicio</a></li>
                         <%  
                             if (validarRol(Session["user_cve"].ToString().ToUpper(), "ADM") != null)
@@ -537,5 +547,11 @@
         </div>
     </footer>
         </div>
+    <script>
+        $(document).ready(function () {
+            $('select').material_select();
+            $(".brand-logo").sideNav();
+        });
+      </script>
 </body>
 </html>
