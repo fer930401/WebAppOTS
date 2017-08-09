@@ -101,5 +101,25 @@ namespace LogicaNegocio
             get { return variables.sts_OTS; }
             set { variables.sts_OTS = value; }
         }
+
+
+        static string email;
+        public static string Email
+        {
+            get { return variables.email; }
+            set { variables.email = value; }
+        }
+        static string emailConfirm;
+        public static string EmailConfirm
+        {
+            get { return variables.emailConfirm; }
+            set { variables.emailConfirm = value; }
+        }
+        static string pass;
+        public static string Pass
+        {
+            get { return variables.pass; }
+            set { variables.pass = value; }
+        }
     }
 }

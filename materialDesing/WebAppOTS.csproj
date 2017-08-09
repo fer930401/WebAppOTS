@@ -112,6 +112,7 @@
     <Content Include="A_Opciones.aspx" />
     <Content Include="A_Paros.aspx" />
     <Content Include="A_Usuarios.aspx" />
+    <Content Include="CambiaContraseña.aspx" />
     <Content Include="Chat_OTS.aspx" />
     <Content Include="Chat_OTS1.aspx" />
     <Content Include="css\default.css" />
@@ -410,6 +411,13 @@
     </Compile>
     <Compile Include="A_Usuarios.aspx.designer.cs">
       <DependentUpon>A_Usuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CambiaContraseña.aspx.cs">
+      <DependentUpon>CambiaContraseña.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CambiaContraseña.aspx.designer.cs">
+      <DependentUpon>CambiaContraseña.aspx</DependentUpon>
     </Compile>
     <Compile Include="ChatHub.cs" />
     <Compile Include="Chat_OTS.aspx.cs">
