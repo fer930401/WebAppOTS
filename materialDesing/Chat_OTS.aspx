@@ -418,8 +418,7 @@
 
     </script>
         <ul id="dropOpciones" class="dropdown-content">
-            <li><a href="A_Opciones.aspx" class="light-blue-text text-darken-4"><i class="material-icons left">note_add</i> Alta de opciones</a></li>
-            <li><a href="AdmOpciones.aspx" class="light-blue-text text-darken-4"><i class="material-icons left">new_releases</i> Modifica las opciones</a></li>
+            <li><a href="AdmOpciones.aspx" class="light-blue-text text-darken-4"><i class="material-icons left">new_releases</i> Opciones</a></li>
         </ul>
         <ul id="dropConsulta" class="dropdown-content">
             <li><a class="light-blue-text text-darken-4" href="C_Soportes.aspx" ><i class="material-icons left">report_problem</i>Consulta de soportes</a></li>
@@ -434,12 +433,12 @@
                     <ul class="side-nav" id="mobile-demo">
                         <li>.</li>
                         <li class="light-blue-text text-darken-4" style="font-size:smaller"><i class="material-icons right">perm_identity</i> <asp:Label ID="lblUsuarioOTS" runat="server" Text=""></asp:Label></li>
-                        <li><a class="light-blue-text text-darken-4 tooltipped" href="Inicio.aspx" data-position="right" data-delay="50" data-tooltip="Regresa al inicio"><i class="material-icons right">store</i>Inicio</a></li>
+                        <li><a class="light-blue-text text-darken-4 tooltipped" href="Inicio.aspx" data-position="right" data-delay="50" data-tooltip="Regresa al inicio">Inicio<i class="material-icons right">store</i></a></li>
                         <%  
                             if (validarRol(Session["user_cve"].ToString().ToUpper(), "ADM") != null)
                             {
                         %>
-                                <li><a class="dropdown-button light-blue-text text-darken-4 tooltipped" href="#!" data-activates="dropOpciones" data-position="right" data-delay="50" data-tooltip="Administra las opciones de Subsistemas, roles, etc">Opciones<i class="material-icons right">arrow_drop_down</i></a></li>
+                                <li><a class="light-blue-text text-darken-4 tooltipped" href="AdmOpciones.aspx" data-position="right" data-delay="50" data-tooltip="Administra las opciones disponibles">Opciones<i class="material-icons right">new_releases</i></a></li>
                                 <li><a class="light-blue-text text-darken-4 tooltipped" href="C_Usuarios.aspx" data-position="right" data-delay="50" data-tooltip="Consulta el listado de usuarios">Usuarios<i class="material-icons right">supervisor_account</i></a></li>
                         <% 
                             }

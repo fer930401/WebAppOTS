@@ -1,6 +1,7 @@
 ﻿using LogicaNegocio;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -10,7 +11,7 @@ namespace materialDesing
 {
     public partial class AdmOpciones : System.Web.UI.Page
     {
-        LogicaNegocioCls logicaNegocio = new LogicaNegocioCls();
+        LogicaNegocioCls logicaNegocio1 = new LogicaNegocioCls();
         string mensaje = "";
         short? error = 0;
         protected void Page_Load(object sender, EventArgs e)
@@ -23,8 +24,16 @@ namespace materialDesing
                     string nombre = Session["nombre"].ToString();
                     user_cve.Text = clave;
                     usuario.Text = nombre;
-                    variables.M_StatusOpc = "2";
-                    Literal1.Text = "style='display:none'";
+                    cmbOpciones.DataSource = logicaNegocio1.opcionesCatalogo();
+                    cmbOpciones.DataTextField = "nom_catlgo";
+                    cmbOpciones.DataValueField = "cve_catlgo";
+                    cmbOpciones.DataBind();
+                    cmbOpciones.Items.Insert(0, new ListItem("----Selecciona opcion----", null));
+                    if (string.IsNullOrEmpty(variables.Cve_catlgo) == false)
+                    {
+                        cmbOpciones.SelectedValue = variables.Cve_catlgo;
+                        llenaGrid();
+                    }
                 }
             }
             else
@@ -33,57 +42,77 @@ namespace materialDesing
             }
         }
 
-        protected void btnBuscaClave_Click(object sender, EventArgs e)
+        
+
+        protected void cmbOpciones_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            string elmto_cve = elm_cve.Text;
-            if (string.IsNullOrEmpty(elmto_cve.TrimEnd(' ')) == false)
-            {
-                List<Entidades.otscatlgos> catOTS = logicaNegocio.infoOpc(elmto_cve);
-                if (catOTS != null && catOTS.Count > 0)
-                {
-                    Literal1.Text = "";
-                    foreach (var elemento in catOTS)
-                    {
-                        variables.M_StatusOpc = elemento.status.ToString();
-                        nom_catlgo.Text = elemento.nombre;
-                        claveCat.Text = elemento.cve_catlgo;
-                    }
-                }
-                else
-                {
-                    Literal1.Text = "style='display:none'";
-                }
-            }
-            else
-            {
-                Response.Write("<script type=\"text/javascript\">alert('No puedes buscar campos vacios, ni espacios en blanco'); window.location.href = 'AdmOpciones.aspx';</script>");
-            }
-            
+            variables.Cve_catlgo = cmbOpciones.SelectedValue;
+            llenaGrid();
         }
 
-        protected void btnGuardarOpc_Click(object sender, EventArgs e)
+        private void llenaGrid()
         {
-            string newCve_catlgo = claveCat.Text;
-            string newElm_cve = elm_cve.Text;
-            string newNombre = nom_catlgo.Text;
-            short? newStatus = short.Parse(Request["status"].ToString());
-            string opcion = "modifica";
-            Entidades.sp_WebAppOTSAdmOpc_Result insOpcOTS = logicaNegocio.opcOTS(newCve_catlgo, newElm_cve, newNombre, newStatus, opcion);
-            if (insOpcOTS != null)
+            DataTable dt = new DataTable();
+            DataRow dr;
+            List<Entidades.otscatlgos> listaOpciones = logicaNegocio1.ListaClaves(variables.Cve_catlgo);
+            dt.Columns.Add("elm_cve", typeof(string));
+            dt.Columns.Add("nombre", typeof(string));
+            dt.Columns.Add("status", typeof(string));
+            if (listaOpciones != null)
             {
-                error = insOpcOTS.error;
-                mensaje = insOpcOTS.mensaje;
-                //si no se regreso ningun error
-                if (Convert.ToInt32(error) == 0)
+                int i = 0;
+                foreach (var elemento in listaOpciones)
                 {
-                    Response.Write("<script type=\"text/javascript\">alert('La nueva opcion a sido modificada.'); window.location.href = 'AdmOpciones.aspx';</script>");
-                }
-                else
-                {
-                    Response.Write("<script type=\"text/javascript\">alert('Se Encontro Un Error " + mensaje + " \\nIntente mas tarde.');  window.location.href = 'AdmOpciones.aspx';</script>");
+                    dr = dt.NewRow();
+                    dr["elm_cve"] = elemento.elm_cve.TrimEnd(' ');
+                    dr["nombre"] = elemento.nombre.TrimEnd(' ');
+                    if (elemento.status.Value.ToString().Equals("1") == true)
+                    {
+                        dr["status"] = "Activo";
+                    }
+                    else
+                    {
+                        dr["status"] = "Desactivado";
+                    }
+                    dt.Rows.Add(dr);
+                    i++;
                 }
             }
+            dt.PrimaryKey = new DataColumn[] { dt.Columns["Clave"] };
+            ViewState["dt"] = dt;
+            BindGrid();
         }
+
+        protected void BindGrid()
+        {
+            //GridView1.Columns[5].Visible = false;
+            gvOpciones.DataSource = ViewState["dt"] as DataTable;
+            gvOpciones.DataBind();
+        }
+
+        protected void OnRowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Attributes["ondblclick"] = Page.ClientScript.GetPostBackClientHyperlink(gvOpciones, "Edit$" + e.Row.RowIndex);
+                e.Row.Attributes["style"] = "cursor:pointer";
+            }
+        }
+        protected void OnRowEditing(object sender, GridViewEditEventArgs e)
+        {
+            variables.Cve_catlgo = cmbOpciones.SelectedValue;
+            variables.Elm_cve = gvOpciones.Rows[e.NewEditIndex].Cells[0].Text;
+            variables.Nombre_cve = gvOpciones.Rows[e.NewEditIndex].Cells[1].Text;
+            if (gvOpciones.Rows[e.NewEditIndex].Cells[2].Text.Equals("Activo") == true)
+            {
+                variables.Status_cve = "1";
+            }
+            if (gvOpciones.Rows[e.NewEditIndex].Cells[2].Text.Equals("Desactivado") == true)
+            {
+                variables.Status_cve = "0";
+            }
+            Response.Redirect("E_Opciones.aspx");
+        }
+        
     }
 }

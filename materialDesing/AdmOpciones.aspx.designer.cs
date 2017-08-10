@@ -13,6 +13,15 @@ namespace materialDesing {
     public partial class AdmOpciones {
         
         /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        
+        /// <summary>
         /// usuario control.
         /// </summary>
         /// <remarks>
@@ -31,57 +40,21 @@ namespace materialDesing {
         protected global::System.Web.UI.WebControls.TextBox user_cve;
         
         /// <summary>
-        /// elm_cve control.
+        /// cmbOpciones control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox elm_cve;
+        protected global::System.Web.UI.WebControls.DropDownList cmbOpciones;
         
         /// <summary>
-        /// btnBuscaClave control.
+        /// gvOpciones control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscaClave;
-        
-        /// <summary>
-        /// Literal1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal Literal1;
-        
-        /// <summary>
-        /// claveCat control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox claveCat;
-        
-        /// <summary>
-        /// nom_catlgo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox nom_catlgo;
-        
-        /// <summary>
-        /// btnGuardarOpc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGuardarOpc;
+        protected global::System.Web.UI.WebControls.GridView gvOpciones;
     }
 }

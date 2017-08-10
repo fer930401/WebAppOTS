@@ -61,6 +61,7 @@ namespace materialDesing
                 //creo las variables de session con los datos ingresados
                 Session["nombre"] = nomUser;
                 Session["user_cve"] = usuario;
+                Session["Roles"] = validarRol(usuario);
                 Response.Redirect("Inicio.aspx");
             }
         }
@@ -89,6 +90,10 @@ namespace materialDesing
         protected void password_TextChanged(object sender, EventArgs e)
         {
             Page.ClientScript.RegisterStartupScript(this.GetType(), "ShowStatus", "capLock(event);", true);
+        }
+        public string validarRol(string cve_user)
+        {
+            return logicaNegocio.validarRol(cve_user);
         }
     }
 }

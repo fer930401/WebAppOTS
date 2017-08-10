@@ -88,5 +88,13 @@ namespace LogicaNegocio
         {
             return datos.consultaEmail(user_cve);
         }
+        public List<Entidades.otscatlgos> ListaClaves(string cve)
+        {
+            return datos.ListaClaves(cve);
+        }
+        public string BuscaClave(string cve)
+        {
+            return datos.BuscaClave(cve);
+        }
     }
 }

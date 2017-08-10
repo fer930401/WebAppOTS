@@ -114,5 +114,13 @@ namespace AccesoDatos
             }
             return email;
         }
+        public List<otscatlgos> ListaClaves(string cve)
+        {
+            return (from r in contextoOTS.otscatlgos where r.cve_catlgo.Equals(cve) orderby r.elm_cve select r).ToList();
+        }
+        public string BuscaClave(string cve)
+        {
+            return (from r in contextoOTS.otsdcatlgos where r.cve_catlgo.Equals(cve) select r.nom_catlgo).SingleOrDefault();
+        }
     }
 }
