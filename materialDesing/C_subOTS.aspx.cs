@@ -34,8 +34,40 @@ namespace materialDesing
                 {
                     href.Text = "href = 'C_Pendientes.aspx'";
                 }
-                
-                if (logicaNegocio.validarRol(clave, "PRG") != null)
+                if (Session["roles"].ToString().Contains("ADM") == true)
+                {
+                    user_consulta = "ASG";
+                    sts_consulta = "1";
+                    rol_cve.Text = logicaNegocio.validarRol(clave.ToUpper(), "ASG");
+                    GridView1.Columns[2].Visible = true;
+                    GridView1.Columns[6].Visible = true;
+                    GridView1.Columns[8].Visible = true;
+                    GridView1.Columns[9].Visible = true;
+                    GridView1.Columns[10].Visible = true;
+                    GridView1.Columns[11].Visible = true;
+                }
+                else if (Session["roles"].ToString().Contains("ASG") == true)
+                {
+                    user_consulta = "ASG";
+                    sts_consulta = "1";
+                    rol_cve.Text = logicaNegocio.validarRol(clave.ToUpper(), "ASG");
+                    GridView1.Columns[2].Visible = true;
+                    GridView1.Columns[6].Visible = false;
+                    GridView1.Columns[8].Visible = false;
+                    GridView1.Columns[9].Visible = false;
+                    GridView1.Columns[10].Visible = false;
+                    GridView1.Columns[11].Visible = false;
+                }
+                else if (Session["roles"].ToString().Contains("PRG") == true)
+                {
+                    user_consulta = clave.ToUpper();
+                    sts_consulta = "1";
+                    rol_cve.Text = logicaNegocio.validarRol(clave.ToUpper(), "PRG");
+                    GridView1.Columns[2].Visible = false;
+                    GridView1.Columns[6].Visible = false;
+                    GridView1.Columns[12].Visible = false;
+                }
+                /*if (logicaNegocio.validarRol(clave, "PRG") != null)
                 {
                     user_consulta = clave.ToUpper();
                     sts_consulta = "1";
@@ -55,7 +87,7 @@ namespace materialDesing
                     GridView1.Columns[9].Visible = false;
                     GridView1.Columns[10].Visible = false;
                     GridView1.Columns[11].Visible = false;
-                }
+                }*/
                 if (!IsPostBack)
                 {
                     DataTable dt = new DataTable();

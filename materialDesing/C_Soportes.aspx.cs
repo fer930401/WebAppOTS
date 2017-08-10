@@ -23,22 +23,32 @@ namespace materialDesing
             {
                 string clave = Session["user_cve"].ToString();
                 user_cve.Text = clave;
-                if (logicaNegocio.validarRol(clave.ToUpper(), "PRG") != null)
-                {
-                    usuarioC = clave.ToUpper();
-                    statusC = "1";
-                    rol_cve.Text = logicaNegocio.validarRol(clave, "PRG");
-                    cmbProgramador.Visible = false;
-                    lblRespon.Visible = false;
-                    Session["visibleReasigna"] = "style = 'display:none'";
-                }
-                else
+                if (Session["roles"].ToString().Contains("ADM") == true)
                 {
                     usuarioC = "ASG";
                     statusC = "1";
-                    rol_cve.Text = logicaNegocio.validarRol(clave.ToUpper(), "ASG");
+                    //rol_cve.Text = logicaNegocio.validarRol(clave, "PRG");
+                    cmbProgramador.Visible = true;
+                    lblRespon.Visible = true;
+                    Session["visibleReasigna"] = "";
+                    Session["visibleAgregar"] = "";
+                }
+                else if (Session["roles"].ToString().Contains("ASG") == true)
+                {
+                    usuarioC = "ASG";
+                    statusC = "1";
+                    //rol_cve.Text = logicaNegocio.validarRol(clave.ToUpper(), "ASG");
                     cmbProgramador.Visible = true;
                     Session["visibleAgregar"] = "style = 'display:none'";
+                }
+                else if (Session["roles"].ToString().Contains("PRG") == true)
+                {
+                    usuarioC = clave.ToUpper();
+                    statusC = "1";
+                    //rol_cve.Text = logicaNegocio.validarRol(clave, "PRG");
+                    cmbProgramador.Visible = false;
+                    lblRespon.Visible = false;
+                    Session["visibleReasigna"] = "style = 'display:none'";
                 }
                 if (!IsPostBack)
                 {

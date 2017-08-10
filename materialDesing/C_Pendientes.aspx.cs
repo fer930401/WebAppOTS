@@ -22,23 +22,36 @@ namespace materialDesing
             {
                 string clave = Session["user_cve"].ToString();
                 user_cve.Text = clave;
-                if (logicaNegocio.validarRol(clave.ToUpper(), "PRG") != null)
+                if (Session["roles"].ToString().Contains("ADM") == true)
+                {
+                    usuarioC = "ASG";
+                    statusC = "1";
+                    //rol_cve.Text = logicaNegocio.validarRol(clave.ToUpper(), "ASG");
+                    cmbProgramador.Visible = true;
+                    lblRespon.Visible = true;
+                    Session["visibleReasigna"] = "";
+                    Session["visibleAgregar"] = "";
+
+                }
+                else if (Session["roles"].ToString().Contains("ASG") == true)
+                {
+                    usuarioC = "ASG";
+                    statusC = "1";
+                    //rol_cve.Text = logicaNegocio.validarRol(clave.ToUpper(), "ASG");
+                    cmbProgramador.Visible = true;
+                    Session["visibleAgregar"] = "style = 'display:none'";
+                }
+                else if (Session["roles"].ToString().Contains("PRG") == true)
                 {
                     usuarioC = clave.ToUpper();
                     statusC = "1";
-                    rol_cve.Text = logicaNegocio.validarRol(clave.ToUpper(), "PRG");
+                    //rol_cve.Text = logicaNegocio.validarRol(clave.ToUpper(), "PRG");
                     cmbProgramador.Visible = false;
                     lblRespon.Visible = false;
                     Session["visibleReasigna"] = "style = 'display:none'";
                 }
-                else
-                {
-                    usuarioC = "ASG";
-                    statusC = "1";
-                    rol_cve.Text = logicaNegocio.validarRol(clave.ToUpper(), "ASG");
-                    cmbProgramador.Visible = true;
-                    Session["visibleAgregar"] = "style = 'display:none'";
-                }
+
+                
                 if (!IsPostBack)
                 {
                     cmbProgramador.Items.Clear();

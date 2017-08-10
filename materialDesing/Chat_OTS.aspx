@@ -435,14 +435,14 @@
                         <li class="light-blue-text text-darken-4" style="font-size:smaller"><i class="material-icons right">perm_identity</i> <asp:Label ID="lblUsuarioOTS" runat="server" Text=""></asp:Label></li>
                         <li><a class="light-blue-text text-darken-4 tooltipped" href="Inicio.aspx" data-position="right" data-delay="50" data-tooltip="Regresa al inicio">Inicio<i class="material-icons right">store</i></a></li>
                         <%  
-                            if (validarRol(Session["user_cve"].ToString().ToUpper(), "ADM") != null)
+                            if (Session["roles"].ToString().Contains("ADM") == true)
                             {
                         %>
                                 <li><a class="light-blue-text text-darken-4 tooltipped" href="AdmOpciones.aspx" data-position="right" data-delay="50" data-tooltip="Administra las opciones disponibles">Opciones<i class="material-icons right">new_releases</i></a></li>
                                 <li><a class="light-blue-text text-darken-4 tooltipped" href="C_Usuarios.aspx" data-position="right" data-delay="50" data-tooltip="Consulta el listado de usuarios">Usuarios<i class="material-icons right">supervisor_account</i></a></li>
                         <% 
                             }
-                            if (validarRol(Session["user_cve"].ToString().ToUpper(), "ASG") != null)
+                            if (Session["roles"].ToString().Contains("ASG") == true)
                             {
                         %>
                                 <li><a class="light-blue-text text-darken-4 tooltipped" href="A_Encabezado.aspx" data-position="right" data-delay="50" data-tooltip="Registra un nuevo Pendientes/Soportes">Alta OTS<i class="material-icons right">note_add</i></a></li>
@@ -450,7 +450,7 @@
                                 <li><a class="light-blue-text text-darken-4 tooltipped" href="Reportes.aspx" data-position="right" data-delay="50" data-tooltip="Genera tu reportes">Reportes<i class="material-icons right">receipt</i></a></li>
                         <%        
                             }
-                            if (validarRol(Session["user_cve"].ToString().ToUpper(), "PRG") != null && validarRol(Session["user_cve"].ToString().ToUpper(), "ASG") == null)
+                            if (Session["roles"].ToString().Contains("PRG") == true && Session["roles"].ToString().Contains("ASG") == false)
                             {
                         %>
                                 <li><a class="light-blue-text text-darken-4 tooltipped" href="C_Soportes.aspx" data-position="right" data-delay="50" data-tooltip="Consulta tus tareas asignadas">Consulta OTS<i class="material-icons right">assignment</i></a></li>

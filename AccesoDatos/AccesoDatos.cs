@@ -55,6 +55,10 @@ namespace AccesoDatos
         {
             return (from r in contextoOTS.rolesxUsr where r.user_cve.Equals(cve_user) && r.cve_rol.Equals(rol) select r.cve_rol).SingleOrDefault();
         }
+        public List<rolesxUsr> ValidarRol2(string cve_user)
+        {
+            return (from r in contextoOTS.rolesxUsr where r.user_cve.Equals(cve_user) select r).ToList();
+        }
         public Entidades.sp_WebAppOTSAdmUsers_Result admUserOTS(string user_cve, string user_nom, string user_pass, short? user_status, string user_email, string user_rol, string opcion)
         {
             return (contextoOTS.sp_WebAppOTSAdmUsers(user_cve,user_nom,user_pass,user_status,user_email,user_rol,opcion)).FirstOrDefault();

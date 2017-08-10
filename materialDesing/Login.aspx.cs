@@ -61,7 +61,7 @@ namespace materialDesing
                 //creo las variables de session con los datos ingresados
                 Session["nombre"] = nomUser;
                 Session["user_cve"] = usuario;
-                Session["Roles"] = validarRol(usuario);
+                Session["roles"] = Roles(usuario);
                 Response.Redirect("Inicio.aspx");
             }
         }
@@ -91,9 +91,25 @@ namespace materialDesing
         {
             Page.ClientScript.RegisterStartupScript(this.GetType(), "ShowStatus", "capLock(event);", true);
         }
-        public string validarRol(string cve_user)
+        public string Roles(string cve_user)
         {
-            return logicaNegocio.validarRol(cve_user);
+            string roles = "";
+            string conString = ConfigurationManager.ConnectionStrings["BPconnetion"].ConnectionString;
+            string query = "SELECT roles = STUFF((SELECT ',' + cve_rol FROM rolesxUsr where user_cve = '" + cve_user + "' group by cve_rol FOR XML PATH ('')), 1, 1, '' ) FROM rolesxUsr where user_cve = 'FGV' group by user_cve";
+            using (SqlConnection scn1 = new SqlConnection(conString))
+            {
+                SqlConnection _conn = scn1;
+                SqlCommand _cmd = new SqlCommand();
+                _cmd.Connection = _conn;
+                _cmd.CommandType = CommandType.Text;
+                _cmd.CommandText = query;
+                SqlDataAdapter _da = new SqlDataAdapter(_cmd);
+                _conn.Open();
+                roles = Convert.ToString(_cmd.ExecuteScalar());
+                _cmd.ExecuteNonQuery();
+                _conn.Close();
+            }
+            return roles;
         }
     }
 }
