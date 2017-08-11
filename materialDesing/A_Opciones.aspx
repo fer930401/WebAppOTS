@@ -81,7 +81,7 @@
                     <div class="row">
                         <div >
                             <asp:Button ID="btnGuardarOpc" runat="server" Text="Guardar" CssClass="btn green darken-4" OnClick="btnGuardarOpc_Click" OnClientClick="return ValidaCombo();" />
-                            <a class="btn red darken-4 white-text" href="Inicio.aspx">Cancelar</a>
+                            <a class="btn red darken-4 white-text" href="AdmOpciones.aspx">Cancelar</a>
                         </div>
                     </div>
                 </div>
