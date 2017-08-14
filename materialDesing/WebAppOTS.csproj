@@ -106,6 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdmOpciones.aspx" />
+    <Content Include="AdmOTS.aspx" />
     <Content Include="AdmUsuarios.aspx" />
     <Content Include="A_Encabezado.aspx" />
     <Content Include="A_Detalle.aspx" />
@@ -370,6 +371,13 @@
     </Compile>
     <Compile Include="AdmOpciones.aspx.designer.cs">
       <DependentUpon>AdmOpciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdmOTS.aspx.cs">
+      <DependentUpon>AdmOTS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdmOTS.aspx.designer.cs">
+      <DependentUpon>AdmOTS.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdmUsuarios.aspx.cs">
       <DependentUpon>AdmUsuarios.aspx</DependentUpon>

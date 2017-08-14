@@ -13,7 +13,7 @@
               var id_OTS = $("td:eq(0)", tr).html();
               var tip_OTST = $("td:eq(1)", tr).html();
               //alert(id_OTS);
-              //window.location.href = "C_subOTS.aspx?num_OTS=" + id_OTS + "&tip_OTS=" + tip_OTST;
+              window.location.href = "C_subOTS.aspx?num_OTS=" + id_OTS + "&tip_OTS=" + tip_OTST;
         });
       });
       $(document).ready(function () {
@@ -26,13 +26,15 @@
           });
       });
       $(document).ready(function () {
-          $("#<%=GridView1.ClientID%> [id='btnAgregar']").click(function () {
+          $("#<%=GridView1.ClientID%> [id='actOTS']").click(function () {
               var tr = $(this).parent().parent().parent().parent().parent().parent();
               var id_OTS = $("td:eq(0)", tr).html();
               var tip_OTST = $("td:eq(1)", tr).html();
               tip_OTST = tip_OTST.substring(0, 3);
-              //alert(id_OTS);
-              //window.location.href = "A_Detalle.aspx?num_OTS=" + id_OTS + "&tip_OTS=" + tip_OTST;
+              var userRespo = $("td:eq(2)", tr).html();
+              userRespo = userRespo.substring(userRespo.indexOf('(') + 1);
+              userRespo = userRespo.substring(0, userRespo.indexOf(')'));
+              //window.location.href = "AdmOTS.aspx?num_OTS=" + id_OTS + "&tip_OTS=" + tip_OTST + "&userResp=" + userRespo;
           });
       });
       $(function () {
@@ -243,9 +245,11 @@
                                                 <!--<li><a class="btn-floating green darken-3 click-to-toggle tooltipped" id="btnAgregar" data-position="top" data-delay="50" data-tooltip="Agrega Sub OTS" < Response.Write(Session["visibleAgregar"]); %>><i class="material-icons">add</i></a></li>-->
                                                 <li><asp:Button ID="btnAgregar" CssClass="btn-floating green darken-3 click-to-toggle tooltipped material-icons" data-position="top" data-delay="50" data-tooltip="Agrega Sub OTS" OnClick="btnAgregar_Click" runat="server" Text="add" /></li>
                                                 <!--<li><a class="btn-floating cyan darken-4 click-to-toggle tooltipped" id="subReng" data-position="top" data-delay="50" data-tooltip="Sub OTS"><i class="material-icons">message</i></a></li>-->
-                                                <li><asp:Button ID="btnSubOts" CssClass="btn-floating cyan darken-4 click-to-toggle tooltipped material-icons" data-position="top" data-delay="50" data-tooltip="Sub OTS" OnClick="btnSubOts_Click" runat="server" Text="message" /></li>
+                                                <li><asp:Button ID="btnSubOts" CssClass="btn-floating cyan darken-4 click-to-toggle tooltipped material-icons" data-position="top" data-delay="50" data-tooltip="Sub OTS" OnClick="btnSubOts_Click" runat="server" Text="assignment" /></li>
                                                 <!--<li><a class="btn-floating green darken-3 click-to-toggle tooltipped" id="imgOTS" data-position="top" data-delay="50" data-tooltip="Img. OTS"><i class="material-icons">perm_media</i></a></li>-->
-                                                <li><a class="btn-floating red darken-3 click-to-toggle tooltipped" id="btnReasignar" data-position="top" data-delay="50" data-tooltip="Reasigna" <% Response.Write(Session["visibleReasigna"]); %>><i class="material-icons">replay</i></a></li>
+                                                <li><asp:Button ID="btnActOts" CssClass="btn-floating yellow darken-3 click-to-toggle tooltipped material-icons" data-position="top" data-delay="50" data-tooltip="Actualiza OTS" OnClick="btnActOts_Click" runat="server" Text="mode_edit" /></li>
+                                                <li><a class="btn-floating red darken-3 click-to-toggle tooltipped" id="btnReasignar" data-position="top" data-delay="50" data-tooltip="Reasigna" <% Response.Write(Session["visibleReasigna"]); %>><i class="material-icons">people_outline</i></a></li>
+                                                
                                             </ul>
                                         </div>
                                     </div>

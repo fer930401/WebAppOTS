@@ -46,9 +46,9 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="input-field col s6">
+                            <div class="col s6">
                                 <asp:Button ID="btnGuardarOpc" runat="server" Text="Guardar" CssClass="waves-effect green darken-4 btn" OnClick="btnGuardarOpc_Click" />
-                                <a class="waves-effect red darken-4 btn " href="AdmOpciones.aspx">Cancelar</a>
+                                <a class="waves-effect red darken-4 btn" href="AdmOpciones.aspx">Cancelar</a>
                             </div>
                         </div>
                     </div>

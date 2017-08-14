@@ -79,7 +79,7 @@ namespace materialDesing
                 }
             }
             string aplica = selectedValue;
-            if (string.IsNullOrEmpty(nom_OTS) == false && string.IsNullOrEmpty(descripcion) == false && string.IsNullOrEmpty(aplica) == false)
+            if (/*string.IsNullOrEmpty(nom_OTS) == false && */string.IsNullOrEmpty(descripcion) == false && string.IsNullOrEmpty(aplica) == false)
             {
                 Entidades.sp_WebAppOTSAdmOTS_Result insertOTSE = logicaNegocio.admOTS(sub_sistema, tip_OTS, asigna, 0, "", "", responsable, status, descripcion, fechaIni.ToString("yyyy/MM/dd"), "", aplica, "", nom_OTS, "", "", "", "", "alta", nomImagenes, fechaProm);
                 if (insertOTSE != null)

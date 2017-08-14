@@ -32,6 +32,7 @@ namespace materialDesing
                     lblRespon.Visible = true;
                     Session["visibleReasigna"] = "";
                     Session["visibleAgregar"] = "";
+                    Session["visibleEditar"] = "";
                 }
                 else if (Session["roles"].ToString().Contains("ASG") == true)
                 {
@@ -40,6 +41,8 @@ namespace materialDesing
                     //rol_cve.Text = logicaNegocio.validarRol(clave.ToUpper(), "ASG");
                     cmbProgramador.Visible = true;
                     Session["visibleAgregar"] = "style = 'display:none'";
+                    Session["visibleEditar"] = "";
+                    Session["visibleReasigna"] = "";
                 }
                 else if (Session["roles"].ToString().Contains("PRG") == true)
                 {
@@ -48,6 +51,8 @@ namespace materialDesing
                     //rol_cve.Text = logicaNegocio.validarRol(clave, "PRG");
                     cmbProgramador.Visible = false;
                     lblRespon.Visible = false;
+                    Session["visibleAgregar"] = "";
+                    Session["visibleEditar"] = "style = 'display:none'";
                     Session["visibleReasigna"] = "style = 'display:none'";
                 }
                 if (!IsPostBack)
@@ -350,6 +355,21 @@ namespace materialDesing
             variables.User_OTS = user_OTS;
             /* redirigimos a la alta de los subOTS */
             Response.Redirect("A_Detalle.aspx");
+        }
+
+        protected void btnActOts_Click(object sender, EventArgs e)
+        {
+            int row = ((sender as Button).NamingContainer as GridViewRow).RowIndex;
+            /* asignamos el valor del num_OTS seleccionado */
+            variables.Num_OTS = Int32.Parse(GridView1.Rows[row].Cells[0].Text);
+            /* asignamos el valor del tipo_OTS seleccionado */
+            variables.Tipo_OTS = GridView1.Rows[row].Cells[1].Text.Substring(0, 3).ToUpper();
+            /* asignamos y formateamos el valor del user_OTS seleccionado ya que solo necesitamos la clave */
+            string user_OTS = GridView1.Rows[row].Cells[2].Text;
+            user_OTS = user_OTS.Substring(user_OTS.IndexOf('(') + 1);
+            user_OTS = user_OTS.Substring(0, user_OTS.IndexOf(')'));
+            variables.User_OTS = user_OTS;
+            Response.Redirect("AdmOTS.aspx");
         }
     }
 }
