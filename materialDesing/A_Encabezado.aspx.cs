@@ -142,11 +142,6 @@ namespace materialDesing
                           "</tr>" +
                           "<tr>" +
                            "<td width='60%'>" +
-                            "<strong>Nombre del OTS:</strong> " + nom_OTS +
-                           "</td>" +
-                          "</tr>" +
-                          "<tr>" +
-                           "<td width='60%'>" +
                             "<strong>Descripcion:</strong> " +  descripcion +
                            "</td>" +
                           "</tr>" +
