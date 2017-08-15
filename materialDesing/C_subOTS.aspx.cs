@@ -136,6 +136,23 @@ namespace materialDesing
         {
             GridView1.DataSource = ViewState["dt"] as DataTable;
             GridView1.DataBind();
+            for (int i = 0; i < GridView1.Rows.Count; i++)
+            {
+                string user = GridView1.Rows[i].Cells[2].Text;
+                user = user.Substring(user.IndexOf('(') + 1);
+                user = user.Substring(0, user.IndexOf(')'));
+                if (user.Equals(Session["user_cve"].ToString()) == false)
+                {
+                    Button btnIni = (Button)GridView1.Rows[i].FindControl("iniciar");
+                    btnIni.Visible = false;
+                    Button btnTer = (Button)GridView1.Rows[i].FindControl("terminar");
+                    btnTer.Visible = false;
+                    Button btnParo = (Button)GridView1.Rows[i].FindControl("paro");
+                    btnParo.Visible = false;
+                    Button btnCont = (Button)GridView1.Rows[i].FindControl("continuar");
+                    btnCont.Visible = false;
+                }
+            }
         }
 
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)

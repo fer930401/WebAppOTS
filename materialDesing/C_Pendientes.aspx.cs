@@ -55,7 +55,7 @@ namespace materialDesing
                 if (!IsPostBack)
                 {
                     cmbProgramador.Items.Clear();
-                    cmbProgramador.Items.Insert(0, new ListItem("Selecciona una opción", ""));
+                    cmbProgramador.Items.Insert(0, new ListItem("Ver todos", ""));
                     cmbProgramador.SelectedIndex = 0;
                     cmbProgramador.AppendDataBoundItems = true;
                     cmbProgramador.DataSource = logicaNegocio.ListadoProgramadores(1, "PRG");

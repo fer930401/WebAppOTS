@@ -35,7 +35,7 @@ namespace materialDesing
                     tipo_OTS.Text = OTSEncabezado[0].tipo_OTS.ToString();
                     descripcion.Text = OTSEncabezado[0].descripcion.ToString();
                     fechaIni.Text = Convert.ToDateTime(OTSEncabezado[0].fec_asig.ToString()).ToString("yyyy-MM-dd HH:MM:ss");
-                    fechaFin.Text = Convert.ToDateTime(OTSEncabezado[0].fec_fin.ToString()).ToString("yyyy-MM-dd HH:MM:ss");
+                    fechaFin.Text = Convert.ToDateTime(OTSEncabezado[0].fec_prom.ToString()).ToString("yyyy-MM-dd HH:MM:ss");
 
                     cls.DataSource = logicaNegocio.ListadoCLSOTS();
                     cls.DataTextField = "nombre";
