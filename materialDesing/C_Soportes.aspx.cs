@@ -278,19 +278,23 @@ namespace materialDesing
             DataTable dt = new DataTable();
             DataRow dr;
             int opc = 0;
+            string user_filt = "";
             if (string.IsNullOrEmpty(variables.Descrip_filtro) == false && string.IsNullOrEmpty(variables.User_filtro) == true)
             {
                 opc = 2;
+                user_filt = "";
             }
             else if (string.IsNullOrEmpty(variables.Descrip_filtro) == true && string.IsNullOrEmpty(variables.User_filtro) == false)
             {
                 opc = 1;
+                user_filt = variables.User_filtro;
             }
             else if (string.IsNullOrEmpty(variables.Descrip_filtro) == false && string.IsNullOrEmpty(variables.User_filtro) == false)
             {
                 opc = 3;
+                user_filt = variables.User_filtro;
             }
-            List<Entidades.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, opc, "SOP", "", "");
+            List<Entidades.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, opc, "SOP", user_filt, "");
             dt.Columns.Add("num_OTS", typeof(string));
             dt.Columns.Add("tipo_OTS", typeof(string));
             dt.Columns.Add("userResp", typeof(string));

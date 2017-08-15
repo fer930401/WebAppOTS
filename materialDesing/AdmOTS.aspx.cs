@@ -74,11 +74,11 @@ namespace materialDesing
                 if (string.IsNullOrEmpty(OTSEncabezado[0].nomImg) == true)
                 {
                     /* si no trae informacion se muestra el bloque para agregar imagenes */
-                    Session["visibleImagenes"] = "";
+                    //Session["visibleImagenes"] = "";
                 }
                 else
                 {
-                    Session["visibleImagenes"] = "style='display:none'";
+                    //Session["visibleImagenes"] = "style='display:none'";
                     nomImagenes = OTSEncabezado[0].nomImg.ToString().TrimEnd();
                 }
 
