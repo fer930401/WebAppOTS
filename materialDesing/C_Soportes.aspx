@@ -13,7 +13,7 @@
               var id_OTS = $("td:eq(0)", tr).html();
               var tip_OTST = $("td:eq(1)", tr).html();
               //alert(id_OTS);
-              window.location.href = "C_subOTS.aspx?num_OTS=" + id_OTS + "&tip_OTS=" + tip_OTST;
+              //window.location.href = "C_subOTS.aspx?num_OTS=" + id_OTS + "&tip_OTS=" + tip_OTST;
         });
       });
       $(document).ready(function () {
@@ -247,7 +247,7 @@
                                                 <!--<li><a class="btn-floating cyan darken-4 click-to-toggle tooltipped" id="subReng" data-position="top" data-delay="50" data-tooltip="Sub OTS"><i class="material-icons">message</i></a></li>-->
                                                 <li><asp:Button ID="btnSubOts" CssClass="btn-floating cyan darken-4 click-to-toggle tooltipped material-icons" data-position="top" data-delay="50" data-tooltip="Sub OTS" OnClick="btnSubOts_Click" runat="server" Text="assignment" /></li>
                                                 <!--<li><a class="btn-floating green darken-3 click-to-toggle tooltipped" id="imgOTS" data-position="top" data-delay="50" data-tooltip="Img. OTS"><i class="material-icons">perm_media</i></a></li>-->
-                                                <li><asp:Button ID="btnActOts" CssClass="btn-floating yellow darken-3 click-to-toggle tooltipped material-icons" data-position="top" data-delay="50" data-tooltip="Actualiza OTS" OnClick="btnActOts_Click" runat="server" Text="mode_edit" /></li>
+                                                <li><asp:Button ID="btnActOts" CssClass="btn-floating yellow darken-3 click-to-toggle tooltipped material-icons" data-position="top" data-delay="50" data-tooltip="Actualiza OTS" OnClick="btnActOts_Click" runat="server" Text="mode_edit"  /></li>
                                                 <li><a class="btn-floating red darken-3 click-to-toggle tooltipped" id="btnReasignar" data-position="top" data-delay="50" data-tooltip="Reasigna" <% Response.Write(Session["visibleReasigna"]); %>><i class="material-icons">people_outline</i></a></li>
                                                 
                                             </ul>

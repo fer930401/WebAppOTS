@@ -114,6 +114,26 @@ namespace materialDesing
         {
             GridView1.DataSource = ViewState["dt"] as DataTable;
             GridView1.DataBind();
+            for (int i = 0; i < GridView1.Rows.Count; i++)
+            {
+                if (Session["roles"].ToString().Contains("ADM") == true)
+                {
+                    
+                }
+                else if (Session["roles"].ToString().Contains("ASG") == true)
+                {
+                    Button btnAgr = (Button)GridView1.Rows[i].FindControl("btnAgregar");
+                    btnAgr.Visible = false;
+                    Button btnAct = (Button)GridView1.Rows[i].FindControl("btnActOts");
+                    btnAct.Visible = false;
+                }
+                else if (Session["roles"].ToString().Contains("PRG") == true)
+                {
+                    Button btnAct = (Button)GridView1.Rows[i].FindControl("btnActOts");
+                    btnAct.Visible = false;
+                }
+                
+            }
         }
 
         protected void cmbProgramador_SelectedIndexChanged(object sender, EventArgs e)

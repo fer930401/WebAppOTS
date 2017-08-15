@@ -109,6 +109,26 @@ namespace materialDesing
         {
             GridView1.DataSource = ViewState["dt"] as DataTable;
             GridView1.DataBind();
+            for (int i = 0; i < GridView1.Rows.Count; i++)
+            {
+                if (Session["roles"].ToString().Contains("ADM") == true)
+                {
+
+                }
+                else if (Session["roles"].ToString().Contains("ASG") == true)
+                {
+                    Button btnAgr = (Button)GridView1.Rows[i].FindControl("btnAgregar");
+                    btnAgr.Visible = false;
+                    Button btnAct = (Button)GridView1.Rows[i].FindControl("btnActOts");
+                    btnAct.Visible = false;
+                }
+                else if (Session["roles"].ToString().Contains("PRG") == true)
+                {
+                    Button btnAct = (Button)GridView1.Rows[i].FindControl("btnActOts");
+                    btnAct.Visible = false;
+                }
+
+            }
         }
         protected void cmbProgramador_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -350,6 +370,20 @@ namespace materialDesing
             variables.User_OTS = user_OTS;
             /* redirigimos a la alta de los subOTS */
             Response.Redirect("A_Detalle.aspx");
+        }
+        protected void btnActOts_Click(object sender, EventArgs e)
+        {
+            int row = ((sender as Button).NamingContainer as GridViewRow).RowIndex;
+            /* asignamos el valor del num_OTS seleccionado */
+            variables.Num_OTS = Int32.Parse(GridView1.Rows[row].Cells[0].Text);
+            /* asignamos el valor del tipo_OTS seleccionado */
+            variables.Tipo_OTS = GridView1.Rows[row].Cells[1].Text.Substring(0, 3).ToUpper();
+            /* asignamos y formateamos el valor del user_OTS seleccionado ya que solo necesitamos la clave */
+            string user_OTS = GridView1.Rows[row].Cells[2].Text;
+            user_OTS = user_OTS.Substring(user_OTS.IndexOf('(') + 1);
+            user_OTS = user_OTS.Substring(0, user_OTS.IndexOf(')'));
+            variables.User_OTS = user_OTS;
+            Response.Redirect("AdmOTS.aspx");
         }
     }
 }

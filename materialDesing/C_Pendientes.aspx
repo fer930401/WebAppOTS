@@ -244,6 +244,7 @@
                                                 <!--<li><a class="btn-floating cyan darken-4 click-to-toggle tooltipped" id="subReng" data-position="top" data-delay="50" data-tooltip="Sub OTS"><i class="material-icons">message</i></a></li>-->
                                                 <li><asp:Button ID="btnSubOts" CssClass="btn-floating cyan darken-4 click-to-toggle tooltipped material-icons" data-position="top" data-delay="50" data-tooltip="Sub OTS" OnClick="btnSubOts_Click" runat="server" Text="message" /></li>
                                                 <!--<li><a class="btn-floating green darken-3 click-to-toggle tooltipped" id="imgOTS" data-position="top" data-delay="50" data-tooltip="Img. OTS"><i class="material-icons">perm_media</i></a></li>-->
+                                                <li><asp:Button ID="btnActOts" CssClass="btn-floating yellow darken-3 click-to-toggle tooltipped material-icons" data-position="top" data-delay="50" data-tooltip="Actualiza OTS" OnClick="btnActOts_Click" runat="server" Text="mode_edit"  /></li>
                                                 <li><a class="btn-floating red darken-3 click-to-toggle tooltipped" id="btnReasignar" data-position="top" data-delay="50" data-tooltip="Reasigna" <% Response.Write(Session["visibleReasigna"]); %>><i class="material-icons">replay</i></a></li>
                                             </ul>
                                         </div>
