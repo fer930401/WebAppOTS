@@ -34,20 +34,19 @@
                             <asp:dropdownlist id ="ss" runat ="server" DataTextField="nombre"  DataValueField="elm_cve" ></asp:dropdownlist>                            
                         </div>
                         <div class="input-field col s6">
-                            <p>
-                              <input class="with-gap" name="tipo" type="radio" id="pendiente" value="PEN" checked />
-                              <label for="pendiente">Pendiente</label>
-                            </p>
-                            <p>
-                              <input class="with-gap" name="tipo" type="radio" id="soporte" value="SOP" />
-                              <label for="soporte">Soporte</label>
-                            </p>
                             <label for="tipo">Tipo:</label>
+                            <br />
+                            <br />  
+                            <input class="with-gap" name="tipo" type="radio" id="pendiente" value="PEN" checked />
+                            <label for="pendiente">Pendiente</label>
+                            
+                            <input class="with-gap" name="tipo" type="radio" id="soporte" value="SOP" />
+                            <label for="soporte">Soporte</label>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row" style="display:none">
                         <div class="input-field col s6">
-                            <input id="nomOTS" name="nomOTS" type="text" class="validate" required=""/>
+                            <input id="nomOTS" name="nomOTS" type="text" value= "" class="validate" />
                             <label for="nomOTS">Nombre del nuevo OTS:</label>
                         </div>
                     </div>
@@ -57,6 +56,7 @@
                             <asp:dropdownlist id ="prg_res" runat ="server" DataTextField="nombre"  DataValueField="user_cve" ></asp:dropdownlist>                            
                         </div>
                         <div class="input-field col s6">
+                            <br />
                             <br />
                             <input class="with-gap" name="status" type="radio" id="desactivado" value="0" checked />
                             <label for="desactivado">Desactivado</label>
@@ -70,7 +70,7 @@
                     
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea id="descripcion" name="descripcion" class="materialize-textarea" length="120"></textarea>
+                            <textarea id="descripcion" name="descripcion" class="materialize-textarea" length="150"></textarea>
                             <label for="descripcion">Descripcion</label>
                         </div>
                     </div>
@@ -98,9 +98,9 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="input-field col s4 right">
-                            <a class="waves-effect red darken-4 btn right" href="Inicio.aspx">Cancelar</a>
+                        <div class="col s4">
                             <asp:Button ID="btnGuardarOTS" runat="server" Text="Guardar" class="waves-effect green darken-4 btn" OnClick="btnGuardarOTS_Click"/>
+                            <a class="waves-effect red darken-4 btn" href="Inicio.aspx">Cancelar</a>                            
                         </div>
                     </div>
                 </div>

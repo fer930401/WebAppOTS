@@ -82,6 +82,14 @@ namespace materialDesing
                     nomImagenes = OTSEncabezado[0].nomImg.ToString().TrimEnd();
                 }
 
+                if (variables.Tipo_OTS.Substring(0, 3).Equals("SOP") == true)
+                {
+                    href.Text = "href = 'C_Soportes.aspx'";
+                }
+                else if (variables.Tipo_OTS.Substring(0, 3).Equals("PEN") == true)
+                {
+                    href.Text = "href = 'C_Pendientes.aspx'";
+                }
                 
                 if (!IsPostBack)
                 {
