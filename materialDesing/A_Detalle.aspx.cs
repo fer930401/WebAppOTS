@@ -62,7 +62,7 @@ namespace materialDesing
             string observaciones = Request["obs"].ToString().TrimEnd(' ');
             string clasificacion = cls.SelectedValue.TrimStart(' ').TrimEnd(' ');
             string aplica = "";
-            string status = "2";
+            string status = "1";
             string userRespSubOTS = Session["user_cve"].ToString().ToUpper();
             if (string.IsNullOrEmpty(oper) == false && string.IsNullOrEmpty(nom_OTS) == false && string.IsNullOrEmpty(desc) == false && string.IsNullOrEmpty(fecha_Ini) == false && string.IsNullOrEmpty(fecha_Fin) == false && string.IsNullOrEmpty(error_ots) == false && string.IsNullOrEmpty(solucion) == false && string.IsNullOrEmpty(observaciones) == false)
             {

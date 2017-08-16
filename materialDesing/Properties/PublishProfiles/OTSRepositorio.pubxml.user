@@ -19,7 +19,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/15/2017 10:59:08</publishTime>
     </File>
     <File Include="A_Detalle.aspx">
-      <publishTime>06/12/2017 16:03:42</publishTime>
+      <publishTime>08/15/2017 13:51:04</publishTime>
     </File>
     <File Include="A_Encabezado.aspx">
       <publishTime>08/14/2017 12:55:21</publishTime>
@@ -52,7 +52,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/11/2017 12:21:38</publishTime>
     </File>
     <File Include="bin/materialDesing.dll">
-      <publishTime>08/15/2017 13:12:21</publishTime>
+      <publishTime>08/15/2017 17:17:38</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.SignalR.Core.dll">
       <publishTime>08/09/2017 13:15:16</publishTime>
@@ -499,7 +499,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/15/2017 10:08:15</publishTime>
     </File>
     <File Include="C_subOTS.aspx">
-      <publishTime>08/09/2017 16:53:12</publishTime>
+      <publishTime>08/15/2017 16:07:41</publishTime>
     </File>
     <File Include="C_Usuarios.aspx">
       <publishTime>05/23/2017 14:01:17</publishTime>
@@ -784,7 +784,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/09/2017 13:15:10</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/11/2017 12:21:43</publishTime>
+      <publishTime>08/15/2017 17:17:39</publishTime>
     </File>
     <File Include="WebApp.Master">
       <publishTime>08/10/2017 17:08:55</publishTime>

@@ -56,7 +56,7 @@
                         </div>
                         <div class="input-field col s6">
                             <asp:TextBox ID="fechaFin" runat="server" name="fechaFin" ReadOnly="true"></asp:TextBox>
-                            <label for="fechaFin">Fecha Final:</label>
+                            <label for="fechaFin">Fecha prometida:</label>
                         </div>
                     </div>
                     <div class="row">

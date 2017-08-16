@@ -224,7 +224,7 @@
             %>
             <div class="row">
                 <div class="col s8">
-                    <table>
+                    <table class="responsive-table">
                         <thead>
                             <tr>
                                 <th>Num OTS:</th>
