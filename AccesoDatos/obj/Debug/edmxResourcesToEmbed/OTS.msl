@@ -115,14 +115,6 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_WebAppOTSAdmParos" FunctionName="DBOTSModel.Store.sp_WebAppOTSAdmParos">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="DBOTSModel.sp_WebAppOTSAdmParos_Result">
-          <ScalarProperty Name="error" ColumnName="error" />
-          <ScalarProperty Name="mensaje" ColumnName="mensaje" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_WebAppOTSAdmUsers" FunctionName="DBOTSModel.Store.sp_WebAppOTSAdmUsers">
       <ResultMapping>
         <ComplexTypeMapping TypeName="DBOTSModel.sp_WebAppOTSAdmUsers_Result">
@@ -202,5 +194,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_WebAppOTSAdmParos" FunctionName="DBOTSModel.Store.sp_WebAppOTSAdmParos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBOTSModel.sp_WebAppOTSAdmParos_Result">
+          <ScalarProperty Name="error" ColumnName="error" />
+          <ScalarProperty Name="mensaje" ColumnName="mensaje" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

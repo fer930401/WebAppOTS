@@ -64,9 +64,9 @@ namespace LogicaNegocio
         {
             return datos.ListaOTS(user_cve, status,opc,tipoOTS, user_filtro, descr_filtro);
         }
-        public Entidades.sp_WebAppOTSAdmParos_Result admParos(int? numOTS, string tipoOTS, string motivo, string opcion, int? numReng)
+        public Entidades.sp_WebAppOTSAdmParos_Result admParos(int? numOTS, string tipoOTS, string motivo, string opcion, int? numReng, string user_cve)
         {
-            return datos.admParos(numOTS, tipoOTS, motivo, opcion, numReng);
+            return datos.admParos(numOTS, tipoOTS, motivo, opcion, numReng, user_cve);
         }
         public List<Entidades.otsemov> consulta_OTS(int numOTS, string tipoOTS, string user_cve)
         {

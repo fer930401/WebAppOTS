@@ -244,6 +244,7 @@ warning 6002: The table/view 'DBOTS.dbo.rolesxUsr' does not have a primary key d
           <Parameter Name="motivo" Type="nvarchar" Mode="In" />
           <Parameter Name="opcion" Type="nvarchar" Mode="In" />
           <Parameter Name="numReng" Type="int" Mode="In" />
+          <Parameter Name="user" Type="nchar" Mode="In" />
         </Function>
         <Function Name="sp_WebAppOTSAdmUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="user_cve" Type="nchar" Mode="In" />
@@ -577,13 +578,6 @@ warning 6002: The table/view 'DBOTS.dbo.rolesxUsr' does not have a primary key d
             <Parameter Name="nomImg" Mode="In" Type="String" />
             <Parameter Name="fec_prom" Mode="In" Type="DateTime" />
           </FunctionImport>
-          <FunctionImport Name="sp_WebAppOTSAdmParos" ReturnType="Collection(DBOTSModel.sp_WebAppOTSAdmParos_Result)">
-            <Parameter Name="numOTS" Mode="In" Type="Int32" />
-            <Parameter Name="tipoOTS" Mode="In" Type="String" />
-            <Parameter Name="motivo" Mode="In" Type="String" />
-            <Parameter Name="opcion" Mode="In" Type="String" />
-            <Parameter Name="numReng" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="sp_WebAppOTSAdmUsers" ReturnType="Collection(DBOTSModel.sp_WebAppOTSAdmUsers_Result)">
             <Parameter Name="user_cve" Mode="In" Type="String" />
             <Parameter Name="user_nom" Mode="In" Type="String" />
@@ -609,16 +603,20 @@ warning 6002: The table/view 'DBOTS.dbo.rolesxUsr' does not have a primary key d
           <EntitySet Name="ChatsPrivados" EntityType="DBOTSModel.ChatsPrivados" />
           <EntitySet Name="ChatsPrivadosDetalles" EntityType="DBOTSModel.ChatsPrivadosDetalles" />
           <EntitySet Name="ChatUserDetalle" EntityType="DBOTSModel.ChatUserDetalle" />
+          <FunctionImport Name="sp_WebAppOTSAdmParos" ReturnType="Collection(DBOTSModel.sp_WebAppOTSAdmParos_Result)">
+            <Parameter Name="numOTS" Mode="In" Type="Int32" />
+            <Parameter Name="tipoOTS" Mode="In" Type="String" />
+            <Parameter Name="motivo" Mode="In" Type="String" />
+            <Parameter Name="opcion" Mode="In" Type="String" />
+            <Parameter Name="numReng" Mode="In" Type="Int32" />
+            <Parameter Name="user" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_WebAppOTSAdmOpc_Result">
           <Property Type="Int16" Name="error" Nullable="true" />
           <Property Type="String" Name="mensaje" Nullable="true" MaxLength="255" />
         </ComplexType>
         <ComplexType Name="sp_WebAppOTSAdmOTS_Result">
-          <Property Type="Int16" Name="error" Nullable="true" />
-          <Property Type="String" Name="mensaje" Nullable="true" MaxLength="255" />
-        </ComplexType>
-        <ComplexType Name="sp_WebAppOTSAdmParos_Result">
           <Property Type="Int16" Name="error" Nullable="true" />
           <Property Type="String" Name="mensaje" Nullable="true" MaxLength="255" />
         </ComplexType>
@@ -685,6 +683,10 @@ warning 6002: The table/view 'DBOTS.dbo.rolesxUsr' does not have a primary key d
           <Property Name="user_nom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="mail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <ComplexType Name="sp_WebAppOTSAdmParos_Result">
+          <Property Type="Int16" Name="error" Nullable="true" />
+          <Property Type="String" Name="mensaje" Nullable="true" MaxLength="255" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -805,14 +807,6 @@ warning 6002: The table/view 'DBOTS.dbo.rolesxUsr' does not have a primary key d
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_WebAppOTSAdmParos" FunctionName="DBOTSModel.Store.sp_WebAppOTSAdmParos">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DBOTSModel.sp_WebAppOTSAdmParos_Result">
-                <ScalarProperty Name="error" ColumnName="error" />
-                <ScalarProperty Name="mensaje" ColumnName="mensaje" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_WebAppOTSAdmUsers" FunctionName="DBOTSModel.Store.sp_WebAppOTSAdmUsers">
             <ResultMapping>
               <ComplexTypeMapping TypeName="DBOTSModel.sp_WebAppOTSAdmUsers_Result">
@@ -892,6 +886,14 @@ warning 6002: The table/view 'DBOTS.dbo.rolesxUsr' does not have a primary key d
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_WebAppOTSAdmParos" FunctionName="DBOTSModel.Store.sp_WebAppOTSAdmParos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBOTSModel.sp_WebAppOTSAdmParos_Result">
+                <ScalarProperty Name="error" ColumnName="error" />
+                <ScalarProperty Name="mensaje" ColumnName="mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

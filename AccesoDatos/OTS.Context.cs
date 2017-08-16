@@ -153,31 +153,6 @@ namespace Entidades
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_WebAppOTSAdmOTS_Result>("sp_WebAppOTSAdmOTS", sub_sistemaParameter, tip_OTSParameter, asgParameter, otsPParameter, otsTPParameter, operParameter, respParameter, statusParameter, descrParameter, fechaIniParameter, fechaFinParameter, aplicaParameter, tip_ProcesoParameter, nombre_OTSParameter, error_OTSParameter, solucion_OTSParameter, obs_OTSParameter, clasi_OTSParameter, opcionParameter, nomImgParameter, fec_promParameter);
         }
     
-        public virtual ObjectResult<sp_WebAppOTSAdmParos_Result> sp_WebAppOTSAdmParos(Nullable<int> numOTS, string tipoOTS, string motivo, string opcion, Nullable<int> numReng)
-        {
-            var numOTSParameter = numOTS.HasValue ?
-                new ObjectParameter("numOTS", numOTS) :
-                new ObjectParameter("numOTS", typeof(int));
-    
-            var tipoOTSParameter = tipoOTS != null ?
-                new ObjectParameter("tipoOTS", tipoOTS) :
-                new ObjectParameter("tipoOTS", typeof(string));
-    
-            var motivoParameter = motivo != null ?
-                new ObjectParameter("motivo", motivo) :
-                new ObjectParameter("motivo", typeof(string));
-    
-            var opcionParameter = opcion != null ?
-                new ObjectParameter("opcion", opcion) :
-                new ObjectParameter("opcion", typeof(string));
-    
-            var numRengParameter = numReng.HasValue ?
-                new ObjectParameter("numReng", numReng) :
-                new ObjectParameter("numReng", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_WebAppOTSAdmParos_Result>("sp_WebAppOTSAdmParos", numOTSParameter, tipoOTSParameter, motivoParameter, opcionParameter, numRengParameter);
-        }
-    
         public virtual ObjectResult<sp_WebAppOTSAdmUsers_Result> sp_WebAppOTSAdmUsers(string user_cve, string user_nom, string user_pass, Nullable<short> user_status, string user_email, string user_rol, string opcion)
         {
             var user_cveParameter = user_cve != null ?
@@ -251,6 +226,35 @@ namespace Entidades
                 new ObjectParameter("rol", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_WebAppOTSConsultaUser_Result>("sp_WebAppOTSConsultaUser", statusParameter, rolParameter);
+        }
+    
+        public virtual ObjectResult<sp_WebAppOTSAdmParos_Result> sp_WebAppOTSAdmParos(Nullable<int> numOTS, string tipoOTS, string motivo, string opcion, Nullable<int> numReng, string user)
+        {
+            var numOTSParameter = numOTS.HasValue ?
+                new ObjectParameter("numOTS", numOTS) :
+                new ObjectParameter("numOTS", typeof(int));
+    
+            var tipoOTSParameter = tipoOTS != null ?
+                new ObjectParameter("tipoOTS", tipoOTS) :
+                new ObjectParameter("tipoOTS", typeof(string));
+    
+            var motivoParameter = motivo != null ?
+                new ObjectParameter("motivo", motivo) :
+                new ObjectParameter("motivo", typeof(string));
+    
+            var opcionParameter = opcion != null ?
+                new ObjectParameter("opcion", opcion) :
+                new ObjectParameter("opcion", typeof(string));
+    
+            var numRengParameter = numReng.HasValue ?
+                new ObjectParameter("numReng", numReng) :
+                new ObjectParameter("numReng", typeof(int));
+    
+            var userParameter = user != null ?
+                new ObjectParameter("user", user) :
+                new ObjectParameter("user", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_WebAppOTSAdmParos_Result>("sp_WebAppOTSAdmParos", numOTSParameter, tipoOTSParameter, motivoParameter, opcionParameter, numRengParameter, userParameter);
         }
     }
 }

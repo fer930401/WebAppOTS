@@ -79,9 +79,9 @@ namespace AccesoDatos
         {
             return (contextoOTS.sp_WebAppOTSConsultaOTS(user_cve, status,opc, tipoOTS, user_filtro, descr_filtro)).ToList();
         }
-        public Entidades.sp_WebAppOTSAdmParos_Result admParos(int? numOTS, string tipoOTS, string motivo, string opcion, int? numReng)
+        public Entidades.sp_WebAppOTSAdmParos_Result admParos(int? numOTS, string tipoOTS, string motivo, string opcion, int? numReng, string user_cve)
         {
-            return (contextoOTS.sp_WebAppOTSAdmParos(numOTS, tipoOTS, motivo, opcion, numReng)).FirstOrDefault();
+            return (contextoOTS.sp_WebAppOTSAdmParos(numOTS, tipoOTS, motivo, opcion, numReng, user_cve)).FirstOrDefault();
         }
         public List<otsemov> consulta_OTS(int numOTS, string tipoOTS, string user_cve)
         {
