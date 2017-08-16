@@ -37,7 +37,7 @@ namespace AccesoDatos
         }
         public List<otscatlgos> ListaRolesOTS()
         {
-            return (from r in contextoOTS.otscatlgos where r.cve_catlgo.Equals("ROL") select r).ToList();
+            return (from r in contextoOTS.otscatlgos where r.cve_catlgo.Equals("ROL") && r.status == 1 select r).ToList();
         }
         public List<usuarios> ListaUsuarios()
         {
@@ -49,11 +49,15 @@ namespace AccesoDatos
         }
         public List<otscatlgos> ListaPaises()
         {
-            return (from p in contextoOTS.otscatlgos where p.cve_catlgo.Equals("APL") orderby p.nombre select p).ToList();
+            return (from p in contextoOTS.otscatlgos where p.cve_catlgo.Equals("APL") && p.status == 1 orderby p.nombre select p).ToList();
         }
         public string ValidarRol(string cve_user, string rol)
         {
             return (from r in contextoOTS.rolesxUsr where r.user_cve.Equals(cve_user) && r.cve_rol.Equals(rol) select r.cve_rol).SingleOrDefault();
+        }
+        public List<rolesxUsr> ValidarRol2(string cve_user)
+        {
+            return (from r in contextoOTS.rolesxUsr where r.user_cve.Equals(cve_user) select r).ToList();
         }
         public Entidades.sp_WebAppOTSAdmUsers_Result admUserOTS(string user_cve, string user_nom, string user_pass, short? user_status, string user_email, string user_rol, string opcion)
         {
@@ -65,11 +69,11 @@ namespace AccesoDatos
         }
         public List<otscatlgos> ListaSubSistemas()
         {
-            return (from s in contextoOTS.otscatlgos where s.cve_catlgo.Equals("SS") orderby s.nombre select s).ToList();
+            return (from s in contextoOTS.otscatlgos where s.cve_catlgo.Equals("SS") && s.status == 1 orderby s.nombre select s).ToList();
         }
         public List<otscatlgos> ListaOperaciones()
         {
-            return (from s in contextoOTS.otscatlgos where s.cve_catlgo.Equals("OPR")  orderby s.nombre select s).ToList();
+            return (from s in contextoOTS.otscatlgos where s.cve_catlgo.Equals("OPR") && s.status == 1 orderby s.nombre select s).ToList();
         }
         public List<sp_WebAppOTSConsultaOTS_Result> ListaOTS(string user_cve, string status, int opc, string tipoOTS, string user_filtro, string descr_filtro)
         {
@@ -86,7 +90,7 @@ namespace AccesoDatos
         }
         public List<otscatlgos> ListaCLSOTS()
         {
-            return (from r in contextoOTS.otscatlgos where r.cve_catlgo.Equals("CLS") select r).ToList();
+            return (from r in contextoOTS.otscatlgos where r.cve_catlgo.Equals("CLS") && r.status == 1 select r).ToList();
         }
         public List<otsdcatlgos> opcionesCatalogo()
         {
@@ -113,6 +117,14 @@ namespace AccesoDatos
                 email = conEmail.mail;
             }
             return email;
+        }
+        public List<otscatlgos> ListaClaves(string cve)
+        {
+            return (from r in contextoOTS.otscatlgos where r.cve_catlgo.Equals(cve) orderby r.elm_cve select r).ToList();
+        }
+        public string BuscaClave(string cve)
+        {
+            return (from r in contextoOTS.otsdcatlgos where r.cve_catlgo.Equals(cve) select r.nom_catlgo).SingleOrDefault();
         }
     }
 }

@@ -29,10 +29,10 @@ namespace materialDesing
                 Response.Redirect("Login.aspx");
             }
         }
-        public string validarRol(string cve_user, string rol)
+        /*public string validarRol(string cve_user, string rol)
         {
             return logicaNegocio.validarRol(cve_user, rol);
-        }
+        }*/
         protected void CerrarSession(object sender, EventArgs e)
         {
             Session.Clear();

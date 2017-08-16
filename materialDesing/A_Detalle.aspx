@@ -36,7 +36,7 @@
                     <div class="row">
                         <div class="input-field col s6">
                             <asp:DropDownList ID="opr" runat="server" DataTextField="nombre"  DataValueField="elm_cve" ></asp:DropDownList>
-                            <label for="operacion">Proceso a realizar:</label>
+                            <label for="operacion">Proceso a revisar:</label>
                         </div>
                         <div class="input-field col s6">
                             <asp:TextBox ID="nom_proceso" runat="server" name="nom_proceso" required></asp:TextBox>
@@ -56,7 +56,7 @@
                         </div>
                         <div class="input-field col s6">
                             <asp:TextBox ID="fechaFin" runat="server" name="fechaFin" ReadOnly="true"></asp:TextBox>
-                            <label for="fechaFin">Fecha Final:</label>
+                            <label for="fechaFin">Fecha prometida:</label>
                         </div>
                     </div>
                     <div class="row">

@@ -91,6 +91,12 @@
         $(document).ready(function () {
             $('select').material_select();
         });
+        function DeleteJob() {
+            if (confirm("Do you really want to delete selected job/s?"))
+                window.location.href = "CambiaContraseña.aspx";
+            else
+                return false;
+        }
     </script>
     <style type="text/css">
         .minusculas {
@@ -143,6 +149,9 @@
                                 <input id="password" name="password" type="password" required/><div id="error" class="chip amber darken-3 white-text">El bloqueo de mayusculas esta activado.</div>
                                 <label for="password">Contraseña:</label>
                             </div>
+                        </div>
+                        <div class="row">
+                            <i class="material-icons yellow-text text-darken-3" style="font-size:20px;">error</i>Si no recuerdas tu contraseña la puedes cambiar <a href="CambiaContraseña.aspx">Aqui</a>
                         </div>
                         <div class="row">
                             <asp:Button ID="Button1" name="btn_Enviar" OnClick="ValidateUser" runat="server" Text="Entrar" class="btn-large waves-effect waves-light green darken-2" />

@@ -121,5 +121,29 @@ namespace LogicaNegocio
             get { return variables.pass; }
             set { variables.pass = value; }
         }
+        static string cve_catlgo;
+        public static string Cve_catlgo
+        {
+            get { return variables.cve_catlgo; }
+            set { variables.cve_catlgo = value; }
+        }
+        static string elm_cve;
+        public static string Elm_cve
+        {
+            get { return variables.elm_cve; }
+            set { variables.elm_cve = value; }
+        }
+        static string nombre_cve;
+        public static string Nombre_cve
+        {
+            get { return variables.nombre_cve; }
+            set { variables.nombre_cve = value; }
+        }
+        static string status_cve;
+        public static string Status_cve
+        {
+            get { return variables.status_cve; }
+            set { variables.status_cve = value; }
+        }
     }
 }

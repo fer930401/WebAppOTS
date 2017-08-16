@@ -23,27 +23,42 @@ namespace materialDesing
             {
                 string clave = Session["user_cve"].ToString();
                 user_cve.Text = clave;
-                if (logicaNegocio.validarRol(clave.ToUpper(), "PRG") != null)
-                {
-                    usuarioC = clave.ToUpper();
-                    statusC = "1";
-                    rol_cve.Text = logicaNegocio.validarRol(clave, "PRG");
-                    cmbProgramador.Visible = false;
-                    lblRespon.Visible = false;
-                    Session["visibleReasigna"] = "style = 'display:none'";
-                }
-                else
+                if (Session["roles"].ToString().Contains("ADM") == true)
                 {
                     usuarioC = "ASG";
                     statusC = "1";
-                    rol_cve.Text = logicaNegocio.validarRol(clave.ToUpper(), "ASG");
+                    //rol_cve.Text = logicaNegocio.validarRol(clave, "PRG");
+                    cmbProgramador.Visible = true;
+                    lblRespon.Visible = true;
+                    Session["visibleReasigna"] = "";
+                    Session["visibleAgregar"] = "";
+                    Session["visibleEditar"] = "";
+                }
+                else if (Session["roles"].ToString().Contains("ASG") == true)
+                {
+                    usuarioC = "ASG";
+                    statusC = "1";
+                    //rol_cve.Text = logicaNegocio.validarRol(clave.ToUpper(), "ASG");
                     cmbProgramador.Visible = true;
                     Session["visibleAgregar"] = "style = 'display:none'";
+                    Session["visibleEditar"] = "";
+                    Session["visibleReasigna"] = "";
+                }
+                else if (Session["roles"].ToString().Contains("PRG") == true)
+                {
+                    usuarioC = clave.ToUpper();
+                    statusC = "1";
+                    //rol_cve.Text = logicaNegocio.validarRol(clave, "PRG");
+                    cmbProgramador.Visible = false;
+                    lblRespon.Visible = false;
+                    Session["visibleAgregar"] = "";
+                    Session["visibleEditar"] = "style = 'display:none'";
+                    Session["visibleReasigna"] = "style = 'display:none'";
                 }
                 if (!IsPostBack)
                 {
                     cmbProgramador.Items.Clear();
-                    cmbProgramador.Items.Insert(0, new ListItem("Selecciona una opción", ""));
+                    cmbProgramador.Items.Insert(0, new ListItem("Ver todos", ""));
                     cmbProgramador.SelectedIndex = 0;
                     cmbProgramador.AppendDataBoundItems = true;
                     cmbProgramador.DataSource = logicaNegocio.ListadoProgramadores(1, "PRG");
@@ -51,6 +66,7 @@ namespace materialDesing
                     cmbProgramador.DataTextField = "nombre";
                     cmbProgramador.AutoPostBack = true;
                     cmbProgramador.DataBind();
+                    
                     
                     DataTable dt = new DataTable();
                     DataRow dr;
@@ -87,7 +103,9 @@ namespace materialDesing
                     }
                     
                     ViewState["dt"] = dt;
-                    this.BindGrid();
+                    this.BindGrid(); 
+                    cmbProgramador.SelectedValue = Session["user_cve"].ToString();
+                    cmbProgramador_SelectedIndexChanged(cmbProgramador, e);
                 }
             }
             else
@@ -99,6 +117,26 @@ namespace materialDesing
         {
             GridView1.DataSource = ViewState["dt"] as DataTable;
             GridView1.DataBind();
+            for (int i = 0; i < GridView1.Rows.Count; i++)
+            {
+                if (Session["roles"].ToString().Contains("ADM") == true)
+                {
+                    
+                }
+                else if (Session["roles"].ToString().Contains("ASG") == true)
+                {
+                    Button btnAgr = (Button)GridView1.Rows[i].FindControl("btnAgregar");
+                    btnAgr.Visible = false;
+                    Button btnAct = (Button)GridView1.Rows[i].FindControl("btnActOts");
+                    btnAct.Visible = false;
+                }
+                else if (Session["roles"].ToString().Contains("PRG") == true)
+                {
+                    Button btnAct = (Button)GridView1.Rows[i].FindControl("btnActOts");
+                    btnAct.Visible = false;
+                }
+                
+            }
         }
 
         protected void cmbProgramador_SelectedIndexChanged(object sender, EventArgs e)
@@ -243,19 +281,23 @@ namespace materialDesing
             DataTable dt = new DataTable();
             DataRow dr;
             int opc = 0;
+            string user_filt = "";
             if (string.IsNullOrEmpty(variables.Descrip_filtro) == false && string.IsNullOrEmpty(variables.User_filtro) == true)
             {
                 opc = 2;
+                user_filt = "";
             }
             else if (string.IsNullOrEmpty(variables.Descrip_filtro) == true && string.IsNullOrEmpty(variables.User_filtro) == false)
             {
                 opc = 1;
+                user_filt = variables.User_filtro;
             }
             else if (string.IsNullOrEmpty(variables.Descrip_filtro) == false && string.IsNullOrEmpty(variables.User_filtro) == false)
             {
                 opc = 3;
+                user_filt = variables.User_filtro;
             }
-            List<Entidades.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, opc, "SOP", "", "");
+            List<Entidades.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, opc, "SOP", user_filt, "");
             dt.Columns.Add("num_OTS", typeof(string));
             dt.Columns.Add("tipo_OTS", typeof(string));
             dt.Columns.Add("userResp", typeof(string));
@@ -340,6 +382,21 @@ namespace materialDesing
             variables.User_OTS = user_OTS;
             /* redirigimos a la alta de los subOTS */
             Response.Redirect("A_Detalle.aspx");
+        }
+
+        protected void btnActOts_Click(object sender, EventArgs e)
+        {
+            int row = ((sender as Button).NamingContainer as GridViewRow).RowIndex;
+            /* asignamos el valor del num_OTS seleccionado */
+            variables.Num_OTS = Int32.Parse(GridView1.Rows[row].Cells[0].Text);
+            /* asignamos el valor del tipo_OTS seleccionado */
+            variables.Tipo_OTS = GridView1.Rows[row].Cells[1].Text.Substring(0, 3).ToUpper();
+            /* asignamos y formateamos el valor del user_OTS seleccionado ya que solo necesitamos la clave */
+            string user_OTS = GridView1.Rows[row].Cells[2].Text;
+            user_OTS = user_OTS.Substring(user_OTS.IndexOf('(') + 1);
+            user_OTS = user_OTS.Substring(0, user_OTS.IndexOf(')'));
+            variables.User_OTS = user_OTS;
+            Response.Redirect("AdmOTS.aspx");
         }
     }
 }

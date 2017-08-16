@@ -106,6 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdmOpciones.aspx" />
+    <Content Include="AdmOTS.aspx" />
     <Content Include="AdmUsuarios.aspx" />
     <Content Include="A_Encabezado.aspx" />
     <Content Include="A_Detalle.aspx" />
@@ -254,6 +255,7 @@
     <Content Include="C_Soportes.aspx" />
     <Content Include="C_subOTS.aspx" />
     <Content Include="C_Usuarios.aspx" />
+    <Content Include="E_Opciones.aspx" />
     <Content Include="font\material-design-icons\LICENSE.txt" />
     <Content Include="font\material-design-icons\Material-Design-Icons.svg" />
     <Content Include="img.aspx" />
@@ -370,6 +372,13 @@
     <Compile Include="AdmOpciones.aspx.designer.cs">
       <DependentUpon>AdmOpciones.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdmOTS.aspx.cs">
+      <DependentUpon>AdmOTS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdmOTS.aspx.designer.cs">
+      <DependentUpon>AdmOTS.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdmUsuarios.aspx.cs">
       <DependentUpon>AdmUsuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -468,6 +477,13 @@
     </Compile>
     <Compile Include="C_Usuarios.aspx.designer.cs">
       <DependentUpon>C_Usuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="E_Opciones.aspx.cs">
+      <DependentUpon>E_Opciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="E_Opciones.aspx.designer.cs">
+      <DependentUpon>E_Opciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="img.aspx.cs">
       <DependentUpon>img.aspx</DependentUpon>

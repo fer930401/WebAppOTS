@@ -36,6 +36,10 @@ namespace LogicaNegocio
         {
             return datos.ValidarRol(cve_user, rol);
         }
+        public List<Entidades.rolesxUsr> validarRol2(string cve_user)
+        {
+            return datos.ValidarRol2(cve_user);
+        }
         public Entidades.sp_WebAppOTSAdmUsers_Result admUserOTS(string user_cve, string user_nom, string user_pass, short? user_status, string user_email, string user_rol, string opcion)
         {
             return datos.admUserOTS(user_cve, user_nom, user_pass, user_status, user_email, user_rol, opcion);
@@ -87,6 +91,14 @@ namespace LogicaNegocio
         public string consultaEmail(string user_cve)
         {
             return datos.consultaEmail(user_cve);
+        }
+        public List<Entidades.otscatlgos> ListaClaves(string cve)
+        {
+            return datos.ListaClaves(cve);
+        }
+        public string BuscaClave(string cve)
+        {
+            return datos.BuscaClave(cve);
         }
     }
 }

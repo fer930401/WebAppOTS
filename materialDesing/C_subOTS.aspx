@@ -224,7 +224,7 @@
             %>
             <div class="row">
                 <div class="col s8">
-                    <table>
+                    <table class="responsive-table">
                         <thead>
                             <tr>
                                 <th>Num OTS:</th>
@@ -254,7 +254,10 @@
                                     <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
                                 </td>
                                 <td>
-                                    <a id="btnImg" class="waves-effect waves-light btn light-blue darken-4" <% Response.Write(Session["visibleSOTS"]); %>>ver imagenes</a>
+                                    <a id="btnImg" class="waves-effect waves-light btn green darken-4" <% Response.Write(Session["visibleSOTS"]); %>>ver imagenes</a>
+                                </td>
+                                <td>
+                                    <input type="button" class="waves-effect waves-light btn light-blue darken-4" onclick="history.back()" name="volver atrás" value="Regresa" />
                                 </td>
                             </tr>
                         </tbody>

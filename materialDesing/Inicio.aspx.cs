@@ -22,7 +22,6 @@ namespace materialDesing
                 if (!IsPostBack)
                 {
                     OTS(Session["user_cve"].ToString().ToUpper(), "consultaOTS");
-                    rol_cve.Text = logicaNegocio.validarRol(Session["user_cve"].ToString().ToUpper(), "PRG");
                 }
             }
             else
