@@ -46,7 +46,7 @@
                             <Columns>
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <img src='<%# ResolveUrl(Eval("ImageUrl").ToString()) %>' class="materialboxed center responsive-img"  alt='<%# ResolveUrl(Eval("ImageName").ToString()) %>' />
+                                        <center><img src='<%# ResolveUrl(Eval("ImageUrl").ToString()) %>' class="materialboxed responsive-img"  alt='<%# ResolveUrl(Eval("ImageName").ToString()) %>' /></center>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>

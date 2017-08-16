@@ -29,14 +29,22 @@ namespace materialDesing
                         new DataColumn("ImageUrl")/*,
                         new DataColumn("ZoomImageUrl")*/
                     });
-                string[] filePaths = Directory.GetFiles(Server.MapPath("~/Media/upload/"));
+                //string[] filePaths = Directory.GetFiles(Server.MapPath("~/Media/upload/"));
 
                 for (int i = 0; i < nomImgInd.Length; i++)
                 {
                     if (nomImgInd[i].ToString().Equals("") == false)
                     {
                         string fileName = Path.GetFileName(nomImgInd[i]);
-                        dt.Rows.Add(fileName, "~/Media/upload/" + fileName /*, "~/Media/upload/" + fileName*/);
+                        if (System.IO.File.Exists(Server.MapPath("~/Media/upload/" + fileName)))
+                        {
+                            dt.Rows.Add(fileName, "~/Media/upload/" + fileName /*, "~/Media/upload/" + fileName*/);
+                        }
+                        else
+                        {
+                            dt.Rows.Add(fileName, "~/Media/error.png");
+                        }
+                                                
                     }
                 }
                 GridView1.DataSource = dt;
