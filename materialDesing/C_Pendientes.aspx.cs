@@ -63,6 +63,7 @@ namespace materialDesing
                     cmbProgramador.DataTextField = "nombre";
                     cmbProgramador.AutoPostBack = true;
                     cmbProgramador.DataBind();
+                    cmbProgramador.SelectedValue = Session["user_cve"].ToString();
 
                     DataTable dt = new DataTable();
                     DataRow dr;
@@ -98,6 +99,8 @@ namespace materialDesing
                     }
                     ViewState["dt"] = dt;
                     this.BindGrid();
+                    cmbProgramador.SelectedValue = Session["user_cve"].ToString();
+                    cmbProgramador_SelectedIndexChanged(cmbProgramador, e);
                 }
             }
             else

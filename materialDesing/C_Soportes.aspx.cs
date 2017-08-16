@@ -67,6 +67,7 @@ namespace materialDesing
                     cmbProgramador.AutoPostBack = true;
                     cmbProgramador.DataBind();
                     
+                    
                     DataTable dt = new DataTable();
                     DataRow dr;
                     List<Entidades.sp_WebAppOTSConsultaOTS_Result> listaOTS = logicaNegocio.ListadoOTS(usuarioC, statusC, 0, "SOP", "", "");
@@ -102,7 +103,9 @@ namespace materialDesing
                     }
                     
                     ViewState["dt"] = dt;
-                    this.BindGrid();
+                    this.BindGrid(); 
+                    cmbProgramador.SelectedValue = Session["user_cve"].ToString();
+                    cmbProgramador_SelectedIndexChanged(cmbProgramador, e);
                 }
             }
             else
