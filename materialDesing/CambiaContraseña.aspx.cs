@@ -37,14 +37,28 @@ namespace materialDesing
 
         protected void btnCambiarPass_Click(object sender, EventArgs e)
         {
-            variables.Email = txtEmail.Text;
-            variables.EmailConfirm = txtEmailConfirm.Text;
-            variables.Pass = txtPass.Text;
+            variables.Email = txtEmail.Text.TrimEnd(' ');
+            variables.EmailConfirm = txtEmailConfirm.Text.TrimEnd(' ');
+            variables.Pass = txtPass.Text.TrimEnd(' ');
 
             if (variables.Email.Equals(variables.EmailConfirm) == true)
             {
-                sendEmail(variables.Email, variables.Pass);
-                Response.Write("<script type=\"text/javascript\">alert('Se envio un email de confirmacion'); window.location.href = 'Login.aspx';</script>");           
+                if (variables.Pass.Length > 6)
+                {
+                    if (variables.Pass.Length < 50)
+                    {
+                        sendEmail(variables.Email, variables.Pass);
+                        Response.Write("<script type=\"text/javascript\">alert('Se envio un email de confirmacion'); window.location.href = 'Login.aspx';</script>");           
+                    }
+                    else
+                    {
+                        Response.Write("<script type=\"text/javascript\">alert('la contraseña debe de ser de 50 caracteres maximo'); window.location.href = 'CambiaContraseña.aspx';</script>");           
+                    }
+                }
+                else
+                {
+                    Response.Write("<script type=\"text/javascript\">alert('la contraseña debe de ser de 6 caracteres minimo'); window.location.href = 'CambiaContraseña.aspx';</script>");           
+                }
             }
             else
             {
@@ -60,9 +74,9 @@ namespace materialDesing
             string passEncode = Base64Encode(pass);
             string hash = emailEncode + "@" + passEncode;
             /* url para pruebas locales */
-            //string url = "http://" + HttpContext.Current.Request.Url.Authority + "/valPas.aspx?token=" + hash;
+            string url = "http://" + HttpContext.Current.Request.Url.Authority + "/valPas.aspx?token=" + hash;
             /* url para servidor IIS */
-            string url = "http://" + HttpContext.Current.Request.Url.Authority + "/" + HttpContext.Current.Request.ApplicationPath + "/valPas.aspx?token=" + hash;
+            //string url = "http://" + HttpContext.Current.Request.Url.Authority + "/" + HttpContext.Current.Request.ApplicationPath + "/valPas.aspx?token=" + hash;
 
             string email = emailResponsable(responsable);
             if (string.IsNullOrEmpty(email) == false)
