@@ -239,6 +239,7 @@ warning 6002: The table/view 'DBOTS.dbo.rolesxUsr' does not have a primary key d
     <Parameter Name="motivo" Type="nvarchar" Mode="In" />
     <Parameter Name="opcion" Type="nvarchar" Mode="In" />
     <Parameter Name="numReng" Type="int" Mode="In" />
+    <Parameter Name="user" Type="nchar" Mode="In" />
   </Function>
   <Function Name="sp_WebAppOTSAdmUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="user_cve" Type="nchar" Mode="In" />

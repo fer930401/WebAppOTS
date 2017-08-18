@@ -10,37 +10,37 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="AdmOpciones.aspx">
-      <publishTime>08/10/2017 10:51:14</publishTime>
+      <publishTime>08/16/2017 12:17:16</publishTime>
     </File>
     <File Include="AdmOTS.aspx">
-      <publishTime>08/15/2017 11:17:12</publishTime>
+      <publishTime>08/16/2017 12:17:16</publishTime>
     </File>
     <File Include="AdmUsuarios.aspx">
-      <publishTime>08/15/2017 10:59:08</publishTime>
+      <publishTime>08/16/2017 12:17:16</publishTime>
     </File>
     <File Include="A_Detalle.aspx">
-      <publishTime>08/15/2017 13:51:04</publishTime>
+      <publishTime>08/16/2017 14:01:02</publishTime>
     </File>
     <File Include="A_Encabezado.aspx">
-      <publishTime>08/14/2017 12:55:21</publishTime>
+      <publishTime>08/16/2017 12:17:16</publishTime>
     </File>
     <File Include="A_Opciones.aspx">
-      <publishTime>08/11/2017 08:41:52</publishTime>
+      <publishTime>08/16/2017 12:17:16</publishTime>
     </File>
     <File Include="A_Paros.aspx">
       <publishTime>06/12/2017 16:03:42</publishTime>
     </File>
     <File Include="A_Usuarios.aspx">
-      <publishTime>08/15/2017 10:59:05</publishTime>
+      <publishTime>08/16/2017 12:17:16</publishTime>
     </File>
     <File Include="bin/AccesoDatos.dll">
-      <publishTime>08/11/2017 12:21:37</publishTime>
+      <publishTime>08/18/2017 13:05:23</publishTime>
     </File>
     <File Include="bin/DotNet.Highcharts.dll">
       <publishTime>05/23/2014 11:33:56</publishTime>
     </File>
     <File Include="bin/Entidades.dll">
-      <publishTime>08/11/2017 12:21:36</publishTime>
+      <publishTime>08/18/2017 13:05:22</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>08/09/2017 13:15:16</publishTime>
@@ -49,10 +49,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/09/2017 13:15:16</publishTime>
     </File>
     <File Include="bin/LogicaNegocio.dll">
-      <publishTime>08/11/2017 12:21:38</publishTime>
+      <publishTime>08/18/2017 13:05:23</publishTime>
     </File>
     <File Include="bin/materialDesing.dll">
-      <publishTime>08/15/2017 17:17:38</publishTime>
+      <publishTime>08/18/2017 13:14:58</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.SignalR.Core.dll">
       <publishTime>08/09/2017 13:15:16</publishTime>
@@ -79,10 +79,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/09/2017 13:15:17</publishTime>
     </File>
     <File Include="CambiaContraseña.aspx">
-      <publishTime>08/09/2017 13:19:13</publishTime>
+      <publishTime>08/18/2017 12:55:26</publishTime>
     </File>
     <File Include="Chat_OTS.aspx">
-      <publishTime>08/10/2017 15:15:45</publishTime>
+      <publishTime>08/16/2017 12:17:16</publishTime>
     </File>
     <File Include="Chat_OTS1.aspx">
       <publishTime>08/09/2017 13:15:10</publishTime>
@@ -493,19 +493,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/07/2017 16:33:11</publishTime>
     </File>
     <File Include="C_Pendientes.aspx">
-      <publishTime>08/15/2017 10:05:44</publishTime>
+      <publishTime>08/16/2017 12:17:16</publishTime>
     </File>
     <File Include="C_Soportes.aspx">
-      <publishTime>08/15/2017 10:08:15</publishTime>
+      <publishTime>08/16/2017 12:17:16</publishTime>
     </File>
     <File Include="C_subOTS.aspx">
-      <publishTime>08/15/2017 16:07:41</publishTime>
+      <publishTime>08/16/2017 17:10:19</publishTime>
     </File>
     <File Include="C_Usuarios.aspx">
       <publishTime>05/23/2017 14:01:17</publishTime>
     </File>
     <File Include="E_Opciones.aspx">
-      <publishTime>08/14/2017 12:55:52</publishTime>
+      <publishTime>08/16/2017 12:17:16</publishTime>
     </File>
     <File Include="font/material-design-icons/LICENSE.txt">
       <publishTime>04/08/2015 21:00:06</publishTime>
@@ -586,7 +586,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/01/2015 23:28:12</publishTime>
     </File>
     <File Include="img.aspx">
-      <publishTime>06/07/2017 16:30:37</publishTime>
+      <publishTime>08/16/2017 12:42:52</publishTime>
     </File>
     <File Include="Inicio.aspx">
       <publishTime>08/09/2017 13:15:10</publishTime>
@@ -757,7 +757,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/14/2016 16:16:12</publishTime>
     </File>
     <File Include="Login.aspx">
-      <publishTime>08/09/2017 13:15:09</publishTime>
+      <publishTime>08/16/2017 12:17:16</publishTime>
     </File>
     <File Include="packages.config">
       <publishTime>08/09/2017 13:15:11</publishTime>
@@ -783,11 +783,17 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Scripts/jquery.signalR-2.2.2.min.js">
       <publishTime>08/09/2017 13:15:10</publishTime>
     </File>
+    <File Include="TerminaOTS.aspx">
+      <publishTime>08/16/2017 17:27:14</publishTime>
+    </File>
+    <File Include="valPas.aspx">
+      <publishTime>08/18/2017 12:21:40</publishTime>
+    </File>
     <File Include="Web.config">
-      <publishTime>08/15/2017 17:17:39</publishTime>
+      <publishTime>08/16/2017 12:17:16</publishTime>
     </File>
     <File Include="WebApp.Master">
-      <publishTime>08/10/2017 17:08:55</publishTime>
+      <publishTime>08/16/2017 12:17:16</publishTime>
     </File>
   </ItemGroup>
 </Project>

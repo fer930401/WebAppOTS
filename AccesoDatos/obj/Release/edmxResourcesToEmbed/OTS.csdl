@@ -218,13 +218,6 @@
       <Parameter Name="nomImg" Mode="In" Type="String" />
       <Parameter Name="fec_prom" Mode="In" Type="DateTime" />
     </FunctionImport>
-    <FunctionImport Name="sp_WebAppOTSAdmParos" ReturnType="Collection(DBOTSModel.sp_WebAppOTSAdmParos_Result)">
-      <Parameter Name="numOTS" Mode="In" Type="Int32" />
-      <Parameter Name="tipoOTS" Mode="In" Type="String" />
-      <Parameter Name="motivo" Mode="In" Type="String" />
-      <Parameter Name="opcion" Mode="In" Type="String" />
-      <Parameter Name="numReng" Mode="In" Type="Int32" />
-    </FunctionImport>
     <FunctionImport Name="sp_WebAppOTSAdmUsers" ReturnType="Collection(DBOTSModel.sp_WebAppOTSAdmUsers_Result)">
       <Parameter Name="user_cve" Mode="In" Type="String" />
       <Parameter Name="user_nom" Mode="In" Type="String" />
@@ -250,16 +243,20 @@
     <EntitySet Name="ChatsPrivados" EntityType="DBOTSModel.ChatsPrivados" />
     <EntitySet Name="ChatsPrivadosDetalles" EntityType="DBOTSModel.ChatsPrivadosDetalles" />
     <EntitySet Name="ChatUserDetalle" EntityType="DBOTSModel.ChatUserDetalle" />
+    <FunctionImport Name="sp_WebAppOTSAdmParos" ReturnType="Collection(DBOTSModel.sp_WebAppOTSAdmParos_Result)">
+      <Parameter Name="numOTS" Mode="In" Type="Int32" />
+      <Parameter Name="tipoOTS" Mode="In" Type="String" />
+      <Parameter Name="motivo" Mode="In" Type="String" />
+      <Parameter Name="opcion" Mode="In" Type="String" />
+      <Parameter Name="numReng" Mode="In" Type="Int32" />
+      <Parameter Name="user" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="sp_WebAppOTSAdmOpc_Result">
     <Property Type="Int16" Name="error" Nullable="true" />
     <Property Type="String" Name="mensaje" Nullable="true" MaxLength="255" />
   </ComplexType>
   <ComplexType Name="sp_WebAppOTSAdmOTS_Result">
-    <Property Type="Int16" Name="error" Nullable="true" />
-    <Property Type="String" Name="mensaje" Nullable="true" MaxLength="255" />
-  </ComplexType>
-  <ComplexType Name="sp_WebAppOTSAdmParos_Result">
     <Property Type="Int16" Name="error" Nullable="true" />
     <Property Type="String" Name="mensaje" Nullable="true" MaxLength="255" />
   </ComplexType>
@@ -326,4 +323,8 @@
     <Property Name="user_nom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="mail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
+  <ComplexType Name="sp_WebAppOTSAdmParos_Result">
+    <Property Type="Int16" Name="error" Nullable="true" />
+    <Property Type="String" Name="mensaje" Nullable="true" MaxLength="255" />
+  </ComplexType>
 </Schema>

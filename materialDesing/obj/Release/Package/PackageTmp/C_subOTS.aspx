@@ -38,6 +38,35 @@
             $('select').material_select();
         });
         $(function () {
+            $("#<%=GridView1.ClientID%> [id='btnTerminar']").click(function () {
+                var tr = $(this).parent().parent();
+                var id_OTS = $("td:eq(0)", tr).html();
+                var tip_OTS = $("td:eq(1)", tr).html();
+                var nom_resp = $("td:eq(2)", tr).html();
+                nom_resp = nom_resp.substring(nom_resp.indexOf('(') + 1);
+                nom_resp = nom_resp.substring(0, nom_resp.indexOf(')'));
+                var sts_SubOTS = 3;
+                var ots_padre = document.getElementById("<%=lblNumOts.ClientID%>").innerHTML;
+                var dWidth = $(window).width() * 0.9;
+                var dHeight = $(window).height() * 0.9;
+                //alert(ots_padre);
+                $('<div>').dialog({
+                    modal: true,
+                    open: function () {
+                        $(this).load('TerminaOTS.aspx?num_OTS=' + id_OTS + '&ots_padre=' + ots_padre + '&tip_OTS=' + tip_OTS + '&sts=' + sts_SubOTS + '&respo=' + nom_resp);
+                    },
+                    width: dWidth,
+                    height: dHeight,
+                    draggable: false,
+                    responsive: true,
+                    title: 'Terminar subOTS',
+                    close: function (e, ui) {
+                        window.location.href = 'C_subOTS.aspx';
+                    }
+                });
+            });
+        });
+        $(function () {
             $("#<%=GridView1.ClientID%> [id='btnReasignar']").click(function () {
                 var tr = $(this).parent().parent();
                 var id_OTS = $("td:eq(0)", tr).html();
@@ -57,7 +86,7 @@
                     height: dHeight,
                     draggable: false,
                     responsive: true,
-                    title: 'reasignar subOTS'
+                    title: 'Reasignar subOTS'
                 });
             });
         });
@@ -224,7 +253,7 @@
             %>
             <div class="row">
                 <div class="col s8">
-                    <table>
+                    <table class="responsive-table">
                         <thead>
                             <tr>
                                 <th>Num OTS:</th>
@@ -257,7 +286,7 @@
                                     <a id="btnImg" class="waves-effect waves-light btn green darken-4" <% Response.Write(Session["visibleSOTS"]); %>>ver imagenes</a>
                                 </td>
                                 <td>
-                                    <input type="button" class="waves-effect waves-light btn light-blue darken-4" onclick="history.back()" name="volver atrás" value="Regresa" />
+                                    <a class="waves-effect waves-light btn light-blue darken-4" <asp:Literal ID="href2" runat="server"></asp:Literal>>Regresar</a>
                                 </td>
                             </tr>
                         </tbody>
@@ -289,7 +318,8 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Terminar:">
                             <ItemTemplate>
-                                <asp:Button Text="Terminar" ID="terminar" runat="server" CommandName="Select" CssClass="waves-effect waves-light btn  green darken-4" OnClick="terminar_Click" />
+                                <%--><asp:Button Text="Terminar" ID="terminar" runat="server" CommandName="Select" CssClass="waves-effect waves-light btn  green darken-4" OnClick="terminar_Click" />--%>
+                                <a class="waves-effect waves-light btn  green darken-4" id="btnTerminar" data-position="top" data-delay="50" data-tooltip="Terminar">Terminar</a>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Paro Proceso:">
