@@ -325,6 +325,7 @@
     <Content Include="Scripts\jquery-1.6.4.min.js" />
     <Content Include="Scripts\jquery.signalR-2.2.2.js" />
     <Content Include="Scripts\jquery.signalR-2.2.2.min.js" />
+    <Content Include="TerminaOTS.aspx" />
     <Content Include="WebApp.Master" />
     <Content Include="font\material-design-icons\Material-Design-Icons.eot" />
     <Content Include="font\material-design-icons\Material-Design-Icons.ttf" />
@@ -534,6 +535,13 @@
       <DependentUpon>Reportes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="TerminaOTS.aspx.cs">
+      <DependentUpon>TerminaOTS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TerminaOTS.aspx.designer.cs">
+      <DependentUpon>TerminaOTS.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WebApp.Master.cs">
       <DependentUpon>WebApp.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

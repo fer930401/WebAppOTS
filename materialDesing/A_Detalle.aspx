@@ -67,20 +67,8 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea id="solucion" name="solucion" class="materialize-textarea" length="254" required> </textarea>
-                            <label for="solucion">Solucion:</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
                             <textarea id="obs" name="obs" class="materialize-textarea" length="254" required> </textarea>
                             <label for="obs">Observaciones:</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <asp:dropdownlist id="cls" runat ="server" DataTextField="nombre" DataValueField="elm_cve"></asp:dropdownlist>
-                            <label for="clas">Clasificacion:</label>
                         </div>
                     </div>
                     <div class="row">

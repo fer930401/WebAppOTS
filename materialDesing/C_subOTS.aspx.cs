@@ -221,7 +221,7 @@ namespace materialDesing
             }
         }
 
-        protected void terminar_Click(object sender, EventArgs e)
+        /*protected void terminar_Click(object sender, EventArgs e)
         {
             int row = ((sender as Button).NamingContainer as GridViewRow).RowIndex;
             int num_SubOTS = Int32.Parse(GridView1.Rows[row].Cells[0].Text);
@@ -243,7 +243,7 @@ namespace materialDesing
                     Response.Write("<script type=\"text/javascript\">alert('Se Encontro Un Error " + mensaje + " \\nIntente De Nuevo.');  window.location.href = 'C_subOTS.aspx';</script>");
                 }
             }
-        }
+        }*/
 
         protected void paro_Click(object sender, EventArgs e)
         {

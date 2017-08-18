@@ -37,10 +37,10 @@ namespace materialDesing
                     fechaIni.Text = Convert.ToDateTime(OTSEncabezado[0].fec_asig.ToString()).ToString("yyyy-MM-dd HH:MM:ss");
                     fechaFin.Text = Convert.ToDateTime(OTSEncabezado[0].fec_prom.ToString()).ToString("yyyy-MM-dd HH:MM:ss");
 
-                    cls.DataSource = logicaNegocio.ListadoCLSOTS();
+                    /*cls.DataSource = logicaNegocio.ListadoCLSOTS();
                     cls.DataTextField = "nombre";
                     cls.DataValueField = "elm_cve";
-                    cls.DataBind();         
+                    cls.DataBind();   */      
                 }
             }
             else
@@ -58,9 +58,9 @@ namespace materialDesing
             string fecha_Fin = fechaFin.Text.TrimEnd(' ');
             string dificultad = "0";
             string error_ots = Request["error"].ToString().TrimEnd(' ');
-            string solucion = Request["solucion"].ToString().TrimEnd(' ');
+            string solucion = "";
             string observaciones = Request["obs"].ToString().TrimEnd(' ');
-            string clasificacion = cls.SelectedValue.TrimStart(' ').TrimEnd(' ');
+            string clasificacion = "";
             string aplica = "";
             string status = "1";
             string userRespSubOTS = Session["user_cve"].ToString().ToUpper();
