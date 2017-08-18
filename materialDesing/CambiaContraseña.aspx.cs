@@ -15,9 +15,6 @@ namespace materialDesing
 {
     public partial class CambiaContraseña : System.Web.UI.Page
     {
-        LogicaNegocioCls logicaNegocio = new LogicaNegocioCls();
-        string mensaje = "";
-        short? error = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -30,7 +27,6 @@ namespace materialDesing
             }         
         }
 
-        
         protected void CerrarSession(object sender, EventArgs e)
         {
             Session.Clear();
@@ -43,34 +39,15 @@ namespace materialDesing
         {
             variables.Email = txtEmail.Text;
             variables.EmailConfirm = txtEmailConfirm.Text;
-            variables.Pass = GetSHA1HashData(txtPass.Text);
+            variables.Pass = txtPass.Text;
 
             if (variables.Email.Equals(variables.EmailConfirm) == true)
             {
-                try
-                {
-                    Entidades.sp_WebAppOTSAdmUsers_Result cambioPass = logicaNegocio.admUserOTS("", "", variables.Pass, 0, variables.Email, "", "actPass");
-                    if (cambioPass != null)
-                    {
-                        error = cambioPass.error;
-                        mensaje = cambioPass.mensaje;
-                    }
-                    if(error == 0)
-                    {
-                        variables.Email = "";
-                        variables.EmailConfirm = "";
-                        variables.Pass = "";
-                        Response.Write("<script type=\"text/javascript\">alert('" + mensaje + "'); window.location.href = 'Login.aspx';</script>");
-                    }
-                    else
-                    {
-                        Response.Write("<script type=\"text/javascript\">alert('" + mensaje + "'); window.location.href = 'CambiaContraseña.aspx';</script>");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Response.Write("<script type=\"text/javascript\">alert('Ocurrio un error, favor de revisar'); window.location.href = 'CambiaContraseña.aspx';</script>");
-                }               
+                sendEmail(variables.Email, variables.Pass);
+                variables.Email = "";
+                variables.EmailConfirm = "";
+                variables.Pass = "";
+                Response.Write("<script type=\"text/javascript\">alert('Se envio un email de confirmacion'); window.location.href = 'Login.aspx';</script>");           
             }
             else
             {
@@ -78,29 +55,15 @@ namespace materialDesing
             }
             
         }
-        private string GetSHA1HashData(string data)
+        
+
+        public void sendEmail(string responsable, string pass)
         {
-            //create new instance of md5
-            SHA1 sha1 = SHA1.Create();
-
-            //convert the input text to array of bytes
-            byte[] hashData = sha1.ComputeHash(Encoding.Default.GetBytes(data));
-
-            //create new instance of StringBuilder to save hashed data
-            StringBuilder returnValue = new StringBuilder();
-
-            //loop for each byte and add it to StringBuilder
-            for (int i = 0; i < hashData.Length; i++)
-            {
-                returnValue.Append(hashData[i].ToString());
-            }
-
-            // return hexadecimal string
-            return returnValue.ToString();
-        }
-
-        public void sendEmail(string responsable, string nom_OTS, string operacion, string descripcion, DateTime fechaFin, string aplica)
-        {
+            string emailEncode = Base64Encode(responsable);
+            string passEncode = Base64Encode(pass);
+            string hash = emailEncode + "@" + passEncode;
+            string url = "http://" + HttpContext.Current.Request.Url.Authority + "/valPas.aspx?token=" + hash;
+            
             string emailRespon = responsable;
             var to = emailRespon;
             var cc = "fernando.garcia@skytex.com.mx";
@@ -129,7 +92,7 @@ namespace materialDesing
                        "<table cellpadding='0' cellspacing='0' width='100%'>" +
                           "<tr>" +
                            "<td width='60%'>" +
-                            "<strong>Realiza el sigueinte proceso</strong>" +
+                            "<strong>Realiza el siguiente proceso</strong>" +
                            "</td>" +
                           "</tr>" +
                           "<tr>" +
@@ -139,12 +102,12 @@ namespace materialDesing
                           "</tr>" +
                           "<tr>" +
                            "<td width='60%'>" +
-                            "Se a solicitado el cambio de contraseña: fecha de solicitud" + DateTime.Now +
+                            "Se a solicitado el cambio de contraseña: fecha de solicitud: <strong>" + DateTime.Now + "</strong>" +
                            "</td>" +
                           "</tr>" +
                           "<tr>" +
                            "<td width='60%'>" +
-                            "<strong>Da click en el siguiente enlace:</strong> " + fechaFin.ToString("dd/MM/yyyy") +
+                            "<strong>Da click en el siguiente enlace para confirmar el cambio: </strong> <a href='" + url + "'>Aqui</a>" +
                            "</td>" +
                           "</tr>" +
                          "</table>" +
@@ -185,6 +148,11 @@ namespace materialDesing
             {
                 throw ex;
             }
+        }
+        public static string Base64Encode(string plainText)
+        {
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+            return System.Convert.ToBase64String(plainTextBytes);
         }
     }
 }
