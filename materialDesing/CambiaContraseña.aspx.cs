@@ -74,9 +74,9 @@ namespace materialDesing
             string passEncode = Base64Encode(pass);
             string hash = emailEncode + "@" + passEncode;
             /* url para pruebas locales */
-            string url = "http://" + HttpContext.Current.Request.Url.Authority + "/valPas.aspx?token=" + hash;
+            //string url = "http://" + HttpContext.Current.Request.Url.Authority + "/valPas.aspx?token=" + hash;
             /* url para servidor IIS */
-            //string url = "http://" + HttpContext.Current.Request.Url.Authority + "/" + HttpContext.Current.Request.ApplicationPath + "/valPas.aspx?token=" + hash;
+            string url = "http://" + HttpContext.Current.Request.Url.Authority + "/" + HttpContext.Current.Request.ApplicationPath + "/valPas.aspx?token=" + hash;
 
             string email = emailResponsable(responsable);
             if (string.IsNullOrEmpty(email) == false)
