@@ -55,7 +55,7 @@
                             <p></p>
                         </div>
                         <div class="col s7 ">
-                            <a href="ReporteActividadesOTS.aspx" target="_blank" class="waves-effect waves-light btn teal darken-4 modal-trigger"><i class="material-icons left">import_export</i> Exporta tus resultados </a>
+                            <a href="ReporteActividadesOTS.aspx" target="_blank" class="btn teal darken-4 modal-trigger"><i class="material-icons left">import_export</i> Exporta tus resultados </a>
                         </div>
                     </div>
                 </div>

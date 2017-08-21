@@ -28,7 +28,7 @@
                     draggable: false,
                     responsive: true,
                     close: function (e, ui) {
-                        window.location.href = 'C_subOTS.aspx?num_OTS=' + id_OTS + '&tip_OTS=' + tip_OTS;
+                        window.location.href = 'C_subOTS.aspx';
                     }
                 }).prev(".ui-dialog-titlebar").css("background", "#042644");
             });
@@ -313,23 +313,23 @@
                         <asp:BoundField DataField="operacion" HeaderText="Descripcion del Sub OTS:" />
                         <asp:TemplateField HeaderText="Iniciar:">
                             <ItemTemplate>
-                                <asp:Button Text="Iniciar" ID="iniciar" runat="server" CommandName="Select" CssClass="waves-effect waves-light btn  green darken-4" OnClick="iniciar_Click" />
+                                <asp:Button Text="Iniciar" ID="iniciar" runat="server" CommandName="Select" CssClass="btn green darken-4" OnClick="iniciar_Click" />
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Terminar:">
                             <ItemTemplate>
                                 <%--><asp:Button Text="Terminar" ID="terminar" runat="server" CommandName="Select" CssClass="waves-effect waves-light btn  green darken-4" OnClick="terminar_Click" />--%>
-                                <a class="waves-effect waves-light btn  green darken-4" id="btnTerminar" data-position="top" data-delay="50" data-tooltip="Terminar">Terminar</a>
+                                <a class="btn green darken-4" id="btnTerminar" data-position="top" data-delay="50" data-tooltip="Terminar">Terminar</a>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Paro Proceso:">
                             <ItemTemplate>
-                                <asp:Button Text="Paro" ID="paro" runat="server" CommandName="Select" CssClass="waves-effect waves-light btn red darken-4" OnClick="paro_Click" />
+                                <asp:Button Text="Paro" ID="paro" runat="server" CommandName="Select" CssClass="btn red darken-4" OnClick="paro_Click" />
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Reanudar Proceso:">
                             <ItemTemplate>
-                                <asp:Button Text="Continuar" ID="continuar" runat="server" CommandName="Select" CssClass="waves-effect waves-light btn red darken-4" OnClick="continuar_Click" />
+                                <asp:Button Text="Continuar" ID="continuar" runat="server" CommandName="Select" CssClass="btn red darken-4" OnClick="continuar_Click" />
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Reasignar SubOTS:">

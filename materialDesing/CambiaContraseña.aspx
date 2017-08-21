@@ -69,8 +69,11 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s4 right">
-                        <a class="waves-effect red darken-4 btn right" href="Login.aspx">Cancelar</a>
-                        <asp:Button ID="btnCambiarPass" runat="server" Text="Guardar" class="waves-effect green darken-4 btn" OnClick="btnCambiarPass_Click"/>
+                        <asp:Button ID="btnCambiarPass" runat="server" Text="Guardar" class="green darken-4 btn" OnClick="btnCambiarPass_Click"/>
+                        <a class="red darken-4 btn" href="Login.aspx">Cancelar</a>
+                    </div>
+                    <div class="col s3">
+                        <span class="white-text">.</span>
                     </div>
                 </div>
             </div> 

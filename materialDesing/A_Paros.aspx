@@ -48,9 +48,9 @@
                     <div class="">
                         <br />
                         <div class="row">
-                          <asp:Button ID="btnAltaParo" runat="server" Text="Guardar Paro"  CssClass="waves-effect waves-green btn amber darken-4" OnClick="btnAltaParo_Click" />
-                          <asp:Button ID="btnReanudarParo" runat="server" Text="Reanudar Actividad"  CssClass="waves-effect waves-green btn green darken-4" OnClick="btnReanudarParo_Click" OnClientClick="quitaValidacion()"/>
-                          <asp:Button ID="btnCancelar" runat="server" Text="Cancelar"  CssClass="waves-effect waves-green btn red darken-4" OnClick="btnCancelar_Click" OnClientClick="quitaValidacion()"/>
+                          <asp:Button ID="btnAltaParo" runat="server" Text="Guardar Paro"  CssClass="btn amber darken-4" OnClick="btnAltaParo_Click" />
+                          <asp:Button ID="btnReanudarParo" runat="server" Text="Reanudar Actividad"  CssClass="btn green darken-4" OnClick="btnReanudarParo_Click" OnClientClick="quitaValidacion()"/>
+                          <asp:Button ID="btnCancelar" runat="server" Text="Cancelar"  CssClass="btn red darken-4" OnClick="btnCancelar_Click" OnClientClick="quitaValidacion()"/>
                         </div>
                         <br />
                         <br />
