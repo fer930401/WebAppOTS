@@ -6,7 +6,6 @@
         document.getElementById("error").required = true;
         $('#error').prop('required', true);
         function quitaValidacion() {
-            //alert("quito validacion");
             $("#form1").attr("novalidate", "novalidate");
         }
     </script>

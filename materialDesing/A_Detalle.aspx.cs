@@ -36,11 +36,6 @@ namespace materialDesing
                     descripcion.Text = OTSEncabezado[0].descripcion.ToString();
                     fechaIni.Text = Convert.ToDateTime(OTSEncabezado[0].fec_asig.ToString()).ToString("yyyy-MM-dd HH:MM:ss");
                     fechaFin.Text = Convert.ToDateTime(OTSEncabezado[0].fec_prom.ToString()).ToString("yyyy-MM-dd HH:MM:ss");
-
-                    /*cls.DataSource = logicaNegocio.ListadoCLSOTS();
-                    cls.DataTextField = "nombre";
-                    cls.DataValueField = "elm_cve";
-                    cls.DataBind();   */      
                 }
             }
             else

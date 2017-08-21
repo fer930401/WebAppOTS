@@ -79,7 +79,7 @@ namespace materialDesing
                 }
             }
             string aplica = selectedValue;
-            if (/*string.IsNullOrEmpty(nom_OTS) == false && */string.IsNullOrEmpty(descripcion) == false && string.IsNullOrEmpty(aplica) == false)
+            if (string.IsNullOrEmpty(descripcion) == false && string.IsNullOrEmpty(aplica) == false)
             {
                 Entidades.sp_WebAppOTSAdmOTS_Result insertOTSE = logicaNegocio.admOTS(sub_sistema, tip_OTS, asigna, 0, "", "", responsable, status, descripcion, fechaIni.ToString("yyyy/MM/dd"), "", aplica, "", nom_OTS, "", "", "", "", "alta", nomImagenes, fechaProm);
                 if (insertOTSE != null)
@@ -178,12 +178,6 @@ namespace materialDesing
             mail.BodyEncoding = System.Text.Encoding.UTF8;
             mail.IsBodyHtml = true;
             
-            // Agregar el Adjunto si deseamos hacerlo
-            //System.Net.Mail.Attachment attachment;
-            //attachment = new System.Net.Mail.Attachment(@"c:\Users\fernando.garcia\Documents\Proyectos Skytex\AplicacionWeb\Prueba.Presentacion\Activo\Reporte Ordenes.xls");
-            //attachment = new System.Net.Mail.Attachment(@"C:\Desarrollo\Desarrollo_web\Agenda\Activo\Reporte Ordenes.xls");
-            //mail.Attachments.Add(attachment);
-
             // Configuración SMTP
             System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient("outlook.skytex.com.mx", 25);
 

@@ -4,7 +4,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script>
         function quitaValidacion() {
-            //alert("quito validacion");
             $("#form1").attr("novalidate", "novalidate");
         }
     </script>
