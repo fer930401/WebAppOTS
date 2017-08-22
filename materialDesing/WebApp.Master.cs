@@ -75,7 +75,7 @@ namespace materialDesing
                     }
                     else if (lblStatus.Text.Equals("Pausa") == true)
                     {
-                        btnTerminar.Visible = false;
+                        //btnTerminar.Visible = false;
                         btnParo.Visible = false;
                     }
                     Session["flotante"] = "";
@@ -112,7 +112,7 @@ namespace materialDesing
             string userRespSubOTS = Session["user_cve"].ToString().ToUpper();
             string sts_SubOTS = "3";
 
-            Entidades.sp_WebAppOTSAdmOTS_Result insertOTSD = logicaNegocio.admOTS("", tipo_SubOTS, "", num_OTS, num_SubOTS.ToString(), "", userRespSubOTS, sts_SubOTS, "", "", "", "", "", "", "", "", "", "", "terminaDet", "", DateTime.Now);
+            /*Entidades.sp_WebAppOTSAdmOTS_Result insertOTSD = logicaNegocio.admOTS("", tipo_SubOTS, "", num_OTS, num_SubOTS.ToString(), "", userRespSubOTS, sts_SubOTS, "", "", "", "", "", "", "", "", "", "", "terminaDet", "", DateTime.Now);
             if (insertOTSD != null)
             {
                 error = insertOTSD.error;
@@ -125,7 +125,7 @@ namespace materialDesing
                 {
                     Response.Write("<script type=\"text/javascript\">alert('Se Encontro Un Error " + mensaje + " \\nIntente De Nuevo.');  window.location.href = window.location.href;</script>");
                 }
-            }
+            }*/
         }
 
         protected void btnParo_Click(object sender, EventArgs e)
