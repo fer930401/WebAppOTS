@@ -72,10 +72,12 @@ namespace materialDesing
                     if (lblStatus.Text.Equals("Iniciada") == true)
                     {
                         btnContinuar.Visible = false;
+                        Session["visibleTerminar"] = "";
                     }
                     else if (lblStatus.Text.Equals("Pausa") == true)
                     {
                         //btnTerminar.Visible = false;
+                        Session["visibleTerminar"] = "style = 'display:none'";
                         btnParo.Visible = false;
                     }
                     Session["flotante"] = "";

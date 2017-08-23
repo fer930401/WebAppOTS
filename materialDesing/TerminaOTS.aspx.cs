@@ -42,7 +42,7 @@ namespace materialDesing
                 mensaje = insertOTSD.mensaje;
                 if (Convert.ToInt32(error) == 0)
                 {
-                    Response.Write("<script type=\"text/javascript\">alert('SubOTS Finalizado'); window.location.href = window.location.href;</script>");
+                    Response.Write("<script type=\"text/javascript\">alert('SubOTS Finalizado'); window.location.href = 'C_subOTS.aspx';</script>");
                 }
                 else
                 {

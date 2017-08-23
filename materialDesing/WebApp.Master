@@ -193,7 +193,7 @@
                     <label style="font-weight:700; font-size: 16px; color:white;">Status: </label><asp:Label ID="lblStatus" runat="server" CssClass="white-text"></asp:Label>
                     <br />
                     <%--<asp:Button ID="btnTerminar" runat="server" CssClass="btn  green darken-4" Text="Terminar" OnClick="btnTerminar_Click" /> --%>
-                    <a id="btnTerminar" class="btn green darken-4">Terminar</a>
+                    <a id="btnTerminar" class="btn green darken-4" <% Response.Write(Session["visibleTerminar"]); %>>Terminar</a>
                     <asp:Button ID="btnParo" runat="server" CssClass="btn red darken-4" Text="Paro" OnClick="btnParo_Click"/>
                     <asp:Button ID="btnContinuar" runat="server"  CssClass="btn amber darken-4" Text="Continuar" OnClick="btnContinuar_Click" />
                 </div>
