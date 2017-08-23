@@ -11,7 +11,8 @@
     <script>
         $(function () {
             $("#<%= fechaIni.ClientID %>").datepicker({
-                dateFormat: 'yy-mm-dd'
+                dateFormat: 'yy-mm-dd',
+                minDate: new Date()
             });
         });
     </script>

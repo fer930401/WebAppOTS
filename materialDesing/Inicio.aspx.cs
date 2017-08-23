@@ -19,8 +19,32 @@ namespace materialDesing
         {
             if (Session["user_cve"] != null)
             {
+                DateTime fechaActual = DateTime.Now;
+                DateTime fechaDefault = DateTime.MinValue;
+                fechaDefault = fechaActual.AddDays(1 - Convert.ToDouble(fechaActual.DayOfWeek));
+                DateTime fechaInicioSemana = fechaDefault.Date;
+                DateTime fechaFinSemana = fechaInicioSemana.AddDays(6);
+
                 if (!IsPostBack)
                 {
+                   
+
+                    if (string.IsNullOrEmpty(variables.Fec_ini) == false)
+                    {
+                        fec_iniI.Text = variables.Fec_ini;
+                        fec_finI.Text = variables.Fec_fin;
+                        fec_ini.Text = variables.Fec_ini;
+                        fec_fin.Text = variables.Fec_fin;
+                    }
+                    else
+                    {
+                        fec_iniI.Text = fechaInicioSemana.ToString();
+                        fec_finI.Text = fechaFinSemana.ToString();
+                        /*fec_ini.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                        fec_fin.Text = DateTime.Now.ToString("yyyy-MM-dd");*/
+                    }
+                    
+
                     OTS(Session["user_cve"].ToString().ToUpper(), "consultaOTS");
                 }
             }
@@ -36,7 +60,9 @@ namespace materialDesing
             int sopTerminados = 0;
             int penNoIniciados = 0;
             int penTerminados = 0;
-            Entidades.sp_WebAppOTSAdmOTS_Result contadorSop = logicaNegocio.admOTS("", "SOP", "", 1, "", "", user, "1", "", "", "", "", "", "", "", "", "", "", opcion, "", DateTime.Now); 
+            DateTime fechaInicial = DateTime.Parse(fec_iniI.Text);
+            DateTime fechaFinal = DateTime.Parse(fec_finI.Text);
+            Entidades.sp_WebAppOTSAdmOTS_Result contadorSop = logicaNegocio.admOTS("", "SOP", "", 1, "", "", user, "", "", fechaInicial.ToString("MM/dd/yyyy"), fechaFinal.ToString("MM/dd/yyyy"), "", "", "", "", "", "", "", opcion, "", DateTime.Now); 
             if (contadorSop != null)
             {
                 error = contadorSop.error;
@@ -49,7 +75,7 @@ namespace materialDesing
                 }
             }
 
-            Entidades.sp_WebAppOTSAdmOTS_Result contadorSopT = logicaNegocio.admOTS("", "SOP", "", 3, "", "", user, "3", "", "", "", "", "", "", "", "", "", "", opcion, "", DateTime.Now); ;
+            Entidades.sp_WebAppOTSAdmOTS_Result contadorSopT = logicaNegocio.admOTS("", "SOP", "", 3, "", "", user, "", "", fechaInicial.ToString("MM/dd/yyyy"), fechaFinal.ToString("MM/dd/yyyy"), "", "", "", "", "", "", "", opcion, "", DateTime.Now); ;
             if (contadorSopT != null)
             {
                 error = contadorSopT.error;
@@ -61,7 +87,7 @@ namespace materialDesing
                     soportesTerminados.Text = sopTerminados.ToString();
                 }
             }
-            Entidades.sp_WebAppOTSAdmOTS_Result contadorPen = logicaNegocio.admOTS("", "PEN", "", 1, "", "", user, "1", "", "", "", "", "", "", "", "", "", "", opcion, "", DateTime.Now);
+            Entidades.sp_WebAppOTSAdmOTS_Result contadorPen = logicaNegocio.admOTS("", "PEN", "", 1, "", "", user, "", "", fechaInicial.ToString("MM/dd/yyyy"), fechaFinal.ToString("MM/dd/yyyy"), "", "", "", "", "", "", "", opcion, "", DateTime.Now);
             if (contadorPen != null)
             {
                 error = contadorPen.error;
@@ -73,7 +99,7 @@ namespace materialDesing
                     pendientesNoIniciados.Text = penNoIniciados.ToString();
                 }
             }
-            Entidades.sp_WebAppOTSAdmOTS_Result contadorPenT = logicaNegocio.admOTS("", "PEN", "", 3, "", "", user, "3", "", "", "", "", "", "", "", "", "", "", opcion, "", DateTime.Now);
+            Entidades.sp_WebAppOTSAdmOTS_Result contadorPenT = logicaNegocio.admOTS("", "PEN", "", 3, "", "", user, "", "", fechaInicial.ToString("MM/dd/yyyy"), fechaFinal.ToString("MM/dd/yyyy"), "", "", "", "", "", "", "", opcion, "", DateTime.Now);
             if (contadorPenT != null)
             {
                 error = contadorPenT.error;
@@ -86,10 +112,33 @@ namespace materialDesing
                 }
             }
         }
-        public void OTSGraf(string tipoOTS, int statusOTS, string userResp, string mes)
+        public void OTSGraf(string tipoOTS, int statusOTS, string userResp, DateTime fechaInicio, DateTime fechaFin)
         {
-            Entidades.sp_WebAppOTSAdmOTS_Result contadorPenT = logicaNegocio.admOTS("", tipoOTS, "", statusOTS, "", "", userResp, "", "", /*fecha*/"", "", "", "", "", "", "", "", "", "consultaOTSGraf", "", DateTime.Now);
+            Entidades.sp_WebAppOTSAdmOTS_Result contadorPenT = logicaNegocio.admOTS("", tipoOTS, "", statusOTS, "", "", userResp, "", "", fechaInicio.ToString("MM/dd/yyyy"), fechaFin.ToString("MM/dd/yyyy"), "", "", "", "", "", "", "", "consultaOTSGraf", "", DateTime.Now);
             Response.Write(contadorPenT.mensaje);
+        }
+
+        protected void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            DateTime fecInicial = DateTime.Parse(fec_ini.Text);
+            DateTime fecFinal = DateTime.Parse(fec_fin.Text);
+            if (fecInicial < DateTime.Now)
+            {
+                if (fecFinal < DateTime.Now)
+                {
+                    variables.Fec_ini = fecInicial.ToString("yyyy-MM-dd");
+                    variables.Fec_fin = fecFinal.ToString("yyyy-MM-dd");
+                    Response.Write("<script type=\"text/javascript\">window.location.href = 'Inicio.aspx';</script>");
+                }
+                else
+                {
+                    Response.Write("<script type=\"text/javascript\">alert('La fecha final no es valida, seleccione una fecha menor');  window.location.href = 'Inicio.aspx';</script>");
+                }
+            }
+            else
+            {
+                Response.Write("<script type=\"text/javascript\">alert('La fecha inicial no es valida, seleccione una fecha menor');  window.location.href = 'Inicio.aspx';</script>");
+            }
         }
     }
 }

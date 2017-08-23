@@ -145,5 +145,19 @@ namespace LogicaNegocio
             get { return variables.status_cve; }
             set { variables.status_cve = value; }
         }
+
+        static string fec_ini;
+        public static string Fec_ini
+        {
+            get { return variables.fec_ini; }
+            set { variables.fec_ini = value; }
+        }
+
+        static string fec_fin;
+        public static string Fec_fin
+        {
+            get { return variables.fec_fin; }
+            set { variables.fec_fin = value; }
+        }
     }
 }

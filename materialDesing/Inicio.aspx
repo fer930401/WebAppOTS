@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">    
     <%
-        usuario.Text = Session["nombre"].ToString();
+        //usuario.Text = Session["nombre"].ToString();
         user_cve.Text = Session["user_cve"].ToString().ToUpper();
     %>
     <br />
@@ -16,25 +16,51 @@
                     $('.flotante2').slideUp(300);
                 }
             });
-
+        });
+        $(function () {
+            $("#fec_ini").datepicker({
+                dateFormat: 'yy-mm-dd'
+            });
+            $("#fec_fin").datepicker({
+                dateFormat: 'yy-mm-dd'
+            });
         });
     </script>
     <div class="container">
         <div class="col s12 card-panel grey lighten-5 z-depth-1">
             <div class="row">
-              <img class="right responsive-img" src="<%=ResolveUrl("~/Media/logo_OTS.png") %>" width="350" height="100"/>
-              <br />
-              <h5 class="center grey-text">Bienvenido: <strong><asp:Label ID="usuario" runat="server" Text="Label"></asp:Label></strong></h5>
-              <div class="col s12 m3">
-                <asp:TextBox ID="user_cve" runat="server" ReadOnly="true" hidden="true"></asp:TextBox>
-                <asp:TextBox ID="rol_cve" runat="server" ReadOnly="true" hidden="true"></asp:TextBox>
-              </div>
+                <img class="right responsive-img" src="<%=ResolveUrl("~/Media/logo_OTS.png") %>" width="350" height="80" style="padding-right:5px;"/>
+                <div class="col s12 m3">
+                    <asp:TextBox ID="user_cve" runat="server" ReadOnly="true" hidden="true"></asp:TextBox>
+                    <asp:TextBox ID="rol_cve" runat="server" ReadOnly="true" hidden="true"></asp:TextBox>
+                    <asp:TextBox ID="fec_iniI" runat="server" ReadOnly="true"  hidden="true"></asp:TextBox>
+                    <asp:TextBox ID="fec_finI" runat="server" ReadOnly="true"  hidden="true"></asp:TextBox>
+                </div>
+              
+                <div class="col s1">
+                    <br />
+                    <h6>Filtro de grafica</h6>
+                </div>
+                <div class="input-field col s2">
+                    <label for="num_OTS">Fecha inicio</label>
+                    <br />
+                    <asp:TextBox ID="fec_ini" runat="server" TextMode="Date" ></asp:TextBox>
+                </div>
+                <div class="input-field col s2">
+                    <label for="num_OTS">Fecha Fin</label>
+                    <br />
+                    <asp:TextBox ID="fec_fin" runat="server" TextMode="Date" ></asp:TextBox>
+                </div>
+                <div class="col s1">
+                    <br />
+                    <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" CssClass="btn green darken-4" OnClick="btnFiltrar_Click"/>
+                </div>
             </div>
             <script type="text/javascript">
-                var SOP_sin_cumplir = parseInt([<% OTSGraf("SOP", 1, user_cve.Text, "01"); %>]);
-                var SOP_resuelos = parseInt([<% OTSGraf("SOP", 3, user_cve.Text, "01"); %>]);
-                var PEN_sin_cumplir = parseInt([<% OTSGraf("PEN", 1, user_cve.Text, "01"); %>]);
-                var PEN_resuelos = parseInt([<% OTSGraf("PEN", 3, user_cve.Text, "01"); %>]);
+                var SOP_sin_cumplir = parseInt([<% OTSGraf("SOP", 1, user_cve.Text, DateTime.Parse(fec_iniI.Text), DateTime.Parse(fec_finI.Text)); %>]);
+                var SOP_resuelos = parseInt([<% OTSGraf("SOP", 3, user_cve.Text, DateTime.Parse(fec_iniI.Text), DateTime.Parse(fec_finI.Text)); %>]);
+                var PEN_sin_cumplir = parseInt([<% OTSGraf("PEN", 1, user_cve.Text, DateTime.Parse(fec_iniI.Text), DateTime.Parse(fec_finI.Text)); %>]);
+                var PEN_resuelos = parseInt([<% OTSGraf("PEN", 3, user_cve.Text, DateTime.Parse(fec_iniI.Text), DateTime.Parse(fec_finI.Text)); %>]);
                 $(function () {
                     $('#container').highcharts({
                         chart: {
@@ -64,9 +90,7 @@
                             colorByPoint: true,
                             data: [{
                                 name: 'Soportes sin resolver',
-                                y: SOP_sin_cumplir,
-                                sliced: true,
-                                selected: true
+                                y: SOP_sin_cumplir
                             }, {
                                 name: 'Soportes Resueltos',
                                 y: SOP_resuelos                                
@@ -118,5 +142,32 @@
             </div>
         </div>
     </div>
+    <script>
+        $.datepicker.regional['es'] = {
+            closeText: 'Cerrar',
+            prevText: '< Ant',
+            nextText: 'Sig >',
+            currentText: 'Hoy',
+            monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+            monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+            dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+            dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
+            dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+            weekHeader: 'Sm',
+            dateFormat: 'dd/mm/yy',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: '',
+            minDate: new Date()
+        };
+        $.datepicker.setDefaults($.datepicker.regional['es']);
+        $(function () {
+            $("#fec_ini").datepicker();
+        });
+        $(function () {
+            $("#fec_fin").datepicker();
+        });
+        </script>
 </asp:Content>
 
