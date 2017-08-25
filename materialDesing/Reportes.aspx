@@ -39,7 +39,7 @@
                             <p><i class="material-icons">query_builder</i> Tu tiempo muerto es de:</p>
                         </div>
                         <div class="col s4">
-                            <p>561 minutos</p>
+                            <p><strong><asp:Label ID="minParos" runat="server" Text="Label"></asp:Label></strong> minutos</p>
                         </div>
                     </div>
                     <div class="row">
@@ -47,7 +47,9 @@
                             <p><i class="material-icons">equalizer</i> Dificultad promedio:</p>
                         </div>
                         <div class="col s4 ">
-                            <p class="text-left">Alta</p>
+                            <p class="text-left">
+                                <asp:GridView ID="GridView1" runat="server" ></asp:GridView>
+                            </p>
                         </div>
                     </div>
                     <div class="row">

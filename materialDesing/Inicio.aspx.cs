@@ -43,9 +43,9 @@ namespace materialDesing
                         /*fec_ini.Text = DateTime.Now.ToString("yyyy-MM-dd");
                         fec_fin.Text = DateTime.Now.ToString("yyyy-MM-dd");*/
                     }
-                    
 
-                    OTS(Session["user_cve"].ToString().ToUpper(), "consultaOTS");
+
+                    OTS(Session["user_cve"].ToString().ToUpper(), "consultaOTSGraf");
                 }
             }
             else
