@@ -480,6 +480,12 @@
     <Compile Include="C_Usuarios.aspx.designer.cs">
       <DependentUpon>C_Usuarios.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EstadisticasOTS.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EstadisticasOTS.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="E_Opciones.aspx.cs">
       <DependentUpon>E_Opciones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -580,6 +586,10 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="EstadisticasOTS.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>EstadisticasOTS.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReporteActividadesOTS.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteActividadesOTS.cs</LastGenOutput>
