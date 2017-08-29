@@ -16,13 +16,13 @@ namespace materialDesing
             if (Session["user_cve"] != null)
             {
                 ReportDocument rep = new ReportDocument();
-                rep.Load(Server.MapPath("ReporteActividadesOTS.rpt"));
+                rep.Load(Server.MapPath("EstadisticasOTS.rpt"));
                 
                 rep.SetDatabaseLogon("soludin", "pluma","192.168.100.133","DBOTS");
-                rep.SetParameterValue("@user", Session["user_cve"].ToString());
+                /*rep.SetParameterValue("@user", Session["user_cve"].ToString());
                 rep.SetParameterValue("@status", "C/U");
                 rep.SetParameterValue("@opc",1);
-                rep.SetParameterValue("@filtro", Session["user_cve"].ToString());
+                rep.SetParameterValue("@filtro", Session["user_cve"].ToString());*/
                 Response.ContentType = "application/pdf";
                 rep.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, false, "Reporte Actividades OTS");
             }

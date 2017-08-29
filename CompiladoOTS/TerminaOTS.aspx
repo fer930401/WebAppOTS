@@ -19,6 +19,11 @@
         $(document).ready(function () {
             $('select').material_select();
         });
+        $(function () {
+            $("#btnCancelar").on("click", function () {
+                window.location.href = window.location.href;
+            });
+         });
     </script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/jquery-ui.min.js" type="text/javascript"></script>
     <link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/themes/blitzer/jquery-ui.css" rel="Stylesheet" type="text/css" /> 
@@ -34,14 +39,16 @@
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    <asp:dropdownlist ID="cls" runat ="server" DataTextField="nombre" DataValueField="elm_cve" CssClass="browser-default" ></asp:dropdownlist>  
-                    <label for="clas">Clasificacion:</label>                  
+                    <label for="clas">Clasificacion:</label>  
+                    <br />
+                    <asp:dropdownlist ID="cls" runat ="server" DataTextField="nombre" DataValueField="elm_cve" CssClass="browser-default" ></asp:dropdownlist>            
                 </div>
             </div>
+            <br />
             <div class="row">
                 <div class="col s6">
                     <asp:Button ID="btnTerminar" runat="server" Text="Terminar" CssClass="btn green darken-4" OnClick="btnTerminar_Click" />
-                    <a class="btn red darken-4 white-text" href="C_subOTS.aspx">Cancelar</a>
+                    <a class="btn red darken-4 white-text" id="btnCancelar">Cancelar</a>
                 </div>
             </div>
         </div>

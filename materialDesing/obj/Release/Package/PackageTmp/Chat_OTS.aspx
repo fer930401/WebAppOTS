@@ -490,7 +490,7 @@
             </div>
             <div class="card-action">
                 <div id="divButton">
-                    <input id="btnStartChat" type="button" class="waves-effect waves-light btn" value="Entrar" />
+                    <input id="btnStartChat" type="button" class="btn" value="Entrar" />
                 </div>
             </div>
         </div>

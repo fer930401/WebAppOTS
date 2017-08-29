@@ -194,6 +194,15 @@
                             {
                                 //row.Cells[4].Text = "";
                             }
+                            
+                            string user_OTS = row.Cells[2].Text;
+                            user_OTS = user_OTS.Substring(user_OTS.IndexOf('(') + 1);
+                            user_OTS = user_OTS.Substring(0, user_OTS.IndexOf(')'));
+
+                            if (user_OTS.Equals(user_cve.Text) == false)
+                            {
+                                row.FindControl("btnAgregar").Visible = false;
+                            }
                         }
                 }
             %>

@@ -6,7 +6,6 @@
         document.getElementById("error").required = true;
         $('#error').prop('required', true);
         function quitaValidacion() {
-            //alert("quito validacion");
             $("#form1").attr("novalidate", "novalidate");
         }
     </script>
@@ -73,8 +72,8 @@
                     </div>
                     <div class="row">
                         <div >
-                            <asp:Button ID="btnGuardarOTSD" runat="server" Text="Guardar" CssClass="waves-effect green darken-4 btn" OnClick="btnGuardarOTSD_Click" />
-                            <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" CssClass="waves-effect red darken-4 btn" OnClick="btnCancelar_Click" OnClientClick="quitaValidacion()"/>
+                            <asp:Button ID="btnGuardarOTSD" runat="server" Text="Guardar" CssClass="green darken-4 btn" OnClick="btnGuardarOTSD_Click" />
+                            <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" CssClass="red darken-4 btn" OnClick="btnCancelar_Click" OnClientClick="quitaValidacion()"/>
                         </div>
                     </div>
                 </div>

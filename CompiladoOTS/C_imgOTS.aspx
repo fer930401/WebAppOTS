@@ -22,7 +22,7 @@
                         </asp:GridView>
                     </div>
                 </div>
-                <asp:Button ID="soportes" runat="server" Text="Ir a soportes" OnClick="soportes_Click" CssClass="waves-effect waves-light btn  green darken-4" />
+                <asp:Button ID="soportes" runat="server" Text="Ir a soportes" OnClick="soportes_Click" CssClass="btn  green darken-4" />
             </div>
         </div>
 </asp:Content>

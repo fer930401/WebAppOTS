@@ -11,7 +11,8 @@
     <script>
         $(function () {
             $("#<%= fechaIni.ClientID %>").datepicker({
-                dateFormat: 'yy-mm-dd'
+                dateFormat: 'yy-mm-dd',
+                minDate: new Date()
             });
         });
     </script>
@@ -99,8 +100,8 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s4">
-                            <asp:Button ID="btnGuardarOTS" runat="server" Text="Guardar" class="waves-effect green darken-4 btn" OnClick="btnGuardarOTS_Click"/>
-                            <a class="waves-effect red darken-4 btn" <asp:Literal ID="href" runat="server"></asp:Literal>>Cancelar</a>
+                            <asp:Button ID="btnGuardarOTS" runat="server" Text="Guardar" class="green darken-4 btn" OnClick="btnGuardarOTS_Click"/>
+                            <a class="red darken-4 btn" <asp:Literal ID="href" runat="server"></asp:Literal>>Cancelar</a>
                         </div>
                     </div>
                 </div>

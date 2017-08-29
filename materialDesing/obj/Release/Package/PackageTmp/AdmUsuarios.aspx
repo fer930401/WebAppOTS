@@ -60,8 +60,8 @@
                     </div> 
                     <div class="row">
                         <div class="input-field col s5">
-                            <asp:Button ID="btnGuardarUsuario" runat="server" Text="Guardar" class="waves-effect green darken-4 btn" OnClick="btnGuardarUsuario_Click" />
-                            <a class="waves-effect red darken-4 btn" href="C_Usuarios.aspx">Cancelar</a>
+                            <asp:Button ID="btnGuardarUsuario" runat="server" Text="Guardar" class="green darken-4 btn" OnClick="btnGuardarUsuario_Click" />
+                            <a class="red darken-4 btn" href="C_Usuarios.aspx">Cancelar</a>
                         </div>
                     </div>
                 </div>
